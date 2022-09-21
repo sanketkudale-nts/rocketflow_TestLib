@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.main.filter.TaskFilterViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.tracki.ui.main.filter.TaskFilterActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/Toolbar"
+                app:contentInsetLeft="0dp"
+                app:contentInsetStart="0dp"
+                app:contentInsetStartWithNavigation="0dp"
+                app:titleTextColor="@color/white"
+                tools:title="@string/filter" />
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardManualStartLocation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/dimen_10"
+            android:elevation="@dimen/dimen_8"
+            android:visibility="visible"
+            app:cardBackgroundColor="@color/white"
+            app:cardUseCompatPadding="true"
+            app:contentPadding="@dimen/dimen_8"
+            app:cardElevation="@dimen/dimen_0">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/dimen_3"
+                android:paddingRight="@dimen/dimen_3"
+                android:animateLayoutChanges="true"
+                android:visibility="visible">
+
+                <TextView
+                    android:id="@+id/tvLabelManualStartLocationName"
+                    style="@style/TextViewStyle"
+                    android:drawableLeft="@drawable/ic_home"
+                    android:drawablePadding="@dimen/dimen_8"
+                    android:visibility="gone"
+                    android:focusable="false"
+                    android:focusableInTouchMode="true"
+                    android:fontFamily="@font/campton_light"
+                    android:text="@string/location"
+                    android:textColor="@color/semi_gray_2"
+                    android:textSize="@dimen/text_size_16"
+                    tools:text="@string/location" />
+
+                <TextView
+                    android:id="@+id/tvLabelSelectStartArea"
+                    style="@style/TextViewStyle"
+                    android:layout_marginTop="@dimen/dimen_10"
+                    android:drawablePadding="@dimen/dimen_8"
+                    android:focusable="false"
+                    android:focusableInTouchMode="true"
+                    android:text="@string/area"
+                    android:fontFamily="@font/campton_light"
+                    android:textColor="@color/semi_gray_2"
+                    android:textSize="@dimen/text_size_13"
+                    android:visibility="gone"
+                    tools:text="Rahul Abrol" />
+
+
+                <Spinner
+                    android:id="@+id/spnCategoryStartArea"
+                    style="@style/Widget.AppCompat.Spinner.Underlined"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_40"
+                    android:visibility="gone"
+                    android:layout_marginTop="@dimen/dimen_7"
+                    android:background="@drawable/et_drop_down_stroke"
+                    android:spinnerMode="dropdown" />
+
+                <TextView
+                    android:id="@+id/tvLabelSelectStartState"
+                    style="@style/TextViewStyle"
+                    android:layout_marginTop="@dimen/dimen_10"
+                    android:drawablePadding="@dimen/dimen_8"
+                    android:focusable="false"
+                    android:focusableInTouchMode="true"
+                    android:text="@string/state"
+                    android:fontFamily="@font/campton_light"
+                    android:textColor="@color/semi_gray_2"
+                    android:textSize="@dimen/text_size_13"
+                    android:visibility="gone"
+                    tools:text="Rahul Abrol" />
+
+                <Spinner
+                    android:id="@+id/spnCategoryStartState"
+                    style="@style/Widget.AppCompat.Spinner.Underlined"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_40"
+                    android:visibility="gone"
+                    android:layout_marginTop="@dimen/dimen_7"
+                    android:background="@drawable/et_drop_down_stroke"
+                    android:spinnerMode="dropdown" />
+
+                <TextView
+                    android:id="@+id/tvLabelSelectStartCity"
+                    style="@style/TextViewStyle"
+                    android:layout_marginTop="@dimen/dimen_10"
+                    android:drawablePadding="@dimen/dimen_8"
+                    android:focusable="false"
+                    android:focusableInTouchMode="true"
+                    android:text="@string/city"
+                    android:fontFamily="@font/campton_light"
+                    android:visibility="gone"
+                    android:textColor="@color/semi_gray_2"
+                    android:textSize="@dimen/text_size_13"
+                    tools:text="Rahul Abrol" />
+
+                <Spinner
+                    android:id="@+id/spnCategoryStartCity"
+                    style="@style/Widget.AppCompat.Spinner.Underlined"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_40"
+                    android:visibility="gone"
+                    android:layout_marginTop="@dimen/dimen_7"
+                    android:background="@drawable/et_drop_down_stroke"
+                    android:spinnerMode="dropdown" />
+
+                <TextView
+                    android:id="@+id/tvLabelSelectStartHubs"
+                    style="@style/TextViewStyle"
+                    android:layout_marginTop="@dimen/dimen_10"
+                    android:drawablePadding="@dimen/dimen_8"
+                    android:focusable="false"
+                    android:focusableInTouchMode="true"
+                    android:text="@string/hubs"
+                    android:fontFamily="@font/campton_light"
+                    android:visibility="gone"
+                    android:textColor="@color/semi_gray_2"
+                    android:textSize="@dimen/text_size_13"
+                    tools:text="Rahul Abrol" />
+                <RelativeLayout
+                    android:id="@+id/rlHubLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_marginTop="@dimen/dimen_7"
+                    android:background="@drawable/et_drop_down_stroke"
+                    >
+                    <TextView
+                        android:paddingLeft="@dimen/dimen_4"
+                        android:paddingRight="@dimen/dimen_4"
+                        android:id="@+id/tvHubName"
+                        style="@style/TextViewStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@+id/ivDropDown"/>
+                    <ImageView
+                        android:id="@+id/ivDropDown"
+                        android:layout_alignParentEnd="true"
+                        android:tint="@color/gray"
+                        android:visibility="gone"
+                        android:src="@drawable/down_filled_triangular_arrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <View
+                        android:layout_below="@+id/tvHubName"
+                        android:background="@color/gray"
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1"/>
+                </RelativeLayout>
+                <Spinner
+                    android:visibility="gone"
+                    android:id="@+id/spnCategoryStartHub"
+                    style="@style/Widget.AppCompat.Spinner.Underlined"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_40"
+                    android:layout_marginTop="@dimen/dimen_7"
+                    android:background="@drawable/et_drop_down_stroke"
+                    android:spinnerMode="dropdown" />
+
+                <Button
+                    android:id="@+id/btnDone"
+                    style="@style/ButtonStyleMoreRounded"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="@dimen/dimen_30"
+                    android:paddingLeft="@dimen/dimen_30"
+                    android:onClick="@{()->viewModel.submitFilter()}"
+                    android:layout_marginTop="@dimen/dimen_40"
+                    android:textAllCaps="false"
+                    android:text="@string/apply" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+</layout>

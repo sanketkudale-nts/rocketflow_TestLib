@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+    </data>
+
+    <LinearLayout
+        android:id="@+id/coordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.productdetails.ProductDetailsActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            app:elevation="@dimen/dimen_0">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/Toolbar"
+                android:background="@color/white"
+                app:contentInsetStartWithNavigation="0dp"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:titleTextColor="@color/white"
+                tools:title="">
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:id="@+id/llMain"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <RelativeLayout
+                    android:id="@+id/rlViewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_200"
+                    android:visibility="visible">
+
+                    <androidx.viewpager.widget.ViewPager
+                        android:id="@+id/vpIntroScreens"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                    </androidx.viewpager.widget.ViewPager>
+
+                    <LinearLayout
+                        android:id="@+id/layoutDots"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+
+                        android:gravity="bottom|center_horizontal"
+                        android:orientation="horizontal" />
+
+                    <CheckBox
+                        android:id="@+id/cvBookMark"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginStart="@dimen/dimen_10"
+                        android:layout_marginTop="@dimen/dimen_10"
+                        android:layout_marginEnd="@dimen/dimen_10"
+                        android:layout_marginBottom="@dimen/dimen_10"
+                        android:button="@drawable/checkbox_selector"
+                        android:checked="true"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    android:layout_marginTop="@dimen/dimen_10"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvProductName"
+                        style="@style/TextViewStyleBold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/text_size_16"
+                        tools:text="Product Name" />
+
+                    <TextView
+                        android:id="@+id/tvProductDescription"
+                        style="@style/TextViewStyleLight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_4"
+                        android:visibility="gone"
+                        tools:text="@string/by_doing_this_following_action_will_be_perform_by_them_system" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_5"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvActPrice"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/text_size_25"
+                                tools:text="₹ 2000" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/tvMrp"
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/warm_gray"
+                                    tools:text="MRP ₹ 3000 |" />
+
+                                <TextView
+                                    android:id="@+id/tvOff"
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text=" 11 % off"
+                                    android:textColor="@color/red_dark5" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvPlaces"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_10"
+                        android:orientation="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:itemCount="5"
+                        android:visibility="gone"
+                        tools:listitem="@layout/item_place"
+                        />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cvStock"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/dimen_10"
+                        android:visibility="visible"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="@dimen/dimen_5">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:orientation="vertical">
+
+                                <TextView
+                                    style="@style/TextViewStyleBold"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/bg_diff_shape_stock_details"
+                                    android:paddingLeft="@dimen/dimen_5"
+                                    android:paddingTop="@dimen/dimen_5"
+                                    android:paddingBottom="@dimen/dimen_5"
+                                    android:text="@string/stock_details"
+                                    android:textSize="@dimen/text_size_18" />
+
+                                <LinearLayout
+                                    android:id="@+id/llCurrentStock"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="@dimen/dimen_10"
+                                    android:layout_marginTop="@dimen/dimen_10"
+                                    android:layout_marginRight="@dimen/dimen_10"
+                                    android:background="@drawable/bg_available_unit"
+                                    android:orientation="horizontal"
+                                    android:paddingLeft="@dimen/dimen_4"
+                                    android:paddingTop="@dimen/dimen_5"
+                                    android:paddingRight="@dimen/dimen_4"
+                                    android:paddingBottom="@dimen/dimen_5"
+                                    android:visibility="visible"
+                                    android:weightSum="2">
+
+                                    <TextView
+                                        style="@style/TextViewStyle"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginLeft="@dimen/dimen_5"
+                                        android:layout_weight="1"
+                                        android:text="@string/current_Stock"
+                                        android:textSize="@dimen/text_size_13" />
+
+                                    <TextView
+                                        style="@style/TextViewStyle"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text=":"
+                                        android:textSize="@dimen/text_size_13" />
+
+                                    <TextView
+                                        android:id="@+id/tvNumberUnit"
+                                        style="@style/TextViewStyle"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:text="2556 Unit"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/text_size_18" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="@dimen/dimen_10"
+                                    android:layout_marginTop="@dimen/dimen_10"
+                                    android:layout_marginRight="@dimen/dimen_10"
+                                    android:background="@drawable/bg_available_unit"
+                                    android:orientation="horizontal"
+                                    android:paddingLeft="@dimen/dimen_4"
+                                    android:paddingTop="@dimen/dimen_8"
+                                    android:paddingRight="@dimen/dimen_4"
+                                    android:paddingBottom="@dimen/dimen_8">
+
+                                    <TextView
+                                        android:id="@+id/tvDate"
+                                        style="@style/TextViewStyleLight"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="@dimen/dimen_5"
+                                        android:drawableRight="@drawable/ic_calender"
+                                        android:ellipsize="end"
+                                        android:maxLines="1"
+                                        android:text="30-09-2021 To 21-10-2021"
+                                        android:textSize="@dimen/text_size_15" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/llStockInOut"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/dimen_4"
+                                android:layout_marginTop="@dimen/dimen_5"
+                                android:layout_marginRight="@dimen/dimen_4"
+                                android:orientation="horizontal"
+                                android:padding="@dimen/dimen_5"
+                                android:weightSum="2">
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="0dp"
+                                    android:layout_height="@dimen/dimen_80"
+                                    android:layout_weight="1"
+                                    app:cardCornerRadius="@dimen/dimen_5"
+                                    app:cardUseCompatPadding="true">
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical"
+                                        android:padding="@dimen/dimen_10">
+
+                                        <TextView
+                                            android:id="@+id/totalStockIn"
+                                            style="@style/TextViewStyle"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:text="@string/total_in_stock"
+                                            android:textSize="@dimen/text_size_13" />
+
+                                        <TextView
+                                            android:id="@+id/tvTotalStockIn"
+                                            style="@style/TextViewStyle"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_alignParentBottom="true"
+                                            android:layout_gravity="center"
+                                            android:textColor="@color/totalStockInColor"
+                                            android:textSize="@dimen/text_size_16"
+                                            tools:text="20000" />
+
+                                        <TextView
+                                            android:id="@+id/tvUnit"
+                                            style="@style/TextViewStyle"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_toRightOf="@+id/tvTotalStockIn"
+                                            android:layout_marginLeft="@dimen/dimen_5"
+                                            android:layout_alignParentBottom="true"
+                                            android:text="@string/unit"
+                                            android:textAllCaps="true" />
+
+                                    </RelativeLayout>
+                                </androidx.cardview.widget.CardView>
+
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="0dp"
+                                    android:layout_height="@dimen/dimen_80"
+                                    android:layout_weight="1"
+                                    app:cardCornerRadius="@dimen/dimen_5"
+                                    app:cardUseCompatPadding="true">
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical"
+                                        android:padding="@dimen/dimen_10">
+
+                                        <TextView
+                                            android:id="@+id/totalStockOut"
+                                            style="@style/TextViewStyle"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:text="@string/total_out_stock"
+                                            android:textSize="@dimen/text_size_13" />
+
+                                        <TextView
+                                            android:id="@+id/tvTotalStockOut"
+                                            style="@style/TextViewStyle"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_alignParentBottom="true"
+                                            android:layout_gravity="center"
+                                            android:textColor="@color/totalStockOutColor"
+                                            android:textSize="@dimen/text_size_16"
+                                            tools:text="20000" />
+
+                                        <TextView
+                                            android:id="@+id/tvUnitOut"
+                                            android:layout_toRightOf="@+id/tvTotalStockOut"
+                                            style="@style/TextViewStyle"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_alignParentBottom="true"
+                                            android:text="@string/unit"
+                                            android:layout_marginLeft="@dimen/dimen_5"
+                                            android:textAllCaps="true" />
+
+                                    </RelativeLayout>
+                                </androidx.cardview.widget.CardView>
+
+                            </LinearLayout>
+
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/rvStocks"
+                                android:layout_width="match_parent"
+
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/dimen_10"
+                                android:layout_marginRight="@dimen/dimen_10"
+                                android:layout_marginBottom="@dimen/dimen_10"
+                                tools:listitem="@layout/item_row_product_audit" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</layout>

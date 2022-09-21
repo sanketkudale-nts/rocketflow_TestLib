@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.dynamicform.FormDateTimeViewModel" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_5"
+        android:layout_marginTop="@dimen/dimen_8"
+        android:layout_marginEnd="@dimen/dimen_5"
+        android:layout_marginBottom="@dimen/dimen_0"
+        android:elevation="@dimen/dimen_8"
+        app:cardBackgroundColor="@color/white"
+        app:cardUseCompatPadding="true"
+        app:contentPadding="@dimen/dimen_4">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextViewStyle"
+                android:paddingLeft="@dimen/dimen_5"
+                android:paddingBottom="@dimen/dimen_5"
+                android:text="@{viewModel.title}"
+                android:fontFamily="@font/campton_semi_bold"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_16"
+                android:paddingTop="@dimen/dimen_5"
+                tools:text="Rahul Abrol" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginHorizontal="@dimen/dimen_5"
+                android:layout_marginBottom="@dimen/dimen_5"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvDate"
+                    style="@style/TextViewStyle"
+                    android:layout_width="0dp"
+                    android:layout_marginEnd="@dimen/dimen_10"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".5"
+                    android:layout_marginLeft="@dimen/dimen_5"
+                    android:background="@drawable/custom_edit_border_bg"
+                    android:drawableEnd="@drawable/ic_calender"
+                    android:fontFamily="@font/campton_book"
+                    android:onClick="@{()->viewModel.dateClick()}"
+                    android:padding="@dimen/dimen_10"
+                    android:text="@{viewModel.date}"
+                    android:textColor="@color/semi_gray_2"
+                    android:textSize="@dimen/text_size_14"
+                    tools:text="Select Date" />
+
+                <TextView
+                    android:id="@+id/tvTime"
+                    style="@style/TextViewStyle"
+                    android:layout_width="0dp"
+                    android:layout_weight=".5"
+                    android:background="@drawable/custom_edit_border_bg"
+                    android:drawableEnd="@drawable/ic_time_df"
+                    android:fontFamily="@font/campton_book"
+                    android:onClick="@{()->viewModel.timeClick()}"
+                    android:padding="@dimen/dimen_10"
+                    android:text="@{viewModel.time}"
+                    android:textColor="@color/semi_gray_2"
+                    android:textSize="@dimen/text_size_14"
+                    tools:text="Select Time" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

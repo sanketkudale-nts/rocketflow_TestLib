@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.tracki.ui.myDocument.DocsData" />
+
+        <variable
+            name="dateData"
+            type="String" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="@dimen/dimen_4"
+        app:cardCornerRadius="@dimen/dimen_10"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/dimen_8">
+
+            <ImageView
+                android:id="@+id/ivCreditDebit"
+                android:layout_width="@dimen/dimen_50"
+                android:layout_height="@dimen/dimen_50"
+                android:layout_centerVertical="true"
+                android:background="@drawable/imageview_bg_custom"
+                android:padding="@dimen/dimen_12"
+                android:tint="@color/colorPrimary"
+                app:srcCompat="@drawable/ic_document_new" />
+
+            <TextView
+                android:id="@+id/tv_documentsName"
+                style="@style/TextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_15"
+                android:layout_marginTop="@dimen/dimen_2"
+                android:layout_marginRight="@dimen/dimen_8"
+                android:layout_toLeftOf="@+id/tv_documentsNumber"
+                android:layout_toRightOf="@+id/ivCreditDebit"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{data.name}"
+                tools:text="@string/document_name"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_16" />
+
+            <TextView
+                android:id="@+id/tvDateTime"
+                style="@style/TextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_documentsNumber"
+                android:layout_marginStart="@dimen/dimen_15"
+                android:layout_marginTop="@dimen/dimen_2"
+                android:layout_marginRight="@dimen/dimen_8"
+                android:layout_toRightOf="@+id/ivCreditDebit"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="@{`Expires on: ` + dateData}"
+                android:textColor="@color/gray_time"
+                android:textSize="@dimen/text_size_15"
+                tools:text="@string/expire_on" />
+
+            <ImageView
+                android:id="@+id/iv_more_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_documentsNumber"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="@dimen/dimen_4"
+                android:tint="@color/gray_time"
+                app:srcCompat="@drawable/ic_baseline_more_horiz_24" />
+
+
+            <TextView
+                android:id="@+id/tv_documentsNumber"
+                style="@style/TextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/tv_documentsName"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/dimen_4"
+                android:layout_marginRight="@dimen/dimen_4"
+                android:textColor="@color/text_gray"
+                tools:text="#4321" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+app:cardUseCompatPadding="true"
+app:contentPadding="@dimen/dimen_5"
+android:layout_margin="@dimen/dimen_25"
+app:cardCornerRadius="@dimen/dimen_8">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical"
+    >
+
+    <ImageView
+        android:id="@+id/btnCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="@dimen/dimen_20"
+        android:layout_marginRight="@dimen/dimen_20"
+        app:srcCompat="@drawable/ic_cancel_punch_in" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/dimen_10">
+
+
+        <TextView
+            style="@style/TextViewStyle"
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_8"
+            android:layout_gravity="center_vertical"
+            tools:text="@string/filters"
+            android:textSize="@dimen/text_size_16"
+            android:textAllCaps="false"
+            android:fontFamily="@font/campton_semi_bold"/>
+
+        <TextView
+            style="@style/TextViewStyle"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:layout_marginBottom="@dimen/dimen_10"
+            android:layout_marginStart="@dimen/dimen_8"
+            android:gravity="start"
+            android:visibility="gone"
+            android:text="@string/select_period" />
+
+
+        <TextView
+            style="@style/TextViewStyle"
+            android:gravity="start"
+            android:layout_marginTop="@dimen/dimen_20"
+            android:layout_marginLeft="@dimen/dimen_5"
+            android:text="@string/from"
+            android:fontFamily="@font/campton_book"
+            android:textColor="@color/gray"/>
+
+
+        <Button
+            android:id="@+id/btnDateFrom"
+            style="@style/ButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_40"
+            android:layout_marginTop="@dimen/dimen_5"
+            android:layout_marginBottom="@dimen/dimen_10"
+            android:background="@drawable/bg_button_round_corner_white"
+            android:drawableStart="@drawable/ic_date_range"
+            android:drawablePadding="@dimen/dimen_10"
+            android:gravity="center_vertical"
+            android:padding="@dimen/dimen_10"
+            tools:text="From"
+            android:textColor="@color/colorTextGreyPunch"
+            android:textSize="@dimen/text_size_14" />
+
+        <TextView
+            style="@style/TextViewStyle"
+            android:gravity="start"
+            android:text="@string/to"
+            android:layout_marginTop="@dimen/dimen_15"
+            android:layout_marginLeft="@dimen/dimen_5"
+            android:fontFamily="@font/campton_book"
+            android:textColor="@color/gray"/>
+
+        <Button
+            android:id="@+id/btnDateTo"
+            style="@style/ButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_40"
+            android:layout_marginTop="@dimen/dimen_5"
+            android:background="@drawable/bg_button_round_corner_white"
+            android:drawableStart="@drawable/ic_date_range"
+            android:drawablePadding="@dimen/dimen_10"
+            android:gravity="center_vertical"
+            android:padding="@dimen/dimen_10"
+            android:textColor="@color/colorTextGreyPunch"
+            tools:text="To"
+            android:textSize="@dimen/text_size_14" />
+
+        <TextView
+            style="@style/TextViewStyle"
+            android:layout_marginTop="@dimen/dimen_15"
+            android:layout_marginStart="@dimen/dimen_8"
+            android:gravity="start"
+            android:fontFamily="@font/campton_book"
+            android:textColor="@color/gray"
+            android:text="@string/status" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_40"
+            android:layout_marginTop="@dimen/dimen_5"
+            android:background="@drawable/bg_button_round_corner_white">
+
+            <Spinner
+                android:id="@+id/spnStatus"
+                style="@style/Widget.AppCompat.DropDownItem.Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_40"
+                android:padding="@dimen/dimen_10"
+                android:prompt="@string/spinner_title"
+                android:spinnerMode="dropdown" />
+        </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnSearch"
+        style="@style/ButtonStyleMoreRounded"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dimen_40"
+        android:layout_marginBottom="@dimen/dimen_40"
+        android:paddingLeft="@dimen/dimen_20"
+        android:paddingRight="@dimen/dimen_20"
+        android:textAllCaps="false"
+        android:text="@string/submit" />
+</LinearLayout>
+</androidx.cardview.widget.CardView>

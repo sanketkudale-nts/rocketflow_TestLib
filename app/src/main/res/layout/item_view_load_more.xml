@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.chat.ChatActivity">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.chat.LoadMoreItemViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_5"
+        android:gravity="center_horizontal"
+        android:onClick="@{(v)->viewModel.onLoadMoreClick()}">
+
+        <TextView
+            style="@style/TextViewStyle"
+            android:layout_width="wrap_content"
+            android:background="@drawable/bg_black_round_corner"
+            android:gravity="center"
+            android:padding="@dimen/dimen_5"
+            android:text="@string/load_more"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_18" />
+    </LinearLayout>
+
+</layout>

@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.tracki.data.model.response.config.EmpData" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipChildren="false"
+        android:longClickable="true"
+        bind:cardCornerRadius="@dimen/dimen_5"
+        bind:cardElevation="@dimen/dimen_0"
+        bind:cardUseCompatPadding="true"
+        bind:contentPadding="@dimen/dimen_0">
+
+        <LinearLayout
+            android:id="@+id/llMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:weightSum="4">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.8"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/dimen_5"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/ivUser"
+                        android:layout_width="@dimen/dimen_45"
+                        android:layout_height="@dimen/dimen_45"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/dimen_10"
+                        bind:srcCompat="@drawable/ic_my_profile" />
+
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_5"
+                    android:layout_marginBottom="@dimen/dimen_5"
+                    android:layout_weight="3.2"
+
+                    android:gravity="center_vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvName"
+                            style="@style/TextViewStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/campton_semi_bold"
+                            android:maxLines="1"
+                            android:text="@{data.name}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_13"
+                            tools:text="Vikas Kesharvani" />
+
+                        <TextView
+                            android:id="@+id/tvStatus"
+                            style="@style/TextViewStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tvName"
+                            android:fontFamily="@font/campton_light"
+                            android:maxLines="1"
+                            android:textSize="@dimen/text_size_13"
+                            android:visibility="visible"
+                            tools:text="Present" />
+
+                        <LinearLayout
+                            android:id="@+id/llPunchInData"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="visible">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/tvPunchIn"
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/campton_light"
+                                    android:text="@string/punch_n_in_colon"
+                                    android:textColor="@color/gray"
+                                    android:textSize="@dimen/text_size_13" />
+
+                                <TextView
+                                    android:id="@+id/tvPunchInValue"
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingLeft="@dimen/dimen_5"
+                                    android:textColor="@color/green"
+                                    android:textSize="@dimen/text_size_13"
+                                    tools:text="Present" />
+
+
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/tvPunchInLocation"
+                                style="@style/TextViewStyle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dimen_4"
+                                android:drawableLeft="@drawable/ic_pin_google_big"
+                                android:drawablePadding="@dimen/dimen_2"
+                                android:fontFamily="@font/campton_book"
+                                android:text=""
+                                android:maxLines="2"
+                                android:ellipsize="end"
+                                android:textColor="@color/gray"
+                                android:textSize="@dimen/text_size_11"
+                                android:visibility="gone"
+                                tools:text="35, Railway Station Road, Jagadishganj, Chitrakoot Dham, Uttar Pradesh 210205, India" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/tvPunchOut"
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/campton_light"
+                                    android:text="@string/punch_n_out_colon"
+                                    android:textColor="@color/gray"
+                                    android:textSize="@dimen/text_size_13" />
+
+                                <TextView
+                                    android:id="@+id/tvPunchOutValue"
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingLeft="@dimen/dimen_5"
+                                    android:textColor="@color/yellow_punch_btn"
+                                    android:textSize="@dimen/text_size_13"
+                                    tools:text="Present" />
+
+
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/tvPunchOutLocation"
+                                style="@style/TextViewStyle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dimen_4"
+                                android:drawableLeft="@drawable/ic_pin_google_big"
+                                android:drawablePadding="@dimen/dimen_2"
+                                android:fontFamily="@font/campton_book"
+                                android:text=""
+                                android:maxLines="2"
+                                android:ellipsize="end"
+                                android:textColor="@color/gray"
+                                android:textSize="@dimen/text_size_11"
+                                android:visibility="gone"
+                                tools:text="35, Railway Station Road, Jagadishganj, Chitrakoot Dham, Uttar Pradesh 210205, India" />
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/llOptions"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="@dimen/dimen_10"
+                        android:layout_marginTop="@dimen/dimen_5"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/ivMessage"
+                            android:layout_width="@dimen/dimen_25"
+                            android:layout_height="@dimen/dimen_25"
+                            android:visibility="visible"
+                            bind:srcCompat="@drawable/ic_chat_message" />
+
+                        <ImageView
+                            android:id="@+id/ivCall"
+                            android:layout_width="@dimen/dimen_25"
+                            android:layout_height="@dimen/dimen_25"
+                            android:layout_marginLeft="@dimen/dimen_15"
+                            bind:srcCompat="@drawable/ic_call_yellow" />
+
+                        <ImageView
+                            android:id="@+id/ivNext"
+                            android:layout_width="@dimen/dimen_25"
+                            android:layout_height="@dimen/dimen_25"
+                            android:layout_marginLeft="@dimen/dimen_15"
+                            android:tint="@color/yellow_punch_btn"
+                            bind:srcCompat="@drawable/ic_arrow_right" />
+
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</layout>

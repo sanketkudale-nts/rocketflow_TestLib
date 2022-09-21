@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.dynamicformpreview.FormPreviewItemViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_5"
+        android:background="@drawable/bg_df_upload"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="@dimen/dimen_5">
+
+        <TextView
+            style="@style/TextViewStyle"
+            android:fontFamily="@font/campton_semi_bold"
+            android:text="@{viewModel.title}"
+            android:textColor="@color/semi_gray_2"
+            android:textSize="@dimen/text_size_16"
+            tools:text="Rahul Abrol" />
+
+        <TextView
+            style="@style/TextViewStyle"
+            android:fontFamily="@font/campton_light"
+            android:gravity="center_vertical"
+            android:lineSpacingExtra="-1dp"
+            android:maxLines="2"
+            android:padding="@dimen/dimen_5"
+            android:text="@{viewModel.enteredValue}"
+            android:textColor="@color/dark_gray"
+            android:textSize="@dimen/text_size_12"
+            tools:text="Hi my name is Rahul Abrol, I am from Jammu And Kashmir,
+What else you wants to know.
+Please let me know if any concern.Many Many thanks" />
+
+    </LinearLayout>
+</layout>

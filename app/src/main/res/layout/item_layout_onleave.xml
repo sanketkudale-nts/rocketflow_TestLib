@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.attendance.OnLeaveViewModel" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/dimen_5"
+        app:cardElevation="@dimen/dimen_0"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/dimen_10"
+            android:paddingTop="@dimen/dimen_5"
+            android:paddingRight="@dimen/dimen_10"
+            android:paddingBottom="@dimen/dimen_10">
+
+            <RelativeLayout
+                android:id="@+id/rlFromData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/dimen_4"
+                android:paddingBottom="@dimen/dimen_4">
+
+                <TextView
+                    android:id="@+id/tvFromLabel"
+                    style="@style/TextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:drawableLeft="@drawable/ic_date_time"
+                    android:drawablePadding="@dimen/dimen_10"
+                    android:fontFamily="@font/campton_light"
+                    android:gravity="center_vertical"
+                    android:text="@string/from_colon"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_14" />
+
+                <TextView
+                    android:id="@+id/tvFromDateValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dimen_5"
+                    android:layout_marginRight="@dimen/dimen_5"
+                    android:layout_toLeftOf="@+id/tvLeaveType"
+                    android:layout_toRightOf="@+id/tvFromLabel"
+                    android:fontFamily="@font/campton_semi_bold"
+                    android:gravity="center_vertical"
+                    android:text="@{viewModel.fromTime}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_14" />
+
+                <TextView
+                    android:id="@+id/tvLeaveType"
+                    style="@style/TextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    android:fontFamily="@font/campton_book"
+                    android:textColor="@color/yellow_punch_btn"
+                    android:textSize="@dimen/text_size_14"
+                    tools:text="Casual Leave"
+                    android:text="@{viewModel.leaveType}"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlTo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/dimen_4"
+                android:paddingBottom="@dimen/dimen_4">
+
+                <TextView
+                    android:id="@+id/tvToLabel"
+                    style="@style/TextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:drawableLeft="@drawable/ic_date_time"
+                    android:drawablePadding="@dimen/dimen_10"
+                    android:fontFamily="@font/campton_light"
+                    android:gravity="center_vertical"
+                    android:text="@string/to_colon"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_14" />
+
+                <TextView
+                    android:id="@+id/tvToDateValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dimen_5"
+                    android:layout_marginRight="@dimen/dimen_5"
+                    android:layout_toLeftOf="@+id/llLeaveDays"
+                    android:layout_toRightOf="@+id/tvToLabel"
+                    android:fontFamily="@font/campton_semi_bold"
+                    android:gravity="center_vertical"
+                    android:text="@{viewModel.toTime}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_14" />
+
+                <LinearLayout
+                    android:id="@+id/llLeaveDays"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/dimen_10"
+                        android:fontFamily="@font/campton_light"
+                        android:text="@string/leave_days"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_14" />
+
+                    <TextView
+                        android:id="@+id/tvLeavedays"
+                        style="@style/TextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen_10"
+                        android:fontFamily="@font/campton_book"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_14"
+                        android:text="@{viewModel.leaveDays}"
+                        tools:text="03" />
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

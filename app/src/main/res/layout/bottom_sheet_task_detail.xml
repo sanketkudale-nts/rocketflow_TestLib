@@ -1,0 +1,1077 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.taskdetails.TaskDetailActivity"><!--tools:context=".ui.taskdetails.TaskDetailActivity"-->
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.taskdetails.TaskDetailViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_15"
+        android:layout_marginEnd="@dimen/dimen_15"
+        android:orientation="vertical"
+        app:behavior_hideable="false"
+        app:behavior_peekHeight="@dimen/dimen_120"
+        app:layout_behavior="@string/bottom_sheet_behavior"
+        tools:showIn="@layout/activity_task_detail">
+        <!--tools:showIn="@layout/activity_task_detail"-->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_50"
+            android:layout_gravity="bottom"
+            android:background="@drawable/bg_dashboard">
+
+            <TextView
+                style="@style/TextViewStyle"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/campton_book"
+                android:letterSpacing=".05"
+                android:text="@string/trip_statistics"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_18"
+                tools:targetApi="lollipop" />
+        </RelativeLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-5dp"
+                android:outlineAmbientShadowColor="#80bcbcbc"
+                android:outlineSpotShadowColor="#80bcbcbc"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/dimen_5"
+                app:cardElevation="@dimen/dimen_4">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/dimen_10">
+
+                        <TextView
+                            android:id="@+id/tvDriverShortCode"
+                            style="@style/TextViewStyle"
+                            android:layout_width="@dimen/dimen_40"
+                            android:layout_height="@dimen/dimen_40"
+                            android:background="@drawable/bg_image_circle"
+                            android:backgroundTint="@color/colorPrimary"
+                            android:fontFamily="@font/campton_semi_bold"
+                            android:gravity="center|center_vertical"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_12"
+                            android:visibility="gone"
+                            tools:text="RA" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="@dimen/dimen_5"
+                            android:layout_weight=".65"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:id="@+id/tvDiverName"
+                                style="@style/TextViewStyle"
+                                android:fontFamily="@font/campton_book"
+                                android:maxLength="25"
+                                android:textColor="@color/semi_gray_2"
+                                android:textSize="@dimen/text_size_16"
+                                tools:text="Rahul Abrol (DL4S 2946)" />
+                        </LinearLayout>
+
+                        <RelativeLayout
+
+                            android:id="@+id/rlVendor"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:id="@+id/llVendor"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:weightSum="4">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.8"
+                                    android:gravity="center"
+                                    android:paddingTop="@dimen/dimen_10"
+                                    android:paddingBottom="@dimen/dimen_10">
+
+                                    <ImageView
+                                        android:id="@+id/ivVendor"
+                                        android:layout_width="@dimen/dimen_50"
+                                        android:layout_height="@dimen/dimen_50"
+                                        android:scaleType="centerCrop"
+                                        app:srcCompat="@drawable/ic_social_media" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1.5"
+                                    android:gravity="center_vertical"
+                                    android:orientation="vertical"
+                                    android:paddingLeft="@dimen/dimen_8"
+                                    android:paddingTop="@dimen/dimen_10"
+                                    android:paddingBottom="@dimen/dimen_10">
+
+
+                                    <TextView
+                                        android:id="@+id/tvName"
+                                        style="@style/TextViewStyle"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:ellipsize="end"
+                                        android:fontFamily="@font/campton_book"
+                                        android:maxLines="1"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/text_size_14"
+                                        tools:text="Amit Kumar" />
+
+                                    <TextView
+                                        android:id="@+id/tvMobile"
+                                        style="@style/TextViewStyle"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/campton_book"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/text_size_12"
+                                        tools:text="+919026885491" />
+
+                                    <RatingBar
+                                        android:id="@+id/ratingBar"
+                                        style="?android:attr/ratingBarStyleSmall"
+
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:numStars="5"
+                                        android:visibility="visible" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/llUserCommOption"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1.7"
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal"
+                                    android:padding="@dimen/dimen_5">
+
+
+                                    <RelativeLayout
+                                        android:id="@+id/rl_call"
+                                        android:layout_width="@dimen/dimen_35"
+                                        android:layout_height="@dimen/dimen_35"
+                                        android:layout_marginLeft="@dimen/dimen_5"
+                                        android:background="@drawable/ic_telephone"
+                                        android:onClick="@{()->viewModel.onCallClick()}">
+
+                                        <ImageView
+                                            android:id="@+id/ivPhoneCall"
+                                            android:layout_width="@dimen/dimen_15"
+                                            android:layout_height="@dimen/dimen_15"
+                                            android:layout_centerHorizontal="true"
+                                            android:layout_marginTop="@dimen/dimen_5"
+                                            android:visibility="gone"
+                                            app:srcCompat="@drawable/ic_communications" />
+
+                                        <TextView
+                                            style="@style/TextViewStyle"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_below="@+id/ivPhoneCall"
+                                            android:layout_centerHorizontal="true"
+                                            android:layout_marginLeft="@dimen/dimen_5"
+                                            android:layout_marginTop="0dp"
+                                            android:layout_marginRight="@dimen/dimen_5"
+                                            android:fontFamily="@font/campton_light"
+                                            android:lineSpacingExtra="1dip"
+                                            android:text="@string/call"
+                                            android:textColor="@color/black"
+                                            android:textSize="@dimen/text_size_7"
+                                            android:visibility="gone"
+                                            tools:text="@string/call" />
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:id="@+id/rl_chat"
+                                        android:layout_width="@dimen/dimen_35"
+                                        android:layout_height="@dimen/dimen_35"
+                                        android:layout_marginLeft="@dimen/dimen_10"
+                                        android:background="@drawable/ic_feedback">
+
+                                        <ImageView
+                                            android:id="@+id/ivChat"
+                                            android:layout_width="@dimen/dimen_15"
+                                            android:layout_height="@dimen/dimen_15"
+                                            android:layout_centerHorizontal="true"
+                                            android:layout_marginTop="@dimen/dimen_5"
+                                            android:visibility="gone"
+                                            app:srcCompat="@drawable/ic_message" />
+
+                                        <TextView
+                                            style="@style/TextViewStyle"
+                                            android:layout_below="@+id/ivChat"
+                                            android:layout_centerHorizontal="true"
+                                            android:layout_marginLeft="@dimen/dimen_5"
+                                            android:layout_marginRight="@dimen/dimen_5"
+                                            android:fontFamily="@font/campton_light"
+                                            android:lineSpacingExtra="1dip"
+                                            android:text="@string/chat"
+                                            android:textColor="@color/black"
+                                            android:textSize="@dimen/text_size_7"
+                                            android:visibility="gone"
+                                            tools:text="@string/chat" />
+                                    </RelativeLayout>
+
+                                    <ImageView
+                                        android:id="@+id/ivShare"
+                                        android:layout_width="@dimen/dimen_35"
+                                        android:layout_height="@dimen/dimen_35"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginLeft="@dimen/dimen_10"
+                                        android:background="@drawable/circle_audio"
+                                        android:contentDescription="@null"
+                                        android:padding="@dimen/dimen_4"
+                                        app:srcCompat="@drawable/ic_share_white" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+
+                        <TextView
+                            android:id="@+id/tvSOS"
+                            style="@style/TextViewStyle"
+                            android:layout_width="@dimen/dimen_32"
+                            android:layout_height="@dimen/dimen_32"
+                            android:background="@drawable/bg_stroke_red_sos"
+                            android:fontFamily="@font/campton_semi_bold"
+                            android:gravity="center|center_vertical"
+                            android:text="@string/sos"
+                            android:textColor="@color/red_dark3"
+                            android:textSize="@dimen/text_size_12"
+                            android:visibility="gone" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1"
+                        android:layout_marginStart="@dimen/dimen_10"
+                        android:layout_marginTop="@dimen/dimen_5"
+                        android:layout_marginEnd="@dimen/dimen_10"
+                        android:background="@color/semi_gray_5" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:baselineAligned="false"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingStart="@dimen/dimen_10"
+                        android:paddingTop="@dimen/dimen_25"
+                        android:paddingEnd="@dimen/dimen_10"
+                        android:paddingBottom="@dimen/dimen_15">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bg_stroke_distance"
+                                android:contentDescription="@null"
+                                android:scaleType="center"
+                                app:srcCompat="@drawable/ic_location_marker" />
+
+                            <TextView
+                                style="@style/TextViewStyle"
+                                android:layout_marginTop="@dimen/dimen_7"
+                                android:fontFamily="@font/campton_book"
+                                android:gravity="center|center_vertical"
+                                android:text="@string/distance"
+                                android:textColor="@color/semi_gray_6"
+                                android:textSize="@dimen/text_size_12" />
+
+                            <TextView
+                                android:id="@+id/tvDistance"
+                                style="@style/TextViewStyle"
+                                android:fontFamily="@font/campton_semi_bold"
+                                android:gravity="center|center_vertical"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_size_12"
+                                tools:text="10 KMS" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bg_stroke_time"
+                                android:contentDescription="@null"
+                                android:scaleType="center"
+                                app:srcCompat="@drawable/ic_clock" />
+
+                            <TextView
+                                style="@style/TextViewStyle"
+                                android:layout_marginTop="@dimen/dimen_7"
+                                android:fontFamily="@font/campton_book"
+                                android:gravity="center|center_vertical"
+                                android:text="@string/time"
+                                android:textAllCaps="true"
+                                android:textColor="@color/semi_gray_6"
+                                android:textSize="@dimen/text_size_12" />
+
+                            <TextView
+                                android:id="@+id/tvTime"
+                                style="@style/TextViewStyle"
+                                android:fontFamily="@font/campton_semi_bold"
+                                android:gravity="center|center_vertical"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_size_12"
+                                tools:text="34 MINS" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bg_stroke_alerts"
+                                android:contentDescription="@null"
+                                android:scaleType="center"
+                                android:tint="#c9505f"
+                                app:srcCompat="@drawable/ic_avg_speed" />
+
+                            <TextView
+                                style="@style/TextViewStyle"
+                                android:layout_marginTop="@dimen/dimen_7"
+                                android:fontFamily="@font/campton_book"
+                                android:gravity="center|center_vertical"
+                                android:text="@string/max_speed"
+                                android:textAllCaps="true"
+                                android:textColor="@color/semi_gray_6"
+                                android:textSize="@dimen/text_size_12" />
+
+                            <TextView
+                                android:id="@+id/tvAvgSpeed"
+                                style="@style/TextViewStyle"
+                                android:fontFamily="@font/campton_semi_bold"
+                                android:gravity="center|center_vertical"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_size_12"
+                                tools:text="534 KMPH" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/llAlert"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            android:gravity="center"
+                            android:visibility="gone"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bg_stroke_notification_alert"
+                                android:contentDescription="@null"
+                                android:scaleType="center"
+                                android:tint="#c9505f"
+                                app:srcCompat="@drawable/ic_bell_black" />
+
+                            <TextView
+                                style="@style/TextViewStyle"
+                                android:layout_marginTop="@dimen/dimen_7"
+                                android:fontFamily="@font/campton_book"
+                                android:gravity="center|center_vertical"
+                                android:text="@string/alerts"
+                                android:textAllCaps="true"
+                                android:textColor="@color/semi_gray_6"
+                                android:textSize="@dimen/text_size_12" />
+
+                            <TextView
+                                android:id="@+id/tvNumberAlert"
+                                style="@style/TextViewStyle"
+                                android:fontFamily="@font/campton_semi_bold"
+                                android:gravity="center|center_vertical"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_size_12"
+                                tools:text="30" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1"
+                        android:layout_marginStart="@dimen/dimen_10"
+                        android:layout_marginTop="@dimen/dimen_5"
+                        android:layout_marginEnd="@dimen/dimen_10"
+                        android:background="@color/semi_gray_5" />
+
+                    <TextView
+                        android:id="@+id/tvFleetDetail"
+                        style="@style/TextViewStyle"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColor="@color/brown"
+                        android:layout_marginBottom="@dimen/dimen_10"
+                        android:textSize="@dimen/text_size_12"
+                        android:visibility="gone"
+                        tools:text="Fleet: Maruti Swift | HR 26 BQ 5924" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardViewTaskDetail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_8"
+                        android:layout_marginTop="@dimen/dimen_8"
+                        android:layout_marginEnd="@dimen/dimen_8"
+                        android:layout_marginBottom="@dimen/dimen_8"
+                        android:background="@color/white"
+                        android:orientation="vertical"
+                        android:visibility="gone"
+                        app:cardCornerRadius="@dimen/dimen_4"
+                        app:cardElevation="@dimen/dimen_4"
+                        app:contentPadding="@dimen/dimen_10">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/tvShortCode"
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="@dimen/dimen_40"
+                                    android:layout_height="@dimen/dimen_40"
+                                    android:layout_marginEnd="@dimen/dimen_8"
+                                    android:background="@drawable/bg_image_circle"
+                                    android:backgroundTint="@color/colorPrimary"
+                                    android:fontFamily="@font/campton_semi_bold"
+                                    android:gravity="center|center_vertical"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/text_size_14"
+                                    tools:text="RA" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_margin="@dimen/dimen_5"
+                                    android:layout_weight=".65"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/tvTaskAssignee"
+                                        style="@style/TextViewStyle"
+                                        android:fontFamily="@font/campton_light"
+                                        android:lineSpacingExtra="1dip"
+                                        android:maxLines="2"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/text_size_14"
+                                        tools:text="Monu Yadav assign you a task" />
+
+                                    <TextView
+                                        android:id="@+id/tvTaskCreatedDate"
+                                        style="@style/TextViewStyle"
+                                        android:fontFamily="@font/campton_light"
+                                        android:lines="1"
+                                        android:text="26 Sep, 2018 at 11:30 am"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/text_size_12" />
+                                </LinearLayout>
+
+                                <Button
+                                    android:id="@+id/buttonDetail"
+                                    style="@style/ButtonStyle"
+                                    android:layout_height="@dimen/dimen_35"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:text="@string/details"
+                                    android:textSize="@dimen/text_size_15"
+                                    android:visibility="visible" />
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dimen_1"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:layout_marginBottom="@dimen/dimen_8"
+                                android:background="@color/semi_gray_5" />
+
+                            <TextView
+                                android:id="@+id/tvTaskName"
+                                style="@style/TextViewStyle"
+                                android:textColor="@color/semi_gray_2"
+                                android:textSize="@dimen/text_size_12"
+                                tools:text="Task Name: Lorem Ipsum is simply dummy text." />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dimen_1"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:layout_marginBottom="@dimen/dimen_8"
+                                android:background="@color/semi_gray_5" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:baselineAligned="false"
+                                android:orientation="horizontal"
+                                android:weightSum="1">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight=".25"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/tvTaskStartTime"
+                                        style="@style/TextViewStyle"
+                                        android:layout_marginBottom="@dimen/dimen_15"
+                                        android:fontFamily="@font/campton_book"
+                                        android:lineHeight="@dimen/text_size_14"
+                                        android:textColor="@color/semi_gray_2"
+                                        android:textSize="@dimen/text_size_12"
+                                        tools:text="26 Sep, 2018 \n10:00 AM" />
+
+                                    <TextView
+                                        android:id="@+id/tvTaskEndTime"
+                                        style="@style/TextViewStyle"
+                                        android:fontFamily="@font/campton_book"
+                                        android:lineHeight="@dimen/text_size_14"
+                                        android:textColor="@color/semi_gray_2"
+                                        android:textSize="@dimen/text_size_12"
+                                        tools:text="26 Sep, 2018 \n10:00 AM" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="@dimen/dimen_5"
+                                    android:layout_weight=".03"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <View
+                                        android:layout_width="@dimen/dimen_5"
+                                        android:layout_height="@dimen/dimen_5"
+                                        android:layout_marginTop="@dimen/dimen_2"
+                                        android:layout_marginBottom="@dimen/dimen_2"
+                                        android:background="@drawable/ic_dot_green" />
+
+                                    <View
+                                        android:layout_width="@dimen/dimen_1"
+                                        android:layout_height="@dimen/dimen_40"
+                                        android:background="@color/warm_gray" />
+
+                                    <View
+                                        android:layout_width="@dimen/dimen_5"
+                                        android:layout_height="@dimen/dimen_5"
+                                        android:layout_marginTop="@dimen/dimen_2"
+                                        android:background="@drawable/ic_dot_red" />
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginTop="-2dp"
+                                    android:layout_weight=".72"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/tvTaskStartLocation"
+                                        style="@style/TextViewStyle"
+                                        android:layout_gravity="start"
+                                        android:layout_weight=".5"
+                                        android:ellipsize="end"
+                                        android:fontFamily="@font/campton_book"
+                                        android:gravity="center_vertical"
+                                        android:maxLines="2"
+                                        android:textColor="@color/semi_gray_2"
+                                        android:textSize="@dimen/text_size_12"
+                                        tools:text="Ocus Quantun Mall,Sec 51, Gurgaon \n Internal Road, Near Lal Chowk…" />
+
+                                    <TextView
+                                        android:id="@+id/tvTaskEndLocation"
+                                        style="@style/TextViewStyle"
+                                        android:layout_marginTop="@dimen/dimen_15"
+                                        android:layout_weight=".5"
+                                        android:ellipsize="end"
+                                        android:fontFamily="@font/campton_book"
+                                        android:gravity="center_vertical"
+                                        android:maxLines="2"
+                                        android:textColor="@color/semi_gray_2"
+                                        android:textSize="@dimen/text_size_12"
+                                        tools:text="Ocus Quantun Mall,Sec 51, Gurgaon \n Internal Road, Near Lal Chowk…" />
+
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <View
+                                android:id="@+id/viewPointOfContact"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dimen_1"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:layout_marginBottom="@dimen/dimen_8"
+                                android:background="@color/semi_gray_5"
+                                android:visibility="@{viewModel.isContactAvail ? View.VISIBLE : View.GONE, default=gone}" />
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:visibility="@{viewModel.isContactAvail ? View.VISIBLE : View.GONE, default=gone}"
+                                app:cardBackgroundColor="@color/bg_color"
+                                app:cardCornerRadius="@dimen/dimen_4"
+                                app:cardElevation="@dimen/dimen_1"
+                                app:contentPadding="@dimen/dimen_5">
+
+                                <RelativeLayout
+                                    android:id="@+id/rlPointOfContact"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                    <TextView
+                                        android:id="@+id/ttle"
+                                        style="@style/TextViewStyle"
+                                        android:fontFamily="@font/campton_light"
+                                        android:lineSpacingExtra="1dip"
+                                        android:text="@string/point_of_contact"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/text_size_14"
+                                        tools:text="@string/point_of_contact" />
+
+                                    <TextView
+                                        style="@style/TextViewStyle"
+                                        android:layout_below="@+id/ttle"
+                                        android:fontFamily="@font/campton_light"
+                                        android:text="@{viewModel.contact}"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/text_size_14"
+                                        tools:text="Rahul Abrol" />
+
+                                    <ImageView
+                                        android:id="@+id/ivCall"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentEnd="true"
+                                        android:layout_centerInParent="true"
+                                        android:onClick="@{()->viewModel.onCallClick()}"
+                                        android:padding="@dimen/dimen_15"
+                                        android:tint="@color/colorPrimary"
+                                        app:srcCompat="@drawable/ic_call" />
+                                </RelativeLayout>
+                            </androidx.cardview.widget.CardView>
+
+                            <TextView
+                                android:id="@+id/viewAutoStart"
+                                style="@style/TextViewStyle"
+                                android:layout_margin="@dimen/dimen_2"
+                                android:textColor="@color/light_blue_3"
+                                android:textSize="@dimen/text_size_12"
+                                tools:text="@string/autostart" />
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!--android:visibility="@{viewModel.isPayoutEligible?View.VISIBLE:View.GONE}"-->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/dimen_12"
+                        android:background="@color/white"
+                        android:orientation="vertical"
+                        android:visibility="gone"
+                        app:cardCornerRadius="@dimen/dimen_4"
+                        app:cardElevation="@dimen/dimen_8"
+                        app:contentPadding="@dimen/dimen_10">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/TextViewStyle"
+                                android:fontFamily="@font/campton_semi_bold"
+                                android:padding="@dimen/dimen_5"
+                                android:text="@{viewModel.estimatedEarnings}"
+                                android:textAllCaps="true"
+                                android:textColor="@color/green"
+                                tools:text="Estimated Earnings : INR 390" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dimen_1"
+                                android:layout_marginStart="@dimen/dimen_5"
+                                android:layout_marginEnd="@dimen/dimen_5"
+                                android:background="@color/semi_gray_5" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:padding="@dimen/dimen_3">
+                                <!-- android:visibility="@{viewModel.isBaseFare?View.VISIBLE:View.GONE}"-->
+                                <TextView
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="0dp"
+                                    android:layout_weight=".5"
+                                    android:text="@string/base_fare"
+                                    android:textSize="@dimen/text_size_14" />
+
+                                <TextView
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="0dp"
+                                    android:layout_marginStart="@dimen/dimen_5"
+                                    android:layout_marginEnd="@dimen/dimen_5"
+                                    android:layout_weight=".1"
+                                    android:text="@string/colen" />
+
+                                <TextView
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="0dp"
+                                    android:layout_weight=".3"
+                                    android:text="@{viewModel.baseFare}"
+                                    android:textSize="@dimen/text_size_14"
+                                    tools:text="INR 200" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:padding="@dimen/dimen_3">
+                                <!--android:visibility="@{viewModel.isExtraKm?View.VISIBLE:View.GONE}"-->
+                                <TextView
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="0dp"
+                                    android:layout_weight=".5"
+                                    android:text="@string/extra_km"
+                                    android:textSize="@dimen/text_size_14" />
+
+                                <TextView
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="0dp"
+                                    android:layout_marginStart="@dimen/dimen_5"
+                                    android:layout_marginEnd="@dimen/dimen_5"
+                                    android:layout_weight=".1"
+                                    android:text="@string/colen" />
+
+                                <TextView
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="0dp"
+                                    android:layout_weight=".3"
+                                    android:text="@{viewModel.extraKm}"
+                                    android:textSize="@dimen/text_size_14"
+                                    tools:text="INR 200" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:padding="@dimen/dimen_3">
+                                <!--android:visibility="@{viewModel.isExtraKm?View.VISIBLE:View.GONE}"-->
+                                <TextView
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="0dp"
+                                    android:layout_weight=".5"
+                                    android:text="@string/extra_km_charges"
+                                    android:textSize="@dimen/text_size_14" />
+
+                                <TextView
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="0dp"
+                                    android:layout_marginStart="@dimen/dimen_5"
+                                    android:layout_marginEnd="@dimen/dimen_5"
+                                    android:layout_weight=".1"
+                                    android:text="@string/colen"
+                                    tools:text=":" />
+
+                                <TextView
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="0dp"
+                                    android:layout_weight=".3"
+                                    android:text="@{viewModel.extraKmCharges}"
+                                    android:textSize="@dimen/text_size_14"
+                                    tools:text="INR 200" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:padding="@dimen/dimen_3">
+                                <!--android:visibility="@{viewModel.isWaitingTime?View.VISIBLE:View.GONE}"-->
+                                <TextView
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="0dp"
+                                    android:layout_weight=".5"
+                                    android:text="@string/waiting_time"
+                                    android:textSize="@dimen/text_size_14" />
+
+                                <TextView
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="0dp"
+                                    android:layout_marginStart="@dimen/dimen_5"
+                                    android:layout_marginEnd="@dimen/dimen_5"
+                                    android:layout_weight=".1"
+                                    android:text="@string/colen"
+                                    tools:text=":" />
+
+                                <TextView
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="0dp"
+                                    android:layout_weight=".3"
+                                    android:text="@{viewModel.waitingTime}"
+                                    android:textSize="@dimen/text_size_14"
+                                    tools:text="INR 200" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:padding="@dimen/dimen_3">
+                                <!--android:visibility="@{viewModel.isWaitingTime?View.VISIBLE:View.GONE}"-->
+                                <TextView
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="0dp"
+                                    android:layout_weight=".5"
+                                    android:text="@string/waiting_time_charges"
+                                    android:textSize="@dimen/text_size_14" />
+
+                                <TextView
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="0dp"
+                                    android:layout_marginStart="@dimen/dimen_5"
+                                    android:layout_marginEnd="@dimen/dimen_5"
+                                    android:layout_weight=".1"
+                                    android:text="@string/colen"
+                                    tools:text=":" />
+
+                                <TextView
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="0dp"
+                                    android:layout_weight=".3"
+                                    android:text="@{viewModel.waitingTimeCharges}"
+                                    android:textSize="@dimen/text_size_14"
+                                    tools:text="INR 200" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:padding="@dimen/dimen_3">
+                                <!--android:visibility="@{viewModel.isOverTime?View.VISIBLE:View.GONE}"-->
+                                <TextView
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="0dp"
+                                    android:layout_weight=".5"
+                                    android:text="@string/overtime"
+                                    android:textSize="@dimen/text_size_14" />
+
+                                <TextView
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="0dp"
+                                    android:layout_marginStart="@dimen/dimen_5"
+                                    android:layout_marginEnd="@dimen/dimen_5"
+                                    android:layout_weight=".1"
+                                    android:text="@string/colen"
+                                    tools:text=":" />
+
+                                <TextView
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="0dp"
+                                    android:layout_weight=".3"
+                                    android:text="@{viewModel.overtime}"
+                                    android:textSize="@dimen/text_size_14"
+                                    tools:text="INR 200" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:padding="@dimen/dimen_3">
+                                <!--android:visibility="@{viewModel.isOverTime?View.VISIBLE:View.GONE}"-->
+                                <TextView
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="0dp"
+                                    android:layout_weight=".5"
+                                    android:text="@string/overtime_charges"
+                                    android:textSize="@dimen/text_size_14" />
+
+                                <TextView
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="0dp"
+                                    android:layout_marginStart="@dimen/dimen_5"
+                                    android:layout_marginEnd="@dimen/dimen_5"
+                                    android:layout_weight=".1"
+                                    android:text="@string/colen"
+                                    tools:text=":" />
+
+                                <TextView
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="0dp"
+                                    android:layout_weight=".3"
+                                    android:text="@{viewModel.overtimeCharges}"
+                                    android:textSize="@dimen/text_size_14"
+                                    tools:text="INR 200" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:padding="@dimen/dimen_3">
+                                <!--android:visibility="@{viewModel.isNightCharge?View.VISIBLE:View.GONE}"-->
+                                <TextView
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="0dp"
+                                    android:layout_weight=".5"
+                                    android:text="@string/night_charges"
+                                    android:textSize="@dimen/text_size_14" />
+
+                                <TextView
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="0dp"
+                                    android:layout_marginStart="@dimen/dimen_5"
+                                    android:layout_marginEnd="@dimen/dimen_5"
+                                    android:layout_weight=".1"
+                                    android:text="@string/colen"
+                                    tools:text=":" />
+
+                                <TextView
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="0dp"
+                                    android:layout_weight=".3"
+                                    android:text="@{viewModel.nightCharges}"
+                                    android:textSize="@dimen/text_size_14"
+                                    tools:text="INR 200" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:padding="@dimen/dimen_3">
+
+                                <TextView
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="0dp"
+                                    android:layout_weight=".5"
+                                    android:fontFamily="@font/campton_semi_bold"
+                                    android:text="@string/total_earning"
+                                    android:textSize="@dimen/text_size_18" />
+
+                                <TextView
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="0dp"
+                                    android:layout_marginStart="@dimen/dimen_5"
+                                    android:layout_marginEnd="@dimen/dimen_5"
+                                    android:layout_weight=".1"
+                                    android:fontFamily="@font/campton_semi_bold"
+                                    android:text="@string/colen"
+                                    android:textSize="@dimen/text_size_18"
+                                    tools:text=":" />
+
+                                <TextView
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="0dp"
+                                    android:layout_weight=".3"
+                                    android:fontFamily="@font/campton_semi_bold"
+                                    android:text="@{viewModel.totalEarning}"
+                                    android:textSize="@dimen/text_size_18"
+                                    tools:text="INR 200" />
+                            </LinearLayout>
+
+                            <!--  <androidx.recyclerview.widget.RecyclerView
+                                  android:id="@+id/rvFare"
+                                  android:layout_width="match_parent"
+                                  android:layout_height="wrap_content"
+                                  android:layout_marginTop="@dimen/dimen_5"
+                                  android:scrollbars="none"
+                                  app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                                  tools:listitem="@layout/item_fare" />-->
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</layout>

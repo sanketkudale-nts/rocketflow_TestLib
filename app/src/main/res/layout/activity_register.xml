@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.tracki.ui.register.RegisterActivity">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.register.RegisterViewModel" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/llMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            app:elevation="@dimen/dimen_0">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/Toolbar"
+                android:background="@color/white"
+                app:contentInsetStartWithNavigation="0dp"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:titleTextColor="@color/white"
+                tools:title="">
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/dimen_15">
+
+                <ImageView
+                    android:id="@+id/iv_logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/ic_undraw_feeling" />
+
+                <TextView
+                    android:id="@+id/lets_get_started"
+                    style="@style/TextViewStyle"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="@dimen/dimen_20"
+                    android:layout_marginTop="@dimen/dimen_20"
+                    android:layout_marginRight="@dimen/dimen_20"
+                    android:fontFamily="@font/campton_light"
+                    android:gravity="center_horizontal"
+                    android:text="@string/create_an_account"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_14" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    android:layout_marginTop="@dimen/dimen_20"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:background="@drawable/et_bg_stroke_round_shape">
+
+                    <EditText
+                        android:id="@+id/etMobile"
+                        style="@style/EditTextStyle.MaxLength"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/dimen_15"
+                        android:layout_toLeftOf="@+id/editMobile"
+                        android:background="@color/transparent"
+                        android:clickable="true"
+                        android:enabled="false"
+                        android:focusable="false"
+                        android:hint="@string/mobile_number"
+                        android:imeOptions="actionNext"
+                        android:inputType="none"
+                        android:paddingLeft="@dimen/dimen_15"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/semi_gray"
+                        android:textCursorDrawable="@drawable/color_cursor"
+                        android:textSize="@dimen/text_size_14" />
+
+                    <ImageView
+                        android:id="@+id/editMobile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/dimen_5"
+                        android:padding="@dimen/dimen_10"
+                        app:srcCompat="@drawable/ic_edit_yellow" />
+                </RelativeLayout>
+
+                <EditText
+                    android:id="@+id/etName"
+                    style="@style/EditTextStyle"
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    android:layout_marginTop="@dimen/dimen_20"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:background="@drawable/et_bg_stroke_round_shape"
+                    android:hint="@string/name"
+                    android:imeOptions="actionNext"
+                    android:inputType="textCapWords"
+                    android:paddingLeft="@dimen/dimen_15"
+                    android:paddingRight="@dimen/dimen_10"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/semi_gray"
+                    android:textCursorDrawable="@drawable/color_cursor"
+                    android:textSize="@dimen/text_size_14" />
+
+                <EditText
+                    android:id="@+id/etEmail"
+                    style="@style/EditTextStyle"
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    android:layout_marginTop="@dimen/dimen_20"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:background="@drawable/et_bg_stroke_round_shape"
+                    android:hint="@string/email"
+                    android:imeOptions="actionNext"
+                    android:inputType="textEmailAddress"
+                    android:paddingLeft="@dimen/dimen_15"
+                    android:paddingRight="@dimen/dimen_10"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/semi_gray"
+                    android:textCursorDrawable="@drawable/color_cursor"
+                    android:textSize="@dimen/text_size_14" />
+
+                <EditText
+                    android:id="@+id/etOtp"
+                    style="@style/EditTextStyle"
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    android:layout_marginTop="@dimen/dimen_20"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:background="@drawable/et_bg_stroke_round_shape"
+                    android:hint="@string/otp"
+                    android:inputType="number"
+                    android:maxLength="6"
+                    android:paddingLeft="@dimen/dimen_15"
+                    android:paddingRight="@dimen/dimen_10"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/semi_gray"
+                    android:textCursorDrawable="@drawable/color_cursor"
+                    android:textSize="@dimen/text_size_14" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/timer"
+                        style="@style/TextViewStyle"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/dimen_20"
+                        android:fontFamily="@font/campton_book"
+                        android:text="@{viewModel.timer}"
+                        android:textColor="@color/colorPrimary"
+                        android:visibility="@{viewModel.timerVisibility ? View.VISIBLE : View.GONE}"
+                        tools:text="@string/_00_59" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/timer"
+                        android:layout_marginTop="@dimen/dimen_15"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                      >
+
+                        <TextView
+                            android:id="@+id/tvTag"
+                            style="@style/TextViewStyle"
+                            android:background="@null"
+                            android:fontFamily="@font/campton_book"
+                            android:gravity="center_vertical"
+                            android:text="@string/didn_t_receive_code"
+                            android:textAllCaps="false"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_14" />
+
+
+                        <TextView
+                            android:id="@+id/tvResend"
+                            style="@style/TextViewStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:background="@null"
+                            android:onClick="@{()-> viewModel.onClickResend()}"
+                            android:text="@string/resend_txt"
+                            android:textAllCaps="false"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/text_size_14" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <Button
+                    android:id="@+id/btnContinue"
+                    style="@style/ButtonStyleMoreRounded"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="@dimen/dimen_30"
+                    android:layout_marginTop="@dimen/dimen_40"
+                    android:layout_marginRight="@dimen/dimen_30"
+                    android:onClick="@{(v)->viewModel.onGetStartedClick(v)}"
+                    android:paddingLeft="@dimen/dimen_40"
+                    android:paddingRight="@dimen/dimen_40"
+                    android:text="@string/continue_"
+                    android:textAllCaps="false" />
+
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+</layout>

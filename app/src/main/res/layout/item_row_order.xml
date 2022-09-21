@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+
+        <import type="android.text.TextUtils" />
+        <variable
+            name="data"
+            type="com.tracki.data.model.response.config.OrderDetails" />
+
+        <variable
+            name="adapter"
+            type="com.tracki.ui.taskdetails.timeline.OrderInventoryListAdapter" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@color/white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_60"
+                    android:padding="@dimen/dimen_4"
+                    android:weightSum="6">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/dimen_4"
+                        android:layout_weight="1.25"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvOrder"
+                            style="@style/TextViewStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/status_order"
+                            android:textSize="@dimen/text_size_8" />
+
+                        <TextView
+                            android:id="@+id/tvStatus"
+                            style="@style/TextViewStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dimen_4"
+                            android:background="@drawable/status_confirmed"
+                            android:paddingLeft="@dimen/dimen_4"
+                            android:paddingTop="@dimen/dimen_2"
+                            android:paddingRight="@dimen/dimen_4"
+                            android:paddingBottom="@dimen/dimen_2"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_8"
+                            tools:text="Confirmed" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/dimen_4"
+                        android:layout_weight="1.25"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextViewStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/order_by"
+                            android:textSize="@dimen/text_size_8" />
+
+                        <TextView
+                            android:id="@+id/tvOrderBy"
+                            style="@style/TextViewStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dimen_4"
+                            android:gravity="center_horizontal"
+                            android:text="@{data.customerName}"
+                            android:textColor="@color/gray"
+                            android:maxLines="1"
+                            android:layout_marginRight="@dimen/dimen_4"
+                            android:layout_marginLeft="@dimen/dimen_4"
+                            android:ellipsize="end"
+                            android:textSize="@dimen/text_size_8"
+                            tools:text="inventorydemo@rf.in" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/dimen_4"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextViewStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/order_at"
+                            android:textSize="@dimen/text_size_8" />
+
+                        <TextView
+                            android:id="@+id/tvOrderAt"
+                            style="@style/TextViewStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dimen_4"
+                            android:gravity="center_horizontal"
+                            android:text="@{data.date}"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_8"
+                            tools:text="17/11/2020" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/dimen_4"
+                        android:layout_weight="0.5"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextViewStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/items"
+                            android:textSize="@dimen/text_size_8" />
+
+                        <TextView
+                            android:id="@+id/tvItems"
+                            style="@style/TextViewStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dimen_4"
+                            android:text="@{``+data.items}"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_8"
+                            tools:text="1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/dimen_4"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextViewStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:text="@string/amount_txt"
+                            android:textSize="@dimen/text_size_8" />
+
+                        <TextView
+                            android:id="@+id/tvTotalAmount"
+                            style="@style/TextViewStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dimen_4"
+                            android:gravity="center_horizontal"
+                            android:text="@{`INR `+data.totalAmt}"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_8"
+                            tools:text="INR 1050.0" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/dimen_4"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextViewStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/approved_by"
+                            android:textSize="@dimen/text_size_8" />
+
+                        <TextView
+                            android:id="@+id/tvApprovedBy"
+                            style="@style/TextViewStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dimen_4"
+                            android:text="@{data.approver}"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_8"
+                            android:visibility="@{TextUtils.isEmpty(data.approver)?View.GONE:View.VISIBLE}"
+                            tools:text="System" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvOrders"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adapter="@{adapter}"
+                    android:nestedScrollingEnabled="true"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/item_row_order_list" />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginLeft="@dimen/dimen_4"
+                android:visibility="gone"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvOrderNumber"
+                    style="@style/TextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/order_number"
+                    android:paddingLeft="@dimen/dimen_10"
+                    android:paddingTop="@dimen/dimen_4"
+                    android:paddingRight="@dimen/dimen_10"
+                    android:paddingBottom="@dimen/dimen_4"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_8"
+                    tools:text="Order 1" />
+            </LinearLayout>
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.addcontact.AddEmergencyContactActivity">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.addcontact.AddEmergencyContactViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            app:elevation="@dimen/dimen_0">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/Toolbar"
+                app:contentInsetLeft="0dp"
+                app:contentInsetStart="0dp"
+                app:contentInsetStartWithNavigation="0dp"
+                app:titleTextColor="@color/white"
+                tools:title="@string/emergency_contacts" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".20"
+                    android:background="@color/colorPrimary" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".70"
+                    android:background="@color/bg_color_3" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/dimen_10"
+                android:layout_marginTop="@dimen/dimen_40"
+                android:layout_marginEnd="@dimen/dimen_10"
+                android:background="@drawable/bg_noti">
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/dsd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_20"
+                    android:paddingStart="@dimen/dimen_15"
+                    android:paddingEnd="@dimen/dimen_15">
+
+                    <EditText
+                        android:id="@+id/edFullName"
+                        style="@style/EditTextStyle"
+                        android:hint="@string/full_name"
+                        android:inputType="textCapWords"
+                        app:backgroundTint="@color/light_gray_a" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/dsd"
+                    android:layout_marginTop="@dimen/dimen_20"
+                    android:paddingStart="@dimen/dimen_15"
+                    android:paddingEnd="@dimen/dimen_15">
+                    <!-- android:drawableEnd="@drawable/ic_contact"-->
+
+                    <EditText
+                        android:id="@+id/edMobileNumber"
+                        style="@style/EditTextStyle"
+                        android:hint="@string/mobile_number"
+                        android:inputType="number"
+                        android:digits="+0987654321"
+                        app:backgroundTint="@color/light_gray_a" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <ImageView
+                    android:id="@+id/ivWarning"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/ic_warning" />
+
+                <TextView
+                    android:id="@+id/tfd"
+                    style="@style/TextViewStyle"
+                    android:layout_below="@+id/ivWarning"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="@dimen/dimen_7"
+                    android:gravity="center"
+                    android:lineSpacingExtra="-3sp"
+                    android:text="@string/text_enter_perrsonal_info"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_size_12"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:layout_centerInParent="true"
+                    android:id="@+id/tvChooseContact"
+                    style="@style/TextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_below="@id/tfd"
+                    android:layout_marginTop="@dimen/dimen_40"
+                    android:background="@color/colorPrimary"
+                    android:padding="@dimen/dimen_15"
+                    android:text="@string/choose_from_existing_contacts"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_14" />
+
+            </RelativeLayout>
+        </FrameLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

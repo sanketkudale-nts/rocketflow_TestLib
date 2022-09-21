@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chip
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:checkable="true"
+    android:clickable="true"
+    android:focusable="true"
+    android:textColor="@color/colorPrimary"
+    app:iconStartPadding="5dp"
+    app:chipCornerRadius="5dp"
+    app:checkedIcon="@null"
+    app:checkedIconVisible="false"
+     android:background="@drawable/chip_selector"
+    style="@style/Widget.MaterialComponents.Chip.Choice"
+    />

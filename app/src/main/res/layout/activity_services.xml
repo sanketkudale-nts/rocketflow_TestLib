@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="adapter"
+            type="com.tracki.ui.facility.ServicesAdapter" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.facility.ServicesActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            app:elevation="@dimen/dimen_0">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/Toolbar"
+                android:background="@color/white"
+                app:contentInsetStartWithNavigation="0dp"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:titleTextColor="@color/white"
+                tools:title="">
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <RelativeLayout
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_15">
+
+            <TextView
+                android:id="@+id/tvFirst"
+                style="@style/TextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/blue_circle"
+                android:fontFamily="@font/campton_semi_bold"
+                android:gravity="center"
+                android:padding="@dimen/dimen_4"
+                android:text="1"
+                android:textColor="@color/white" />
+
+            <View
+                android:id="@+id/viewLine"
+                android:layout_width="@dimen/dimen_50"
+                android:layout_height="@dimen/dimen_0_8"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dimen_10"
+                android:layout_marginRight="@dimen/dimen_10"
+                android:layout_toRightOf="@+id/tvFirst"
+                android:background="@color/colorPrimary" />
+
+            <TextView
+                style="@style/TextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/viewLine"
+                android:background="@drawable/blue_circle_stroke"
+                android:fontFamily="@font/campton_semi_bold"
+                android:gravity="center"
+                android:padding="@dimen/dimen_4"
+                android:text="2"
+                android:textColor="@color/colorPrimary" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="@dimen/dimen_20"
+            android:layout_marginRight="@dimen/dimen_20"
+            android:layout_marginBottom="@dimen/dimen_20"
+            android:layout_marginLeft="@dimen/dimen_20"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvName"
+                style="@style/TextViewStyle"
+                android:layout_marginLeft="@dimen/dimen_10"
+                android:layout_marginTop="@dimen/dimen_20"
+                android:textSize="@dimen/text_size_18"
+                android:text="Please select your services"
+                tools:text="Provide Essentials Like"
+                android:textColor="@color/black"
+                android:fontFamily="@font/campton_semi_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_below="@+id/tvName"
+                android:id="@+id/rvFacility"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:orientation="vertical"
+                tools:itemCount="10"
+                android:adapter="@{adapter}"
+                android:layout_above="@+id/btnNext"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_facility" />
+
+            <Button
+                android:id="@+id/btnNext"
+                android:layout_marginTop="@dimen/dimen_20"
+                android:layout_marginBottom="@dimen/dimen_20"
+                android:layout_alignParentBottom="true"
+                style="@style/ButtonStyleMoreRounded"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/dimen_30"
+                android:layout_marginRight="@dimen/dimen_30"
+                android:paddingLeft="@dimen/dimen_40"
+                android:paddingRight="@dimen/dimen_40"
+                android:text="@string/next"
+                android:textAllCaps="false" />
+
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

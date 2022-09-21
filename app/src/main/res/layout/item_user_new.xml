@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="data"
+            type="com.tracki.data.model.response.config.UserData" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        bind:cardCornerRadius="@dimen/dimen_5"
+        bind:cardElevation="@dimen/dimen_0"
+        bind:cardUseCompatPadding="true"
+        bind:contentPadding="@dimen/dimen_5">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/ivUser"
+                    android:layout_width="@dimen/dimen_45"
+                    android:layout_height="@dimen/dimen_45"
+                    android:layout_gravity="center_vertical"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dimen_6"
+                    bind:srcCompat="@drawable/ic_my_profile" />
+
+                <LinearLayout
+                    android:layout_toEndOf="@+id/ivUser"
+                    android:layout_toStartOf="@+id/iv_checked"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_5"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvName"
+                        style="@style/TextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/campton_book"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_14"
+                        tools:text="Vikas Kesharvani" />
+
+                    <TextView
+                        android:id="@+id/tvEmail"
+                        style="@style/TextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/campton_light"
+                        android:maxLines="2"
+                        android:text="@{data.email}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_13"
+                        tools:text="vckvikash702@gmail.com" />
+
+                    <TextView
+                        android:id="@+id/tvMobile"
+                        style="@style/TextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/campton_light"
+                        android:maxLines="1"
+                        android:text="@{data.mobile}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_13"
+                        tools:text="9990731159" />
+
+
+                </LinearLayout>
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/iv_checked"
+                android:layout_width="@dimen/dimen_20"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:layout_height="@dimen/dimen_20"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/dimen_10"
+                android:button="@drawable/custom_user_check"
+                android:checked="false"
+                android:text=""
+                android:visibility="visible"
+                app:useMaterialThemeColors="false" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+</layout>

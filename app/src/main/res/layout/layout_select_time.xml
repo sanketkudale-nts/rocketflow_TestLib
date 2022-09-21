@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        
+        <import type="android.view.View"/>
+
+        <variable
+            name="data"
+            type="com.tracki.ui.feeds.TimeInfo" />
+
+    </data>
+
+
+
+    <RelativeLayout
+        android:id="@+id/rlTile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dimen_10"
+        android:paddingTop="@dimen/dimen_10"
+        android:paddingRight="@dimen/dimen_5"
+        android:paddingBottom="@dimen/dimen_10">
+
+        <ImageView
+            android:id="@+id/iv_calender"
+            android:layout_width="@dimen/dimen_25"
+            android:layout_height="@dimen/dimen_25"
+            android:tint="@{data.selected ? @color/blue : @color/gray_dark}"
+            app:srcCompat="@drawable/ic_calendar" />
+
+
+        <TextView
+            android:id="@+id/tv_day"
+            style="@style/TextViewStyleBold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_20"
+            android:layout_toStartOf="@+id/ivCheck"
+            android:layout_toLeftOf="@+id/ivCheck"
+            android:layout_toEndOf="@+id/iv_calender"
+            android:layout_toRightOf="@+id/iv_calender"
+            android:text="@{data.title}"
+            android:textColor="@{data.selected ? @color/blue : @color/black}" />
+
+        <TextView
+            android:id="@+id/tvDateRange"
+            style="@style/TextViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_day"
+            android:layout_marginLeft="@dimen/dimen_20"
+            android:layout_toStartOf="@+id/ivCheck"
+            android:layout_toLeftOf="@+id/ivCheck"
+            android:layout_toEndOf="@+id/iv_calender"
+            android:layout_toRightOf="@+id/iv_calender"
+            android:paddingRight="@dimen/dimen_10"
+            android:paddingBottom="@dimen/dimen_5"
+            android:text=""
+            android:textColor="@color/text_gray"
+            tools:text="@string/day_date" />
+
+        <ImageView
+            android:id="@+id/ivCheck"
+            android:layout_width="@dimen/dimen_25"
+            android:layout_height="@dimen/dimen_25"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/dimen_20"
+            android:layout_marginRight="@dimen/dimen_2"
+            android:visibility="@{data.selected ? View.VISIBLE : View.GONE}"
+            app:srcCompat="@drawable/ic_check"
+            app:tint="@color/blue" />
+    </RelativeLayout>
+</layout>

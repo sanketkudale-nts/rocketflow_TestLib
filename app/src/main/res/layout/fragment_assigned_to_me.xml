@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.tasklisting.assignedtome.AssignedToMeViewModel" />
+
+        <variable
+            name="adapter"
+            type="com.tracki.ui.tasklisting.TaskListingAdapter" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_recycler_view"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardDateSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_5"
+            android:layout_marginTop="@dimen/dimen_5"
+            android:layout_marginRight="@dimen/dimen_5"
+            app:cardElevation="@dimen/dimen_0">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_30"
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    android:layout_marginTop="@dimen/dimen_10"
+                    android:layout_marginRight="@dimen/dimen_20"
+                    android:visibility="gone"
+                    app:cardBackgroundColor="@color/windowBackgroundColor"
+                    app:cardCornerRadius="@dimen/dimen_20"
+                    app:cardElevation="@dimen/dimen_0">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/ivLocation"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:paddingLeft="@dimen/dimen_10"
+                            app:srcCompat="@drawable/ic_placeholder_sort" />
+
+                        <androidx.appcompat.widget.AppCompatSpinner
+                            android:id="@+id/spinnerLocation"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dimen_3"
+                            android:layout_toLeftOf="@+id/ivSpinnerTriangle"
+                            android:layout_toRightOf="@+id/ivLocation"
+                            android:background="@color/transparent"
+                            android:textAlignment="center" />
+
+                        <ImageView
+                            android:id="@+id/ivSpinnerTriangle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:paddingRight="@dimen/dimen_10"
+                            app:srcCompat="@drawable/ic_down_triangle" />
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout
+                    android:id="@+id/llDateRange"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_8"
+                    android:layout_marginRight="@dimen/dimen_8"
+                    android:layout_marginBottom="@dimen/dimen_10"
+                    android:layout_marginTop="@dimen/dimen_12"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardFromDate"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dimen_30"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1.1"
+                        app:cardBackgroundColor="@color/windowBackgroundColor"
+                        app:cardCornerRadius="@dimen/dimen_20"
+                        app:cardElevation="@dimen/dimen_0">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/ivCalender"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:paddingLeft="@dimen/dimen_10"
+                                android:paddingTop="@dimen/dimen_2"
+                                android:paddingRight="@dimen/dimen_3"
+                                android:paddingBottom="@dimen/dimen_2"
+                                android:tint="@color/yellow_punch_btn"
+                                app:srcCompat="@drawable/ic_date_range" />
+
+                            <TextView
+                                android:id="@+id/tvFromDate"
+                                style="@style/TextViewStyle"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="@dimen/dimen_3"
+                                android:layout_toRightOf="@+id/ivCalender"
+                                android:background="@color/transparent"
+                                android:gravity="center_vertical"
+                                android:textColor="@color/colorTextGreyPunch"
+                                android:textSize="11sp" />
+
+                            <ImageView
+                                android:id="@+id/ivDaysTriangle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:paddingRight="@dimen/dimen_3"
+                                android:visibility="gone"
+                                app:srcCompat="@drawable/ic_down_triangle" />
+                        </RelativeLayout>
+
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/dimen_10"
+                        android:layout_weight="0.75">
+
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardSearch"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_30"
+                            android:layout_gravity="center_vertical"
+                            app:cardBackgroundColor="#EFEFEF"
+                            app:cardCornerRadius="@dimen/dimen_20"
+                            app:cardElevation="@dimen/dimen_0">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <ImageView
+                                    android:id="@+id/ivSearch"
+                                    android:layout_width="@dimen/dimen_20"
+                                    android:layout_height="@dimen/dimen_20"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginLeft="@dimen/dimen_5"
+                                    android:paddingLeft="@dimen/dimen_3"
+                                    android:paddingRight="@dimen/dimen_3"
+                                    android:tint="@color/black"
+                                    app:srcCompat="@drawable/ic_search_white" />
+
+                                <EditText
+                                    android:id="@+id/etSearch"
+                                    style="@style/EditTextStyle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="@dimen/dimen_3"
+                                    android:layout_toRightOf="@+id/ivSearch"
+                                    android:background="@color/transparent"
+                                    android:gravity="center_vertical"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="textCapCharacters"
+                                    android:maxLines="1"
+                                    android:textSize="12sp" />
+
+
+                            </RelativeLayout>
+
+
+                        </androidx.cardview.widget.CardView>
+                    </RelativeLayout>
+
+                    <ImageButton
+                        android:id="@+id/btnSubmit"
+                        style="@style/ButtonStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dimen_30"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/dimen_8"
+                        android:layout_weight="0.15"
+                        android:background="@drawable/ic_enter"
+                        android:text="@string/submit"
+                        android:textAllCaps="false"
+                        android:textSize="10sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardstages"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_5"
+            android:layout_marginTop="@dimen/dimen_5"
+            android:layout_marginRight="@dimen/dimen_5"
+            app:cardElevation="@dimen/dimen_0">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvStages"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_8"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:layout_marginBottom="@dimen/dimen_8"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/layout_stages">
+
+            </androidx.recyclerview.widget.RecyclerView>
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvAssignedToMe"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/bg_recycler_view"
+                android:clipToPadding="false"
+                android:paddingBottom="@dimen/dimen_80"
+                tools:listitem="@layout/item_row_task_list" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </LinearLayout>
+</layout>

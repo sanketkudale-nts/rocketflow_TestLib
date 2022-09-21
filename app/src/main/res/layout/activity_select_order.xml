@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="stageAdapter"
+            type="com.tracki.ui.selectorder.SubCategoryAdapter" />
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/rlMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/windowBackgroundColor"
+        android:orientation="vertical"
+        tools:context=".view.ui.selectorder.SelectOrderActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            app:elevation="@dimen/dimen_0">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/Toolbar"
+                android:background="@color/white"
+                app:contentInsetStartWithNavigation="0dp"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:titleTextColor="@color/white"
+                tools:title="">
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/llButton"
+            android:layout_below="@+id/app_bar"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/rlSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_10"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:layout_marginRight="@dimen/dimen_10"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/dimen_2"
+                    android:paddingRight="@dimen/dimen_2">
+
+                    <EditText
+                        android:id="@+id/etSearch"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_40"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@+id/ivSearch"
+                        android:background="@drawable/et_product_search"
+                        android:gravity="center"
+                        android:hint="@string/search_by_keyword"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:paddingLeft="@dimen/dimen_10"
+                        android:paddingRight="@dimen/dimen_10"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_13" />
+
+                    <TextView
+                        android:id="@+id/ivSearch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dimen_40"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/button_search_bg"
+                        android:drawableLeft="@drawable/ic_search_product"
+                        android:drawablePadding="@dimen/dimen_5"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/dimen_5"
+                        android:paddingRight="@dimen/dimen_5"
+                        android:text="@string/search"
+                        android:textColor="@color/white" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/rlSearchResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    android:layout_marginTop="@dimen/dimen_10"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/tvFound"
+                        style="@style/TextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/found"
+                        tools:text="123" />
+
+                    <TextView
+                        android:id="@+id/tvCountSearchResult"
+                        style="@style/TextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/tvFound"
+                        android:fontFamily="@font/campton_semi_bold"
+                        android:textColor="@color/green"
+                        tools:text="123" />
+
+                    <TextView
+                        android:id="@+id/tvResults"
+                        style="@style/TextViewStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen_5"
+                        android:layout_toLeftOf="@+id/tvClear"
+                        android:layout_toRightOf="@+id/tvCountSearchResult"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text=""
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/tvClear"
+                        style="@style/TextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="@string/reset"
+                        android:textColor="@color/colorPrimary" />
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_marginLeft="@dimen/dimen_10"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:layout_marginRight="@dimen/dimen_10"
+                android:id="@+id/rlHubs"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tvSelectHub"
+                    style="@style/TextViewStyle"
+                    android:layout_toLeftOf="@+id/llHubs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/dimen_10"
+                    android:paddingVertical="@dimen/dimen_4"
+                    android:text="@string/select_hub"
+                    android:textColor="@color/black" />
+
+                <LinearLayout
+                    android:id="@+id/llHubs"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/bg_rounded_date_selector"
+                    android:orientation="horizontal"
+                   >
+
+
+                    <TextView
+                        android:id="@+id/tvHubs"
+                        style="@style/TextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="@dimen/dimen_10"
+                        android:paddingVertical="@dimen/dimen_4"
+                        android:text="Home"
+                        android:textColor="@color/colorPrimary" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="@dimen/dimen_5"
+                        android:tint="@color/colorPrimary"
+                        app:srcCompat="@drawable/ic_down_triangle" />
+                </LinearLayout>
+            </RelativeLayout>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_10"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:adapter="@{stageAdapter}"
+                android:nestedScrollingEnabled="true"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="5"
+                tools:listitem="@layout/list_item_stage" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvProducts"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dimen_10"
+                tools:listitem="@layout/item_row_select_order" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/dimen_20"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:layout_marginRight="@dimen/dimen_20"
+            android:layout_marginBottom="@dimen/dimen_10"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            android:weightSum="1">
+
+
+            <Button
+                android:id="@+id/btnPlaceOrder"
+                style="@style/ButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_10"
+                android:paddingLeft="@dimen/dimen_50"
+                android:paddingRight="@dimen/dimen_50"
+                android:text="@string/view_cart"
+                android:textAllCaps="false" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</layout>

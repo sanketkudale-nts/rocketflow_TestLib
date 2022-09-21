@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.tracki.data.model.response.config.Post" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipChildren="false"
+        app:cardElevation="@dimen/dimen_4"
+        app:cardUseCompatPadding="true"
+        app:contentPadding="@dimen/dimen_2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dimen_4">
+
+                <ImageView
+                    android:id="@+id/ivImage"
+                    android:layout_width="@dimen/dimen_50"
+                    android:layout_height="@dimen/dimen_50"
+                    app:imageUrl="@{data.postedUserImage}"
+                    app:srcCompat="@drawable/ic_my_profile" />
+
+                <TextView
+                    android:layout_toLeftOf="@+id/btnViewMore"
+                    android:layout_marginRight="@dimen/dimen_2"
+                    android:id="@+id/tvName"
+                    style="@style/TextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_10"
+                    android:layout_toEndOf="@+id/ivImage"
+                    android:fontFamily="@font/campton_semi_bold"
+                    android:text="@{data.createdBy}"
+                    android:textSize="@dimen/text_size_14"
+                    tools:text="Vikas Kesharvani" />
+
+                <TextView
+                    android:layout_toLeftOf="@+id/btnViewMore"
+                    android:layout_marginRight="@dimen/dimen_2"
+                    android:id="@+id/tvDateTime"
+                    style="@style/TextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvName"
+                    android:layout_alignBaseline="@+id/ivImage"
+                    android:layout_marginStart="@dimen/dimen_10"
+                    android:layout_toEndOf="@+id/ivImage"
+                    android:fontFamily="@font/campton_light"
+                    android:text="@{data.postedAt}"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_size_11"
+                    tools:text="12/12/2020 | 1:35 pm" />
+
+                <TextView
+                    android:id="@+id/tvLocation"
+                    android:layout_marginRight="@dimen/dimen_2"
+                    android:layout_toLeftOf="@+id/btnViewMore"
+                    style="@style/TextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvDateTime"
+                    android:layout_alignBaseline="@+id/ivImage"
+                    android:layout_marginStart="@dimen/dimen_10"
+                    android:layout_toEndOf="@+id/ivImage"
+                    android:drawableLeft="@drawable/ic_loc_placeholder_small"
+                    android:drawablePadding="@dimen/dimen_4"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/campton_light"
+                    android:maxLines="2"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_11"
+                    android:visibility="gone"
+                    tools:text="Ocus quantam Gurugramsadbhjdsbahjadjhbdashjbdshvdsavdhnvhjvdhjas" />
+
+                <Button
+                    android:id="@+id/btnViewMore"
+                    style="@style/ButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_25"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="@dimen/dimen_5"
+                    android:text="@string/view_more"
+                    android:textSize="@dimen/text_size_11"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tvTitle"
+                style="@style/TextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_10"
+                android:fontFamily="@font/campton_semi_bold"
+                android:text="@{data.title}"
+                android:textSize="@dimen/text_size_15"
+                tools:text="Share Food is real pleasure " />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_5"
+                android:layout_marginTop="@dimen/dimen_5"
+                android:background="@drawable/et_stroke_bg"
+                android:layout_marginRight="@dimen/dimen_5">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvDfData"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    tools:listitem="@layout/item_row_feed_df_text"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+
+
+            </RelativeLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.3dp"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:visibility="invisible"
+                android:background="@color/semi_gray" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

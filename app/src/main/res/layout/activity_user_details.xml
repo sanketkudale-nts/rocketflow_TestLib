@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="data"
+            type="com.tracki.data.model.response.config.UserData" />
+
+        <variable
+            name="userOptionAdapter"
+            type="com.tracki.ui.userdetails.UserOptionsSelectedAdapter" />
+
+        <variable
+            name="updateResponse"
+            type="com.tracki.data.model.response.config.UpdateResponse"/>
+        <!--
+                <variable
+                    name="viewModel"
+                    type="com.tracki.ui.addcustomer.AddUserViewModel" />
+
+                <variable
+                    name="request"
+                    type="com.tracki.data.model.request.AddEmployeeRequest" />-->
+
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/windowBackgroundColor"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            app:elevation="@dimen/dimen_0">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/Toolbar"
+                android:background="@color/colorPrimary"
+                android:theme="@style/MyThemeOverlay.ActionBar"
+                app:contentInsetStartWithNavigation="0dp"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:titleTextColor="@color/white"
+                tools:title="@string/employee" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_5"
+            android:layout_marginTop="@dimen/dimen_5"
+            android:layout_marginRight="@dimen/dimen_5"
+            android:layout_marginBottom="@dimen/dimen_5"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardCornerRadius="@dimen/dimen_5"
+                app:cardUseCompatPadding="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingTop="@dimen/dimen_10"
+                    android:paddingBottom="@dimen/dimen_10">
+
+                    <ImageView
+                        android:id="@+id/ivUser"
+                        android:layout_width="@dimen/dimen_45"
+                        android:layout_height="@dimen/dimen_45"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/dimen_6"
+                        bind:srcCompat="@drawable/ic_my_profile" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/dimen_8"
+                        android:layout_toLeftOf="@+id/llOptions"
+                        android:layout_toRightOf="@+id/ivUser"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvRollName"
+                            style="@style/TextViewStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/campton_semi_bold"
+                            android:maxLines="1"
+                            android:text="@{data.roleName}"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/text_size_14"
+                            android:visibility="gone"
+                            tools:text="Manager" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tvName"
+                                style="@style/TextViewStyle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="@dimen/dimen_10"
+                                android:layout_toLeftOf="@+id/llRole"
+                                android:ellipsize="end"
+                                android:fontFamily="@font/campton_book"
+                                android:maxLines="1"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_size_14"
+                                tools:text="Vikas " />
+
+                            <LinearLayout
+                                android:id="@+id/llRole"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="@dimen/dimen_20"
+                                android:visibility="gone">
+
+                                <TextView
+                                    android:id="@+id/tvLabelRoll"
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/campton_light"
+                                    android:text="Role : "
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/text_size_13" />
+
+                                <TextView
+                                    android:id="@+id/tvRoll"
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text=""
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/text_size_13" />
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/tvEmail"
+                            style="@style/TextViewStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/campton_light"
+                            android:maxLines="2"
+                            android:text="@{data.email}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_13"
+                            android:visibility="gone"
+                            tools:text="vckvikash702@gmail.com" />
+
+                        <TextView
+                            android:id="@+id/tvMobile"
+                            style="@style/TextViewStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dimen_3"
+                            android:drawablePadding="@dimen/dimen_5"
+                            android:fontFamily="@font/campton_light"
+                            android:maxLines="1"
+                            android:text="@{data.mobile}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_13"
+                            android:visibility="@{data.mobile!=null?View.VISIBLE:View.GONE}"
+                            tools:text="9990731159" />
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/llOptions"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+
+                        android:layout_marginEnd="@dimen/dimen_5"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/ivThreeDot"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            bind:srcCompat="@drawable/ic_three_dots" />
+
+                    </LinearLayout>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvUserOptions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_5"
+                android:adapter="@{userOptionAdapter}"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_user_option" />
+
+            <FrameLayout
+                android:id="@+id/container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <!--<FrameLayout
+                android:id="@+id/containerDetails"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />-->
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/dimen_10"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:id="@+id/et_userDetails"
+                    android:padding="@dimen/dimen_20"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/llPan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="0.4"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:id="@+id/tvLabelPan"
+                                style="@style/TextViewStyle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:drawablePadding="@dimen/dimen_4"
+                                android:fontFamily="@font/campton_light"
+                                android:gravity="center_vertical"
+                                android:text="Pan Number"
+                                android:textSize="@dimen/text_size_12" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.6"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/campton_light"
+                                android:text="@string/colen" />
+
+                            <TextView
+                                android:id="@+id/tvPan"
+                                style="@style/TextViewStyle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/dimen_5"
+                                android:drawablePadding="@dimen/dimen_4"
+                                android:gravity="center_vertical"
+                                android:text="@{updateResponse.data.dfData.get(0).value}"
+                                android:textSize="@dimen/text_size_12" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llAadhaar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="0.4"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:id="@+id/tvLabelAadhaar"
+                                style="@style/TextViewStyle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:drawablePadding="@dimen/dimen_4"
+                                android:fontFamily="@font/campton_light"
+                                android:gravity="center_vertical"
+                                android:text="Aadhaar Number"
+                                android:textSize="@dimen/text_size_12" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.6"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/campton_light"
+                                android:text="@string/colen" />
+
+                            <TextView
+                                android:id="@+id/tvAadhaar"
+                                style="@style/TextViewStyle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/dimen_5"
+                                android:drawablePadding="@dimen/dimen_4"
+                                android:gravity="center_vertical"
+                                android:text="@{updateResponse.data.dfData.get(1).value}"
+                                android:textSize="@dimen/text_size_12" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llGender"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="0.4"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:id="@+id/tvLabelGender"
+                                style="@style/TextViewStyle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:drawablePadding="@dimen/dimen_4"
+                                android:fontFamily="@font/campton_light"
+                                android:gravity="center_vertical"
+                                android:text="Gender"
+                                android:textSize="@dimen/text_size_12" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.6"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/campton_light"
+                                android:text="@string/colen" />
+
+                            <TextView
+                                android:id="@+id/tvGender"
+                                style="@style/TextViewStyle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/dimen_5"
+                                android:drawablePadding="@dimen/dimen_4"
+                                android:gravity="center_vertical"
+                                android:text="@{updateResponse.data.dfData.get(2).value}"
+                                android:textSize="@dimen/text_size_12" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

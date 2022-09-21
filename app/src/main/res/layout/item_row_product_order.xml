@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="android.text.TextUtils" />
+
+        <variable
+            name="data"
+            type="com.tracki.ui.selectorder.CatalogProduct" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/dimen_10"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/dimen_10"
+            android:paddingTop="@dimen/dimen_10"
+            android:paddingRight="@dimen/dimen_10"
+            android:paddingBottom="@dimen/dimen_10"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:id="@+id/llImage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25">
+
+                <ImageView
+                    android:id="@+id/ivProducts"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_100"
+                    app:load_catalog_product="@{data.image}"
+                    app:srcCompat="@drawable/ic_picture" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llTxtData"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.50"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:fontFamily="@font/campton_semi_bold"
+                    android:text="@{data.categoryName}"
+                    android:visibility="@{TextUtils.isEmpty(data.categoryName)?View.GONE:View.VISIBLE}"
+                    android:textSize="@dimen/text_size_14"
+                    tools:text="Haldi Ram Nut Craker" />
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:fontFamily="@font/campton_book"
+                    android:text="@{data.name}"
+                    android:visibility="@{TextUtils.isEmpty(data.name)?View.GONE:View.VISIBLE}"
+                    android:textSize="@dimen/text_size_14"
+                    tools:text="Haldi Ram Nut Craker" />
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:fontFamily="@font/campton_light"
+                    android:text="@{`UPC N0. : `+data.upcNumber}"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_12"
+                    android:visibility="@{TextUtils.isEmpty(data.upcNumber)?View.GONE:View.VISIBLE}"
+                    tools:text="UPC N0. :  4528525" />
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    android:layout_marginTop="@dimen/dimen_10"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:fontFamily="@font/campton_book"
+                    android:text="@{`MRP `+data.price+` INR`}"
+                    android:textSize="@dimen/text_size_13"
+                    android:visibility="gone"
+                    tools:text="MRP 50 INR" />
+
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.25"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/addProduct"
+                    style="@style/ButtonStokeStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_40"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="@dimen/dimen_10"
+                    android:background="@{data.addInOrder?@drawable/btn_shape_remove_order:@drawable/btn_shape_select_order}"
+                    android:text="@{data.addInOrder?@string/selected:@string/select}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_12" />
+
+
+            </RelativeLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="adapter"
+            type="com.tracki.ui.cart.CartItemAdapter" />
+
+
+        <import type="android.view.View" />
+
+        <import type="android.text.TextUtils" />
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/llMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/windowBackgroundColor"
+        android:orientation="vertical"
+        tools:context=".view.ui.neworder.OrderDetailsActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            app:elevation="@dimen/dimen_0">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/Toolbar"
+                android:background="@color/white"
+                app:contentInsetStartWithNavigation="0dp"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:titleTextColor="@color/white"
+                tools:title="Order">
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/llButton"
+            android:layout_below="@+id/app_bar"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_15"
+                android:layout_marginTop="@dimen/dimen_15"
+                android:layout_marginRight="@dimen/dimen_15"
+                android:layout_marginBottom="@dimen/dimen_15"
+                android:orientation="vertical">
+
+
+                <RelativeLayout
+                    android:id="@+id/llData"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/dimen_15"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/tvTotalItemCount"
+                                        style="@style/TextViewStyle"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/campton_semi_bold"
+                                        tools:text="4" />
+
+                                    <TextView
+                                        android:id="@+id/tvItems"
+                                        style="@style/TextViewStyle"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="@dimen/dimen_4"
+                                        android:fontFamily="@font/campton_book"
+                                        android:text="@string/item" />
+
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/llSubTotal"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="end"
+                                android:orientation="horizontal"
+                                android:visibility="gone">
+
+                                <TextView
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/dimen_5"
+                                    android:fontFamily="@font/campton_book"
+                                    android:text="Subtotal- " />
+
+                                <TextView
+                                    android:id="@+id/tvSubTotal"
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/campton_semi_bold"
+                                    android:text="₹ 2770.00" />
+
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:adapter="@{adapter}"
+                            android:orientation="vertical"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            tools:itemCount="3"
+                            tools:listitem="@layout/item_row_cart_place_order" />
+
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dimen_5"
+                            android:layout_marginTop="@dimen/dimen_5"
+                            android:layout_marginRight="@dimen/dimen_5"
+                            android:visibility="gone"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardCornerRadius="@dimen/dimen_5"
+                            app:cardUseCompatPadding="true">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="@dimen/dimen_5"
+                                android:paddingTop="@dimen/dimen_10"
+                                android:paddingRight="@dimen/dimen_5"
+                                android:paddingBottom="@dimen/dimen_10">
+
+                                <TextView
+                                    android:id="@+id/tvApplyCoupon"
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/dimen_5"
+                                    android:drawableLeft="@drawable/ic_qr_code"
+                                    android:drawablePadding="@dimen/dimen_5"
+                                    android:fontFamily="@font/campton_semi_bold"
+                                    android:gravity="center_vertical"
+                                    android:text="@string/apply_coupon"
+                                    android:textColor="@color/orange"
+                                    android:visibility="visible" />
+
+                                <RelativeLayout
+                                    android:id="@+id/rlCouponCodeApplied"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dimen_40"
+                                    android:layout_marginLeft="@dimen/dimen_10"
+                                    android:layout_marginRight="@dimen/dimen_10"
+                                    android:visibility="gone">
+
+                                    <TextView
+                                        android:id="@+id/tvCouponCode"
+                                        style="@style/TextViewStyle"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_marginLeft="@dimen/dimen_5"
+                                        android:layout_toLeftOf="@+id/tvCancelCoupon"
+                                        android:drawablePadding="@dimen/dimen_5"
+                                        android:fontFamily="@font/campton_semi_bold"
+                                        android:gravity="center_vertical"
+                                        android:text="@string/apply_coupon"
+                                        android:textColor="@color/colorGreenAmount"
+                                        android:visibility="visible" />
+
+                                    <TextView
+                                        android:id="@+id/tvCancelCoupon"
+                                        style="@style/TextViewStyle"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_centerVertical="true"
+                                        android:fontFamily="@font/campton_book"
+                                        android:text="@string/cancel"
+                                        android:textAllCaps="false"
+                                        android:textColor="@color/red_dark4" />
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:id="@+id/rlCouponCode"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dimen_50"
+                                    android:layout_marginLeft="@dimen/dimen_10"
+                                    android:layout_marginRight="@dimen/dimen_10"
+                                    android:visibility="gone">
+
+                                    <EditText
+                                        android:id="@+id/etCoupon"
+                                        style="@style/EditTextStyle"
+                                        android:layout_height="@dimen/dimen_40"
+                                        android:layout_centerVertical="true"
+                                        android:layout_marginRight="@dimen/dimen_10"
+                                        android:layout_toLeftOf="@+id/btnApplyCoupon"
+                                        android:background="@drawable/et_bg_stroke_round_shape"
+                                        android:hint="@string/coupon_code"
+                                        android:inputType="textCapCharacters"
+                                        android:paddingLeft="@dimen/dimen_15"
+                                        android:paddingRight="@dimen/dimen_10"
+                                        android:textColor="@color/black"
+                                        android:textColorHint="@color/semi_gray"
+                                        android:textCursorDrawable="@drawable/color_cursor"
+                                        android:textSize="@dimen/text_size_14" />
+
+                                    <Button
+                                        android:id="@+id/btnApplyCoupon"
+                                        style="@style/ResetButtonYellow"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="@dimen/dimen_35"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_centerVertical="true"
+                                        android:layout_gravity="center_horizontal"
+                                        android:text="@string/apply"
+                                        android:textAllCaps="false" />
+                                </RelativeLayout>
+
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cvPriceCard"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dimen_5"
+                            android:layout_marginTop="@dimen/dimen_5"
+                            android:layout_marginRight="@dimen/dimen_5"
+                            android:visibility="gone"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardCornerRadius="@dimen/dimen_5"
+                            app:cardUseCompatPadding="true">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dimen_5"
+                                android:orientation="vertical">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/dimen_5">
+
+                                    <TextView
+                                        style="@style/TextViewStyle"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="@dimen/dimen_10"
+                                        android:fontFamily="@font/campton_light"
+                                        android:text="@string/item_total" />
+
+                                    <TextView
+                                        android:id="@+id/tvBillAmountValue"
+                                        style="@style/TextViewStyle"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="@dimen/dimen_10"
+                                        android:fontFamily="@font/campton_book"
+                                        tools:text="₹ 657.00" />
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:id="@+id/rlDelivery"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/dimen_5">
+
+                                    <TextView
+                                        style="@style/TextViewStyle"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="@dimen/dimen_10"
+                                        android:fontFamily="@font/campton_light"
+                                        android:text="@string/delivery_fee" />
+
+                                    <TextView
+                                        android:id="@+id/tvDelivery"
+                                        style="@style/TextViewStyle"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="@dimen/dimen_10"
+                                        android:fontFamily="@font/campton_light"
+                                        android:text="FREE"
+                                        android:textColor="@color/colorGreenAmount"
+                                        tools:text="FREE" />
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/dimen_5">
+
+                                    <TextView
+                                        android:id="@+id/tvDiscountLabel"
+                                        style="@style/TextViewStyle"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="@dimen/dimen_10"
+                                        android:fontFamily="@font/campton_light"
+                                        android:text="@string/discount" />
+
+                                    <TextView
+                                        android:id="@+id/tvDiscountCode"
+                                        style="@style/TextViewStyle"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="@dimen/dimen_3"
+                                        android:layout_toRightOf="@+id/tvDiscountLabel"
+                                        android:fontFamily="@font/campton_light"
+                                        android:textColor="@color/colorGreenAmount" />
+
+                                    <TextView
+                                        android:id="@+id/tvDiscount"
+                                        style="@style/TextViewStyle"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="@dimen/dimen_10"
+                                        android:fontFamily="@font/campton_semi_bold"
+                                        android:text="₹ 0"
+                                        android:textColor="@color/colorGreenAmount"
+                                        tools:text="₹ 0" />
+                                </RelativeLayout>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dimen_0_8"
+                                    android:layout_marginTop="@dimen/dimen_10"
+                                    android:background="@color/md_grey_300" />
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/dimen_10"
+                                    android:layout_marginBottom="@dimen/dimen_10">
+
+                                    <TextView
+                                        style="@style/TextViewStyle"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_marginLeft="@dimen/dimen_10"
+                                        android:fontFamily="@font/campton_book"
+                                        android:text="@string/grand_total"
+                                        android:textSize="@dimen/text_size_18" />
+
+                                    <TextView
+                                        android:id="@+id/tvGrantTotalValue"
+                                        style="@style/TextViewStyle"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_centerVertical="true"
+                                        android:layout_marginRight="@dimen/dimen_10"
+                                        android:fontFamily="@font/campton_semi_bold"
+                                        android:text=""
+                                        tools:text="₹ 657.00" />
+                                </RelativeLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/dimen_5"
+                                    android:background="#E8F6E9"
+                                    android:padding="@dimen/dimen_5"
+                                    android:visibility="gone">
+
+                                    <TextView
+                                        style="@style/TextViewStyle"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="@dimen/dimen_5"
+                                        android:fontFamily="@font/campton_book"
+                                        android:text="@string/you_saved" />
+
+                                    <TextView
+                                        android:id="@+id/tvTotalSaving"
+                                        style="@style/TextViewStyle"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="@dimen/dimen_5"
+                                        android:fontFamily="@font/campton_book"
+                                        android:text="₹ 0"
+                                        android:textColor="@color/colorGreenAmount" />
+
+
+                                </LinearLayout>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <LinearLayout
+            android:id="@+id/llButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/dimen_20"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:layout_marginRight="@dimen/dimen_20"
+            android:layout_marginBottom="@dimen/dimen_10"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/btnClearCart"
+                style="@style/ResetButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/dimen_10"
+                android:layout_weight="1"
+                android:text="@string/clear_cart"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btnPlaceOrder"
+                style="@style/ButtonBlueStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_10"
+                android:layout_weight="1"
+                android:text="@string/proceed"
+                android:textAllCaps="false" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</layout>

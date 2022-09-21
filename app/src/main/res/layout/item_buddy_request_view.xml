@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.buddyrequest.BuddyRequestItemViewModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_8"
+        android:layout_marginTop="@dimen/dimen_8"
+        android:layout_marginEnd="@dimen/dimen_8"
+        android:layout_marginBottom="@dimen/dimen_1"
+        android:background="@color/white"
+        app:cardCornerRadius="@dimen/dimen_4"
+        app:cardElevation="@dimen/dimen_0"
+        app:contentPadding="@dimen/dimen_0">
+        <!--        android:onClick="@{() -> viewModel.onItemClick()}"
+-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:baselineAligned="false"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/dimen_5"
+                android:paddingTop="@dimen/dimen_5"
+                android:paddingEnd="@dimen/dimen_5"
+                android:paddingBottom="@dimen/dimen_0">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight=".15">
+
+                    <TextView
+                        android:id="@+id/tvName"
+                        style="@style/TextViewStyle"
+                        android:layout_width="@dimen/dimen_45"
+                        android:layout_height="@dimen/dimen_45"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/bg_image_circle"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:fontFamily="@font/campton_semi_bold"
+                        android:gravity="center|center_vertical"
+                        android:text="@{viewModel.shortCode}"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_16"
+                        tools:text="RA" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/dimen_5"
+                    android:layout_weight=".80"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvDriverName"
+                        style="@style/TextViewStyle"
+                        android:ellipsize="end"
+                        android:lineSpacingExtra="-8dp"
+                        android:maxLines="2"
+                        android:text="@{viewModel.name}"
+                        android:textColor="@color/semi_gray_2"
+                        tools:text="Rahul Abrol accept your Track request." />
+
+                    <TextView
+                        android:id="@+id/tvDriverStatus"
+                        style="@style/TextViewStyle"
+                        android:fontFamily="@font/campton_book"
+                        android:text="@{viewModel.time}"
+                        android:textColor="@color/semi_gray"
+                        android:textSize="@dimen/text_size_12"
+                        tools:text="26 Sep, 2018 at 11:30 am" />
+                    <!--
+
+
+                    -->
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:orientation="horizontal"
+                android:padding="@dimen/dimen_5"
+                android:weightSum="1">
+
+                <Button
+                    style="@style/ButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_40"
+                    android:layout_marginEnd="@dimen/dimen_10"
+                    android:background="@drawable/bg_stroke_grey"
+                    android:backgroundTint="@color/green_1"
+                    android:fontFamily="@font/campton_book"
+                    android:onClick="@{()->viewModel.onAccept()}"
+                    android:text="@string/accept"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dimen_14" />
+
+                <Button
+                    style="@style/ButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_40"
+                    android:layout_marginStart="@dimen/dimen_10"
+                    android:background="@drawable/bg_stroke_red"
+                    android:fontFamily="@font/campton_book"
+                    android:onClick="@{()->viewModel.onReject()}"
+                    android:text="@string/reject"
+                    android:textColor="@color/red_dark5"
+                    android:textSize="@dimen/dimen_14" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

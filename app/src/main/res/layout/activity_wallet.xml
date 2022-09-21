@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.tracki.ui.wallet.WalletActivity">
+
+    <data>
+         <variable
+             name="adapter"
+             type="com.tracki.ui.wallet.WalletAdapter" />
+        <variable
+            name="data"
+            type="com.tracki.data.model.response.config.TransactionData" />
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/llMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="@color/colorPrimary">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/Toolbar"
+                app:contentInsetLeft="0dp"
+                app:contentInsetStart="0dp"
+                app:contentInsetStartWithNavigation="0dp"
+                app:titleTextColor="@color/white"
+                tools:title="@string/my_account" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+
+            android:scrollbars="none">
+
+            <RelativeLayout
+                android:layout_marginHorizontal="@dimen/dimen_10"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/rlbalance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    app:cardCornerRadius="@dimen/dimen_10"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/wallet_balance_bg_gradient"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="@dimen/dimen_20"
+                        android:paddingVertical="@dimen/dimen_20">
+
+                        <TextView
+                            android:id="@+id/tvTotalAmount"
+                            style="@style/TextViewStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{` ₹ `+data.balance}"
+                            tools:text="₹ 25,000.00"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_24" />
+
+                        <TextView
+                            style="@style/TextViewStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dimen_10"
+                            android:text="@string/available_balance"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_16" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/tv_recent"
+                    style="@style/TextViewStyle"
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rlbalance"
+                    android:layout_marginTop="@dimen/dimen_5"
+                    android:text="@string/recent_transaction"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_20" />
+
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_below="@+id/tv_recent"
+                    android:id="@+id/cardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10"
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    app:cardCornerRadius="@dimen/dimen_6"
+                    app:cardElevation="@dimen/dimen_2"
+
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <LinearLayout
+                            android:id="@+id/llAllData"
+                            android:layout_width="0dp"
+                            android:background="?attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:padding="@dimen/dimen_8">
+
+                            <TextView
+                                android:id="@+id/tvAllData"
+                                style="@style/TextViewStyle"
+                                android:layout_gravity="center"
+                                android:drawableEnd="@drawable/ic_tick_mark"
+                                android:drawablePadding="@dimen/dimen_4"
+                                android:fontFamily="@font/campton_semi_bold"
+                                android:text="@string/all"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/text_size_18" />
+
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="@dimen/dimen_1"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginTop="@dimen/dimen_10"
+                            android:layout_marginBottom="@dimen/dimen_10"
+                            android:background="@color/warm_gray_1" />
+
+                        <LinearLayout
+                            android:id="@+id/llDebitData"
+                            android:layout_width="0dp"
+                            android:background="?attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:padding="@dimen/dimen_8">
+
+                            <TextView
+                                android:id="@+id/tvDebitData"
+                                style="@style/TextViewStyle"
+                                android:layout_gravity="center"
+                                android:drawableEnd="@drawable/ic_tick_mark_uncheck"
+                                android:drawablePadding="@dimen/dimen_4"
+                                android:fontFamily="@font/campton_semi_bold"
+                                android:text="@string/debit"
+                                android:textColor="@color/gray"
+                                android:textSize="@dimen/text_size_18" />
+
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="@dimen/dimen_1"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginTop="@dimen/dimen_10"
+                            android:layout_marginBottom="@dimen/dimen_10"
+                            android:background="@color/warm_gray_1" />
+
+                        <LinearLayout
+                            android:id="@+id/llCreditData"
+                            android:layout_width="0dp"
+                            android:background="?attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:padding="@dimen/dimen_8">
+
+                            <TextView
+                                android:id="@+id/tvCreditData"
+                                style="@style/TextViewStyle"
+                                android:layout_gravity="center"
+                                android:drawableEnd="@drawable/ic_tick_mark_uncheck"
+                                android:drawablePadding="@dimen/dimen_4"
+                                android:fontFamily="@font/campton_semi_bold"
+                                android:text="@string/credit"
+                                android:textColor="@color/gray"
+                                android:textSize="@dimen/text_size_18" />
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/cardView"
+                    android:background="@color/white">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvTransaction"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/dimen_4"
+                        android:layout_marginTop="@dimen/dimen_4"
+                        android:layout_marginEnd="@dimen/dimen_4"
+                        android:layout_marginBottom="@dimen/dimen_4"
+                        android:nestedScrollingEnabled="true"
+                        android:orientation="vertical"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/item_row_transaction" />
+
+
+                </RelativeLayout>
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+    </LinearLayout>
+</layout>

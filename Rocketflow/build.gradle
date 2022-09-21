@@ -1,0 +1,261 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.jvm'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_7
+    targetCompatibility = JavaVersion.VERSION_1_7
+}
+
+ext {
+    // Sdk and tools
+    trackiAppId = "com.rocketflyer.rocketflow"
+
+    versionName = "1.8.4"
+    versionCode = 69
+    minSdkVersion = 19
+    targetSdkVersion = 30
+    compileSdkVersion = 30
+    buildToolsVersion = '28.k0.3'
+
+    // App dependencies
+    supportLibraryVersion = '28.0.0'
+    appcompatVersion = '1.1.0'
+    materialLibraryVersion = '1.2.0-alpha03'
+    constraintlayoutVersion = '1.1.3'
+    cardviewVersion = '1.0.0'
+    gsonVersion = '2.8.5'
+    retrofitVersion = '2.3.0'
+    calligraphyVersion = '2.2.0'
+    glideVersion = '4.10.0'
+    roomVersion = '2.3.0'
+    rx2FastAndroidNetworking = '1.0.1'
+
+    fab = '1.6.4'
+    workManagerVersions = "1.0.0"
+    mapUtilsVersion = '0.5'
+    googleMapsVersion = '17.0.0'
+    googlePlaceVersion = '2.1.0'
+    googleLocationVersion = '17.0.0'
+    // firebaseVersion = '20.1.0'
+    firebaseVersion = '20.1.7'
+    firebaseCoreVersion = '17.2.2'
+    dagger2Version = '2.21'
+    rxjava2Version = '2.1.9'
+    rxjava2adapterVersion = '1.0.0'
+    rxandroidVersion = '2.1.0'
+    placeholderviewVersion = '0.6.1'
+    debugDBVersion = '1.0.3'
+    timberVersion = '4.5.1'
+    lifecycleVersion = '2.2.0-rc03'
+    lifecycle = '2.2.0-rc03'
+    interceptor = '3.9.1'
+
+    // Test dependencies
+    junitVersion = '4.12'
+    espressoVersion = '3.0.1'
+    mockitoVersion = '2.15.0'
+
+    okhttpVersion = '3.7.0'
+    gsonVersion = '2.8.0'
+    webSocketVersion = '1.4.0'
+    trackthatVersion = '2.0.1'
+    fingerprintVersion = '1.0.7'
+    multidexVersion = '2.0.1'
+    signatureVersion = '1.2.1'
+    gms_version='18.1.0'
+    room_version = "2.3.0"
+    qr_code_version = "3.3.2"
+    qr_code_genrator_version = "1.0.4"
+    google_vision = "20.1.2"
+    shapeImageViewVersion = '0.9.3'
+    //  paging_version = "1.0.1"
+}
+
+android {
+    buildTypes {
+        debug {
+            buildConfigField("String", "BASE_URL", '"https://qa2.rocketflyer.in/api/secure/tracki/"')
+        }
+
+        qa {
+
+            debuggable false
+            shrinkResources false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "BASE_URL", '"https://qa2.rocketflyer.in/rfapi/secure/tracki/"')
+            signingConfig signingConfigs.config
+        }
+
+        uat {
+            debuggable true
+            shrinkResources false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "BASE_URL", '"https://uat.rocketflyer.in/rfapi/secure/tracki/"')
+
+        }
+        staging {
+            debuggable false
+            shrinkResources false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "BASE_URL", '"https://api.rocketflow.in/rfapi/secure/tracki/"')
+            signingConfig signingConfigs.config
+        }
+        release {
+            debuggable false
+            // shrinkResources false
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "BASE_URL", '"https://api.rocketflow.in/rfapi/secure/tracki/"')
+            signingConfig signingConfigs.config
+//            firebaseCrashlytics {
+//                mappingFileUploadEnabled false
+//            }
+        }
+    }
+}
+
+dependencies {
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.2'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.2'
+
+    // Core library
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    androidTestImplementation 'androidx.test:core:1.2.0'
+    // AndroidJUnitRunner and JUnit Rules
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    // Assertions
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    implementation 'com.google.android:flexbox:2.0.1'
+
+
+    //crashlytics
+//    implementation('com.crashlytics.sdk.android:crashlytics:2.9.9@aar') {
+//        transitive = true
+//        exclude group: 'com.android.support', module: 'support-annotations'
+//    }
+
+    // image
+    implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
+    kapt "com.github.bumptech.glide:compiler:$rootProject.glideVersion"
+
+    // parser
+    implementation "com.google.code.gson:gson:$rootProject.gsonVersion"
+
+    /*RxJava*/
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroidVersion"
+    implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxjava2Version"
+//    implementation "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$rootProject.rxjava2adapterVersion"
+
+    // interceptor
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.interceptor"
+
+    //Dependency injection
+    implementation "com.google.dagger:dagger:$rootProject.dagger2Version"
+    kapt "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
+    kapt "com.google.dagger:dagger-android-processor:$rootProject.dagger2Version"
+    implementation "com.google.dagger:dagger-android-support:$rootProject.dagger2Version"
+
+    //GoogleMaps
+    implementation "com.google.maps.android:android-maps-utils:$rootProject.mapUtilsVersion"
+    implementation "com.google.android.gms:play-services-maps:$rootProject.googleMapsVersion"
+    implementation "com.google.android.gms:play-services-location:$rootProject.googleLocationVersion"
+    implementation "com.google.android.libraries.places:places:$rootProject.googlePlaceVersion"
+
+    //Firebase
+    implementation "com.google.firebase:firebase-core:$rootProject.firebaseCoreVersion"
+    implementation "com.google.firebase:firebase-messaging:$rootProject.firebaseVersion"
+
+    //FloatActionButton
+    implementation "com.github.clans:fab:$rootProject.fab"
+
+    //TrackThat SDK
+    implementation "org.bitbucket.brahmarf:trackthat-core-sdk:$rootProject.trackthatVersion"
+
+    //multidex
+    implementation "androidx.multidex:multidex:$rootProject.multidexVersion"
+
+    // socket chat
+    implementation "org.java-websocket:Java-WebSocket:$rootProject.webSocketVersion"
+
+    //signaturePad
+    implementation "com.github.gcacace:signature-pad:$rootProject.signatureVersion"
+
+    //support & material design libraries for AndroidX
+    implementation "androidx.appcompat:appcompat:$rootProject.appcompatVersion"
+    implementation "androidx.core:core-ktx:$rootProject.appcompatVersion"
+    implementation "com.google.android.material:material:$rootProject.materialLibraryVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    //constraintlayout
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintlayoutVersion"
+
+    //cardview
+    implementation "androidx.cardview:cardview:$rootProject.cardviewVersion"
+
+    // view model
+    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.lifecycle"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$rootProject.lifecycleVersion"
+
+    annotationProcessor "android.arch.lifecycle:compiler:$rootProject.lifecycle"
+    kapt "android.arch.lifecycle:compiler:$rootProject.lifecycle"
+
+    //swipeto refresh
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
+
+    //fingerprint library
+    implementation "com.github.rahulabrol:Android-Fingerprint:$rootProject.fingerprintVersion"
+
+    implementation 'io.apisense:rhino-android:1.1.1'
+
+    implementation 'com.iceteck.silicompressorr:silicompressor:2.1'
+
+
+//    compile 'com.github.kapilmhr:Compressor:1.0.1'
+
+//    implementation 'com.github.sushinpv:SuziVideoThumbnailLoader:0.1.0'
+    //Firebase crashlytic
+    // Recommended: Add the Firebase SDK for Google Analytics.
+    //implementation 'com.google.firebase:firebase-analytics:17.3.0'
+    implementation 'com.google.firebase:firebase-analytics:17.4.1'
+    //implementation 'com.facebook.stetho:stetho:1.5.1'
+    // Add the Firebase SDK for Crashlytics.
+    implementation 'com.google.firebase:firebase-crashlytics:17.2.2'
+    // implementation "android.arch.paging:runtime:$rootProject.paging_version"
+    implementation "com.google.android.gms:play-services-auth:$rootProject.gms_version"
+
+    def work_version = "1.0.1"
+    implementation "android.arch.work:work-runtime:$work_version"
+
+//    implementation "android.arch.persistence.room:runtime:$rootProject.room_version"
+//    annotationProcessor "android.arch.persistence.room:compiler:$rootProject.room_version"
+//  //  kapt "android.arch.persistence.room:compiler:$rootProject.room_version"
+//    kapt "androidx.room:room-compiler:$rootProject.room_version"
+
+
+    implementation "androidx.room:room-runtime:2.3.0"
+    kapt "androidx.room:room-compiler:2.3.0"
+
+    /* implementation "androidx.room:room-runtime:2.3.0"
+     kapt "androidx.room:room-compiler:2.3.0"*/
+    implementation "androidmads.library.qrgenearator:QRGenearator:$rootProject.qr_code_genrator_version"
+    implementation "com.google.zxing:core:$rootProject.qr_code_version"
+    implementation "com.google.android.gms:play-services-vision:$rootProject.google_vision"
+    implementation "com.github.siyamed:android-shape-imageview:$shapeImageViewVersion"
+
+    implementation 'com.google.android.gms:play-services-base:11.6.0'
+    implementation 'com.google.android.gms:play-services-auth-api-phone:11.6.0'
+
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0-alpha'
+
+//    implementation 'com.razorpay:checkout:1.6.12'
+
+}

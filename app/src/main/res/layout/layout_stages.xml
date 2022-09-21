@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="data"
+            type="com.tracki.data.model.response.config.DashBoardBoxItem" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/rlMain"
+            android:layout_marginRight="@dimen/dimen_8"
+            android:background="@drawable/selected_stage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivChecked"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tvStageName"
+                style="@style/TextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/dimen_10"
+                android:paddingTop="@dimen/dimen_6"
+                android:paddingRight="@dimen/dimen_10"
+                android:paddingBottom="@dimen/dimen_6"
+                android:text="@{data.stageName}"
+                android:textSize="@dimen/text_size_12" />
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>

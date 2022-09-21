@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="data"
+            type="com.tracki.data.model.response.config.AttendanceStatusData" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewMain"
+        android:layout_marginLeft="@dimen/dimen_10"
+        android:layout_width="@dimen/dimen_90"
+        android:layout_height="@dimen/dimen_40"
+        app:cardCornerRadius="@dimen/dimen_3"
+        app:cardElevation="@dimen/dimen_0">
+
+        <LinearLayout
+            android:background="@{data.isSelected ?@drawable/attendance_checked:@drawable/bg_user_attendance_type}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvLabelAttendanceType"
+                android:textColor="@{data.isSelected ?@color/white:@color/colorPrimary}"
+                style="@style/TextViewStyle"
+                android:fontFamily="@font/campton_book"
+                android:text="@{data.status}"
+                android:textSize="@dimen/text_size_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

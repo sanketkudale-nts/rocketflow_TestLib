@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.tracki.ui.splash.SplashActivity">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.splash.SplashViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/rlMain"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/ivSplashLogo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:contentDescription="@null"
+            android:paddingRight="@dimen/dimen_20"
+            app:srcCompat="@drawable/ic_rocket_flow" />
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/contentProgressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/tvLabel"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/dimen_30"
+            android:padding="@dimen/dimen_5"
+            android:theme="@style/AppTheme.BlackAccent"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/tvLabel"
+            style="@style/TextViewItalic"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/dimen_20"
+            android:text="@string/made_in_india"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_size_30" />
+
+    </RelativeLayout>
+</layout>

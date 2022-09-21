@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dimen_200"
+    android:layout_margin="@dimen/dimen_20"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="@dimen/dimen_20">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/TextViewStyle"
+            android:layout_marginTop="@dimen/dimen_20"
+            android:layout_gravity="center_horizontal"
+            android:text="Do you want  ?"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:id="@+id/llrecord"
+            android:padding="@dimen/dimen_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivRecord"
+                app:srcCompat="@drawable/ic_video_call"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tvRecord"
+                android:layout_marginLeft="@dimen/dimen_20"
+                style="@style/TextViewStyle"
+                android:text="Record Video"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <View
+            android:background="@color/light_gray"
+            android:layout_width="match_parent"
+            android:layout_height="0.8dp"/>
+        <LinearLayout
+            android:id="@+id/llChooseGallery"
+            android:padding="@dimen/dimen_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivGallery"
+                app:srcCompat="@drawable/ic_gallery_chooser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tvGallery"
+                android:layout_marginLeft="@dimen/dimen_20"
+                style="@style/TextViewStyle"
+                android:text="Choose from Gallery"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

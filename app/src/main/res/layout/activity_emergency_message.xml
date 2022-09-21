@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.tracki.ui.emergencymessage.EmergencyMessageActivity">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.emergencymessage.EmergencyMessageViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            app:elevation="@dimen/dimen_0">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/Toolbar"
+                app:contentInsetLeft="0dp"
+                app:contentInsetStart="0dp"
+                app:contentInsetStartWithNavigation="0dp"
+                app:titleTextColor="@color/white"
+                tools:title="@string/emergency_contacts" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".20"
+                    android:background="@color/colorPrimary" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".70"
+                    android:background="@color/bg_color_3" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/dimen_10"
+                android:layout_marginTop="@dimen/dimen_40"
+                android:layout_marginEnd="@dimen/dimen_10"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/tvMessage"
+                    style="@style/TextViewStyle"
+                    android:padding="@dimen/dimen_8"
+                    android:layout_marginStart="@dimen/dimen_8"
+                    android:text="@string/message_to_be_sent_in_case_of_emergency"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_size_14" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvMessage"
+                    android:layout_marginStart="@dimen/dimen_8"
+                    android:layout_marginTop="@dimen/dimen_20"
+                    android:layout_marginEnd="@dimen/dimen_8"
+                    android:layout_marginBottom="@dimen/dimen_1"
+                    android:orientation="vertical"
+                    app:cardBackgroundColor="@color/bg_color_3"
+                    app:cardCornerRadius="@dimen/dimen_5"
+                    app:cardElevation="@dimen/dimen_2">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/bg_color_3"
+                        android:orientation="horizontal"
+                        android:paddingStart="@dimen/dimen_10"
+                        android:paddingTop="@dimen/dimen_5"
+                        android:paddingEnd="@dimen/dimen_10"
+                        android:paddingBottom="@dimen/dimen_10">
+
+
+                        <EditText
+                            android:autofillHints="@null"
+                            android:id="@+id/edHelp"
+                            style="@style/EditTextStyle"
+                            android:layout_marginTop="@dimen/dimen_10"
+                            android:background="@color/white"
+                            android:inputType="text"
+                            android:maxLines="2"
+                            android:padding="@dimen/dimen_8"
+                            android:text="I am in trouble. Please help me"
+                            app:backgroundTint="@color/white"
+                            tools:targetApi="o"
+                            tools:ignore="LabelFor" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/edHelp"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/dimen_8"
+                            android:layout_marginTop="@dimen/dimen_10"
+                            android:layout_marginEnd="@dimen/dimen_8"
+                            android:layout_marginBottom="@dimen/dimen_10"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvLocation"
+                                style="@style/TextViewStyle"
+                                android:lineSpacingExtra="-4dip"
+                                android:lines="2"
+                                android:padding="@dimen/dimen_0"
+                                android:text="@string/current_location_text"
+                                android:textColor="@color/semi_gray_2"
+                                android:textSize="@dimen/text_size_14"
+                                tools:text="Current location XXX XXX |\n Follow the link to view in map" />
+
+
+                            <TextView
+                                android:id="@+id/tvLocationLink"
+                                style="@style/TextViewStyle"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:lineSpacingExtra="-1dip"
+                                android:maxLines="3"
+                                android:text="@string/location_genrated"
+                                android:textColor="#4a90e2"
+                                android:textSize="@dimen/text_size_12"
+                                tools:text="location integrated gps link here" />
+
+
+                            <TextView
+                                android:id="@+id/tvTime"
+                                style="@style/TextViewStyle"
+                                android:layout_marginTop="@dimen/dimen_8"
+                                android:lineSpacingExtra="-1dip"
+                                android:maxLines="3"
+                                android:textColor="@color/semi_gray_2"
+                                android:textSize="@dimen/text_size_12"
+                                tools:text="Sent at 13:24  | 18 June, 2018" />
+                        </LinearLayout>
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
+        </FrameLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

@@ -1,0 +1,80 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.chat.MeItemViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/rlMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="8dp">
+
+        <RelativeLayout
+            android:layout_width="@dimen/dimen_200"
+            android:layout_height="@dimen/dimen_100"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/my_message">
+
+            <ImageView
+                android:id="@+id/ivThumbNel"
+                android:src="@drawable/sample_imag"
+                android:scaleType="centerCrop"
+                android:padding="@dimen/dimen_15"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_50"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/pdf_view">
+
+                <ImageView
+                    android:id="@+id/ivDocLogo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:padding="@dimen/dimen_10"
+                    app:srcCompat="@drawable/ic_pdf_doc_test" />
+
+                <TextView
+                    android:id="@+id/fileName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10"
+
+                    android:layout_toRightOf="@+id/ivDocLogo"
+                    android:gravity="end"
+                    android:textSize="@dimen/text_size_10"
+                    android:textColor="@color/white"
+                    tools:text="Vikas.pdf" />
+
+
+                <TextView
+                    android:id="@+id/messageTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/fileName"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="@dimen/dimen_4"
+                    android:layout_marginBottom="@dimen/dimen_5"
+                   android:layout_marginRight="@dimen/dimen_10"
+                    android:gravity="end"
+                    android:text="@{viewModel.time}"
+                    android:textColor="@color/white_four"
+                    tools:text="12:21" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>

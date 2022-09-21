@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.tracki.ui.main.MainActivity">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.main.MainViewModel" />
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <fragment
+            android:id="@+id/map"
+            class="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/custom_toolbar" />
+
+        <LinearLayout
+            android:id="@+id/taskAssignConfirmation"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_marginStart="@dimen/dimen_15"
+            android:layout_marginTop="-60dp"
+            android:layout_marginEnd="@dimen/dimen_15"
+            android:background="@drawable/bg_black_round_corner"
+            android:gravity="center"
+            android:padding="@dimen/dimen_8"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/tvMessage"
+                style="@style/TextViewStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".85"
+                android:lineSpacingExtra="-2dip"
+                android:text="@string/your_task_has_been_assigned_successfully_to"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_14"
+                tools:targetApi="p"
+                tools:text="Your task has been assigned successfully to Rahul Abrol" />
+
+            <ImageView
+                android:id="@+id/ivCross"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".15"
+                android:contentDescription="@null"
+                android:scaleType="center"
+                app:srcCompat="@drawable/ic_cross_white" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlayoutLiveTrip"
+            android:layout_width="@dimen/dimen_120"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="@dimen/dimen_80"
+            android:background="@drawable/bg_left_round_corner"
+            android:duplicateParentState="true"
+            android:elevation="@dimen/dimen_8"
+            android:gravity="start"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/iv"
+                android:layout_width="@dimen/dimen_50"
+                android:layout_height="@dimen/dimen_50"
+                android:layout_alignParentStart="true"
+                android:contentDescription="@null"
+                android:padding="@dimen/dimen_10"
+                android:tint="@color/white"
+                app:srcCompat="@drawable/ic_destination" />
+
+            <TextView
+                style="@style/TextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/dimen_10"
+                android:layout_toEndOf="@+id/iv"
+                android:text="@string/live_trip"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_12"
+                tools:text="Live Trip" />
+        </RelativeLayout>
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="?android:attr/actionBarSize">
+
+            <!-- Adding bottom sheet after main content -->
+            <include
+                android:id="@+id/bottomSheet"
+                layout="@layout/bottom_sheet_dashboard" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/ivDashboardNavigation"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="@dimen/dimen_30"
+            android:layout_marginBottom="@dimen/dimen_80"
+            app:fab_size="normal"
+            app:layout_anchor="@+id/bottomSheet"
+            app:layout_anchorGravity="bottom|end"
+            app:srcCompat="@drawable/ic_arrow" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

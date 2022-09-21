@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlayout"
+    android:layout_marginLeft="@dimen/dimen_16"
+    android:layout_marginRight="@dimen/dimen_16"
+    android:layout_margin="@dimen/dimen_8"
+    android:layout_marginBottom="@dimen/dimen_8"
+    android:layout_width="match_parent"
+    android:paddingLeft="@dimen/dimen_8"
+    android:paddingRight="@dimen/dimen_8"
+    android:layout_height="wrap_content"
+   >
+
+    <RelativeLayout
+        android:visibility="visible"
+        android:id="@+id/rlProgress"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            style="@style/TextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/Upload_Image"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_size_16"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:fontFamily="@font/campton_semi_bold" />
+
+        <ProgressBar
+            android:id="@+id/pb_loading"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvTitle"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:max="100"
+            android:padding="@dimen/dimen_5"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pb_loading"
+            android:layout_margin="@dimen/dimen_10"
+            android:layout_marginTop="@dimen/dimen_20">
+
+            <TextView
+                android:id="@+id/tvPercentage"
+                style="@style/TextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10%" />
+
+            <TextView
+                android:id="@+id/currentStatusText"
+                style="@style/TextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="3/10" />
+        </RelativeLayout>
+    </RelativeLayout>
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/rlSubmittingData"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tvSendingData"
+            style="@style/TextViewStyle"
+            android:layout_centerHorizontal="true"
+            android:text="@string/sending_data"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_size_16"
+            android:fontFamily="@font/campton_semi_bold"
+            android:paddingTop="@dimen/dimen_10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_below="@+id/tvSendingData"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:indeterminateBehavior="repeat"
+            android:layout_marginBottom="@dimen/dimen_20"
+            android:indeterminate="true"
+            android:indeterminateTintMode="src_atop"
+            android:indeterminateTint="@color/colorPrimary"/>
+    </RelativeLayout>
+
+</RelativeLayout>

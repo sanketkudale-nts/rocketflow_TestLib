@@ -1,0 +1,3 @@
+package com.tracki.ui.trackingbuddy
+
+interface TrackingBuddyNavigator

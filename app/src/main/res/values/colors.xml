@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <color name="colorPrimary">#3581F3</color>
+    <color name="colorPrimaryDark">#BF3581F3</color>
+    <color name="colorPrimaryDark_10">#B33581F3</color>
+    <color name="colorAccent">#3581F3</color>
+    <color name="semitransparent">#33000000</color>
+    <color name="light_blue">#DFDDF9</color>
+    <!--<color name="colorPrimary">#056cc3</color>-->
+    <!--<color name="colorPrimaryDark">#084e8a</color>-->
+    <!--<color name="colorPrimaryDark_10">#1A084e8a</color>-->
+    <color name="blue">#3581F3</color>
+    <color name="blue_1">#1e81ce</color>
+    <color name="brown">#9E682A</color>
+
+    <!--<color name="light_blue">#1894fe</color>-->
+    <!--<color name="light_blue_1">#1a91f7</color>-->
+    <color name="light_blue_2">#49a0ea</color>
+    <color name="light_blue_3">#1A80DB</color>
+    <color name="light_blue_4">#4a90e2</color>
+    <color name="light_blue_5">#9DC8FB</color>
+    <color name="warm_gray">#8d8d8d</color>
+    <color name="warm_gray_1">#d8d8d8</color>
+    <color name="warm_gray_2">#cbcbcb</color>
+    <color name="warm_gray_3">#696969</color>
+    <color name="light_gray_a">#cbcbcb</color>
+    <color name="slider_bolls">#F4F4F4</color>
+    <color name="light_gray_b">#878787</color>
+    <color name="light_gray_c">#e6e6e6</color>
+    <color name="light_gray_d">#7d7a7a</color>
+    <color name="light_gray_e">#dddbdb</color>
+    <color name="light_gray_f">#d3d3d3</color>
+    <color name="light_gray">#dbdbdb</color>
+    <color name="gray">#3d3d3d</color>
+    <color name="warm_grey_two">#9c9c9c</color>
+    <color name="active_grey">#F0F2F4</color>
+    <color name="gray_dark">#828282</color>
+    <color name="my_chat">#803581F3</color>
+    <color name="description">#D6E4F4</color>
+    <color name="semi_gray">#9b9b9b</color>
+    <color name="team_arrow_color">#3581F3</color>
+    <color name="windowBackgroundColor">#F2F2F2</color>
+    <color name="semi_gray_2">#4a4a4a</color>
+    <!--<color name="semi_gray_3">#747374</color>-->
+    <!--<color name="semi_gray_4">#5d5b5b</color>-->
+    <color name="semi_gray_5">#eae8e8</color>
+    <color name="semi_gray_6">#cfcfcf</color>
+    <color name="semi_gray_7">#d5d3d3</color>
+    <color name="dark_gray">#777777</color>
+    <color name="dark_gray2">#575b5e</color>
+    <color name="gray_selfie_btn">#d9d9d9</color>
+    <color name="bg_color">#f7f7f7</color>
+    <color name="bg_color_2">#fafafa</color>
+    <color name="bg_color_3">#F2F2F2</color>
+    <color name="black">#000000</color>
+    <color name="black_opaque">#70000000</color>
+    <color name="white_four">#e0e0e0</color>
+    <color name="ivory">#f8efe6</color>
+    <color name="white">#ffffff</color>
+    <color name="black_effective">#2a2a2a</color>
+    <color name="shadow">#d0d8dc</color>
+    <color name="transparent">#00000000</color>
+    <color name="translucent_white">#88ffffff</color>
+    <color name="fb">#3b5998</color>
+    <color name="google">#d34836</color>
+    <color name="thumb_tint">#3BE731</color>
+    <color name="seek_bar_background">#ffffff</color>
+    <color name="seek_bar_progress">#3BE731</color>
+    <color name="seek_bar_secondary_progress">#3399CC</color>
+    <!--Design colors-->
+    <!--<color name="red_dark">#F06423</color>-->
+    <!--<color name="red_dark2">#D85A1B</color>-->
+    <color name="red_dark3">#d44a4a</color>
+    <color name="red_dark4">#d0021b</color>
+    <color name="red_dark5">#f31631</color>
+    <color name="red_dark6">#b14f4e</color>
+
+    <!--<color name="cyan_light">#c9ebee</color>-->
+    <!--<color name="cyan">#b5e3e7</color>-->
+    <!--<color name="cyan_dark">#70BDC6</color>-->
+    <!--<color name="navy_blue">#214258</color>-->
+    <!--<color name="navy_blue_dark">#1C3A4E</color>-->
+    <color name="green">#41bf51</color>
+    <color name="totalStockInColor">#1E9CD7</color>
+    <color name="totalStockOutColor">#B02626</color>
+    <color name="green_google_button">#1F7B4A</color>
+    <color name="green_button">#41bf51</color>
+    <color name="green_present">#23D47D</color>
+    <color name="green_1">#7ed321</color>
+    <color name="green_2">#92d051</color>
+    <color name="green_punch_btn">#92d14f</color>
+    <!--<color name="light_green">#78DC96</color>-->
+    <color name="light_blue1">#55C8F0</color>
+    <color name="light_blue2">#deeaf6</color>
+    <color name="dark_blue">#2c75b9</color>
+    <color name="blue_punch">#517daa</color>
+
+    <!--<color name="blue_black_dark">#13171d</color>-->
+    <!--<color name="blue_black_light">#516179</color>-->
+    <!--<color name="blue_grey_light">#A5B4C8</color>-->
+    <color name="blue_light_1">#9bc9ff</color>
+    <color name="orange">#FFA500</color>
+    <color name="yellow">#fff44f</color>
+    <color name="yellow2">#FFFF00</color>
+    <color name="yellow_dark">#ecc01f </color>
+    <color name="yellow_punch_btn">#FFB916</color>
+    <color name="bg_recycler_view">#f2f1f1</color>
+    <color name="bg_color_4">#FBFAFB</color>
+    <color name="prod_details_grey">#ECECEC</color>
+    <color name="light_blue_bg">#cee0d8</color>
+    <color name="time_line">#4F518F</color>
+    <color name="text_color_current_state" tools:ignore="MissingDefaultResource">#E4B32C</color>
+    <color name="booking_id" tools:ignore="MissingDefaultResource">#D6E4F4</color>
+    <color name="booking_details_id" tools:ignore="MissingDefaultResource">#3581F3</color>
+
+
+    <color name="disable_forground_grey">#42221f1f</color>
+    <color name="enable_thumb_green">#41bf51</color>
+    <color name="disable_thumb_grey">#f1f1f1</color>
+    <color name="gray_time">#AFB8C0</color>
+    <color name="md_grey_50">#FAFAFA</color>
+    <color name="md_grey_100">#F5F5F5</color>
+    <color name="md_grey_200">#EEEEEE</color>
+    <color name="md_grey_300">#E0E0E0</color>
+    <color name="md_grey_400">#BDBDBD</color>
+    <color name="md_grey_500">#A9A9A9</color>
+    <color name="md_grey_600">#8B8B8B</color>
+    <color name="md_grey_700">#595959</color>
+
+    <color name="colorBackArrow">#000000</color>
+    <color name="colorBackMenuIcon">#000000</color>
+    <color name="colorOtpBgStroke">#BDBDBD</color>
+    <color name="colorTextGreyPunch">#4E4C4C</color>
+    <color name="taskCreateIconColor">#707070</color>
+    <color name="colorGreenAmount">#39BB7B</color>
+
+    <color name="inc_dcr_color">#e5e5e5</color>
+    <color name="text_gray">#9B9B9B</color>
+    <color name="toggle_off">#BEBCBD</color>
+    <color name="toggle_bg">#A7D4FF</color>
+    <color name="toggle_off_text_color">#828282</color>
+    <color name="custom_edit_bg_color">#E4F2FF</color>
+    <color name="select_drop_text_color">#7DA2DB</color>
+    <color name="et_stork_color">#A7D4FF</color>
+    <color name="selected_file_text_color">#3F4D66</color>
+</resources>

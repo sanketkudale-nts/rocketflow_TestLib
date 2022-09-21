@@ -1,0 +1,12 @@
+<vector android:height="22dp" android:viewportHeight="23.563"
+    android:viewportWidth="23.563" android:width="22dp" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="@color/taskCreateIconColor" android:pathData="M10.393,0h2.777L13.17,1.945h-2.777ZM10.393,0"/>
+    <path android:fillColor="@color/taskCreateIconColor" android:pathData="M17.299,9.976L6.263,9.976a1.391,1.391 0,0 0,1.361 1.114h8.314a1.39,1.39 0,0 0,1.361 -1.114ZM17.299,9.976"/>
+    <path android:fillColor="@color/taskCreateIconColor" android:pathData="M16.629,12.472h2.776v1.945h-2.776ZM16.629,12.472"/>
+    <path android:fillColor="@color/taskCreateIconColor" android:pathData="M4.157,12.472h2.777v1.945L4.157,14.417ZM4.157,12.472"/>
+    <path android:fillColor="@color/taskCreateIconColor" android:pathData="M17.327,1.388A1.39,1.39 0,0 0,15.936 0h-1.388L14.548,2.635a0.69,0.69 0,0 1,-0.69 0.69h-4.157a0.69,0.69 0,0 1,-0.69 -0.69L9.011,0h-1.388A1.39,1.39 0,0 0,6.236 1.388L6.236,8.6h11.091ZM17.327,1.388"/>
+    <path android:fillColor="@color/taskCreateIconColor" android:pathData="M1.388,23.562h8.314a1.39,1.39 0,0 0,1.361 -1.114L0.027,22.448a1.391,1.391 0,0 0,1.361 1.114ZM1.388,23.562"/>
+    <path android:fillColor="@color/taskCreateIconColor" android:pathData="M22.172,12.472h-1.388v2.635a0.69,0.69 0,0 1,-0.69 0.69h-4.157a0.69,0.69 0,0 1,-0.69 -0.69L15.247,12.472h-1.388A1.39,1.39 0,0 0,12.472 13.86L12.472,21.072h11.091v-7.208A1.39,1.39 0,0 0,22.172 12.472ZM22.172,12.472"/>
+    <path android:fillColor="@color/taskCreateIconColor" android:pathData="M13.86,23.562h8.314a1.39,1.39 0,0 0,1.361 -1.114L12.502,22.448A1.39,1.39 0,0 0,13.86 23.562ZM13.86,23.562"/>
+    <path android:fillColor="@color/taskCreateIconColor" android:pathData="M9.7,12.472L8.314,12.472v2.635a0.69,0.69 0,0 1,-0.69 0.69L3.467,15.797a0.69,0.69 0,0 1,-0.69 -0.69L2.777,12.472L1.388,12.472A1.39,1.39 0,0 0,0 13.86L0,21.072L11.091,21.072v-7.208A1.39,1.39 0,0 0,9.7 12.472ZM9.7,12.472"/>
+</vector>

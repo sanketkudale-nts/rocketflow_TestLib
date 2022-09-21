@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.tracki.ui.category.ProductDescription" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/dimen_5"
+        app:cardUseCompatPadding="true"
+        app:contentPadding="@dimen/dimen_10">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_marginLeft="@dimen/dimen_5"
+                android:id="@+id/tvHeading"
+                style="@style/TextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/llEdit"
+                android:text="@{data.heading}"
+                tools:text="Heading" />
+
+            <TextView
+                android:layout_marginLeft="@dimen/dimen_5"
+                android:id="@+id/tvContent"
+                style="@style/TextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llEdit"
+                android:layout_marginTop="@dimen/dimen_2"
+                android:text="@{data.content}"
+                android:textColor="@color/semi_gray"
+                tools:text="@string/by_choosing_i_agree_text" />
+
+
+            <LinearLayout
+                android:id="@+id/llEdit"
+                android:layout_alignParentEnd="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/ivThreeDot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tint="@color/semi_gray"
+                    app:srcCompat="@drawable/ic_three_dots" />
+
+
+
+            </LinearLayout>
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

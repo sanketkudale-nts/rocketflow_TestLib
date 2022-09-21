@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.consent.ConsentActivity">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.consent.ConsentViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/dimen_10"
+            android:layout_marginEnd="@dimen/dimen_10"
+            android:layout_marginBottom="@dimen/dimen_10"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/ivLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dimen_130"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="@null"
+
+                android:scaleType="centerInside"
+                android:layout_marginRight="@dimen/dimen_30"
+                android:layout_marginLeft="@dimen/dimen_30"
+                app:srcCompat="@drawable/ic_rocket_flow" />
+
+            <TextView
+                android:id="@+id/tvLabel"
+                style="@style/TextViewStyle"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/dimen_30"
+                android:fontFamily="@font/campton_semi_bold"
+                android:text="@string/please_review_the_data_retention_policy"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tvDetail"
+                style="@style/TextViewStyle"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/dimen_20"
+                android:fontFamily="@font/campton_light"
+                android:gravity="start"
+                android:text="@string/tracki_collects_your_location_movement_data_text"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tvPrivacyPolicy"
+                style="@style/TextViewStyle"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/dimen_30"
+                android:fontFamily="@font/campton_light"
+                android:gravity="center"
+                android:text="@string/for_more_information_text"
+                android:textSize="@dimen/text_size_14" />
+
+            <TextView
+                android:id="@+id/tvChoose"
+                style="@style/TextViewStyle"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/dimen_30"
+                android:fontFamily="@font/campton_light"
+                android:gravity="center"
+                android:text="@string/by_choosing_i_agree_text"
+                android:textSize="@dimen/text_size_14" />
+
+            <LinearLayout
+                android:id="@+id/lll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_20"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnDecline"
+                    style="@style/ButtonStyle"
+                    android:layout_marginEnd="@dimen/dimen_20"
+                    android:backgroundTint="@color/semi_gray"
+                    android:elevation="@dimen/dimen_8"
+                    android:onClick="@{() -> viewModel.onDeclineClick()}"
+                    android:paddingStart="@dimen/dimen_20"
+                    android:paddingEnd="@dimen/dimen_20"
+                    android:text="@string/decline"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/text_size_18" />
+
+                <Button
+                    android:id="@+id/btnAgree"
+                    style="@style/ButtonStyle"
+                    android:layout_marginStart="@dimen/dimen_20"
+                    android:elevation="@dimen/dimen_8"
+                    android:onClick="@{() -> viewModel.onAgreeClick()}"
+                    android:paddingStart="@dimen/dimen_20"
+                    android:paddingEnd="@dimen/dimen_20"
+                    android:text="@string/agree"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/text_size_18" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

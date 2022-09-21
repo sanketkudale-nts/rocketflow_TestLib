@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.addfleet.AddFleetActivityViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            app:elevation="@dimen/dimen_0">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/Toolbar"
+                app:contentInsetLeft="0dp"
+                app:contentInsetStart="0dp"
+                app:contentInsetStartWithNavigation="0dp"
+                app:titleTextColor="@color/white"
+                tools:title="@string/add_fleet" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight=".25"
+                        android:background="@color/colorPrimary" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight=".75"
+                        android:background="@color/white"
+                        android:gravity="bottom">
+
+                        <Button
+                            android:id="@+id/btnSendInvite"
+                            style="@style/ButtonStyle"
+                            android:layout_width="match_parent"
+                            android:layout_marginStart="@dimen/dimen_40"
+                            android:layout_marginEnd="@dimen/dimen_40"
+                            android:layout_marginBottom="@dimen/dimen_40"
+                            android:onClick="@{() -> viewModel.onSubmitClick()}"
+                            android:text="@string/submit"
+                            android:textSize="@dimen/text_size_18" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_15"
+                    android:layout_marginTop="@dimen/dimen_50"
+                    android:layout_marginEnd="@dimen/dimen_15"
+                    android:layout_marginBottom="@dimen/dimen_15"
+                    app:cardCornerRadius="@dimen/dimen_6"
+                    app:cardElevation="@dimen/dimen_4"
+                    app:contentPadding="@dimen/dimen_15">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_10"
+                        android:layout_marginBottom="@dimen/dimen_10"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <EditText
+                                android:id="@+id/edRegistrationNo"
+                                style="@style/EditTextStyle"
+                                android:hint="@string/registration_no"
+                                android:inputType="text"
+                                android:maxLength="30"
+                                app:backgroundTint="@color/light_gray_a" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dimen_15">
+
+                            <EditText
+                                android:id="@+id/edModel"
+                                style="@style/EditTextStyle"
+                                android:hint="@string/model"
+                                android:inputType="textCapWords"
+                                android:maxLength="50"
+                                app:backgroundTint="@color/light_gray_a" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dimen_15"
+                            android:layout_marginBottom="@dimen/dimen_15"
+                            android:background="@drawable/bg_upload"
+                            android:weightSum="1">
+
+                            <TextView
+                                android:id="@+id/tvFleetPicUrl"
+                                style="@style/TextViewStyle"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight=".65"
+                                android:fontFamily="@font/campton_light"
+                                android:gravity="center_vertical"
+                                android:lineSpacingExtra="1dip"
+                                android:maxLines="2"
+                                android:padding="@dimen/dimen_5"
+                                android:textColor="@color/dark_gray"
+                                tools:text="fleet picture url" />
+
+                            <Button
+                                android:id="@+id/btnUpload"
+                                style="@style/ButtonStyle"
+                                android:layout_width="0dp"
+                                android:layout_weight=".35"
+                                android:background="@color/colorPrimary"
+                                android:onClick="@{() -> viewModel.onUploadClick()}"
+                                android:text="@string/Upload"
+                                android:textSize="@dimen/text_size_16" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </FrameLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

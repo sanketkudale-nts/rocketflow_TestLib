@@ -1,0 +1,3 @@
+package com.rocketflyer.rocketflow.ui.trackingbuddy
+
+interface TrackingBuddyNavigator

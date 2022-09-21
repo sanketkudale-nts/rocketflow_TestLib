@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="android.text.TextUtils" />
+
+        <variable
+            name="data"
+            type="com.tracki.data.model.response.config.ProductOrder" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/rvProduct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/ivProduct"
+                    android:layout_width="@dimen/dimen_90"
+                    android:layout_height="@dimen/dimen_70"
+                    app:srcCompat="@drawable/ic_picture" />
+
+                <RelativeLayout
+                    android:id="@+id/rlMoreImage"
+                    android:layout_width="@dimen/dimen_90"
+                    android:layout_height="@dimen/dimen_70"
+                    android:background="@drawable/gradient_bg">
+
+                    <TextView
+                        android:id="@+id/tvMoreImage"
+                        style="@style/TextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginRight="@dimen/dimen_5"
+                        android:layout_marginBottom="@dimen/dimen_5"
+                        android:fontFamily="@font/campton_light"
+                        android:text="@string/more_plus"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_11"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/llData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dimen_15"
+                android:layout_toRightOf="@+id/rvProduct"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:visibility="@{TextUtils.isEmpty(data.productName)?View.GONE:View.VISIBLE}">
+
+                    <TextView
+                        style="@style/TextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/reg_no"
+                        android:textSize="@dimen/text_size_12" />
+
+                    <TextView
+                        android:id="@+id/tvProductName"
+                        style="@style/TextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_4"
+                        android:text="@{data.productName}"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_10"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:paddingTop="@dimen/dimen_5"
+                        android:paddingBottom="@dimen/dimen_5"
+                        android:paddingRight="@dimen/dimen_10"
+                        android:paddingLeft="@dimen/dimen_10"
+                        android:gravity="center"
+                        tools:text="XUV" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:visibility="@{TextUtils.isEmpty(data.categoryName)?View.GONE:View.VISIBLE}">
+
+                    <TextView
+                        style="@style/TextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/type"
+                        android:textSize="@dimen/text_size_12" />
+
+                    <TextView
+                        android:id="@+id/tvProductType"
+                        style="@style/TextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_4"
+                        android:text="@{data.categoryName}"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_10"
+                        tools:text="CAR" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:visibility="@{TextUtils.isEmpty(data.upcNumber)?View.GONE:View.VISIBLE}">
+
+                    <TextView
+                        style="@style/TextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/upc_name"
+                        android:textSize="@dimen/text_size_12" />
+
+                    <TextView
+                        android:id="@+id/tvUpc"
+                        style="@style/TextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_4"
+                        android:text="@{data.upcNumber}"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_10"
+                        tools:text="TYTRYHHGY" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.earnings.MyEarningsActivity">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.earnings.MyEarningsItemViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_5"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TextViewStyle"
+                android:layout_width="0dp"
+                android:layout_weight=".3"
+                android:gravity="center"
+                android:text="@{viewModel.date}"
+                android:textSize="@dimen/text_size_14"
+                tools:text="05/06/2019" />
+
+            <TextView
+                style="@style/TextViewStyle"
+                android:layout_width="0dp"
+                android:layout_marginStart="@dimen/dimen_5"
+                android:layout_marginEnd="@dimen/dimen_5"
+                android:layout_weight=".3"
+                android:fontFamily="@font/campton_semi_bold"
+                android:gravity="center"
+                android:text="@{viewModel.totalEarning}"
+                android:textSize="@dimen/text_size_14"
+                tools:text="INR 1234" />
+
+            <Button
+                style="@style/ButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dimen_30"
+                android:layout_weight=".3"
+                android:backgroundTint="@color/green_1"
+                android:elevation="@dimen/dimen_8"
+                android:gravity="center"
+                android:onClick="@{()->viewModel.onRideClick()}"
+                android:text="@{viewModel.totalRides}"
+                android:textAllCaps="false"
+                android:textSize="@dimen/text_size_14"
+                tools:text="8 Rides" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_1"
+            android:background="@color/semi_gray_5" />
+    </LinearLayout>
+</layout>
+

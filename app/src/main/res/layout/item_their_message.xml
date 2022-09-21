@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.chat.ChatActivity">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.chat.OtherItemViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:paddingStart="@dimen/dimen_15"
+        android:paddingTop="@dimen/dimen_10"
+        android:paddingEnd="@dimen/dimen_60"
+        android:paddingBottom="@dimen/dimen_10">
+
+        <!--  <ImageView
+              android:id="@+id/avatar"
+              android:layout_width="34dp"
+              android:layout_height="34dp"
+              android:layout_alignParentStart="true"
+              android:background="@drawable/bg_circle"
+              android:backgroundTint="@color/colorPrimary"
+              android:scaleType="centerInside" />
+
+          <TextView
+              android:id="@+id/name"
+              style="@style/TextViewStyle"
+              android:layout_alignTop="@+id/avatar"
+              android:layout_marginStart="@dimen/dimen_15"
+              android:layout_toEndOf="@+id/avatar"
+              android:paddingBottom="@dimen/dimen_4"
+              android:text="@{viewModel.name}"
+              android:textColor="@color/colorPrimary"
+              tools:text="Rose" />-->
+
+        <!--
+        android:layout_below="@+id/name"
+            android:layout_alignStart="@+id/name"
+        -->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/their_message"
+            android:elevation="@dimen/dimen_2"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/message_body"
+                style="@style/TextViewStyle"
+                android:lineSpacingExtra="-5dp"
+                android:padding="@dimen/dimen_12"
+                android:text="@{viewModel.message}"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/text_size_18"
+                tools:targetApi="o"
+                tools:text="How are you doing? This is a long message that should probably wrap." />
+            <!--How \t \t \t \t \t \t \t \t \t \t \t \t-->
+            <!--How are you doing? This is a long message that should probably wrap.-->
+            <TextView
+                style="@style/TextViewStyle"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="-20dp"
+                android:padding="@dimen/dimen_5"
+                android:text="@{viewModel.time}"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/text_size_14"
+                tools:text="12:30 PM" />
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

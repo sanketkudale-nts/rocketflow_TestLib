@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.tracki.ui.addplace.Hub" />
+
+        <variable
+            name="context"
+            type="android.content.Context" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/rlMain"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_90"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_20"
+            android:layout_marginRight="@dimen/dimen_5"
+            android:layout_toLeftOf="@+id/llEdit"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvPlaceName"
+                style="@style/TextViewStyle"
+                android:text="@{data.name}"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="Home" />
+
+            <TextView
+                android:id="@+id/tvLocationName"
+                style="@style/TextViewStyle"
+                android:textColor="@color/gray"
+                android:textSize="11sp"
+                bind:Context="@{context}"
+                android:maxLines="1"
+                android:ellipsize="end"
+                bind:latitude="@{data.hubLocation.location.latitude}"
+                bind:longitude="@{data.hubLocation.location.longitude}" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimen_10"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/ivEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dimen_10"
+                app:srcCompat="@drawable/ic_edit" />
+
+            <ImageView
+                android:id="@+id/ivDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dimen_10"
+                bind:type="@{data.type}"
+                app:srcCompat="@drawable/ic_bin" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_1"
+            android:layout_alignParentBottom="true"
+            android:background="@color/semi_gray_5" />
+
+
+    </RelativeLayout>
+</layout>

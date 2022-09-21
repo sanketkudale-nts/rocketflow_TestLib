@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.tracki.ui.main.MainActivity">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.main.MainViewModel" />
+
+    </data>
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:openDrawer="start">
+
+        <include
+            android:id="@+id/mainView"
+            layout="@layout/layout_new_dash_board_neuron" />
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navigation"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white">
+
+                <include
+                    android:id="@+id/navHeader"
+                    layout="@layout/nav_header_home" />
+
+                <!--<android.support.v4.widget.NestedScrollView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_below="@id/navHeader"-->
+                <!--android:layout_marginBottom="@dimen/dimen_45"-->
+                <!--android:fillViewport="true"-->
+                <!--android:scrollbars="none">-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/navHeader"
+                    android:layout_marginTop="@dimen/dimen_10"
+                    android:layout_marginBottom="@dimen/dimen_45"
+                    android:orientation="vertical">
+
+                    <com.tracki.ui.custom.AnimatedExpandableListView
+                        android:id="@+id/listViewExpandable"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:childDivider="@color/warm_gray"
+                        android:divider="@color/warm_gray"
+                        android:groupIndicator="@null"
+                        android:scrollbars="none" />
+
+                    <View
+                        android:id="@+id/view_faker"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:visibility="gone" />
+                </LinearLayout>
+                <!--</android.support.v4.widget.NestedScrollView>-->
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/colorPrimary"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/dimen_10">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_30"
+                        android:tint="@color/white"
+                        app:srcCompat="@drawable/ic_rocket_flow" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tvVersion"
+                    style="@style/TextViewStyle"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="@dimen/dimen_10"
+                    android:layout_marginEnd="@dimen/dimen_10"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_14"
+                    tools:text="v2.3" />
+            </RelativeLayout>
+        </com.google.android.material.navigation.NavigationView>
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+</layout>

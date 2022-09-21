@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="data"
+            type="com.tracki.data.model.response.config.DashBoardBoxItem" />
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/rlMain"
+        android:layout_width="wrap_content"
+        android:background="@{!data.selected?@drawable/bg_stage_unselected:@drawable/bg_stage_selected}"
+        android:layout_marginTop="@dimen/dimen_10"
+        android:layout_marginBottom="@dimen/dimen_10"
+        android:layout_marginRight="@dimen/dimen_10"
+        android:layout_height="@dimen/dimen_35">
+
+        <TextView
+            android:layout_centerInParent="true"
+            style="@style/TextViewStyle"
+            android:fontFamily="@font/campton_light"
+            android:text="@{data.stageName}"
+            android:paddingLeft="@dimen/dimen_15"
+            android:paddingRight="@dimen/dimen_15"
+            android:textColor="@{!data.selected?@color/gray:@color/white}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+</layout>

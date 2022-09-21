@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.emergencyphone.EmergencyContactItemViewModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_8"
+        android:layout_marginTop="@dimen/dimen_8"
+        android:layout_marginEnd="@dimen/dimen_8"
+        android:layout_marginBottom="@dimen/dimen_1"
+        android:background="@color/white"
+        android:orientation="vertical"
+        app:cardCornerRadius="@dimen/dimen_5"
+        app:cardElevation="@dimen/dimen_2">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/dimen_10"
+            android:paddingTop="@dimen/dimen_5"
+            android:paddingEnd="@dimen/dimen_10"
+            android:paddingBottom="@dimen/dimen_5">
+
+            <RelativeLayout
+                android:id="@+id/img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center">
+
+
+                <ImageView
+                    android:id="@+id/ivContactImage"
+                    android:layout_width="@dimen/dimen_40"
+                    android:layout_height="@dimen/dimen_40"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/bg_image_circle"
+                    android:contentDescription="@null"
+                    android:gravity="center"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/ic_placeholder_pic" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/dimen_5"
+                android:layout_toEndOf="@+id/img"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvContactName"
+                    style="@style/TextViewStyle"
+                    android:lines="1"
+                    android:maxLength="25"
+                    android:padding="@dimen/dimen_0"
+                    android:text="@{viewModel.name}"
+                    android:textColor="@color/semi_gray_2"
+                    android:textSize="@dimen/text_size_14"
+                    tools:text="Rahul Abrol" />
+
+                <TextView
+                    android:id="@+id/tvContactNo"
+                    style="@style/TextViewStyle"
+                    android:lineSpacingExtra="-1dip"
+                    android:padding="@dimen/dimen_0"
+                    android:text="@{viewModel.mobile}"
+                    android:textColor="@color/semi_gray"
+                    android:textSize="@dimen/text_size_12"
+                    tools:text="+91-9988796261" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/ivContactEdit"
+                    android:layout_width="@dimen/dimen_25"
+                    android:layout_height="@dimen/dimen_25"
+                    android:layout_marginEnd="@dimen/dimen_10"
+                    android:contentDescription="@null"
+                    android:onClick="@{() -> viewModel.onEditClick()}"
+                    android:scaleType="center"
+                    app:srcCompat="@drawable/ic_edit_grey" />
+
+                <ImageView
+                    android:id="@+id/ivContactDelete"
+                    android:layout_width="@dimen/dimen_25"
+                    android:layout_height="@dimen/dimen_25"
+                    android:layout_marginEnd="@dimen/dimen_5"
+                    android:contentDescription="@null"
+                    android:onClick="@{() -> viewModel.onDeleteClick()}"
+                    android:scaleType="center"
+                    app:srcCompat="@drawable/ic_delete_grey" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

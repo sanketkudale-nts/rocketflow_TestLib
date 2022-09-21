@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.messages.MessageItemViewModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_8"
+        android:layout_marginTop="@dimen/dimen_8"
+        android:layout_marginEnd="@dimen/dimen_8"
+        android:layout_marginBottom="@dimen/dimen_1"
+        android:onClick="@{() -> viewModel.onItemClick()}"
+        android:orientation="vertical"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/dimen_2"
+        app:cardElevation="@dimen/dimen_4">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/dimen_5"
+            android:paddingTop="@dimen/dimen_10"
+            android:paddingEnd="@dimen/dimen_5"
+            android:paddingBottom="@dimen/dimen_10">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight=".15">
+
+                <TextView
+                    android:id="@+id/tvName"
+                    style="@style/TextViewStyle"
+                    android:layout_width="@dimen/dimen_40"
+                    android:layout_height="@dimen/dimen_40"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/bg_image_circle"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:fontFamily="@font/campton_book"
+                    android:gravity="center|center_vertical"
+                    android:text="@{viewModel.shortCode}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_15"
+                    tools:text="RA" />
+
+                <ImageView
+                    android:id="@+id/ivDriverStatus"
+                    android:layout_width="@dimen/dimen_12"
+                    android:layout_height="@dimen/dimen_12"
+                    android:layout_alignBottom="@+id/tvName"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/dimen_4"
+                    android:layout_marginBottom="@dimen/dimen_2"
+                    android:checked="false"
+                    android:contentDescription="@null"
+                    android:src="@drawable/bg_status"
+                    android:visibility="@{viewModel.status ? View.VISIBLE : View.GONE}" />
+                <!-- android:visibility="@{viewModel.isActive ? View.VISIBLE : View.GONE}" -->
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_5"
+                android:layout_weight=".85">
+
+                <TextView
+                    android:id="@+id/tvBuddyName"
+                    style="@style/TextViewStyle"
+                    android:fontFamily="@font/campton_semi_bold"
+                    android:maxLength="16"
+                    android:singleLine="false"
+                    android:text="@{viewModel.name}"
+                    android:textColor="@color/semi_gray_2"
+                    android:ellipsize="end"
+                    android:textSize="@dimen/text_size_16"
+                    tools:text="Rahul Abrol" />
+
+                <TextView
+                    android:id="@+id/tvLastTime"
+                    style="@style/TextViewStyle"
+                    android:layout_alignParentEnd="true"
+                    android:maxLines="1"
+                    android:text="@{viewModel.time}"
+                    android:textColor="@color/semi_gray"
+                    android:textSize="@dimen/text_size_12"
+                    tools:text="02:00 PM" />
+
+                <TextView
+                    android:id="@+id/tvLastMessage"
+                    style="@style/TextViewStyle"
+                    android:layout_below="@+id/tvBuddyName"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/campton_light"
+                    android:singleLine="true"
+                    android:text="@{viewModel.message}"
+                    android:textColor="@color/semi_gray_2"
+                    tools:text="Next is a list of Accounting Careers and we" />
+            </RelativeLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

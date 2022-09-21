@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dimen_10"
+    android:background="@drawable/bg_white_round_corner">
+
+    <ImageView
+        android:id="@+id/ivBack"
+        android:layout_width="@dimen/dimen_30"
+        android:layout_height="@dimen/dimen_30"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="end"
+        android:layout_marginTop="@dimen/dimen_10"
+        android:layout_marginRight="@dimen/dimen_20"
+        android:padding="@dimen/dimen_8"
+        android:tint="@color/black"
+        app:srcCompat="@drawable/ic_cancel_punch_in" />
+
+    <TextView
+        android:id="@+id/tvDetails"
+        style="@style/TextViewStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dimen_20"
+        android:fontFamily="@font/campton_semi_bold"
+        android:text="@string/details"
+        android:textColor="@color/colorPrimary" />
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvDfData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvDetails"
+        android:layout_marginLeft="@dimen/dimen_5"
+        android:layout_marginRight="@dimen/dimen_5"
+        android:layout_marginTop="@dimen/dimen_20"
+        android:layout_marginBottom="@dimen/dimen_20"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:itemCount="4"
+        tools:listitem="@layout/item_row_product_map" />
+
+
+</RelativeLayout>

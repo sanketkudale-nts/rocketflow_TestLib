@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.tracki.data.model.response.config.RoleConfigData" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/rlMain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dimen_8"
+            android:background="@drawable/selected_roles">
+
+            <ImageView
+                android:id="@+id/ivChecked"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tvStageName"
+                style="@style/TextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/dimen_10"
+                android:paddingTop="@dimen/dimen_6"
+                android:paddingRight="@dimen/dimen_10"
+                android:paddingBottom="@dimen/dimen_6"
+                tools:text="ALL"
+                android:textColor="@color/white"
+                android:text="@{data.roleName}"
+                android:textSize="@dimen/text_size_12" />
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>

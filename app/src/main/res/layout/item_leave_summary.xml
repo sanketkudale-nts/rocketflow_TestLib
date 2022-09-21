@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.leave.leave_summary.LeaveSummaryItemViewModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewTaskDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_8"
+        android:layout_marginTop="@dimen/dimen_8"
+        android:layout_marginEnd="@dimen/dimen_8"
+        android:layout_marginBottom="@dimen/dimen_8"
+        android:background="@color/white"
+        android:orientation="vertical"
+        app:cardCornerRadius="@dimen/dimen_4"
+        app:cardElevation="@dimen/dimen_4"
+        app:contentPadding="@dimen/dimen_10">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:padding="@dimen/dimen_10"
+                android:weightSum="1">
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:gravity="start"
+                    android:textColor="@color/semi_gray"
+                    android:textSize="@dimen/text_size_20"
+                    tools:text="Privilige Leave" />
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:layout_alignParentEnd="true"
+                    android:textColor="@color/semi_gray"
+                    android:textSize="@dimen/text_size_20"
+                    tools:text="10 / 20" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1"
+                android:layout_margin="@dimen/dimen_8"
+                android:background="@color/semi_gray_5" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:padding="@dimen/dimen_10"
+                android:weightSum="1">
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:gravity="start"
+                    android:textColor="@color/semi_gray"
+                    android:textSize="@dimen/text_size_20"
+                    tools:text="Privilige Leave" />
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:layout_alignParentEnd="true"
+                    android:textColor="@color/semi_gray"
+                    android:textSize="@dimen/text_size_20"
+                    tools:text="10 / 20" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1"
+                android:layout_margin="@dimen/dimen_8"
+                android:background="@color/semi_gray_5" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:padding="@dimen/dimen_10"
+                android:weightSum="1">
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:gravity="start"
+                    android:textColor="@color/semi_gray"
+                    android:textSize="@dimen/text_size_20"
+                    tools:text="Privilige Leave" />
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:layout_alignParentEnd="true"
+                    android:textColor="@color/semi_gray"
+                    android:textSize="@dimen/text_size_20"
+                    tools:text="10 / 20" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1"
+                android:layout_margin="@dimen/dimen_8"
+                android:background="@color/semi_gray_5" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:padding="@dimen/dimen_10"
+                android:weightSum="1">
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:fontFamily="@font/campton_semi_bold"
+                    android:gravity="start"
+                    android:textSize="@dimen/text_size_20"
+                    tools:text="Privilige Leave" />
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:layout_alignParentEnd="true"
+                    android:fontFamily="@font/campton_semi_bold"
+                    android:textSize="@dimen/text_size_20"
+                    tools:text="10 / 20" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.tracki.data.model.response.config.FeedDfDataMap" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_10"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/dimen_5"
+            android:paddingBottom="@dimen/dimen_5"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/tvKey"
+                style="@style/TextViewStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:fontFamily="@font/campton_semi_bold"
+                android:text="@{data.key}"
+                android:textSize="@dimen/text_size_14"
+                tools:text="Name" />
+
+            <TextView
+                style="@style/TextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/campton_semi_bold"
+                android:text=":"
+                android:textSize="@dimen/text_size_14" />
+
+            <ImageView
+                style="@style/TextViewStyle"
+                loadpost="@{data.value}"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dimen_100"
+                android:layout_marginLeft="@dimen/dimen_10"
+                android:layout_weight="1.3"
+                app:srcCompat="@drawable/ic_picture"
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</layout>
+

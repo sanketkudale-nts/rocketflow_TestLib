@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.tracki.ui.update.AppUpdateScreenViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/ivImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_30"
+            app:srcCompat="@drawable/ic_expired_image"/>
+        <androidx.cardview.widget.CardView
+            android:layout_below="@+id/ivImage"
+            android:layout_centerInParent="true"
+            android:id="@+id/cardViewMain"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="@dimen/dimen_30"
+            android:layout_marginRight="@dimen/dimen_30"
+            android:layout_marginTop="@dimen/dimen_4"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:id="@+id/llmain"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    style="@style/TextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    android:layout_marginTop="@dimen/dimen_5"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:padding="@dimen/dimen_4"
+                    android:text="Update Rocketflow ?"
+                    android:textColor="#5D5D5D"
+                    android:textSize="@dimen/text_size_18" />
+
+                <TextView
+                    android:id="@+id/tvMessage"
+                    style="@style/TextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvTitle"
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:padding="@dimen/dimen_4"
+                    android:text="@string/update_message"
+                    android:textColor="#5D5D5D" />
+                <RelativeLayout
+                    android:id="@+id/llbutton"
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:layout_below="@+id/tvMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_50"
+                    android:layout_marginTop="@dimen/dimen_10"
+                    android:layout_marginBottom="@dimen/dimen_5"
+                    android:gravity="center_horizontal"
+                    android:weightSum="2">
+                    <Button
+                        android:id="@+id/ivClose"
+                        style="@style/ButtonBlueStyle"
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_marginRight="@dimen/dimen_10"
+                        android:backgroundTint="@color/white"
+                        android:text="@string/not_now"
+                        android:paddingRight="@dimen/dimen_20"
+                        android:paddingLeft="@dimen/dimen_20"
+                        android:onClick="@{()->viewmodel.openMainActivity()}"
+                        android:layout_height="@dimen/dimen_40"/>
+                    <Button
+                        android:layout_toRightOf="@+id/ivClose"
+                        android:layout_marginLeft="@dimen/dimen_10"
+                        style="@style/ButtonBlueStyle"
+                        android:id="@+id/btnOpenPlayStore"
+                        android:text="@string/update"
+                        android:paddingRight="@dimen/dimen_20"
+                        android:paddingLeft="@dimen/dimen_20"
+                        android:onClick="@{()->viewmodel.openAppInPlayStore()}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dimen_40"/>
+                </RelativeLayout>
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+</layout>

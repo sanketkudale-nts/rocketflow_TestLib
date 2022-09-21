@@ -1,0 +1,634 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.addcustomer.AddUserViewModel" />
+
+        <variable
+            name="request"
+            type="com.tracki.data.model.request.AddEmployeeRequest" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/windowBackgroundColor"
+        android:layout_height="wrap_content">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_15"
+                android:layout_marginRight="@dimen/dimen_15"
+                android:layout_marginBottom="@dimen/dimen_20"
+                android:orientation="vertical">
+                 <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_5"
+                android:layout_marginRight="@dimen/dimen_5"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="@dimen/dimen_100"
+                    android:layout_height="@dimen/dimen_100"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/dimen_15"
+                    android:visibility="@{viewModel.isProfilePicVisible? View.VISIBLE:View.GONE}">
+
+                    <ImageView
+                        android:id="@+id/ivPicUser"
+                        android:layout_width="@dimen/dimen_100"
+                        android:layout_height="@dimen/dimen_100"
+                        app:srcCompat="@drawable/ic_user_edit_pic" />
+
+                    <ImageView
+                        android:id="@+id/ivAddPic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:background="@drawable/circle_camera"
+                        android:padding="@dimen/dimen_8"
+                        android:visibility="gone"
+                        app:srcCompat="@drawable/ic_photo_camera" />
+                </RelativeLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/llRole"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardViewRollId"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_15"
+                        app:cardBackgroundColor="@color/white"
+                        app:contentPadding="@dimen/dimen_8">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvLabelRoll"
+                                style="@style/TextViewStyle"
+                                android:layout_width="match_parent"
+                                android:layout_marginBottom="5dp"
+                                android:drawableLeft="@drawable/ic_web_gray"
+                                android:drawablePadding="@dimen/dimen_8"
+                                android:fontFamily="@font/campton_semi_bold"
+                                android:gravity="center_vertical"
+                                android:text="Select Role"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_size_16" />
+
+                            <Spinner
+                                android:id="@+id/spnRolles"
+                                style="@style/Widget.AppCompat.Spinner.Underlined"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dimen_40"
+                                android:spinnerMode="dropdown" />
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewFirstName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_15"
+                    android:visibility="@{viewModel.isFirstNameVisible? View.VISIBLE:View.GONE}"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="@dimen/dimen_8"
+                    app:contentPadding="@dimen/dimen_8">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvLabelName"
+                            style="@style/TextViewStyle"
+                            android:drawableLeft="@drawable/ic_first_name"
+                            android:drawablePadding="@dimen/dimen_8"
+                            android:focusable="false"
+                            android:focusableInTouchMode="true"
+                            android:fontFamily="@font/campton_semi_bold"
+                            android:text="@{viewModel.firstNameLabel}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_16" />
+
+                        <EditText
+                            android:id="@+id/edFirstName"
+                            style="@style/EditTextStyle"
+                            android:inputType="textCapWords"
+                            android:text="@{request.firstName}"
+                            android:layout_marginTop="@dimen/dimen_5"
+                            android:paddingVertical="@dimen/dimen_10"
+                            android:paddingHorizontal="@dimen/dimen_15"
+                            android:background="@drawable/custom_edit_border_bg"
+                            />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewMiddleName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_15"
+                    android:visibility="@{viewModel.isMiddleNameVisible? View.VISIBLE:View.GONE}"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="@dimen/dimen_8"
+                    app:contentPadding="@dimen/dimen_8">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvLabelMiddleName"
+                            style="@style/TextViewStyle"
+                            android:drawableLeft="@drawable/ic_middle_name"
+                            android:drawablePadding="@dimen/dimen_8"
+                            android:focusable="false"
+                            android:focusableInTouchMode="true"
+                            android:fontFamily="@font/campton_semi_bold"
+                            android:text="@{viewModel.middleNameLabel}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_16" />
+
+                        <EditText
+                            android:id="@+id/edMiddleName"
+                            style="@style/EditTextStyle"
+                            android:inputType="textCapWords"
+                            android:text="@{request.middleName}"
+                            android:layout_marginTop="@dimen/dimen_5"
+                            android:paddingVertical="@dimen/dimen_10"
+                            android:paddingHorizontal="@dimen/dimen_15"
+                            android:background="@drawable/custom_edit_border_bg" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewLastName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_15"
+                    android:visibility="@{viewModel.isLastNameVisible? View.VISIBLE:View.GONE}"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="@dimen/dimen_8"
+                    app:contentPadding="@dimen/dimen_8">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvLabelLastName"
+                            style="@style/TextViewStyle"
+                            android:drawableLeft="@drawable/ic_last_name"
+                            android:drawablePadding="@dimen/dimen_8"
+                            android:focusable="false"
+                            android:focusableInTouchMode="true"
+                            android:fontFamily="@font/campton_semi_bold"
+                            android:text="@{viewModel.lastNameLabel}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_16" />
+
+                        <EditText
+                            android:id="@+id/edLastName"
+                            style="@style/EditTextStyle"
+                            android:inputType="textCapWords"
+                            android:text="@{request.lastName}"
+                            android:layout_marginTop="@dimen/dimen_5"
+                            android:paddingVertical="@dimen/dimen_10"
+                            android:paddingHorizontal="@dimen/dimen_15"
+                            android:background="@drawable/custom_edit_border_bg" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewMobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_15"
+                    android:visibility="@{viewModel.isMobileVisible? View.VISIBLE:View.GONE}"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="@dimen/dimen_8"
+                    app:contentPadding="@dimen/dimen_8">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvLabelMobile"
+                            style="@style/TextViewStyle"
+                            android:drawableLeft="@drawable/ic_phone"
+                            android:drawablePadding="@dimen/dimen_8"
+                            android:focusable="false"
+                            android:focusableInTouchMode="true"
+                            android:fontFamily="@font/campton_semi_bold"
+                            android:text="@{viewModel.mobileLabel}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_16" />
+
+                        <EditText
+                            android:id="@+id/edMobile"
+                            style="@style/EditTextStyle"
+                            android:inputType="phone"
+                            android:digits="0123456789"
+                            android:maxLength="10"
+                            android:text="@{request.mobile}"
+                            android:layout_marginTop="@dimen/dimen_5"
+                            android:paddingVertical="@dimen/dimen_10"
+                            android:paddingHorizontal="@dimen/dimen_15"
+                            android:background="@drawable/custom_edit_border_bg" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_15"
+                    android:visibility="@{viewModel.isEmailVisible? View.VISIBLE:View.GONE}"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="@dimen/dimen_8"
+                    app:contentPadding="@dimen/dimen_8">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvLabelEmail"
+                            style="@style/TextViewStyle"
+                            android:drawableLeft="@drawable/ic_email"
+                            android:drawablePadding="@dimen/dimen_8"
+                            android:focusable="false"
+                            android:focusableInTouchMode="true"
+                            android:fontFamily="@font/campton_semi_bold"
+                            android:text="@{viewModel.emailLabel}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_16" />
+
+                        <EditText
+                            android:id="@+id/edEmail"
+                            style="@style/EditTextStyle"
+                            android:inputType="textEmailAddress"
+                            android:text="@{request.email}"
+                            android:layout_marginTop="@dimen/dimen_5"
+                            android:paddingVertical="@dimen/dimen_10"
+                            android:paddingHorizontal="@dimen/dimen_15"
+                            android:background="@drawable/custom_edit_border_bg"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewFatherName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_15"
+                    android:visibility="@{viewModel.isFatherNameVisible? View.VISIBLE:View.GONE}"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="@dimen/dimen_8"
+                    app:contentPadding="@dimen/dimen_8">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvLabelFather"
+                            style="@style/TextViewStyle"
+                            android:drawableLeft="@drawable/ic_first_name"
+                            android:drawablePadding="@dimen/dimen_8"
+                            android:focusable="false"
+                            android:focusableInTouchMode="true"
+                            android:fontFamily="@font/campton_semi_bold"
+                            android:text="@{viewModel.fatherNameLabel}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_16" />
+
+                        <EditText
+                            android:id="@+id/edFather"
+                            style="@style/EditTextStyle"
+                            android:inputType="textCapWords"
+                            android:text="@{request.fatherName}"
+                            android:layout_marginTop="@dimen/dimen_5"
+                            android:paddingVertical="@dimen/dimen_10"
+                            android:paddingHorizontal="@dimen/dimen_15"
+                            android:background="@drawable/custom_edit_border_bg" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewMotherName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_15"
+                    android:visibility="@{viewModel.isMotherNameVisible? View.VISIBLE:View.GONE}"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="@dimen/dimen_8"
+                    app:contentPadding="@dimen/dimen_8">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvLabelMother"
+                            style="@style/TextViewStyle"
+                            android:drawableLeft="@drawable/ic_first_name"
+                            android:drawablePadding="@dimen/dimen_8"
+                            android:focusable="false"
+                            android:focusableInTouchMode="true"
+                            android:fontFamily="@font/campton_semi_bold"
+                            android:text="@{viewModel.motherNameLabel}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_16" />
+
+                        <EditText
+                            android:id="@+id/edMother"
+                            style="@style/EditTextStyle"
+                            android:inputType="textCapWords"
+                            android:text="@{request.motherName}"
+                            android:layout_marginTop="@dimen/dimen_5"
+                            android:paddingVertical="@dimen/dimen_10"
+                            android:paddingHorizontal="@dimen/dimen_15"
+                            android:background="@drawable/custom_edit_border_bg" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_15"
+                    android:visibility="@{viewModel.isPasswordVisible? View.VISIBLE:View.GONE}"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="@dimen/dimen_8"
+                    app:contentPadding="@dimen/dimen_8">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvLabelPassword"
+                            style="@style/TextViewStyle"
+                            android:drawableLeft="@drawable/ic_padlock"
+                            android:drawablePadding="@dimen/dimen_8"
+                            android:focusable="false"
+                            android:focusableInTouchMode="true"
+                            android:fontFamily="@font/campton_semi_bold"
+                            android:text="@{viewModel.passwordLabel}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_16" />
+
+                        <EditText
+                            android:id="@+id/edPassword"
+                            style="@style/EditTextStyle"
+                            android:inputType="textPassword"
+                            android:text="@{request.password}"
+                            android:paddingVertical="@dimen/dimen_10"
+                            android:paddingHorizontal="@dimen/dimen_15"
+                            android:layout_marginTop="@dimen/dimen_5"
+                            android:background="@drawable/custom_pass_bg"
+                            android:drawableEnd="@drawable/ic_visible_pass"
+                            android:drawableTint="@color/colorAccent"
+                            />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewDob"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_15"
+                    android:visibility="@{viewModel.isDobVisible? View.VISIBLE:View.GONE}"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="@dimen/dimen_8"
+                    app:contentPadding="@dimen/dimen_8">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvLabelDob"
+                            style="@style/TextViewStyle"
+                            android:drawableLeft="@drawable/ic_dob"
+                            android:drawablePadding="@dimen/dimen_8"
+                            android:focusable="false"
+                            android:focusableInTouchMode="true"
+                            android:fontFamily="@font/campton_semi_bold"
+                            android:text="@{viewModel.dobLabel}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_16" />
+
+                        <EditText
+                            android:id="@+id/edDob"
+                            style="@style/EditTextStyle"
+                            android:clickable="true"
+                            android:focusable="false"
+                            android:inputType="text"
+                            android:onClick="@{(v)->viewModel.selectTime(v)}"
+                            android:text="@{request.dateOfBirth}"
+                            android:layout_marginTop="@dimen/dimen_5"
+                            android:paddingVertical="@dimen/dimen_10"
+                            android:paddingHorizontal="@dimen/dimen_15"
+                            android:background="@drawable/custom_edit_border_bg" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewDoj"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_15"
+                    android:visibility="@{viewModel.isDojVisible? View.VISIBLE:View.GONE}"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="@dimen/dimen_8"
+                    app:contentPadding="@dimen/dimen_8">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvLabelDoj"
+                            style="@style/TextViewStyle"
+                            android:drawableLeft="@drawable/ic_dob"
+                            android:drawablePadding="@dimen/dimen_8"
+                            android:focusable="false"
+                            android:focusableInTouchMode="true"
+                            android:fontFamily="@font/campton_semi_bold"
+                            android:text="@{viewModel.dojLabel}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_16" />
+
+                        <EditText
+                            android:id="@+id/edDoj"
+                            style="@style/EditTextStyle"
+                            android:clickable="true"
+                            android:focusable="false"
+                            android:inputType="text"
+                            android:onClick="@{(v)->viewModel.selectTime(v)}"
+                            android:text="@{request.dateOfBirth}"
+                            android:layout_marginTop="@dimen/dimen_5"
+                            android:paddingVertical="@dimen/dimen_10"
+                            android:paddingHorizontal="@dimen/dimen_15"
+                            android:background="@drawable/custom_edit_border_bg" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewPersonId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_15"
+                    android:visibility="@{viewModel.isPidVisible? View.VISIBLE:View.GONE}"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="@dimen/dimen_8"
+                    app:contentPadding="@dimen/dimen_8">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvLabelPersonId"
+                            style="@style/TextViewStyle"
+                            android:drawableLeft="@drawable/ic_identification"
+                            android:drawablePadding="@dimen/dimen_8"
+                            android:focusable="false"
+                            android:focusableInTouchMode="true"
+                            android:fontFamily="@font/campton_semi_bold"
+                            android:text="@{viewModel.podLabel}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_16" />
+
+                        <EditText
+                            android:id="@+id/edPersonId"
+                            style="@style/EditTextStyle"
+                            android:inputType="textCapCharacters"
+                            android:layout_marginTop="@dimen/dimen_5"
+                            android:paddingVertical="@dimen/dimen_10"
+                            android:paddingHorizontal="@dimen/dimen_15"
+                            android:background="@drawable/custom_edit_border_bg" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10"
+                    android:elevation="@dimen/dimen_8"
+                    android:visibility="@{viewModel.isAddress? View.VISIBLE:View.GONE}"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardUseCompatPadding="true"
+                    app:contentPadding="@dimen/dimen_8">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvLocation"
+                            style="@style/TextViewStyle"
+                            android:drawableLeft="@drawable/ic_home"
+                            android:drawablePadding="@dimen/dimen_8"
+                            android:focusable="false"
+                            android:focusableInTouchMode="true"
+                            android:fontFamily="@font/campton_semi_bold"
+                            android:text="@{viewModel.addressLabel}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_16" />
+
+                        <EditText
+                            android:id="@+id/edLocation"
+                            style="@style/EditTextStyle"
+                            android:drawableRight="@drawable/ic_pin_google_big"
+                            android:drawablePadding="@dimen/dimen_8"
+                            android:focusable="false"
+                            android:focusableInTouchMode="false"
+                            android:inputType="text"
+                            android:onClick="@{(v)->viewModel.selectLocation(v)}"
+                            android:layout_marginTop="@dimen/dimen_5"
+                            android:paddingVertical="@dimen/dimen_10"
+                            android:paddingHorizontal="@dimen/dimen_15"
+                            android:background="@drawable/custom_edit_border_bg" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+                 </LinearLayout>
+
+                <FrameLayout
+                    android:id="@+id/container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <include
+                    android:id="@+id/viewProgress"
+                    layout="@layout/progress_dialog_with_percentage"
+                    android:visibility="gone" />
+                <Button
+                    android:id="@+id/btnCLick"
+                    style="@style/EnableDisableButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="@dimen/dimen_15"
+                    android:layout_marginTop="@dimen/dimen_15"
+                    android:layout_marginRight="@dimen/dimen_15"
+                    android:layout_marginBottom="@dimen/dimen_15"
+                    android:focusable="false"
+                    android:focusableInTouchMode="true"
+                    android:text="@string/done"
+                    android:textColor="@color/white"
+                    android:visibility="gone" />
+
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+    </RelativeLayout>
+</layout>
+
+
+

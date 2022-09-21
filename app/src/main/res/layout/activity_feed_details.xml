@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.tracki.data.model.response.config.Post" />
+
+        <import type="android.view.View" />
+        <import type="android.text.TextUtils" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/llMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/Toolbar"
+                app:contentInsetLeft="0dp"
+                app:contentInsetStart="0dp"
+                app:contentInsetStartWithNavigation="0dp"
+                app:titleTextColor="@color/white"
+                tools:title="@string/my_account" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipChildren="false"
+            app:cardElevation="@dimen/dimen_4"
+            app:cardUseCompatPadding="true"
+            app:contentPadding="@dimen/dimen_2">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dimen_4">
+
+                    <ImageView
+                        android:id="@+id/ivImage"
+                        android:layout_width="@dimen/dimen_50"
+                        android:layout_height="@dimen/dimen_50"
+                        app:imageUrl="@{data.postedUserImage}"
+                        app:srcCompat="@drawable/ic_my_profile" />
+
+                    <TextView
+                        android:id="@+id/tvName"
+                        style="@style/TextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_10"
+                        android:layout_marginRight="@dimen/dimen_2"
+                        android:layout_toLeftOf="@+id/btnViewMore"
+                        android:layout_toEndOf="@+id/ivImage"
+                        android:fontFamily="@font/campton_semi_bold"
+                        android:text="@{data.createdBy}"
+                        android:visibility="@{TextUtils.isEmpty(data.createdBy)?View.GONE:View.VISIBLE}"
+                        android:textSize="@dimen/text_size_14"
+                        tools:text="Vikas Kesharvani" />
+
+                    <TextView
+                        android:id="@+id/tvDateTime"
+                        style="@style/TextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tvName"
+                        android:layout_alignBaseline="@+id/ivImage"
+                        android:layout_marginStart="@dimen/dimen_10"
+                        android:layout_marginEnd="@dimen/dimen_2"
+                        android:layout_toStartOf="@+id/btnViewMore"
+                        android:layout_toEndOf="@+id/ivImage"
+                        android:fontFamily="@font/campton_light"
+                        android:text="@{data.postedAt}"
+                        android:visibility="@{TextUtils.isEmpty(data.postedAt)?View.GONE:View.VISIBLE}"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/text_size_11"
+                        tools:text="12/12/2020 | 1:35 pm" />
+
+                    <TextView
+                        android:id="@+id/tvLocation"
+                        style="@style/TextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tvDateTime"
+                        android:layout_alignBaseline="@+id/ivImage"
+                        android:layout_marginStart="@dimen/dimen_10"
+                        android:layout_marginRight="@dimen/dimen_2"
+                        android:layout_toLeftOf="@+id/btnViewMore"
+                        android:layout_toEndOf="@+id/ivImage"
+                        android:drawableLeft="@drawable/ic_loc_placeholder_small"
+                        android:drawablePadding="@dimen/dimen_4"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/campton_light"
+                        android:maxLines="2"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_11"
+                        android:visibility="gone"
+                        tools:text="Ocus quantam Gurugramsadbhjdsbahjadjhbdashjbdshvdsavdhnvhjvdhjas" />
+
+                    <Button
+                        android:id="@+id/btnViewMore"
+                        style="@style/ButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dimen_25"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="@dimen/dimen_5"
+                        android:text="@string/view_more"
+                        android:textSize="@dimen/text_size_11"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    style="@style/TextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_10"
+                    android:fontFamily="@font/campton_semi_bold"
+                    android:text="@{data.title}"
+                    android:textSize="@dimen/text_size_15"
+                    android:visibility="@{TextUtils.isEmpty(data.title)?View.GONE:View.VISIBLE}"
+                    tools:text="Share Food is real pleasure " />
+                <TextView
+                    android:id="@+id/tvDescription"
+                    style="@style/TextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_10"
+                    android:layout_marginEnd="@dimen/dimen_10"
+                    android:drawablePadding="@dimen/dimen_4"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/campton_light"
+                    android:maxLines="3"
+                    android:text="@{data.message}"
+                    android:visibility="@{TextUtils.isEmpty(data.message)?View.GONE:View.VISIBLE}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_12"
+                    tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae sem quis sapien porta mattis eget et velit. Vivamus eget augue vestibulum, malesuada odio eget, viverra tellus. Cras quis leo quis magna vestibulum ultrices. Cras sit amet malesuada diam. Nunc at libero porttitor, ornare quam ut, aliquam tellus. Curabitur aliquam tellus a tellus dapibus blandit. Donec eu metus sed dolor aliquet hendrerit eu efficitur justo." />
+
+
+                <RelativeLayout
+                    android:id="@+id/rlDfData"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_5"
+                    android:layout_marginTop="@dimen/dimen_5"
+                    android:layout_marginRight="@dimen/dimen_5"
+                    android:background="@drawable/et_stroke_bg">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvDfData"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/item_row_feed_df_text" />
+
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/llImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/ivImageMain"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_200"
+                            android:layout_marginStart="@dimen/dimen_10"
+                            android:layout_marginTop="@dimen/dimen_10"
+                            android:layout_marginEnd="@dimen/dimen_10"
+                            android:layout_marginBottom="@dimen/dimen_10"
+                            android:scaleType="centerCrop"
+                            app:srcCompat="@drawable/default_image" />
+
+                        <ProgressBar
+                            android:id="@+id/progressBar"
+                            style="?android:attr/progressBarStyleSmall"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:visibility="gone" />
+                    </RelativeLayout>
+
+
+
+                </LinearLayout>
+                <RelativeLayout
+                    android:id="@+id/rlVideo"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_200"
+                    android:layout_margin="@dimen/dimen_10"
+                    android:visibility="gone"
+                    >
+
+                    <ImageView
+                        android:id="@+id/ivVideo"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#30000000" />
+
+                    <ImageView
+                        android:id="@+id/ivPlay"
+                        android:layout_width="@dimen/dimen_80"
+                        android:layout_height="@dimen/dimen_80"
+                        android:layout_centerInParent="true"
+                        android:padding="@dimen/dimen_10"
+                        android:visibility="gone"
+                        app:srcCompat="@drawable/ic_play_video_white" />
+                    <ProgressBar
+                        android:id="@+id/progressBarVideo"
+                        android:visibility="gone"
+                        style="?android:attr/progressBarStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/llLikes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:orientation="vertical">
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.3dp"
+                        android:layout_marginTop="@dimen/dimen_10"
+                        android:background="@color/semi_gray" />
+
+                    <RelativeLayout
+                        android:id="@+id/rlShowAllLikes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_margin="@dimen/dimen_4"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tvComments"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/campton_semi_bold"
+                                android:textColor="@color/semi_gray_2"
+                                android:textSize="@dimen/text_size_12"
+                                app:comments="@{data}"
+                                tools:text="120 Comments" />
+
+                            <TextView
+                                android:id="@+id/tvLine"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=" | "
+                                android:textColor="@color/semi_gray_2" />
+
+                            <TextView
+                                android:id="@+id/tvLikes"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/campton_semi_bold"
+                                android:textColor="@color/semi_gray_2"
+                                android:textSize="@dimen/text_size_12"
+                                app:like="@{data}"
+                                tools:text="130 Likes" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:visibility="gone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="@dimen/dimen_4"
+                            android:layout_marginTop="@dimen/dimen_4"
+                            android:layout_marginEnd="@dimen/dimen_4"
+                            android:layout_marginBottom="@dimen/dimen_4">
+
+                            <CheckBox
+                                android:id="@+id/ivLike"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:button="@drawable/check_box_like_dislike"
+                                android:checked="false" />
+
+                            <ImageView
+                                android:id="@+id/ivComment"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/dimen_10"
+                                app:srcCompat="@drawable/ic_comment" />
+                        </LinearLayout>
+
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.3dp"
+                    android:layout_marginTop="@dimen/dimen_10"
+                    android:background="@color/semi_gray"
+                    android:visibility="invisible" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+
+</layout>

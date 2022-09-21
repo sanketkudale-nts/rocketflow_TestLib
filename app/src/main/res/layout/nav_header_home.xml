@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dimen_170"
+    android:background="@drawable/curved_shaped"
+    android:paddingTop="@dimen/dimen_10"
+    android:paddingBottom="@dimen/dimen_20"
+    android:orientation="vertical">
+
+    <!--unable to find the root view-->
+    <ImageView
+        android:layout_marginEnd="@dimen/dimen_10"
+        android:id="@+id/ivCancel"
+        android:tint="@color/white"
+        android:layout_gravity="end"
+        app:srcCompat="@drawable/ic_cancel_punch_in"
+        android:layout_width="@dimen/dimen_30"
+        android:padding="@dimen/dimen_10"
+        android:layout_height="@dimen/dimen_30"/>
+
+    <LinearLayout
+        android:id="@+id/lLayoutProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        >
+        <com.tracki.ui.custom.RoundImageView
+            android:layout_gravity="start"
+            android:id="@+id/ivUserProfile"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dimen_70"
+            android:layout_marginStart="@dimen/dimen_10"
+            android:layout_weight=".3"
+            app:srcCompat="@drawable/ic_placeholder_pic"
+            app:tt_border_color="@color/white"
+            app:tt_border_width="2dp"
+            tools:srcCompat="@drawable/ic_placeholder_pic" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_10"
+            android:layout_marginEnd="@dimen/dimen_10"
+            android:layout_weight=".8"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvUserName"
+                style="@style/TextViewStyle"
+                android:fontFamily="@font/campton_book"
+                android:maxLength="40"
+                android:maxLines="2"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_16"
+                tools:text="Rahul Abrol" />
+
+
+            <TextView
+                android:id="@+id/tvMobile"
+                style="@style/TextViewStyle"
+                android:fontFamily="@font/campton_light"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_14"
+                tools:text="9990731159" />
+            <TextView
+                android:id="@+id/tvEdit"
+                style="@style/TextViewStyle"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/campton_light"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_12"
+                android:drawableLeft="@drawable/ic_edit_white"
+                android:background="@drawable/et_rounded_shape"
+                android:text="@string/edit"
+                android:padding="4dp"
+                android:drawablePadding="@dimen/dimen_4"
+                tools:text="@string/edit" />
+
+
+            <LinearLayout
+                android:id="@+id/llUserRole"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Login Mode : "
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_12" />
+
+                <TextView
+                    android:id="@+id/tvUserType"
+                    style="@style/TextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_12" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llOnlineOffLineStatus"
+                android:layout_marginTop="@dimen/dimen_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tvStatus"
+                    style="@style/TextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical"
+                    android:text="Online : "
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_12" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/onLineOffLineSwitch"
+                    style="@style/SwitchButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_6"
+                    android:checked="false" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

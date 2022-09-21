@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.buddyrequest.BuddyRequestActivity">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.buddyrequest.BuddyRequestViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            app:elevation="@dimen/dimen_0">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/Toolbar"
+                app:contentInsetLeft="0dp"
+                app:contentInsetStart="0dp"
+                app:contentInsetStartWithNavigation="0dp"
+                app:titleTextColor="@color/white"
+                tools:title="@string/buddy_request" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <!-- <android.support.v7.widget.CardView
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:layout_marginStart="@dimen/dimen_10"
+             android:layout_marginTop="@dimen/dimen_40"
+             android:layout_marginEnd="@dimen/dimen_10"
+             app:cardBackgroundColor="@color/bg_color_3"
+             app:cardCornerRadius="@dimen/dimen_8">-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bg_recycler_view"
+            android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <TextView
+                android:id="@+id/tvBuddyRequest"
+                style="@style/TextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="@dimen/dimen_5"
+                android:background="@color/white"
+                android:fontFamily="@font/campton_light"
+                android:paddingStart="@dimen/dimen_20"
+                android:paddingTop="@dimen/dimen_10"
+                android:paddingEnd="@dimen/dimen_20"
+                android:paddingBottom="@dimen/dimen_10"
+                android:text="You have 0 Buddy Request"
+                android:textSize="@dimen/text_size_12" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvNotificationList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/bg_recycler_view"
+                tools:listitem="@layout/item_buddy_request_view" />
+        </LinearLayout>
+        <!--</android.support.v7.widget.CardView>-->
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

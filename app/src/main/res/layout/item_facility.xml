@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="data"
+            type="com.tracki.data.model.response.config.Service" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_50"
+        android:paddingLeft="@dimen/dimen_10"
+        android:paddingRight="@dimen/dimen_10"
+        android:gravity="center_vertical">
+
+        <CheckBox
+            android:id="@+id/checkbox"
+
+            android:gravity="center"
+            android:text="@{data.title}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_16"
+            android:paddingLeft="@dimen/dimen_10"
+            android:buttonTint="@color/yellow_punch_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</layout>

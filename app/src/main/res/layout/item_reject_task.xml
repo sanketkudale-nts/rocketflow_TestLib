@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--  <data>
+
+          <variable
+              name="viewModel"
+              type="com.tracki.ui.rejecttask.RejectTaskItemViewModel" />
+      </data>-->
+    <!-- android:onClick="@{() -> viewModel.onItemClick()}"-->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+
+        app:cardCornerRadius="@dimen/dimen_4"
+        app:cardElevation="@dimen/dimen_0"
+        app:contentPadding="@dimen/dimen_5">
+
+        <RadioButton
+            android:id="@+id/radioButtton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:gravity="center_vertical"
+            tools:text="onItemClick" />
+        <!--android:text="@{viewModel.reason}"-->
+    </androidx.cardview.widget.CardView>
+</layout>

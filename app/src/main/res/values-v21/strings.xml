@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="add_places" tools:ignore="ExtraTranslation">Add</string>
+    <string name="place" tools:ignore="ExtraTranslation">Adding Place</string>
+    <string name="update" tools:ignore="ExtraTranslation">Update</string>
+    <string name="place_name" tools:ignore="ExtraTranslation">Place Name</string>
+    <string name="select_state" tools:ignore="ExtraTranslation">Select State</string>
+    <string name="select_city" tools:ignore="ExtraTranslation">Select City</string>
+    <string name="current_location" tools:ignore="ExtraTranslation">Current Location</string>
+    <string name="current_state" tools:ignore="ExtraTranslation">Current Status</string>
+    <string name="track" tools:ignore="ExtraTranslation">Track</string>
+    <string name="my_place" tools:ignore="ExtraTranslation">My Places</string>
+    <string name="booking_id">Booking Id :</string>
+</resources>

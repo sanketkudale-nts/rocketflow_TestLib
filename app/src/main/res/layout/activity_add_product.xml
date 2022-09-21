@@ -1,0 +1,976 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/llMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context=".view.ui.addProduct.AddProductActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            app:elevation="@dimen/dimen_0">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/Toolbar"
+                android:background="@color/white"
+                app:contentInsetStartWithNavigation="0dp"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:titleTextColor="@color/white"
+                tools:title="">
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/dimen_5"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/llAddProductImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen_15"
+                        android:layout_marginRight="@dimen/dimen_15"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+                        <RelativeLayout
+                            android:id="@+id/rlTakeImage"
+                            android:layout_width="@dimen/dimen_150"
+                            android:layout_height="@dimen/dimen_150">
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/cardViewTakeImage"
+                                android:layout_width="@dimen/dimen_130"
+                                android:layout_height="@dimen/dimen_130"
+                                android:layout_marginTop="@dimen/dimen_10"
+                                app:cardBackgroundColor="@color/inc_dcr_color"
+                                app:cardCornerRadius="@dimen/dimen_5"
+                                app:cardElevation="@dimen/dimen_0"
+                                app:cardUseCompatPadding="true">
+
+                                <ImageView
+                                    android:layout_width="@dimen/dimen_40"
+                                    android:layout_height="25dp"
+                                    android:layout_gravity="center"
+                                    app:srcCompat="@drawable/ic_camera" />
+                            </androidx.cardview.widget.CardView>
+
+                            <RelativeLayout
+                                android:id="@+id/cardViewActImage"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:visibility="gone">
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="@dimen/dimen_130"
+                                    android:layout_height="@dimen/dimen_130"
+                                    android:layout_marginTop="@dimen/dimen_5"
+                                    app:cardCornerRadius="@dimen/dimen_5"
+                                    app:cardElevation="@dimen/dimen_0"
+                                    app:cardUseCompatPadding="true">
+
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent">
+
+                                        <ImageView
+                                            android:id="@+id/ivActImage"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_gravity="center"
+                                            android:scaleType="centerCrop" />
+
+                                    </RelativeLayout>
+
+                                </androidx.cardview.widget.CardView>
+
+                                <ImageView
+                                    android:id="@+id/ivDelete"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginRight="@dimen/dimen_10"
+                                    app:srcCompat="@drawable/ic_delete_image" />
+                            </RelativeLayout>
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/tvProductImage"
+                            style="@style/TextViewStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="@dimen/dimen_30"
+                            android:text="@string/add_product_image"
+                            android:textColor="@color/text_gray" />
+
+
+                    </LinearLayout>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/tilProductName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen_5"
+                        android:layout_marginRight="@dimen/dimen_5"
+                        android:elevation="@dimen/dimen_8"
+                        android:visibility="gone"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardUseCompatPadding="true"
+                        app:contentPadding="@dimen/dimen_8">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="visible">
+
+                            <TextView
+                                android:id="@+id/tvLabelProductName"
+                                style="@style/TextViewStyle"
+                                android:focusable="false"
+                                android:focusableInTouchMode="true"
+                                android:fontFamily="@font/campton_semi_bold"
+                                android:text="@string/task_name"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_size_16"
+                                tools:text="Rahul Abrol" />
+
+                            <EditText
+                                android:id="@+id/etProductName"
+                                style="@style/EditTextStyle"
+                                android:fontFamily="@font/campton_book"
+                                android:inputType="textCapWords"
+                                app:backgroundTint="@color/light_gray_a" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cvProductCategory"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen_5"
+                        android:layout_marginTop="@dimen/dimen_10"
+                        android:layout_marginRight="@dimen/dimen_5"
+                        android:elevation="@dimen/dimen_8"
+                        android:visibility="gone"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardUseCompatPadding="true"
+                        app:contentPadding="@dimen/dimen_8">
+
+                        <LinearLayout
+                            android:id="@+id/llProductCategory"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvProductCategory"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:focusable="false"
+                                android:focusableInTouchMode="true"
+                                android:fontFamily="@font/campton_semi_bold"
+                                android:text="@string/task_name"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_size_16"
+                                tools:text="Rahul Abrol" />
+
+                            <RelativeLayout
+                                android:id="@+id/rlProductCategory"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:id="@+id/tvProductCategoryValue"
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:fontFamily="@font/campton_book"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/text_size_12" />
+
+                                <ImageView
+                                    android:id="@+id/ivDropDown"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:padding="@dimen/dimen_20"
+                                    app:srcCompat="@drawable/ic_drop_down"
+                                    app:tint="@color/black" />
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dimen_0_8"
+                                    android:layout_below="@+id/ivDropDown"
+                                    android:background="@color/text_gray" />
+                            </RelativeLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <LinearLayout
+                        android:id="@+id/llMrp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen_5"
+                        android:layout_marginTop="@dimen/dimen_10"
+                        android:layout_marginRight="@dimen/dimen_5"
+                        android:orientation="horizontal"
+                        android:visibility="gone"
+                        android:weightSum="2">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/tilMrpUnit"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:elevation="@dimen/dimen_8"
+                            android:visibility="visible"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardUseCompatPadding="true"
+                            app:contentPadding="@dimen/dimen_8">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:visibility="visible">
+
+                                <TextView
+                                    android:id="@+id/tvLabelMRPName"
+                                    style="@style/TextViewStyle"
+                                    android:ellipsize="end"
+                                    android:focusable="false"
+                                    android:focusableInTouchMode="true"
+                                    android:fontFamily="@font/campton_semi_bold"
+                                    android:maxLines="1"
+                                    android:text="@string/mrp_unit"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/text_size_16"
+                                    tools:text="Rahul Abrol" />
+
+                                <EditText
+                                    android:id="@+id/etMrp"
+                                    style="@style/EditTextStyle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dimen_50"
+                                    android:layout_marginRight="@dimen/dimen_5"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/edit_text_bottom_border"
+                                    android:ellipsize="end"
+                                    android:fontFamily="@font/campton_book"
+                                    android:hint="@string/mrp_unit"
+                                    android:inputType="number|numberDecimal"
+                                    android:maxLines="1"
+                                    android:paddingStart="@dimen/dimen_10"
+                                    android:paddingLeft="@dimen/dimen_10"
+                                    app:backgroundTint="@color/light_gray_a"
+                                    tools:text="10" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/tilSellingPrice"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:elevation="@dimen/dimen_8"
+                            android:visibility="visible"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardUseCompatPadding="true"
+                            app:contentPadding="@dimen/dimen_8">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:visibility="visible">
+
+                                <TextView
+                                    android:id="@+id/tvLabelSellingPrice"
+                                    style="@style/TextViewStyle"
+                                    android:ellipsize="end"
+                                    android:focusable="false"
+                                    android:focusableInTouchMode="true"
+                                    android:fontFamily="@font/campton_semi_bold"
+                                    android:maxLines="1"
+                                    android:text="@string/selling_price"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/text_size_16"
+                                    tools:text="Rahul Abrol" />
+
+                                <EditText
+                                    android:id="@+id/etSellPrice"
+                                    style="@style/EditTextStyle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dimen_50"
+                                    android:layout_marginRight="@dimen/dimen_5"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/edit_text_bottom_border"
+                                    android:ellipsize="end"
+                                    android:fontFamily="@font/campton_book"
+                                    android:hint="@string/mrp_unit"
+                                    android:inputType="number|numberDecimal"
+                                    android:maxLines="1"
+                                    android:paddingStart="@dimen/dimen_10"
+                                    android:paddingLeft="@dimen/dimen_10"
+                                    app:backgroundTint="@color/light_gray_a"
+                                    tools:text="10" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llQuantityUnit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen_5"
+                        android:layout_marginTop="@dimen/dimen_10"
+                        android:layout_marginRight="@dimen/dimen_5"
+                        android:orientation="horizontal"
+                        android:visibility="gone"
+                        android:weightSum="2">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/tilQuantity"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:elevation="@dimen/dimen_8"
+                            android:visibility="visible"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardUseCompatPadding="true"
+                            app:contentPadding="@dimen/dimen_8">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:visibility="visible">
+
+                                <TextView
+                                    android:id="@+id/tvLabelQuantityName"
+                                    style="@style/TextViewStyle"
+                                    android:ellipsize="end"
+                                    android:focusable="false"
+                                    android:focusableInTouchMode="true"
+                                    android:fontFamily="@font/campton_semi_bold"
+                                    android:maxLines="1"
+                                    android:text="@string/quantity"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/text_size_16"
+                                    tools:text="Rahul Abrol" />
+
+                                <EditText
+                                    android:id="@+id/etQuantity"
+                                    style="@style/EditTextStyle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dimen_50"
+                                    android:layout_marginRight="@dimen/dimen_5"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/edit_text_bottom_border"
+                                    android:ellipsize="end"
+                                    android:fontFamily="@font/campton_book"
+                                    android:hint="@string/quantity"
+                                    android:inputType="number|numberDecimal"
+                                    android:maxLines="1"
+                                    android:paddingStart="@dimen/dimen_10"
+                                    android:paddingLeft="@dimen/dimen_10"
+                                    app:backgroundTint="@color/light_gray_a"
+                                    tools:text="10" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/tilUnit"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:elevation="@dimen/dimen_8"
+                            android:visibility="visible"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardUseCompatPadding="true"
+                            app:contentPadding="@dimen/dimen_8">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:visibility="visible">
+
+                                <TextView
+                                    android:id="@+id/tvLabelUnit"
+                                    style="@style/TextViewStyle"
+                                    android:ellipsize="end"
+                                    android:focusable="false"
+                                    android:focusableInTouchMode="true"
+                                    android:fontFamily="@font/campton_semi_bold"
+                                    android:maxLines="1"
+                                    android:text="@string/quantity"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/text_size_16"
+                                    tools:text="Rahul Abrol" />
+
+                                <EditText
+                                    android:id="@+id/edPerUnit"
+                                    style="@style/EditTextStyle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dimen_50"
+                                    android:layout_marginRight="@dimen/dimen_5"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/edit_text_bottom_border"
+                                    android:clickable="true"
+                                    android:ellipsize="end"
+                                    android:focusable="false"
+                                    android:fontFamily="@font/campton_book"
+                                    android:hint="@string/quantity"
+                                    android:inputType="none"
+                                    android:maxLines="1"
+                                    android:paddingStart="@dimen/dimen_10"
+                                    android:paddingLeft="@dimen/dimen_10"
+                                    app:backgroundTint="@color/light_gray_a"
+                                    tools:text="10" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/llPackInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen_5"
+                        android:layout_marginTop="@dimen/dimen_10"
+                        android:layout_marginRight="@dimen/dimen_5"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/tilPackUnit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:elevation="@dimen/dimen_8"
+                            android:visibility="visible"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardUseCompatPadding="true"
+                            app:contentPadding="@dimen/dimen_8">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:visibility="visible">
+
+                                <TextView
+                                    android:id="@+id/tvLabelPackUnit"
+                                    style="@style/TextViewStyle"
+                                    android:focusable="false"
+                                    android:focusableInTouchMode="true"
+                                    android:fontFamily="@font/campton_semi_bold"
+                                    android:text="@string/pack_unit"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/text_size_16"
+                                    tools:text="Rahul Abrol" />
+
+                                <EditText
+                                    android:id="@+id/edPackUnit"
+                                    style="@style/EditTextStyle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dimen_50"
+                                    android:layout_marginRight="@dimen/dimen_5"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/edit_text_bottom_border"
+                                    android:clickable="true"
+                                    android:focusable="false"
+                                    android:fontFamily="@font/campton_book"
+                                    android:hint="@string/pack_unit"
+                                    android:inputType="none"
+                                    android:paddingStart="@dimen/dimen_10"
+                                    android:paddingLeft="@dimen/dimen_10"
+                                    app:backgroundTint="@color/light_gray_a"
+                                    tools:text="10" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dimen_10"
+                            android:orientation="horizontal"
+
+                            android:weightSum="2">
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/tilFrom"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:elevation="@dimen/dimen_8"
+                                android:visibility="visible"
+                                app:cardBackgroundColor="@color/white"
+                                app:cardUseCompatPadding="true"
+                                app:contentPadding="@dimen/dimen_8">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:visibility="visible">
+
+                                    <TextView
+                                        android:id="@+id/tvLabelFrom"
+                                        style="@style/TextViewStyle"
+                                        android:focusable="false"
+                                        android:focusableInTouchMode="true"
+                                        android:fontFamily="@font/campton_semi_bold"
+                                        android:text="@string/from"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/text_size_16"
+                                        tools:text="Rahul Abrol" />
+
+                                    <EditText
+                                        android:id="@+id/etFrom"
+                                        style="@style/EditTextStyle"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="@dimen/dimen_50"
+                                        android:layout_marginRight="@dimen/dimen_5"
+                                        android:layout_weight="1"
+                                        android:background="@drawable/edit_text_bottom_border"
+                                        android:ellipsize="end"
+                                        android:fontFamily="@font/campton_book"
+                                        android:hint="@string/from"
+                                        android:inputType="number"
+                                        android:maxLines="1"
+                                        android:paddingStart="@dimen/dimen_10"
+                                        android:paddingLeft="@dimen/dimen_10"
+                                        app:backgroundTint="@color/light_gray_a"
+                                        tools:text="10" />
+                                </LinearLayout>
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/tillTO"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:elevation="@dimen/dimen_8"
+                                android:visibility="visible"
+                                app:cardBackgroundColor="@color/white"
+                                app:cardUseCompatPadding="true"
+                                app:contentPadding="@dimen/dimen_8">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:visibility="visible">
+
+                                    <TextView
+                                        android:id="@+id/tvLabelTo"
+                                        style="@style/TextViewStyle"
+                                        android:focusable="false"
+                                        android:focusableInTouchMode="true"
+                                        android:fontFamily="@font/campton_semi_bold"
+                                        android:text="@string/to"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/text_size_16"
+                                        tools:text="Rahul Abrol" />
+
+                                    <EditText
+                                        android:id="@+id/etTo"
+                                        style="@style/EditTextStyle"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="@dimen/dimen_50"
+                                        android:layout_marginRight="@dimen/dimen_5"
+                                        android:layout_weight="1"
+                                        android:background="@drawable/edit_text_bottom_border"
+                                        android:ellipsize="end"
+                                        android:fontFamily="@font/campton_book"
+                                        android:hint="@string/to"
+                                        android:inputType="number"
+                                        android:maxLines="1"
+                                        android:paddingStart="@dimen/dimen_10"
+                                        android:paddingLeft="@dimen/dimen_10"
+                                        app:backgroundTint="@color/light_gray_a"
+                                        tools:text="10" />
+                                </LinearLayout>
+                            </androidx.cardview.widget.CardView>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llMaxOrderLimitMinQuantity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen_5"
+                        android:layout_marginTop="@dimen/dimen_10"
+                        android:layout_marginRight="@dimen/dimen_5"
+                        android:orientation="horizontal"
+                        android:visibility="gone"
+                        android:weightSum="2">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/tilMaxOrderLimit"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:elevation="@dimen/dimen_8"
+                            android:visibility="visible"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardUseCompatPadding="true"
+                            app:contentPadding="@dimen/dimen_8">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:visibility="visible">
+
+                                <TextView
+                                    android:id="@+id/tvLabelMaximumOrderLimit"
+                                    style="@style/TextViewStyle"
+                                    android:ellipsize="end"
+                                    android:focusable="false"
+                                    android:focusableInTouchMode="true"
+                                    android:fontFamily="@font/campton_semi_bold"
+                                    android:maxLines="1"
+                                    android:text="@string/maximum_order_limit"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/text_size_16"
+                                    tools:text="Rahul Abrol" />
+
+                                <EditText
+                                    android:id="@+id/etMaxOrderLimit"
+                                    style="@style/EditTextStyle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dimen_50"
+                                    android:layout_marginRight="@dimen/dimen_5"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/edit_text_bottom_border"
+                                    android:ellipsize="end"
+                                    android:fontFamily="@font/campton_book"
+                                    android:hint="@string/maximum_order_limit"
+                                    android:inputType="number|numberDecimal"
+                                    android:maxLines="1"
+                                    android:paddingStart="@dimen/dimen_10"
+                                    android:paddingLeft="@dimen/dimen_10"
+                                    app:backgroundTint="@color/light_gray_a"
+                                    tools:text="10" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/tilMinStockQuantity"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:elevation="@dimen/dimen_8"
+                            android:visibility="visible"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardUseCompatPadding="true"
+                            app:contentPadding="@dimen/dimen_8">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:visibility="visible">
+
+                                <TextView
+                                    android:id="@+id/tvLabelMinStockQuantity"
+                                    style="@style/TextViewStyle"
+                                    android:ellipsize="end"
+                                    android:focusable="false"
+                                    android:focusableInTouchMode="true"
+                                    android:fontFamily="@font/campton_semi_bold"
+                                    android:maxLines="1"
+                                    android:text="@string/minimum_quantity"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/text_size_16"
+                                    tools:text="Rahul Abrol" />
+
+                                <EditText
+                                    android:id="@+id/edMinStockQuantity"
+                                    style="@style/EditTextStyle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dimen_50"
+                                    android:layout_marginRight="@dimen/dimen_5"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/edit_text_bottom_border"
+                                    android:ellipsize="end"
+                                    android:fontFamily="@font/campton_book"
+                                    android:hint="@string/minimum_quantity"
+                                    android:inputType="number|numberDecimal"
+                                    android:maxLines="1"
+                                    android:paddingStart="@dimen/dimen_10"
+                                    android:paddingLeft="@dimen/dimen_10"
+                                    app:backgroundTint="@color/light_gray_a"
+                                    tools:text="10" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+
+                    </LinearLayout>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/tilReffNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen_5"
+                        android:layout_marginTop="@dimen/dimen_10"
+                        android:layout_marginRight="@dimen/dimen_5"
+                        android:elevation="@dimen/dimen_8"
+                        android:visibility="gone"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardUseCompatPadding="true"
+                        app:contentPadding="@dimen/dimen_8">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="visible">
+
+                            <TextView
+                                android:id="@+id/tvLabelReffNumber"
+                                style="@style/TextViewStyle"
+                                android:focusable="false"
+                                android:focusableInTouchMode="true"
+                                android:fontFamily="@font/campton_semi_bold"
+                                android:text="@string/reference_number"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_size_16"
+                                tools:text="Rahul Abrol" />
+
+                            <EditText
+                                android:id="@+id/etReffNumber"
+                                style="@style/EditTextStyle"
+                                android:fontFamily="@font/campton_book"
+                                android:hint="@string/reference_number"
+                                android:inputType="textCapWords"
+                                app:backgroundTint="@color/light_gray_a" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/tilProductSpecs"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen_5"
+                        android:layout_marginTop="@dimen/dimen_10"
+                        android:layout_marginRight="@dimen/dimen_5"
+                        android:elevation="@dimen/dimen_8"
+                        android:visibility="gone"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardUseCompatPadding="true"
+                        app:contentPadding="@dimen/dimen_8">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="visible">
+
+                            <TextView
+                                android:id="@+id/tvLabelProductSpecs"
+                                style="@style/TextViewStyle"
+                                android:focusable="false"
+                                android:focusableInTouchMode="true"
+                                android:fontFamily="@font/campton_semi_bold"
+                                android:text="@string/product_description"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_size_16"
+                                tools:text="Rahul Abrol" />
+
+                            <TextView
+                                android:id="@+id/tvAddDescription"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end"
+                                android:text="@string/add_description"
+                                android:textColor="@color/colorPrimary">
+
+                            </TextView>
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/rvDescriptions"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dimen_10"
+                                android:orientation="vertical"
+                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                                tools:listitem="@layout/item_row_product_description" />
+
+                            <!--  <EditText
+                                android:id="@+id/etProductSpecs"
+                                style="@style/EditTextStyle"
+                                android:hint="@string/product_description"
+                                android:fontFamily="@font/campton_book"
+                                android:inputType="textCapWords"
+                                app:backgroundTint="@color/light_gray_a" />-->
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/tilProductDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen_5"
+                        android:layout_marginTop="@dimen/dimen_10"
+                        android:layout_marginRight="@dimen/dimen_5"
+                        android:elevation="@dimen/dimen_8"
+                        android:visibility="gone"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardUseCompatPadding="true"
+                        app:contentPadding="@dimen/dimen_8">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="visible">
+
+                            <TextView
+                                android:id="@+id/tvLabelProductDescription"
+                                style="@style/TextViewStyle"
+                                android:focusable="false"
+                                android:focusableInTouchMode="true"
+                                android:fontFamily="@font/campton_semi_bold"
+                                android:text="@string/product_description"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_size_16"
+                                tools:text="Rahul Abrol" />
+
+                            <EditText
+                                android:id="@+id/etProductDescription"
+                                style="@style/EditTextStyle"
+                                android:fontFamily="@font/campton_book"
+                                android:hint="@string/product_description"
+                                android:inputType="textCapSentences"
+                                app:backgroundTint="@color/light_gray_a" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+
+                    <RelativeLayout
+                        android:id="@+id/rlVariants"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen_15"
+                        android:layout_marginTop="@dimen/dimen_15"
+                        android:layout_marginRight="@dimen/dimen_15"
+                        android:visibility="gone">
+
+                        <TextView
+                            style="@style/TextViewStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:layout_toLeftOf="@+id/tvNumVariants"
+                            android:fontFamily="@font/campton_book"
+                            android:text="@string/add_variants"
+                            android:textColor="@color/colorPrimary" />
+
+                        <TextView
+                            android:id="@+id/tvNumVariants"
+                            style="@style/TextViewStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:fontFamily="@font/campton_book"
+                            android:text="1 variants"
+                            android:textColor="@color/text_gray" />
+                    </RelativeLayout>
+
+                    <FrameLayout
+                        android:id="@+id/container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <include
+                        android:id="@+id/viewProgress"
+                        layout="@layout/progress_dialog_with_percentage"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/btnAddNow"
+                        style="@style/ButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/dimen_15"
+                        android:layout_marginBottom="@dimen/dimen_5"
+                        android:paddingLeft="@dimen/dimen_50"
+                        android:paddingRight="@dimen/dimen_50"
+                        android:text="@string/add_now"
+                        android:textAllCaps="false" />
+
+                    <!-- <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnAddNow"
+                        style="@style/Widget.MaterialComponents.Button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dimen_60"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/dimen_15"
+                        android:layout_marginBottom="@dimen/dimen_5"
+                        android:paddingLeft="@dimen/dimen_50"
+                        android:paddingRight="@dimen/dimen_50"
+                        android:text="@string/add_now"
+                        android:background="@drawable/bg_blue_button_round_corner"
+                        app:cornerRadius="5dp"
+                        app:cornerFamily="rounded"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_18"
+                        android:fontFamily="@font/campton_book"
+                        android:textAllCaps="false" />-->
+                </LinearLayout>
+
+
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/dimen_20"
+    android:paddingRight="@dimen/dimen_20">
+
+    <TextView
+        style="@style/TextViewStyle"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_30"
+        android:text="@string/select_geography"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_25"
+        android:textStyle="bold" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_40"
+        android:layout_marginTop="@dimen/dimen_10"
+        app:cardBackgroundColor="#EFEFEF"
+        app:cardCornerRadius="@dimen/dimen_6"
+        app:cardElevation="@dimen/dimen_2">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/spinnerRegion"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dimen_3"
+                android:layout_toLeftOf="@+id/ivSpinnerRegion"
+                android:background="@color/transparent"
+                android:textAlignment="center" />
+
+            <ImageView
+                android:id="@+id/ivSpinnerRegion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:paddingRight="@dimen/dimen_8"
+                app:srcCompat="@drawable/ic_down_triangle" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_40"
+        android:layout_marginTop="@dimen/dimen_20"
+        app:cardBackgroundColor="#EFEFEF"
+        app:cardCornerRadius="@dimen/dimen_6"
+        app:cardElevation="@dimen/dimen_2">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/spinnerBlock"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dimen_3"
+                android:layout_toLeftOf="@+id/ivSpinnerBlock"
+                android:background="@color/transparent"
+                android:textAlignment="center" />
+
+            <ImageView
+                android:id="@+id/ivSpinnerBlock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:paddingRight="@dimen/dimen_8"
+                app:srcCompat="@drawable/ic_down_triangle" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_40"
+        android:layout_marginTop="@dimen/dimen_20"
+        app:cardBackgroundColor="#EFEFEF"
+        app:cardCornerRadius="@dimen/dimen_6"
+        app:cardElevation="@dimen/dimen_2">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/spinnerCity"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dimen_3"
+                android:layout_toLeftOf="@+id/ivSpinnerCity"
+                android:background="@color/transparent"
+                android:textAlignment="center" />
+
+            <ImageView
+                android:id="@+id/ivSpinnerCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:paddingRight="@dimen/dimen_8"
+                app:srcCompat="@drawable/ic_down_triangle" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_40"
+        android:layout_marginTop="@dimen/dimen_20"
+        app:cardBackgroundColor="#EFEFEF"
+        app:cardCornerRadius="@dimen/dimen_6"
+        app:cardElevation="@dimen/dimen_2">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/spinnerSite"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dimen_3"
+                android:layout_toLeftOf="@+id/ivSpinnerSite"
+                android:background="@color/transparent"
+                android:textAlignment="center" />
+
+            <ImageView
+                android:id="@+id/ivSpinnerSite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:paddingRight="@dimen/dimen_8"
+                app:srcCompat="@drawable/ic_down_triangle" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_20"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/btnCancel"
+            style="@style/ResetButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/dimen_4"
+            android:layout_weight="1"
+            android:text="@string/cancel" />
+
+        <Button
+            android:id="@+id/btnApply"
+            style="@style/ButtonBlueStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dimen_4"
+            android:layout_weight="1"
+            android:text="@string/apply" />
+    </LinearLayout>
+
+
+</LinearLayout>

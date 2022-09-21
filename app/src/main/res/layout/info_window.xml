@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/dimen_4"
+    app:cardElevation="@dimen/dimen_2">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_8">
+
+        <TextView
+            android:id="@+id/tvLocationName"
+            style="@style/TextViewStyle"
+            android:fontFamily="@font/campton_semi_bold"
+            android:lineSpacingExtra="-3dip"
+            android:maxWidth="@dimen/dimen_150"
+            android:textColor="@color/text_color_menu_item"
+            android:textSize="@dimen/text_size_14"
+            tools:text="Golf Course Road, Sector 54, Gurugram, Haryana 122001" />
+
+        <TextView
+            android:layout_below="@+id/tvLocationName"
+            android:id="@+id/tvStatus"
+            style="@style/TextViewStyle"
+            android:fontFamily="@font/campton_light"
+            android:lineSpacingExtra="-3dip"
+            android:maxWidth="@dimen/dimen_150"
+            android:textColor="@color/text_color_menu_item"
+            android:textSize="@dimen/text_size_14"
+            tools:text="Golf Course Road, Sector 54, Gurugram, Haryana 122001" />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

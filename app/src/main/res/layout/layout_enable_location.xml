@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/dimen_30"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="@dimen/text_size_18">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/rlLoc"
+            android:layout_marginTop="@dimen/dimen_50"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/circle_doted"
+            android:layout_width="wrap_content"
+            android:padding="@dimen/dimen_30"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:background="@drawable/circle_doted"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dimen_30"
+
+                android:contentDescription="@null"
+                app:srcCompat="@drawable/ic_map" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+           android:layout_below="@+id/rlLoc"
+            android:layout_marginTop="@dimen/dimen_20"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView
+                style="@style/TextViewStyle"
+                android:layout_marginLeft="@dimen/dimen_30"
+                android:layout_marginRight="@dimen/dimen_30"
+                android:fontFamily="@font/campton_book"
+                android:textSize="@dimen/text_size_18"
+                android:textStyle="bold"
+                android:text="@string/enable_location_service" />
+
+
+            <TextView
+                style="@style/TextViewStyle"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:layout_marginLeft="@dimen/dimen_30"
+                android:layout_marginRight="@dimen/dimen_30"
+                android:fontFamily="@font/campton_book"
+                android:gravity="center_horizontal"
+                android:text="@string/enable_location_message" />
+
+
+            <Button
+                android:id="@+id/btnEnableNow"
+                style="@style/ButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="@dimen/dimen_30"
+                android:padding="@dimen/dimen_10"
+                android:textAllCaps="false"
+                android:text="@string/enable_now" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

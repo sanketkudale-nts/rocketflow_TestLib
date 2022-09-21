@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="data"
+            type="com.tracki.data.model.DocumentType" />
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/rlMain"
+        android:layout_margin="@dimen/dimen_4"
+        android:layout_width="@dimen/dimen_80"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ivFileType"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dimen_20"
+            app:srcCompat="@drawable/ic_headphone"
+            android:layout_width="@dimen/dimen_60"
+            android:layout_height="@dimen/dimen_60" />
+
+        <TextView
+            tools:text="Documents"
+            android:text="@{data.type.type}"
+            android:textColor="@color/light_gray_b"
+            android:layout_below="@+id/ivFileType"
+            android:layout_marginTop="@dimen/dimen_10"
+            style="@style/TextViewStyle"
+            android:gravity="center"
+            android:textSize="@dimen/text_size_12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+    </RelativeLayout>
+</layout>

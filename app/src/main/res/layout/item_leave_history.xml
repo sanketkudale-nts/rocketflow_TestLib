@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.leave.leave_history.LeaveHistoryItemViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->viewModel.onViewClick()}">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="3"
+                android:paddingTop="@dimen/dimen_15"
+                android:paddingBottom="@dimen/dimen_15">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                   >
+
+                    <TextView
+                        style="@style/TextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:gravity="center"
+                        android:maxLines="3"
+                        android:text="@{viewModel.leaveDate}"
+                        android:fontFamily="@font/campton_light"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_14"
+                        tools:text="12th Jan - 14th Jan" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    >
+
+                    <TextView
+                        style="@style/TextViewStyle"
+                        android:layout_gravity="center"
+                        android:text="@{viewModel.leaveStatus}"
+                        android:textColor="@{viewModel.isApplied? @color/yellow_dark:(viewModel.isRejected?@color/red_dark6:(viewModel.isCancelled?@color/semi_gray:@color/green_2))}"
+                        android:textSize="@dimen/text_size_14"
+                        tools:text="Applied" />
+
+                    <TextView
+                        style="@style/TextViewStyle"
+                        android:layout_marginTop="@dimen/dimen_5"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:lines="1"
+                        android:paddingStart="@dimen/dimen_5"
+                        android:paddingEnd="@dimen/dimen_5"
+                        android:text="@{viewModel.approverMainItem}"
+                        android:textColor="@color/semi_gray"
+                        android:textSize="@dimen/text_size_14"
+                        android:visibility="@{viewModel.isApproved?View.VISIBLE:(viewModel.isRejected?View.VISIBLE:View.GONE)}"
+                        tools:text="By Stone Cold Steve Austin" />
+
+                </LinearLayout>
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:layout_width="0dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:maxLines="3"
+                    android:fontFamily="@font/campton_light"
+                    android:text="@{viewModel.leaves}"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_14"
+                    tools:text="3 privilege leaves" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_0_8"
+                android:layout_alignParentBottom="true"
+                android:background="@color/windowBackgroundColor" />
+        </RelativeLayout>
+<!--
+        android:visibility="@{viewModel.isExpandable ?  View.VISIBLE : View.GONE}"
+-->
+    </LinearLayout>
+</layout>
+

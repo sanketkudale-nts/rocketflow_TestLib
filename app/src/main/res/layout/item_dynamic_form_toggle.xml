@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.dynamicform.FormToggleViewModel" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_5"
+        android:layout_marginTop="@dimen/dimen_8"
+        android:layout_marginEnd="@dimen/dimen_5"
+        android:layout_marginBottom="@dimen/dimen_0"
+        android:elevation="@dimen/dimen_8"
+        app:cardBackgroundColor="@color/white"
+        app:cardUseCompatPadding="true"
+        app:contentPadding="@dimen/dimen_4">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_cursor_white"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                style="@style/TextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_question"
+                android:drawablePadding="@dimen/dimen_8"
+                android:fontFamily="@font/campton_semi_bold"
+                android:paddingLeft="@dimen/dimen_5"
+                android:paddingTop="@dimen/dimen_5"
+                android:paddingBottom="@dimen/dimen_5"
+                android:text="@{viewModel.title}"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_16"
+                tools:text="@string/app_name" />
+
+
+            <com.tracki.utils.toggle.widget.LabeledSwitch
+                android:id="@+id/mSwitch"
+                android:layout_width="@dimen/labeled_default_width"
+                android:layout_height="@dimen/labeled_default_height"
+                app:colorBorder="@color/toggle_bg"
+                android:scaleX="0.6"
+                android:scaleY="0.6"
+                app:colorDisabled="@color/colorAccent"
+                app:colorOff="@color/toggle_bg"
+                app:colorOn="@color/white"
+                app:on="false"
+                app:textOff="No"
+                app:textOn="Yes" />
+
+            <!--<Switch
+                android:id="@+id/mSwitch"
+                style="@style/SCBSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:paddingLeft="@dimen/dimen_5"
+                android:paddingBottom="@dimen/dimen_5"
+                android:switchPadding="@dimen/dimen_10"
+                android:text="No"
+                android:textColor="@color/gray"
+                android:textStyle="bold" />-->
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

@@ -1,0 +1,45 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.chat.MeItemViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="8dp">
+
+        <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
+            android:layout_alignParentEnd="true"
+            android:id="@+id/imageView"
+            android:layout_width="@dimen/dimen_300"
+            android:layout_height="@dimen/dimen_200"
+            android:layout_marginLeft="@dimen/message_outcoming_bubble_margin_left"
+            android:layout_marginStart="@dimen/message_outcoming_bubble_margin_left"
+            android:adjustViewBounds="true"
+            app:siShape="@drawable/shape_rounded_rectangle"
+            app:siSquare="true" />
+
+        <TextView
+            android:layout_alignParentEnd="true"
+            android:gravity="end"
+            android:id="@+id/messageTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/imageView"
+            android:layout_alignStart="@+id/imageView"
+            android:layout_below="@+id/imageView"
+            android:text="@{viewModel.time}"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            tools:text="12:21" />
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dimen_20"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="@dimen/dimen_5">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="@dimen/dimen_200"
+            android:layout_height="@dimen/dimen_300"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/dimen_30"
+            app:srcCompat="@drawable/ic_undraw_my_location" />
+
+        <TextView
+            style="@style/TextViewStyle"
+            android:textColor="@color/black"
+            android:layout_gravity="center_horizontal"
+            android:textSize="@dimen/dimen_14"
+            android:gravity="center_horizontal"
+            android:layout_marginLeft="@dimen/dimen_20"
+            android:layout_marginRight="@dimen/dimen_20"
+            android:text="This app collects location data to enable visibility on in transit orders, to calculate route based wages and getting alerts for on field support even when the app is closed or not in use."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_marginTop="@dimen/dimen_20"
+            android:layout_marginBottom="@dimen/dimen_30"
+            android:layout_marginRight="@dimen/dimen_30"
+            android:layout_marginLeft="@dimen/dimen_30">
+            <Button
+                style="@style/ResetButton"
+                android:id="@+id/btnCancel"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="Cancel"
+                android:layout_height="wrap_content"
+                tools:ignore="Suspicious0dp"
+                android:layout_marginRight="@dimen/dimen_10"/>
+            <Button
+                android:layout_marginLeft="@dimen/dimen_10"
+                style="@style/ButtonBlueStyle"
+                android:id="@+id/btnProceed"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="Proceed"
+                android:layout_height="wrap_content"
+                tools:ignore="Suspicious0dp"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

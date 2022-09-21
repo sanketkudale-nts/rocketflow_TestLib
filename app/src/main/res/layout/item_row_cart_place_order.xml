@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="data"
+            type="com.tracki.ui.selectorder.CatalogProduct" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/dimen_10"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/dimen_5"
+            android:paddingTop="@dimen/dimen_5"
+            android:paddingRight="@dimen/dimen_5"
+            android:paddingBottom="@dimen/dimen_5"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:id="@+id/llImage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25">
+
+                <ImageView
+                    android:id="@+id/ivProducts"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_100"
+                    app:srcCompat="@drawable/ic_picture"
+                    app:load_catalog_product="@{data.image}" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llTxtData"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.50"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    android:layout_marginRight="@dimen/dimen_5"
+                    android:text="@{data.name}"
+                    android:textSize="@dimen/text_size_14"
+                    android:fontFamily="@font/campton_semi_bold"
+                    tools:text="Haldi Ram Nut Craker" />
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="@font/campton_light"
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    android:layout_marginRight="@dimen/dimen_5"
+                    android:text="@{``+data.unitValue+` `+data.unitType.toLowerCase()}"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_12"
+                    tools:text="200 gm" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_7"
+                    android:layout_marginTop="@dimen/dimen_10"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvMainPrice"
+                        style="@style/TextViewStyle"
+                        android:fontFamily="@font/campton_book"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="@dimen/dimen_10"
+                        android:text="@{`₹ `+data.price}"
+                        android:textSize="@dimen/text_size_13"
+                        tools:text="₹ 50"
+                        android:textColor="@color/gray"
+                        />
+
+                    <TextView
+                        android:id="@+id/tvSellingPrice"
+                        style="@style/TextViewStyle"
+                        android:fontFamily="@font/campton_book"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="@dimen/dimen_5"
+                        android:layout_marginLeft="@dimen/dimen_5"
+                        android:text="@{`₹ `+data.sellingPrice}"
+                        android:textSize="@dimen/text_size_13"
+                        tools:text="₹ 50" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.25"
+                android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/ivEditPrice"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_edit"
+                    android:visibility="gone"
+                    />
+
+                <Button
+                    android:id="@+id/addProduct"
+                    style="@style/ButtonStokeStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_40"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginBottom="@dimen/dimen_10"
+                    android:text="@string/add_product"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_size_12"
+                    android:visibility="@{data.addInOrder?View.GONE:View.VISIBLE}"
+                    />
+
+                <LinearLayout
+                    android:id="@+id/llcounter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="@dimen/dimen_10"
+                    android:orientation="horizontal"
+                    android:visibility="@{data.addInOrder?View.VISIBLE:View.GONE}"
+                    android:weightSum="3">
+
+
+                    <ImageView
+                        android:id="@+id/ivMinus"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dimen_30"
+                        android:layout_weight="1"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        app:srcCompat="@drawable/ic_minus_square" />
+
+                    <TextView
+                        android:id="@+id/tvProductCounter"
+                        style="@style/TextViewStyle"
+                        android:layout_width="0dp"
+                        android:fontFamily="@font/campton_book"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/dimen_4"
+                        android:layout_marginRight="@dimen/dimen_4"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/text_size_14" />
+
+                    <ImageView
+                        android:id="@+id/ivAdd"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dimen_30"
+                        android:layout_weight="1"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        app:srcCompat="@drawable/ic_add_squir" />
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

@@ -1,0 +1,71 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.chat.MeItemViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="8dp">
+
+        <RelativeLayout
+            android:layout_width="@dimen/dimen_200"
+            android:layout_height="@dimen/dimen_200"
+            android:layout_alignParentEnd="true">
+
+            <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:adjustViewBounds="true"
+                app:siRadius="6dp"
+                app:siShape="@drawable/shape_rounded_rectangle"
+                app:siSquare="true" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_video" />
+
+            <ImageView
+                android:id="@+id/ivPlay"
+                android:layout_width="@dimen/dimen_40"
+                android:layout_height="@dimen/dimen_40"
+                android:layout_centerInParent="true"
+                app:srcCompat="@drawable/ic_multimedia_play" />
+
+            <RelativeLayout
+                android:layout_margin="@dimen/dimen_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true">
+                <ImageView
+                    app:srcCompat="@drawable/ic_technology"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:tint="@color/white" />
+                <TextView
+                    android:layout_alignParentEnd="true"
+                    style="@style/TextViewStyle"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:padding="@dimen/dimen_5"
+                    android:text="@{viewModel.time}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_12"
+                    tools:text="12:30 PM" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>

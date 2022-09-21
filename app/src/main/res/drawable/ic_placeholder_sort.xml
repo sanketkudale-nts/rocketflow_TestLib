@@ -1,0 +1,4 @@
+<vector android:height="22dp" android:viewportHeight="24"
+    android:viewportWidth="24" android:width="22dp" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="@color/taskCreateIconColor" android:pathData="M11.813,2C7.711,2 4,5.274 4,10.337q0,5.063 7.813,12 7.809,-6.939 7.813,-12C19.627,5.274 15.916,2 11.813,2ZM11.813,12.167a2.035,2.035 0,1 1,1.953 -2.033A2,2 0,0 1,11.813 12.167Z"/>
+</vector>

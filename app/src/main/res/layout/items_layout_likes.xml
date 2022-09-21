@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.tracki.data.model.response.config.Likes" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_4">
+
+        <ImageView
+            android:id="@+id/ivImage"
+            android:layout_width="@dimen/dimen_40"
+            android:layout_height="@dimen/dimen_40"
+            android:layout_centerVertical="true"
+            app:imageUrl="@{data.userImage}"
+            app:srcCompat="@drawable/ic_my_profile" />
+
+        <TextView
+            android:id="@+id/tvName"
+            style="@style/TextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dimen_10"
+            android:layout_toEndOf="@+id/ivImage"
+            android:fontFamily="@font/campton_semi_bold"
+            android:text="@{data.likedBy}"
+            android:textSize="@dimen/text_size_15"
+            android:layout_marginRight="@dimen/dimen_4"
+            android:layout_toLeftOf="@+id/tvDateTime"
+            tools:text="Vikas Kesharvani" />
+
+        <TextView
+            android:id="@+id/tvDateTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimen_4"
+            android:text="@{data.likedAt}"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_size_10"
+            tools:text="12/12/2020 | 1:35 pm" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:layout_below="@+id/ivImage"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:background="@color/gray" />
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.dynamicform.FormEdittextViewModel" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_5"
+        android:layout_marginTop="@dimen/dimen_8"
+        android:layout_marginEnd="@dimen/dimen_5"
+        android:layout_marginBottom="@dimen/dimen_0"
+        android:elevation="@dimen/dimen_8"
+        app:cardBackgroundColor="@color/white"
+        app:cardUseCompatPadding="true"
+        app:contentPadding="@dimen/dimen_4">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextViewStyle"
+                android:focusable="false"
+                android:focusableInTouchMode="true"
+                android:fontFamily="@font/campton_semi_bold"
+                android:paddingLeft="@dimen/dimen_5"
+                android:paddingTop="@dimen/dimen_3"
+                android:paddingBottom="@dimen/dimen_5"
+                android:text="@{viewModel.title}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_16"
+                tools:text="Scanner" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dimen_5"
+                android:layout_marginTop="@dimen/dimen_5"
+                android:layout_marginBottom="@dimen/dimen_5"
+                android:background="@drawable/custom_edit_border_bg">
+
+                <EditText
+                    android:id="@+id/edDynamicFormText"
+                    style="@style/EditTextStyleWithoutBg"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:layout_toLeftOf="@+id/ivQrcode"
+                    android:background="@null"
+                    android:fontFamily="@font/campton_semi_bold"
+                    android:hint="@{viewModel.hint}"
+
+                    android:imeOptions="actionDone"
+                    android:maxLength="@{viewModel.length}"
+                    android:text="@{viewModel.enteredValue}"
+                    android:textColor="@color/light_gray_a"
+                    android:textSize="@dimen/text_size_14"
+                    tools:text="Active" />
+
+                <ImageView
+                    android:id="@+id/ivQrcode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="end"
+                    android:padding="@dimen/dimen_4"
+                    android:layout_marginEnd="@dimen/dimen_6"
+                    android:src="@drawable/ic_qr_code" />
+            </RelativeLayout>
+            <!--android:onTextChanged="@{(text, start, before, count) ->viewModel.onTextChanged(text)}"-->
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

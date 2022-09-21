@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.addcustomer.AddUserViewModel" />
+
+        <variable
+            name="request"
+            type="com.tracki.data.model.request.AddEmployeeRequest" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/windowBackgroundColor"
+        android:orientation="vertical"
+        android:padding="@dimen/dimen_10">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/white"
+            app:cardUseCompatPadding="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_10"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/basic_info"
+                    android:textColor="@color/colorPrimary" />
+
+                <LinearLayout
+                    android:id="@+id/llEmployeeId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/dimen_10">
+
+                    <LinearLayout
+                        android:layout_weight="0.4"
+                        android:layout_width="0dp"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tvLabelPersonId"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="@font/campton_light"
+                            style="@style/TextViewStyle"
+                            android:text="@string/employee_id"
+                            android:gravity="center_vertical"
+                            android:drawablePadding="@dimen/dimen_6"
+                            android:drawableLeft="@drawable/ic_pid"
+                            android:textSize="@dimen/text_size_12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_weight="0.6"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:text="@string/colen"
+                            android:fontFamily="@font/campton_light"
+                            style="@style/TextViewStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/tvPersonId"
+                            android:layout_marginLeft="@dimen/dimen_5"
+                            android:layout_gravity="center_vertical"
+                            style="@style/TextViewStyle"
+                            android:text="____"
+                            android:gravity="center_vertical"
+                            android:drawablePadding="@dimen/dimen_4"
+                            android:textSize="@dimen/text_size_12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llFirstName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1"
+                    android:visibility="@{viewModel.isFirstNameVisible? View.VISIBLE:View.GONE}"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/dimen_10">
+
+                    <LinearLayout
+                        android:layout_weight="0.4"
+                        android:layout_width="0dp"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tvLabelFirstName"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="@font/campton_light"
+                            style="@style/TextViewStyle"
+                            android:text="@{viewModel.firstNameLabel}"
+                            android:gravity="center_vertical"
+                            android:drawablePadding="@dimen/dimen_6"
+                            android:drawableLeft="@drawable/ic_first_name_small"
+                            android:textSize="@dimen/text_size_12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_weight="0.6"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:text="@string/colen"
+                            android:fontFamily="@font/campton_light"
+                            style="@style/TextViewStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/tvFirstName"
+                            android:layout_marginLeft="@dimen/dimen_5"
+                            android:layout_gravity="center_vertical"
+                            style="@style/TextViewStyle"
+                            android:text="@{request.firstName}"
+                            android:gravity="center_vertical"
+                            android:drawablePadding="@dimen/dimen_4"
+                            android:textSize="@dimen/text_size_12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llMiddleName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1"
+                    android:visibility="@{viewModel.isMiddleNameVisible? View.VISIBLE:View.GONE}"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/dimen_10">
+
+                    <LinearLayout
+                        android:layout_weight="0.4"
+                        android:layout_width="0dp"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tvLabelMiddleName"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="@font/campton_light"
+                            style="@style/TextViewStyle"
+                            android:text="@{viewModel.middleNameLabel}"
+                            android:gravity="center_vertical"
+                            android:drawablePadding="@dimen/dimen_6"
+                            android:drawableLeft="@drawable/ic_first_name_small"
+                            android:textSize="@dimen/text_size_12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_weight="0.6"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:text="@string/colen"
+                            android:fontFamily="@font/campton_light"
+                            style="@style/TextViewStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/tvMiddleName"
+                            android:layout_marginLeft="@dimen/dimen_5"
+                            android:layout_gravity="center_vertical"
+                            style="@style/TextViewStyle"
+                            android:text="@{request.middleName}"
+                            android:gravity="center_vertical"
+                            android:drawablePadding="@dimen/dimen_4"
+                            android:textSize="@dimen/text_size_12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llLastName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1"
+                    android:visibility="@{viewModel.isLastNameVisible? View.VISIBLE:View.GONE}"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/dimen_10">
+
+                    <LinearLayout
+                        android:layout_weight="0.4"
+                        android:layout_width="0dp"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tvLabelLastName"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="@font/campton_light"
+                            style="@style/TextViewStyle"
+                            android:text="@{viewModel.lastNameLabel}"
+                            android:gravity="center_vertical"
+                            android:drawablePadding="@dimen/dimen_6"
+                            android:drawableLeft="@drawable/ic_first_name_small"
+                            android:textSize="@dimen/text_size_12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_weight="0.6"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:text="@string/colen"
+                            android:fontFamily="@font/campton_light"
+                            style="@style/TextViewStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/tvLastName"
+                            android:layout_marginLeft="@dimen/dimen_5"
+                            android:layout_gravity="center_vertical"
+                            style="@style/TextViewStyle"
+                            android:text="@{request.lastName}"
+                            android:gravity="center_vertical"
+                            android:drawablePadding="@dimen/dimen_4"
+                            android:textSize="@dimen/text_size_12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/llDob"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1"
+                    android:visibility="@{viewModel.isDobVisible? View.VISIBLE:View.GONE}"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/dimen_10">
+
+                    <LinearLayout
+                        android:layout_weight="0.4"
+                        android:layout_width="0dp"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tvLabelDob"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="@font/campton_light"
+                            style="@style/TextViewStyle"
+                            android:text="@{viewModel.dobLabel}"
+                            android:gravity="center_vertical"
+                            android:drawablePadding="@dimen/dimen_4"
+                            android:drawableLeft="@drawable/ic_dob_small"
+                            android:textSize="@dimen/text_size_12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_weight="0.6"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:text="@string/colen"
+                            android:fontFamily="@font/campton_light"
+                            style="@style/TextViewStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/tvDob"
+                            android:layout_marginLeft="@dimen/dimen_5"
+                            android:layout_gravity="center_vertical"
+                            style="@style/TextViewStyle"
+                            android:text="@{request.dateOfBirth}"
+                            android:gravity="center_vertical"
+                            android:drawablePadding="@dimen/dimen_4"
+                            android:textSize="@dimen/text_size_12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/llDoj"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1"
+                    android:visibility="@{viewModel.isDojVisible? View.VISIBLE:View.GONE}"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/dimen_10">
+
+                    <LinearLayout
+                        android:layout_weight="0.4"
+                        android:layout_width="0dp"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tvLabelDoj"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="@font/campton_light"
+                            style="@style/TextViewStyle"
+                            android:text="@{viewModel.dojLabel}"
+                            android:gravity="center_vertical"
+                            android:drawablePadding="@dimen/dimen_4"
+                            android:drawableLeft="@drawable/ic_dob_small"
+                            android:textSize="@dimen/text_size_12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_weight="0.6"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:text="@string/colen"
+                            android:fontFamily="@font/campton_light"
+                            style="@style/TextViewStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/tvDoj"
+                            android:layout_marginLeft="@dimen/dimen_5"
+                            android:layout_gravity="center_vertical"
+                            style="@style/TextViewStyle"
+                            android:text="@{request.dateOfJoining}"
+                            android:gravity="center_vertical"
+                            android:drawablePadding="@dimen/dimen_4"
+                            android:textSize="@dimen/text_size_12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:id="@+id/llFather"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1"
+                    android:visibility="@{viewModel.isFatherNameVisible? View.VISIBLE:View.GONE}"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/dimen_10">
+
+                    <LinearLayout
+                        android:layout_weight="0.4"
+                        android:layout_width="0dp"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tvLabelFather"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="@font/campton_light"
+                            style="@style/TextViewStyle"
+                            android:text="@{viewModel.fatherNameLabel}"
+                            android:gravity="center_vertical"
+                            android:drawablePadding="@dimen/dimen_4"
+                            android:drawableLeft="@drawable/ic_first_name_small"
+                            android:textSize="@dimen/text_size_12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_weight="0.6"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:text="@string/colen"
+                            android:fontFamily="@font/campton_light"
+                            style="@style/TextViewStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/tvfatherName"
+                            android:layout_marginLeft="@dimen/dimen_5"
+                            android:layout_gravity="center_vertical"
+                            style="@style/TextViewStyle"
+                            android:text="@{request.fatherName}"
+                            android:gravity="center_vertical"
+                            android:drawablePadding="@dimen/dimen_4"
+                            android:textSize="@dimen/text_size_12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llMother"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1"
+                    android:visibility="@{viewModel.isMotherNameVisible? View.VISIBLE:View.GONE}"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/dimen_10">
+
+                    <LinearLayout
+                        android:layout_weight="0.4"
+                        android:layout_width="0dp"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tvLabelMother"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="@font/campton_light"
+                            style="@style/TextViewStyle"
+                            android:text="@{viewModel.motherNameLabel}"
+                            android:gravity="center_vertical"
+                            android:drawablePadding="@dimen/dimen_4"
+                            android:drawableLeft="@drawable/ic_first_name_small"
+                            android:textSize="@dimen/text_size_12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_weight="0.6"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:text="@string/colen"
+                            android:fontFamily="@font/campton_light"
+                            style="@style/TextViewStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/tvMotherName"
+                            android:layout_marginLeft="@dimen/dimen_5"
+                            android:layout_gravity="center_vertical"
+                            style="@style/TextViewStyle"
+                            android:text="@{request.motherName}"
+                            android:gravity="center_vertical"
+                            android:drawablePadding="@dimen/dimen_4"
+                            android:textSize="@dimen/text_size_12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llMobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1"
+                    android:visibility="@{viewModel.isMobileVisible? View.VISIBLE:View.GONE}"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/dimen_10">
+
+                    <LinearLayout
+                        android:layout_weight="0.4"
+                        android:layout_width="0dp"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tvLabelMobile"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="@font/campton_light"
+                            style="@style/TextViewStyle"
+                            android:text="@{viewModel.mobileLabel}"
+                            android:gravity="center_vertical"
+                            android:drawablePadding="@dimen/dimen_4"
+                            android:drawableLeft="@drawable/ic_phone_small"
+                            android:textSize="@dimen/text_size_12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_weight="0.6"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:text="@string/colen"
+                            android:fontFamily="@font/campton_light"
+                            style="@style/TextViewStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/tvMobile"
+                            android:layout_marginLeft="@dimen/dimen_5"
+                            android:layout_gravity="center_vertical"
+                            style="@style/TextViewStyle"
+                            android:text="@{request.mobile}"
+                            android:gravity="center_vertical"
+                            android:drawablePadding="@dimen/dimen_4"
+                            android:textSize="@dimen/text_size_12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1"
+                    android:visibility="@{viewModel.isEmailVisible? View.VISIBLE:View.GONE}"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/dimen_10">
+
+                    <LinearLayout
+                        android:layout_weight="0.4"
+                        android:layout_width="0dp"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tvLabelEmail"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="@font/campton_light"
+                            style="@style/TextViewStyle"
+                            android:text="@{viewModel.emailLabel}"
+                            android:gravity="center_vertical"
+                            android:drawablePadding="@dimen/dimen_4"
+                            android:drawableLeft="@drawable/ic_email_small"
+                            android:textSize="@dimen/text_size_12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_weight="0.6"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:text="@string/colen"
+                            android:fontFamily="@font/campton_light"
+                            style="@style/TextViewStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/tvEmailId"
+                            android:layout_marginLeft="@dimen/dimen_5"
+                            android:layout_gravity="center_vertical"
+                            style="@style/TextViewStyle"
+                            android:text="@{request.email}"
+                            android:gravity="center_vertical"
+                            android:drawablePadding="@dimen/dimen_4"
+                            android:textSize="@dimen/text_size_12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</layout>

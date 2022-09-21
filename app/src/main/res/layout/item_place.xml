@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="data"
+            type="com.tracki.ui.productdetails.GeoMappingPlaces" />
+    </data>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_Place"
+        android:layout_marginRight="@dimen/dimen_8"
+        android:layout_width="wrap_content"
+        app:cardBackgroundColor="@{data.selected?@color/colorPrimary:@color/light_gray_a}"
+        app:cardCornerRadius="@dimen/dimen_6"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/tvStageName"
+            style="@style/TextViewStyleLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/dimen_10"
+            android:paddingTop="@dimen/dimen_6"
+            android:paddingBottom="@dimen/dimen_6"
+            android:text="@{data.geoName}"
+            android:textColor="@{data.selected?@color/white:@color/black}"
+            android:textSize="@dimen/text_size_12" />
+    </androidx.cardview.widget.CardView>
+</layout>

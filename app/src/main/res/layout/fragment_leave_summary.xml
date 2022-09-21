@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.leave.leave_summary.LeaveSummaryViewModel" />
+
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_recycler_view"
+        android:orientation="vertical"
+        android:padding="@dimen/dimen_25">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            style="@style/TextViewStyle"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/dimen_10"
+            android:text="@string/leave_balance_details"
+            android:textSize="@dimen/text_size_18" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewTaskDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_15"
+            android:layout_marginBottom="@dimen/dimen_8"
+            android:background="@color/white"
+            android:orientation="vertical"
+            app:cardCornerRadius="@dimen/dimen_4"
+            app:cardElevation="@dimen/dimen_4"
+            app:contentPadding="@dimen/dimen_10">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/llCasualAccount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:padding="@dimen/dimen_10"
+                        android:weightSum="1">
+
+                        <TextView
+                            android:id="@+id/tvLeave2"
+                            style="@style/TextViewStyle"
+                            android:gravity="start"
+                            android:textColor="@color/semi_gray"
+                            android:textSize="@dimen/text_size_18"
+                            tools:text="Casual Leave" />
+
+                        <TextView
+                            android:id="@+id/tvLeave2Count"
+                            style="@style/TextViewStyle"
+                            android:layout_alignParentEnd="true"
+                            android:textColor="@color/semi_gray"
+                            android:textSize="@dimen/text_size_18"
+                            tools:text="10 / 20" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1"
+                        android:layout_margin="@dimen/dimen_8"
+                        android:background="@color/semi_gray_5" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llSlickAccount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:padding="@dimen/dimen_10"
+                        android:weightSum="1">
+
+                        <TextView
+                            android:id="@+id/tvLeave3"
+                            style="@style/TextViewStyle"
+                            android:gravity="start"
+                            android:textColor="@color/semi_gray"
+                            android:textSize="@dimen/text_size_18"
+                            tools:text="Sick Leave" />
+
+                        <TextView
+                            android:id="@+id/tvLeave3Count"
+                            style="@style/TextViewStyle"
+                            android:layout_alignParentEnd="true"
+                            android:textColor="@color/semi_gray"
+                            android:textSize="@dimen/text_size_18"
+                            tools:text="10 / 20" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1"
+                        android:layout_margin="@dimen/dimen_8"
+                        android:background="@color/semi_gray_5" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:padding="@dimen/dimen_10"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/tvTotalLeaves"
+                        style="@style/TextViewStyle"
+                        android:fontFamily="@font/campton_semi_bold"
+                        android:gravity="start"
+                        android:text="@string/total_leaves"
+                        android:textSize="@dimen/text_size_18" />
+
+                    <TextView
+                        android:id="@+id/tvTotalLeavesCount"
+                        style="@style/TextViewStyle"
+                        android:layout_alignParentEnd="true"
+                        android:fontFamily="@font/campton_semi_bold"
+                        android:textSize="@dimen/text_size_18"
+                        tools:text="10 / 20" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:id="@+id/emptyMsg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/dimen_10"
+            android:layout_marginTop="@dimen/dimen_50"
+            android:layout_marginEnd="@dimen/dimen_10"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/imageViewEmpty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/dimen_5"
+                app:srcCompat="@drawable/ic_empty_task" />
+
+            <TextView
+                android:id="@+id/tv_message"
+                style="@style/TextViewStyle"
+                android:layout_marginTop="@dimen/dimen_18"
+                android:gravity="center"
+                android:text="@string/no_leave_summary"
+                android:textColor="@color/gray" />
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>
+

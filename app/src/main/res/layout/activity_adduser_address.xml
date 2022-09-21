@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.adduserAddress.AddAddressViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/Toolbar"
+                app:contentInsetLeft="0dp"
+                app:contentInsetStart="0dp"
+                app:contentInsetStartWithNavigation="0dp"
+                app:titleTextColor="@color/white"
+                tools:title="@string/tasks" />
+
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dimen_20"
+            android:layout_marginRight="@dimen/dimen_20"
+            android:layout_marginBottom="@dimen/dimen_20"
+            android:orientation="vertical"
+            tools:context=".ui.adduserAddress.AddUserAddressActivity">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:elevation="@dimen/dimen_8"
+                app:cardBackgroundColor="@color/white"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="@dimen/dimen_8">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvLocationLabel"
+                        style="@style/TextViewStyle"
+                        android:drawableLeft="@drawable/ic_home"
+                        android:drawablePadding="@dimen/dimen_8"
+                        android:focusable="false"
+                        android:focusableInTouchMode="true"
+                        android:fontFamily="@font/campton_semi_bold"
+                        android:text="Address"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_16" />
+
+                    <EditText
+                        android:id="@+id/edLocation"
+                        style="@style/EditTextStyle"
+                        android:drawableRight="@drawable/ic_pin_google_big"
+                        android:drawablePadding="@dimen/dimen_8"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:inputType="text"
+                        android:onClick="@{(v)->viewModel.selectLocation(v)}"
+                        app:backgroundTint="@color/light_gray_a" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewLandMark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_15"
+
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="@dimen/dimen_8"
+                app:contentPadding="@dimen/dimen_8">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvLabelLandmark"
+                        style="@style/TextViewStyle"
+                        android:drawableLeft="@drawable/ic_home"
+                        android:drawablePadding="@dimen/dimen_8"
+                        android:focusable="false"
+                        android:focusableInTouchMode="true"
+                        android:text=" Flat / House Address"
+                        android:fontFamily="@font/campton_semi_bold"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_16" />
+
+                    <EditText
+                        android:id="@+id/edLandMark"
+                        style="@style/EditTextStyle"
+                        android:inputType="textCapWords"
+                        app:backgroundTint="@color/light_gray_a" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewPinCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_15"
+
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="@dimen/dimen_8"
+                app:contentPadding="@dimen/dimen_8">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvLabelPincode"
+                        style="@style/TextViewStyle"
+                        android:drawableLeft="@drawable/ic_pincode"
+                        android:drawablePadding="@dimen/dimen_8"
+                        android:focusable="false"
+                        android:focusableInTouchMode="true"
+                        android:text="Pincode"
+                        android:fontFamily="@font/campton_semi_bold"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_16" />
+
+                    <EditText
+                        android:id="@+id/edPincode"
+                        style="@style/EditTextStyle"
+                        android:inputType="number"
+                        android:maxLength="6"
+                        android:digits="0123456789"
+                        app:backgroundTint="@color/light_gray_a" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+
+
+
+            <Button
+                android:id="@+id/btnCLick"
+                style="@style/EnableDisableButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="@dimen/dimen_15"
+                android:layout_marginTop="@dimen/dimen_15"
+                android:layout_marginRight="@dimen/dimen_15"
+                android:layout_marginBottom="@dimen/dimen_15"
+                android:focusable="false"
+                android:focusableInTouchMode="true"
+                android:text="@string/add_address"
+                android:textColor="@color/white"
+                android:visibility="visible" />
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

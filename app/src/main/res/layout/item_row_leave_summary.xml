@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.leavedetails.LeaveDetailsItemViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/llHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/dimen_5"
+        android:paddingRight="@dimen/dimen_5"
+        android:paddingTop="@dimen/dimen_15"
+        android:paddingBottom="@dimen/dimen_15"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/tvType"
+            style="@style/TextViewStyle"
+            android:layout_width="0dp"
+            android:layout_weight="4"
+            android:gravity="center"
+            tools:text="@string/type"
+            android:text="@{viewModel.leaveType}"
+            android:fontFamily="@font/campton_light"
+            android:textColor="@color/gray" />
+
+        <TextView
+            android:id="@+id/tvTotal"
+            style="@style/TextViewStyle"
+            android:layout_width="0dp"
+            android:layout_weight="4"
+            android:gravity="center"
+            tools:text="3"
+            android:text="@{viewModel.leaveAllowed}"
+            android:fontFamily="@font/campton_light"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tvTaken"
+            style="@style/TextViewStyle"
+            android:layout_width="0dp"
+            android:layout_weight="4"
+            android:gravity="center"
+            tools:text="3"
+            android:text="@{viewModel.leaveTaken}"
+            android:fontFamily="@font/campton_light"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tvRemainIng"
+            style="@style/TextViewStyle"
+            android:layout_width="0dp"
+            android:layout_weight="4"
+            android:gravity="center"
+            tools:text="4"
+            android:text="@{viewModel.leaveRemaining}"
+            android:fontFamily="@font/campton_light"
+            android:textColor="@color/black" />
+
+
+    </LinearLayout>
+</layout>

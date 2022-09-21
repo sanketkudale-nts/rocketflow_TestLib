@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dimen_20"
+    android:background="@drawable/bg_diff_shape"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/dimen_20"
+    tools:ignore="MissingConstraints">
+
+    <RelativeLayout
+        android:id="@+id/llCancelOptions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvHeading"
+            style="@style/TextViewStyle"
+            android:fontFamily="@font/campton_semi_bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_20"
+            android:layout_toLeftOf="@+id/ivCancel"
+            android:text="@string/choose_product_unit"
+            android:textSize="@dimen/text_size_16"
+            android:textColor="@color/colorPrimary" />
+
+        <ImageView
+            android:id="@+id/ivCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/dimen_10"
+            android:layout_marginRight="@dimen/dimen_10"
+            app:srcCompat="@drawable/ic_cancel" />
+
+
+    </RelativeLayout>
+
+<!--    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/unitsChipGroup"
+        app:singleSelection="true"
+
+        app:selectionRequired="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_20"
+        android:layout_marginRight="@dimen/dimen_20"
+        android:layout_marginBottom="@dimen/dimen_20"
+        android:layout_marginTop="@dimen/dimen_20"
+       >
+
+    </com.google.android.material.chip.ChipGroup>-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvUnits"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="vertical"
+        tools:listitem="@layout/item_row_unit"/>
+
+
+</LinearLayout>

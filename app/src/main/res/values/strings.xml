@@ -1,0 +1,709 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Rocketflow</string>
+    <string name="mobile_number">Mobile Number</string>
+    <!--<string name="_91">+91</string>-->
+    <string name="next">Next</string>
+    <!--<string name="don_t_have_an_account_register">Don’t have an account? Register</string>-->
+    <string name="invalid_mobile">Invalid mobile number</string>
+    <string name="enter_mobile">"Please enter mobile number"</string>
+    <string name="made_in_india">Made In India</string>
+    <!--<string name="a_rocketflyer_product">A RocketFlyer Product</string>-->
+    <string name="we_will_send_an_sms_with_a_confirmation_ncode_to_this_number">We will send an SMS with a confirmation \ncode to this number</string>
+    <string name="get_started">Get Started</string>
+    <string name="register">Register</string>
+    <string name="name">Name</string>
+    <string name="change_access_id">Change Access Id</string>
+    <string name="access_id">Enter Access Id</string>
+    <string name="email">Email (Optional)</string>
+    <string name="email_id">Email ID</string><!--(Optional)-->
+    <string name="email_id_colon">Email ID :</string><!--(Optional)-->
+    <!--<string name="other_details_optional">Other Details (Optional)</string>-->
+    <!--<string name="address">Address</string>-->
+    <!--<string name="city">City</string>-->
+    <!--<string name="pin_code">Pin Code</string>-->
+    <string name="name_cannot_be_empty">Name must be at least two character.</string>
+    <string name="invalid_email">Invalid email</string>
+    <string name="let_s_get_started">Let\'s get Started</string>
+    <string name="you_will_receive_six_digit_code_for_future_verification_code">You will receive 6 digit code for further verification</string>
+    <!--OtpActivity-->
+    <string name="please_enter_verification_code_sent_to">Please enter verification code sent to</string>
+    <!--<string name="verify_your_mobile_no">Verify Your Mobile No.</string>-->
+    <!--<string name="_0">0</string>-->
+    <!--<string name="waiting_to_automatically_detect_on_nsms_sent_to_">waiting to automatically detect on  \nSMS sent to +91 9876543210</string>-->
+    <!--<string name="you_will_get_your_4_digit_code_in_nless_than_1_mins">You will get your 4 digit code in \nless than 1 mins</string>-->
+    <string name="_00_59">00:59</string>
+    <string name="invalid_otp">Invalid OTP</string>
+    <string name="registration_no">Registration No.</string>
+    <string name="model">Model</string>
+    <string name="invalid_registration_no">Invalid Registration no.</string>
+    <string name="model_cannot_be_empty">Model cannot be empty</string>
+    <!--<string name="status_online">Online</string>-->
+    <!--<string name="status_offline">Offline</string>-->
+    <!--<string name="mapbox_access_token">pk.eyJ1IjoicmFodWwtYWJyb2wiLCJhIjoiY2pvZTBiNDY4MXNhYTN3bGV6a3V6ZjJqNCJ9.OBetdXD6sagNERao8Za-gA</string>-->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="sos">SOS</string>
+    <!--empty state-->
+    <!--<string name="empty_screen">We do not have anything\nhere right now.</string>-->
+    <!--<string name="please_retry">Please Retry</string>-->
+    <string name="retry">Retry</string>
+    <string name="_new">New</string>
+    <!--<string name="search_your_driver">Search your driver</string>-->
+    <!--AddBuddyActivity-->
+    <string name="add_buddy">Add Buddy</string>
+    <string name="to">\tTo</string>
+    <string name="from">\tFrom</string>
+    <string name="from_colon">From :</string>
+    <string name="to_colon">To : \t</string>
+    <string name="shift_timing">Shift Timing</string>
+    <string name="field_cannot_be_empty">Field cannot be empty</string>
+    <string name="select_shift_start_time">Shift start time cannot be empty</string>
+    <string name="select_shift_end_time">Shift end time cannot be empty</string>
+    <string name="start_time_cannot_be_greater">Shift start time cannot be greater or equal than end time</string>
+    <string name="didn_t_receive_code">Didn\'t receive code?</string>
+    <string name="please_select_task_type">Please select task type</string>
+    <!--<string name="invalid_country_code">Invalid Country Code</string>-->
+    <string name="code">Code</string>
+    <string name="password">Password</string>
+    <string name="invalid_password">Invalid Password</string>
+    <string name="enter_otp">Enter Otp</string>
+    <string name="notification">Notification</string>
+    <string name="share">Share</string>
+    <!--MyAccountActivity-->
+    <string name="my_account">My Account</string>
+    <string name="my_accounts">Select Accounts</string>
+    <string name="my_profile">My Profile</string>
+    <string name="tracking_buddy">RocketFlow Buddy</string>
+    <string name="edit_profile_picture">Edit Profile Picture</string>
+    <string name="submit">Submit</string>
+    <string name="proceed">Proceed</string>
+    <string name="please_add_a_valid_number_to_proceed">Please add a valid number to proceed</string>
+    <string name="the_number"><![CDATA[The number will be updated in your user profile & shall be used to send transaction related updates.]]></string>
+    <string name="change_mobile">Change Mobile No.</string>
+    <!--ChangePasswordActivity-->
+    <string name="change_password">Change Password</string>
+    <string name="retype_new_password">Retype New Password</string>
+    <string name="new_password">New Password</string>
+    <string name="current_password">Current Password</string>
+    <!--UjjwalngBuddyActivity-->
+    <string name="tracking_me">Tracking Me</string>
+    <string name="i_am_tracking">I am Tracking</string>
+    <string name="cancel_buddy_tracking_request">Are you sure you want to cancel tracking request?</string>
+    <string name="delete_user">Are you sure you want to delete?</string>
+    <string name="delete_user_address">Are you sure you want to delete this address?</string>
+    <!--TaskActivity-->
+    <string name="tasks">Tasks</string>
+    <string name="timeline">Time Line</string>
+    <string name="assigned_to_me">Assigned to Me</string>
+    <string name="i_have_assigned">I have Assigned</string>
+    <string name="cancel_tracking_request">Cancel Tracking Request</string>
+    <string name="call">Call</string>
+    <string name="chat">Chat</string>
+
+    <string name="end_task_text">Are you sure you want to end this task?</string>
+    <string name="cancel_task_text">Are you sure you want to cancel this task?</string>
+    <string name="start_task_text_1">Are you sure you want to start the task now?</string>
+    <string name="start_task_text">Are you sure you want to start the task now? Your waiting time will be ended.</string>
+    <!--<string name="filter">Filter</string>-->
+    <!--<string name="by_buddy">By Buddy</string>-->
+    <!--<string name="buddy">Buddy</string>-->
+    <!--<string name="start_date_time_filter">Start Date Time</string>-->
+    <!--<string name="end_date_time_filter">End Date Time</string>-->
+    <!--<string name="task_status">Task Status</string>-->
+    <string name="apply_filter">Apply Filter</string>
+    <string name="reset">Reset</string>
+    <!--BuddyListingActivity-->
+    <string name="delete_buddy">Are you sure you want to delete this Buddy?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="select_buddy">Select Buddy</string>
+    <string name="employee">Employee</string>
+    <string name="my_buddy">My Buddy</string>
+    <string name="send_invitation">Send Invitation</string>
+    <!--AddFleetActivity-->
+    <string name="add_fleet">Add Fleet</string>
+    <string name="fleet_details">Fleet Details</string>
+    <string name="edit">Edit</string>
+    <string name="search_hint">Search</string>
+    <string name="fleet">Fleet</string>
+    <!--NotificationActivity-->
+    <string name="notifications">Notifications</string>
+    <string name="clear">clear</string>
+    <string name="accept">Accept</string>
+    <string name="approve">Approve</string>
+    <string name="reject">Reject</string>
+    <!--BuddyFilterActivity-->
+    <string name="buddy_status">Buddy Status</string>
+    <string name="offline">Offline</string>
+    <string name="idle">Idle</string>
+    <string name="live">Live</string>
+    <string name="all">All</string>
+    <string name="filters">Filters</string>
+    <!--CreateTaskActivity-->
+    <string name="assign_now">Assign Now</string>
+    <string name="create_task">Create Task</string>
+    <!--<string name="spinner_title">Task Action</string>-->
+    <string name="task_name">Task Name</string>
+    <string name="start_date_time">Start Date/Time</string>
+    <string name="end_date_time">End Date/Time</string>
+    <string name="start_location">Start Location</string>
+    <string name="end_location">End Location</string>
+    <string name="description">Description</string>
+    <string name="select_buddy_to_create_task">Select Buddy to create task</string>
+    <string name="select_fleet">Select Fleet</string>
+    <string name="skip">Skip</string>
+    <string name="alerts">Alerts</string>
+    <!--<string name="no_alerts_for_this_trip">No alerts for this trip</string>-->
+    <!--<string name="no_statistics_for_this_trip">No statistics for this trip</string>-->
+    <string name="no_statistics">No Statistics</string>
+    <string name="cancel">Cancel</string>
+    <string name="start_now">Start Now</string>
+    <string name="arrive">Arrive</string>
+    <string name="reach">Reach</string>
+    <string name="buddy_statistics">Buddy Statistics</string>
+    <string name="trip_statistics">Trip Statistics</string>
+    <string name="end_time_cannot_be_less_than_start_time">End time cannot be less or equals to Start time</string>
+    <string name="no_past_date">Date cannot be in past</string>
+
+    <!--SomethingWentWrong-->
+    <!--<string name="transition_splash_logo">transitionSplashLogo</string>-->
+    <string name="we_re_sorry_but_something_went_wrong">Oops, something went wrong. Please try agai​n!</string>
+    <string name="enable_location_message">It seems your location service not enable. if you want use this app , please enable you location</string>
+    <string name="enable_location_service">Enable location Service</string>
+    <string name="reload_now">Reload Now</string>
+    <string name="enable_now">Enable Now</string>
+    <string name="Upload">Upload File</string>
+    <!--ReferAndEarnActivity-->
+    <string name="your_referal_code">Your Referral Code</string>
+    <string name="refer_earn"><![CDATA[Refer & Earn]]></string>
+    <string name="tap_to_copy">Tap to Copy</string>
+    <string name="invite_your_contacts">Invite Your Contacts</string>
+    <string name="pick_image_intent_text">Select Image</string>
+    <string name="it_seems_nobuddy_is_tracking_you">It seems nobuddy is tracking you.</string>
+    <string name="it_seems_you_are_not_tracking_any_buddy">It seems you are not tracking any buddy.</string>
+    <string name="no_fleet_in_your_profile">No fleet in your profile!</string>
+    <string name="to_start_track_your_buddy_assign_task_add_your_fleet">To start Track your buddy/Assign task \n add your Fleet</string>
+    <string name="nobuddy_in_your_profile">Nobuddy in your profile!</string>
+    <string name="you_don_t_have_any_notification_yet">You don’t have any notification yet</string>
+    <string name="no_dash_board_data">No Dashboard Data</string>
+    <string name="please_check_your_internet_connection_you_are_offline_now">Please check your internet connection, \n You are offline now!…</string>
+    <string name="please_check_your_internet_connection">Please check your internet connection</string>
+    <string name="no_internet">No Internet!..</string>
+    <string name="it_seems_there_is_no_task_n_assigned_yet">It seems there is no task \n assigned yet.</string>
+    <string name="it_seems_there_is_no_places_yet">It seems there is no place added yet.</string>
+    <string name="logout">Logout</string>
+    <string name="logout_now">Logout Now</string>
+    <string name="by_doing_this_following_action_will_be_perform_by_them_system">By doing this following actions will be performed automatically</string>
+    <string name="logout_text">Logging Out !</string>
+    <string name="delete" tools:ignore="ExtraTranslation">Delete</string>
+    <string name="are_you_sure_want_to_logout">Are you sure want to Logout?</string>
+    <string name="are_you_sure_want_to_delete_this_place" tools:ignore="ExtraTranslation">Are you sure want to delete this place?</string>
+    <string name="settings">Settings</string>
+    <string name="configure_message_to_be_sent_in_case_of_emergency">Configure message to be sent in case of emergency</string>
+    <string name="send_local_db">Sync local db to server</string>
+    <string name="text_message">Text Message</string>
+    <string name="debug">Debug</string>
+    <string name="add_up_to_three_contacts_for_sms_or_call_alert_in_case_of_emergency">Add up to three contacts for SMS or call alert in case of Emergency</string>
+    <string name="emergency_contacts">Emergency Contacts</string>
+    <string name="buddy_request">Buddy Request</string>
+    <string name="reject_task">Reject Task</string>
+    <!--TaskDetailActivity-->
+    <string name="see_timeline_view">See Timeline View</string>
+    <string name="distance">Distance</string>
+    <string name="distance_kms">Distance\n (kms)</string>
+    <string name="time">Time</string>
+    <string name="trips">Trips</string>
+    <string name="my_transactions">My Transactions</string>
+    <string name="switch_account">Switch Account</string>
+    <string name="update_service">Update Help Services</string>
+    <string name="switch_user">Switch Login Mode</string>
+    <string name="delete_fleet">Are you sure want to delete  this fleet?</string>
+    <string name="end">End</string>
+    <string name="you_don_t_have_any_request_yet">You don\'t have any request yet.</string>
+    <string name="your_task_has_been_assigned_successfully_to">Your task has been assigned successfully to</string>
+    <!--ActivityRejectTask-->
+    <string name="select_your_reason">Select Your Reason</string>
+    <string name="put_your_comments">Put your comments</string>
+    <string name="add">Add Contact</string>
+    <string name="add_product">Add</string>
+    <string name="add_address">Add Address</string>
+    <!--EmergencyContactsActivity-->
+    <string name="delete_contact">Are you sure you want to delete this Contact?</string>
+    <string name="text_the_call_will_go">The call will go through the numbers in the \n emergency call list on order until a call is connected</string>
+    <string name="text_enter_perrsonal_info">Enter personal or public service \n (Police, Ambulance, etc.) numbers to be called or messageed (during an emergency)</string>
+    <string name="full_name">Full Name</string>
+    <string name="choose_from_existing_contacts">Choose from existing contacts</string>
+    <string name="message_to_be_sent_in_case_of_emergency">Message to be sent in case of emergency</string>
+    <string name="noti_channel_second">secondary_channel</string>
+    <string name="noti_channel_default">default_channel</string>
+    <!--ShareTripActivity-->
+    <string name="share_trip_detail">Share Trip</string>
+    <string name="copy_and_paste_the_link_below_into_emails_nchats_or_browsers">Share your live trip url with your closed ones on emails, chats or browsers.</string>
+    <string name="your_trip_sharing_url">Choose how long you want to share</string>
+    <string name="access_time_slot">Access Time Slot</string>
+    <string name="share_link">Share Link</string>
+    <string name="today">Today</string>
+    <string name="all_buddy">All Buddy</string>
+    <string name="total_trips">Total Trips</string>
+    <string name="total_time">Total Time</string>
+    <string name="total_distance">Total Distance</string>
+    <string name="total_alerts">Total alerts</string>
+    <string name="max_speed">Max Speed</string>
+    <string name="avg_speed">Avg. Speed</string>
+    <string name="cannot_performe_this_operation">Cannot perform this operation on empty list</string>
+    <string name="me">Me</string>
+    <string name="resend">Resend</string>
+    <string name="point_of_contact">Point of Contact</string>
+    <string name="tnc">By registering I accept the \n Term of Service and Privacy Policy</string>
+    <!--<string name="tnc_url">http://tracki.in/privacypolicy</string>-->
+    <!--SettingActivity-->
+    <string name="personal_setting">Personal Setting</string>
+    <string name="allow_autostart_trip">Allow Autostart Trip</string>
+    <string name="allow_time_reminder">Allow Time Reminder</string>
+    <string name="allow_location_reminder">Allow Location Reminder</string>
+    <string name="update_your_location_sharing_prefrences">Update your location sharing prefrences</string>
+    <string name="update_your_time_reminder_settings">Update your time reminder settings</string>
+    <string name="update_your_time_reminder_in_prefrences">Notify me before</string>
+    <string name="update_your_location_reminder_in_prefrences">Update your location reminder settings</string>
+    <string name="alert_notification">Alert Notification</string>
+    <string name="allow_your_contacts_sync_settings">Allow your contacts sync settings</string>
+    <string name="sos_alert_setting">SOS ALERT SETTING</string>
+    <string name="confirmation">I confirm that I am above 15 years</string>
+    <string name="continue_">Continue</string>
+    <string name="age_confirmation_error">Please confirm that you are 15 years old or above</string>
+    <string name="live_trip">Live Trip</string>
+    <!--ConsentActivity-->
+    <string name="please_review_the_data_retention_policy">Please Review The Data Retention Policy</string>
+    <string name="tracki_collects_your_location_movement_data_text">RocketFlow collects your location, movement data and other personal information provided by you, such as your name, email address and phone number to allow you to share your location with others. RocketFlow uses this collected data in to improve its services. RocketFlow share your location data with third-party chosen by you and third party technology providers that help power/enhance the RocketFlow solution.</string>
+    <string name="for_more_information_text"><![CDATA[For more information, please check RocketFlow \n  Privacy Policy and Terms & Conditions]]></string>
+    <string name="by_choosing_i_agree_text">By choosing I Agree you consent to RocketFlow’s use of \n your data as described above</string>
+    <string name="decline">Decline</string>
+    <string name="agree">I Agree</string>
+    <string name="autostart">AutoStart</string>
+    <string name="autocancel">AutoCancel</string>
+    <string name="contact_person_name">Enter Name</string>
+    <!--MessageActivity-->
+    <string name="messages">Conversations</string>
+    <string name="connect">Connected</string>
+    <string name="disconnect">Disconnected, Please check your internet connection</string>
+    <string name="error_connect">Failed to connect</string>
+    <string name="details">Details</string>
+    <string name="write_a_message">Write your message here</string>
+    <string name="load_more">Load More</string>
+    <string name="spinner_title">Select Task Type</string>
+    <string name="signature">Signature</string>
+
+
+    <!--######################GEOFENCE STRINGS############################-->
+    <!--#######################################START###################################-->
+    <!-- Buttons strings -->
+    <string name="add_geofences">Add geofences</string>
+    <string name="remove_geofences">Remove geofences</string>
+
+    <string name="geofences_added">Geofences added</string>
+    <string name="geofences_removed">Geofences removed</string>
+
+    <!-- Error strings -->
+    <string name="geofence_not_available">Geofence service is not available now</string>
+    <string name="geofence_too_many_geofences">Your app has registered too many geofences</string>
+    <string name="geofence_too_many_pending_intents">
+        You have provided too many PendingIntents to the addGeofences() call
+    </string>
+    <string name="unknown_geofence_error">
+        Unknown error: the Geofence service is not available now
+    </string>
+    <string name="geofence_transition_invalid_type">
+        Geofence transition error: invalid transition type %1$d
+    </string>
+
+    <!-- Transition type strings -->
+    <string name="geofence_transition_entered">Entered</string>
+    <string name="geofence_transition_exited">Exited</string>
+    <string name="unknown_geofence_transition">Unknown Transition</string>
+
+    <string name="geofence_transition_notification_text">
+        Click notification to fill the vehicle inspection form with all current observations
+    </string>
+
+    <string name="insufficient_permissions">Insufficient permissions.</string>
+    <string name="permission_rationale">Location permission is needed for core functionality</string>
+    <string name="permission_denied_explanation">Permission was denied, but is needed for core
+        functionality.</string>
+    <string name="empty_or_unhandled_view">Empty or Unhandled view</string>
+
+    <!--Attendance and Leave management-->
+
+    <string name="not_punched_info">You have not Punched In today</string>
+    <string name="punched_info">You have  Punched In at </string>
+
+    <string name="punching_in">Punching In!</string>
+    <string name="punching_out">Punching Out!</string>
+    <string name="remarks">Remarks</string>
+    <string name="type_a_message">Type a message...</string>
+    <string name="leave_type">Leave Type</string>
+    <string name="leave_balance_details">Leave Balance Details</string>
+    <string name="status">Status</string>
+    <string name="status_colon">Status:</string>
+    <string name="status_order">Status</string>
+    <string name="remove">Remove</string>
+    <string name="view">View</string>
+    <string name="loc_status">Status</string>
+    <string name="task_type">Task Type</string>
+    <string name="total_payment">Total Payment</string>
+    <string name="total_amount">Total Amount</string>
+    <string name="assigned_fleet">Fleet Detail</string>
+    <string name="estimated_amount_to_be_paid">Estimated amount to be paid</string>
+    <string name="rejecting_leave">Rejecting Leave</string>
+    <string name="reject_now">Reject Now</string>
+    <string name="attendance">Attendance</string>
+    <string name="attendance_dashboard">Attendance Dashboard</string>
+    <string name="no_attendance">Seems like there is no attendance yet for the selected duration</string>
+    <string name="punch_n_in">Punch In</string>
+    <string name="punch_n_in_colon">Punch In :</string>
+    <string name="punch_n_out">Punch Out</string>
+    <string name="punch_n_out_colon">Punch Out :</string>
+    <string name="add_n_selfie">Add Selfie</string>
+    <string name="punched_in_msg">You have Punched In at</string>
+    <string name="date_header">Date</string>
+    <string name="status_header">Status</string>
+    <string name="duration_header">Working hours</string>
+    <string name="attendance_list">Attendance List:</string>
+    <string name="no_leave_record">Seems like there is no Leave record yet for the selected duration</string>
+    <string name="no_leave_approval_data">Seems like there is no Leave Approval history yet for the selected duration</string>
+    <string name="no_leave_history">Seems like there is no Leave History yet for the selected duration</string>
+    <string name="no_leave_summary">Seems there is no leave summary available</string>
+    <string name="leaves">Leaves</string>
+    <string name="status_txt">Status</string>
+    <string name="leave">Leave</string>
+    <string name="end_date">End Date</string>
+    <string name="start_date">Start Date</string>
+    <string name="total_leaves">Total Leaves</string>
+    <string name="leave_date">Leave Date</string>
+    <string name="leave_days">Leave Days :</string>
+    <string name="filter">Filter</string>
+
+    <!--#######################################END###################################-->
+
+    <!--My Earnings-->
+    <string name="my_earnings">My Earnings</string>
+    <string name="payouts">Payouts</string>
+    <string name="view_details">View Details</string>
+    <string name="total_earnings">Total Earnings</string>
+    <string name="total_rides">Total Rides</string>
+    <string name="check_for_another_period">Check for another period</string>
+    <string name="select_period">Select Period</string>
+    <string name="search">Search</string>
+    <string name="ride_of">Rides of</string>
+    <string name="no_earnings">No Earnings</string>
+    <string name="no_ride">No Ride</string>
+    <string name="extra_km">Extra km</string>
+    <string name="extra_km_charges">Extra km Charges</string>
+    <string name="waiting_time">Waiting time</string>
+    <string name="waiting_time_charges">Waiting time Charges</string>
+    <string name="overtime">Overtime</string>
+    <string name="overtime_charges">Overtime Charges</string>
+    <string name="night_charges">Night Charges</string>
+    <string name="colen">:</string>
+    <string name="total_earning">Total Earning</string>
+    <string name="base_fare">Base fare</string>
+    <string name="notification_error_ssl_cert_invalid">Invalid certificates</string>
+
+    <string name="cap_vid_txt">Capture Video</string>
+    <string name="rec_audio_txt">Record Audio</string>
+    <string name="stop_rec_txt">Stop Recording</string>
+    <string name="from_contact">From Contacts</string>
+    <string name="verify_otp">Verify Otp</string>
+    <string name="verify">Verify</string>
+    <string name="task_id">Task Id</string>
+    <string name="add_places" tools:ignore="ExtraTranslation">Add</string>
+    <string name="place" tools:ignore="ExtraTranslation">Adding Place</string>
+    <string name="update" tools:ignore="ExtraTranslation">Update</string>
+    <string name="place_name" tools:ignore="ExtraTranslation">Place Name</string>
+    <string name="select_state" tools:ignore="ExtraTranslation">Select State</string>
+    <string name="select_city" tools:ignore="ExtraTranslation">Select City</string>
+    <string name="current_location" tools:ignore="ExtraTranslation">Current Location</string>
+    <string name="current_state" tools:ignore="ExtraTranslation">Current Status</string>
+    <string name="track" tools:ignore="ExtraTranslation">Track</string>
+    <string name="my_place" tools:ignore="ExtraTranslation">My Places</string>
+    <string name="user_type" tools:ignore="ExtraTranslation">Select Login Mode</string>
+    <string name="booking_id">Task Id :</string>
+    <string name="time_line">Time Line</string>
+    <string name="your_accounts">You have multiple accounts,</string>
+    <string name="please_select_one">Please select one</string>
+    <string name="time_details">Task Details</string>
+    <string name="created_at">Created At</string>
+    <string name="scheduled_at">Scheduled At</string>
+    <string name="end_at">End At</string>
+    <string name="location">Location</string>
+    <string name="location_colon">Location :</string>
+    <string name="add_more">Add More</string>
+    <string name="search_by">Search by Vehicle no/Booking Id</string>
+    <string name="search_by_txt">Search by</string>
+    <string name="area">Area</string>
+    <string name="state">State</string>
+    <string name="city">City</string>
+    <string name="hubs">Hub</string>
+    <string name="enter_location">Enter Manual Location</string>
+    <string name="enable_location">Enable Location</string>
+    <string name="allow_voice_alerts">"Enable tracking voice alerts"</string>
+    <string name="voice_alerts">Voice Alerts</string>
+    <string name="update_message">RocketFlow recommends that you update to latest version .you can have the access to the application while downloading the update.</string>
+    <string name="not_now">Not Now</string>
+    <string name="qr_code">Qr Code</string>
+    <string name="scan_qr_code">Please Scan QR Code</string>
+    <string name="scan_qr_bar_code">Please Scan Barcode /QR </string>
+    <string name="booking_details">Booking Details</string>
+    <string name="schedule_date_time">Schedule Date/Time</string>
+    <string name="contacts">Contacts</string>
+    <string name="current_location_text">Current location XXX XXX| \n Follow the link to view in map</string>
+    <string name="location_genrated">location integrated gps link here</string>
+    <string name="date">Date</string>
+    <string name="select_geography">Select Geography</string>
+    <string name="apply">Apply</string>
+    <string name="done">Done</string>
+    <string name="inventory_category">Inventory category</string>
+    <string name="inventory_group">Inventory Group</string>
+    <string name="inventory">InventoryId</string>
+    <string name="inventory_orders">Inventory Orders :</string>
+    <string name="inventory_label">Inventory :</string>
+    <string name="create_product">Select Inventory</string>
+    <string name="orders">Orders</string>
+    <string name="quantity">Quantity</string>
+    <string name="amount">amount</string>
+    <string name="amount_txt">Amount</string>
+    <string name="order_by">Order By</string>
+    <string name="order_at">Order At</string>
+    <string name="items">Items</string>
+    <string name="approved_by">Approved By</string>
+    <string name="debit">Debit</string>
+    <string name="credit">Credit</string>
+    <string name="txn_id">Txn Id: </string>
+    <string name="my_wallet">My Wallet</string>
+    <string-array name="time_array">
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>25</item>
+        <item>30</item>
+    </string-array>
+    <string name="title_activity_feeds">FeedsActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="people_who_react">People Who React</string>
+    <string name="go">Go</string>
+    <string name="Upload_Image">Uploading Media</string>
+    <string name="sending_data">Submitting Data...</string>
+    <string name="change_mobile_number">Change mobile number</string>
+    <string name="enter_six_digit_password">OTP has been sent to </string>
+    <string name="resend_txt">Resend</string>
+    <string name="choose">Choose</string>
+    <string name="total_no">TotalNo. Of</string>
+    <string name="process_status">Process Status</string>
+    <string name="remaining">Remaining</string>
+    <string name="taken">Taken</string>
+    <string name="leave_details">Leave Details</string>
+    <string name="count">Count</string>
+    <string name="applied_on">Applied On</string>
+    <string name="type">Type</string>
+    <string name="total">Total</string>
+    <string name="start_time">Start Time</string>
+    <string name="end_time">End TIme</string>
+    <string name="payment_status">Payment Status </string>
+    <string name="additional_details">Additional Details</string>
+    <string name="vehicle_id">Vehicle Id :</string>
+    <string name="vehicle_id_">Vehicle Id</string>
+    <string name="created_by">Created By</string>
+    <string name="client_details">Client Details</string>
+    <string name="assigned_to">Assigned To</string>
+    <string name="action">Action</string>
+    <string name="take_action">See Your Actions</string>
+    <string name="working_hours">Working Hrs :</string>
+    <string name="working_hrs">Working hrs :</string>
+    <string name="working_days">Working days</string>
+    <string name="absent">Absent</string>
+    <string name="present">Present</string>
+    <string name="verifying_otp">Verifying OTP</string>
+    <string name="not_in_place">Not at a right place</string>
+    <string name="create_an_account">Create an Account on Rocketflow</string>
+    <string name="otp">OTP</string>
+    <string name="select_location">Select Location</string>
+    <string name="total_employee">Total Employee</string>
+    <string name="active_employee">Active Employees</string>
+    <string name="not_punched_in">Not Punched In</string>
+    <string name="onleave">Onleave</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="middle_name">MIddle Name</string>
+    <string name="save">Save</string>
+    <string name="date_of_joining">Date of Joining</string>
+    <string name="date_of_birth">Date Of Birth</string>
+    <string name="person_id">Person Id</string>
+    <string name="address">Address</string>
+    <string name="profile_pic">Profile Picture</string>
+    <string name="father_name">Father Name</string>
+    <string name="mother_name">Mother Name</string>
+    <string name="heirarchy">Heirarchy</string>
+    <string name="user_task">User Task</string>
+    <string name="pay_roll">Payroll</string>
+    <string name="audit">Audit</string>
+    <string name="shifts">Shifts</string>
+    <string name="documents">Documents</string>
+    <string name="add_place">Add Place</string>
+    <string name="basic_info">Basic Info</string>
+    <string name="employee_id">Employee Id</string>
+    <string name="mobile">Mobile</string>
+    <string name="function_limited">Functionality limited</string>
+    <string name="background_location_message"><![CDATA[Since background location access has not been granted, this app will not be able to get location in the background.  Please go to Settings -> Applications-> Rocketflow -> Permissions ->Location Permission -> and select (Allow all the time)]]></string>
+    <string name="app_need_background_location_permission">This app needs background location access</string>
+    <string name="please_grant_location_permission_in_background">Please grant location access so this app can get locations in the background.</string>
+
+    <string name="view_cart">View Cart</string>
+    <string name="cart">Cart</string>
+    <string name="cart_is_empty_please_add_item">Cart is empty, Please add prduct</string>
+    <string name="seems_like_no_product">seems store is empty.</string>
+    <string name="seems_like_no_stock_found">seems no stock found.</string>
+    <string name="no_product_found">No Product Found</string>
+    <string name="no_stock_found">No Stock Found</string>
+    <string name="item">Item</string>
+    <string name="apply_coupon">Apply Coupon</string>
+    <string name="coupon_code">Coupon Code</string>
+    <string name="item_total">Item Total</string>
+    <string name="delivery_fee">Delivery Fee</string>
+    <string name="discount">Discount</string>
+    <string name="grand_total">Grand Total</string>
+    <string name="you_saved">You saved</string>
+    <string name="clear_cart">Clear Cart</string>
+    <string name="place_order">Place Order</string>
+    <string name="only_one_quantity_alowed">Only single quanity alowed</string>
+    <string name="select">Select</string>
+    <string name="selected">Selected</string>
+    <string name="upc_name">Card No.</string>
+    <string name="please_add_product">Please add product</string>
+    <string name="more_plus">More +</string>
+    <string name="pictures">Pictures</string>
+    <string name="more_info">More Info.</string>
+    <string name="detail"><u>Detail</u></string>
+    <string name="reg_no">Reg. No.</string>
+    <string name="product_details">Product Details</string>
+    <string name="inventory_details">Inventory Details</string>
+    <string name="please_add_category_image">Please add category Image</string>
+    <string name="add_category_image">Add category Image</string>
+    <string name="category_name">Category Name</string>
+    <string name="add_now">Add Now</string>
+    <string name="allow_sub_category">Allow Sub Category</string>
+    <string name="product_name">Product Name</string>
+    <string name="product_category">Product Category</string>
+    <string name="choose_product_category">Choose Product Category</string>
+    <string name="mrp_unit">MRP(Per unit)</string>
+    <string name="selling_price">Selling Price(Per unit)</string>
+    <string name="add_product_image">Add Product\n Image</string>
+    <string name="unit">Unit</string>
+    <string name="pack_unit">Pack Unit</string>
+    <string name="product_description">Product Description</string>
+    <string name="add_variants">+ Add Variants</string>
+    <string name="add_description">+ Add Description</string>
+    <string name="heading">Heading *</string>
+    <string name="enter_heading">Enter Heading</string>
+    <string name="description_star">Description *</string>
+    <string name="enter_description">Enter Description</string>
+    <string name="add_simple">Add</string>
+    <string name="please_choose_a_image">Please choose an image!</string>
+    <string name="please_enter_heading">Please enter heading</string>
+    <string name="please_enter_description">Please enter description</string>
+    <string name="please_enter_category">Please enter category</string>
+    <string name="seems_like_you_have_not_added_any_category">seems like you have not added any category</string>
+    <string name="no_category_found">No Category Found</string>
+    <string name="delete_category">Are you sure, you want to delete this category ?</string>
+
+    <string name="search_by_keyword">Search by Code/Name</string>
+    <string name="found">"Found  "</string>
+    <string name="search_by_name">Search by name</string>
+    <string name="reference_number">Reference Number</string>
+    <string name="maximum_order_limit">Maximum Order Limit</string>
+    <string name="minimum_quantity">Minimum Stock Quantity</string>
+    <string name="choose_product_unit">Choose Product Unit</string>
+    <string name="choose_pack_unit">Choose pack unit</string>
+    <string name="seems_no_category">Seem No Category</string>
+    <string name="delete_product">Are you sure want delete this product?</string>
+    <string name="view_more">View More</string>
+    <string name="stock_details">Stock Details</string>
+    <string name="current_Stock">Current Stock </string>
+    <string name="sale">Sale</string>
+    <string name="purcase">Purchase</string>
+    <string name="opening">Opening</string>
+    <string name="closing">Closing</string>
+    <string name="total_in_stock">Total Stock In</string>
+    <string name="total_out_stock">Total Stock Out</string>
+    <string name="opening_stock">Opening Stock</string>
+    <string name="closing_stock">Closing Stock</string>
+    <string name="stock_in">Stock In</string>
+    <string name="stock_out">Stock Out</string>
+    <string name="balance">Balance</string>
+    <string name="reff_id">ReffId.</string>
+    <string name="updated_by">Updated By</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="last_week">Last Week</string>
+    <string name="last_month">This Month</string>
+    <string name="custom_range">Custom Range</string>
+    <string name="colon">:</string>
+    <string name="_1234567890">1234567890</string>
+    <string name="employee_name">Employee Name</string>
+    <string name="employee_code">Employee Code</string>
+    <string name="e_102">E-102</string>
+    <string name="driver_name">Driver Name</string>
+    <string name="driver_abc">Driver ABC</string>
+    <string name="car_type">Car Type</string>
+    <string name="cab_type">Cab Type</string>
+    <string name="cab_number">Cab Number</string>
+    <string name="hr_1234">HR-1234</string>
+    <string name="pickup_location">Pickup Location</string>
+    <string name="samaspur_village_ocus_quantum_section_51">Samaspur village, Ocus Quantum, Section 51</string>
+    <string name="drop_location">Drop Location</string>
+    <string name="pickup_time">Pickup Time</string>
+    <string name="_09_06_2021_09_30">09/06/2021 09:30</string>
+    <string name="drop_time">Drop Time</string>
+    <string name="video">Video</string>
+    <string name="profile_image">Profile Image</string>
+    <string name="day_date">Day Date</string>
+    <string name="till_now">All</string>
+    <string name="enter_quantity">Enter Quantity</string>
+    <string name="change_price">Change Price</string>
+    <string name="enter_price">Enter Price</string>
+    <string name="select_hub">Select Hub :</string>
+    <string name="recent_transaction">Recent Transaction</string>
+    <string name="available_balance">Available Balance</string>
+    <string name="transfer_to_jhon">Transfer to Jhon</string>
+    <string name="transaction_1">Transaction 1</string>
+    <string name="debit_bracket">(DEBIT)</string>
+    <string name="payment_completed">Payment Completed</string>
+    <string name="hello_sanjeev">Hello Sanjeev</string>
+    <string name="rs_349">₹ 349.00</string>
+    <string name="transaction_success_message">You have successfully added money to your wallet!</string>
+    <string name="payment_incompleted">Payment Incompleted</string>
+    <string name="transaction_cancel_message">The last transaction to add money into your wallet was unsuccessful. Please try again!</string>
+    <string name="copy">COPY</string>
+    <string name="transaction_id">Transaction ID</string>
+    <string name="my_document">My Document</string>
+    <string name="transaction">Transaction</string>
+    <string name="document_name">Name on Document</string>
+    <string name="add_document">Add Document</string>
+    <string name="upload_document">Upload Document</string>
+    <string name="expire_on">Expire On</string>
+    <string name="dd_mm_yyyy">dd/mm/yyyy</string>
+    <string name="preview">Preview..</string>
+    <string name="browse_the_file_here">Browse The File here</string>
+    <string name="add_doc">Add</string>
+    <string name="document_number">Document Number</string>
+    <string name="document_type">Document Type</string>
+    <string name="filter_caps">FILTER</string>
+    <string name="no_document">No Document</string>
+    <string name="delete_user_docs">Are you sure you want to delete this document?</string>
+
+</resources>

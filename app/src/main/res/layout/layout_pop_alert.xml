@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dimen_10"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="@dimen/dimen_15">
+
+    <RelativeLayout
+        android:id="@+id/rlRv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/dimen_10">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewEvents"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cancelText"
+            android:layout_marginTop="@dimen/dimen_4"
+            android:layout_centerInParent="true"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="4"
+            tools:itemCount="12"
+            tools:listitem="@layout/item_my_alter" />
+
+        <TextView
+            android:id="@+id/cancelText"
+            style="@style/TextViewStyleLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="@string/cancel" />
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,1696 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.taskdetails.NewTaskDetailsViewModel" />
+
+        <variable
+            name="data"
+            type="com.tracki.ui.tasklisting.assignedtome.TaskAssignToMeViewModel" />
+
+        <variable
+            name="timeLineAdapter"
+            type="com.tracki.ui.taskdetails.TaskTimeLineAdapter" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/llMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_50">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/windowBackgroundColor"
+                android:orientation="vertical">
+
+
+                <RelativeLayout
+                    android:id="@+id/rlExpiry"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_30"
+                    android:visibility="@{data.highLightExpiry ? View.VISIBLE : View.GONE}"
+                    app:highbackground="@{data.validExpiry}">
+
+                    <TextView
+                        style="@style/TextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/dimen_10"
+                        android:text="@{data.expiryText}"
+                        android:textColor="@color/white" />
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="@dimen/dimen_10"
+                        android:layout_marginTop="@dimen/dimen_10"
+                        android:layout_marginRight="@dimen/dimen_10"
+                        android:background="@color/semi_gray_5"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/llCurrentState"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/windowBackgroundColor"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/dimen_15">
+
+                        <ImageView
+                            android:id="@+id/ivReffId"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center_vertical"
+                            app:srcCompat="@drawable/ic_current_stage" />
+
+                        <TextView
+                            android:layout_toRightOf="@+id/ivReffId"
+                            android:id="@+id/tvTaskId"
+                            android:layout_toLeftOf="@+id/tvCounterTime"
+                            android:layout_centerVertical="true"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/campton_book"
+                            android:paddingLeft="@dimen/dimen_5"
+                            android:paddingTop="@dimen/dimen_10"
+                            android:layout_marginRight="@dimen/dimen_5"
+                            android:paddingBottom="@dimen/dimen_10"
+                            android:text="@string/current_state"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/tvCounterTime"
+                            style="@style/TextViewStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toLeftOf="@+id/llDetails"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginRight="@dimen/dimen_10"
+                            android:drawablePadding="@dimen/dimen_7"
+                            android:gravity="center_vertical"
+                            android:text="@{data.countDownTimerText}"
+                            android:textAllCaps="false"
+                            android:textColor="@color/yellow_punch_btn"
+                            android:textSize="@dimen/text_size_14"
+                            android:visibility="@{data.countDownTimerVisible ? View.VISIBLE : View.GONE}"
+                            tools:text="50 sec left" />
+
+                        <!--<LinearLayout
+                            android:id="@+id/llDetails"
+                            android:visibility="visible"
+                            android:layout_alignParentRight="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                           android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/dimen_10"
+                            android:background="@drawable/button_yellow_bg"
+                            >
+
+                            <TextView
+                                style="@style/TextViewStyle"
+                                android:paddingTop="@dimen/dimen_5"
+                                android:paddingBottom="@dimen/dimen_5"
+                                android:paddingLeft="@dimen/dimen_10"
+                                android:paddingRight="@dimen/dimen_10"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/details"
+                                android:textColor="@color/white" />
+                            <ImageView
+                                android:tint="@color/white"
+                                android:layout_marginRight="@dimen/dimen_10"
+                                android:layout_gravity="center_vertical"
+                                android:src="@drawable/ic_arrow_right"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>-->
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rlStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RelativeLayout
+                            android:id="@+id/rlInnerStatus"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:paddingTop="@dimen/dimen_15"
+                            android:paddingBottom="@dimen/dimen_10">
+
+                            <TextView
+                                android:id="@+id/labelStatus"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/dimen_10"
+                                android:fontFamily="@font/campton_light"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="@dimen/dimen_10"
+                                android:text="@string/loc_status"
+                                android:textColor="@color/colorTextGreyPunch"
+                                android:textSize="@dimen/text_size_14" />
+
+                            <TextView
+                                android:id="@+id/tvCurrentState"
+                                style="@style/TextViewStyle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/labelStatus"
+                                android:layout_marginLeft="@dimen/dimen_10"
+                                android:layout_marginRight="@dimen/dimen_4"
+                                android:layout_toLeftOf="@+id/btnDetails"
+                                android:fontFamily="@font/campton_book"
+                                android:paddingLeft="@dimen/dimen_10"
+                                android:paddingRight="@dimen/dimen_10"
+                                android:text="@{data.task.currentStage.name}"
+                                android:textColor="@color/green"
+                                android:textSize="@dimen/text_size_14"
+                                android:textStyle="bold"
+                                tools:text="@string/current_state" />
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:layout_marginTop="10dp"
+                                android:layout_below="@id/tvCurrentState"
+                                android:id="@+id/rvDynamicFormsMini"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                tools:listitem="@layout/item_dynamic_form_signature" />
+
+                            <ImageView
+                                android:layout_below="@id/rvDynamicFormsMini"
+                                android:id="@+id/ivCurrentStageLocation"
+                                android:layout_width="@dimen/dimen_25"
+                                android:layout_height="@dimen/dimen_25"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:layout_toLeftOf="@+id/btnDetails"
+                                android:visibility="gone"
+                                android:layout_marginRight="@dimen/dimen_8"
+                                app:srcCompat="@drawable/ic_app_location" />
+
+                            <ImageView
+                                android:id="@+id/btnDetails"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="@dimen/dimen_8"
+                                android:onClick="@{()->data.onItemClick()}"
+                                android:paddingLeft="@dimen/dimen_8"
+                                android:paddingRight="@dimen/dimen_8"
+                                android:src="@drawable/ic_arrow_right"
+                                android:visibility="gone" />
+                        </RelativeLayout>
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1"
+                        android:layout_below="@+id/rlInnerStatus"
+                        android:layout_marginLeft="@dimen/dimen_10"
+                        android:layout_marginTop="@dimen/dimen_10"
+                        android:layout_marginRight="@dimen/dimen_10"
+                        android:background="@color/semi_gray_5" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="@{data.referenceIdVisible ? View.VISIBLE : View.GONE}">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/windowBackgroundColor"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/dimen_15">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            app:srcCompat="@drawable/ic_identification" />
+
+                        <TextView
+                            android:id="@+id/tvLabelRefferenceId"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/campton_book"
+                            android:paddingLeft="@dimen/dimen_5"
+                            android:paddingTop="@dimen/dimen_10"
+                            android:paddingBottom="@dimen/dimen_10"
+                            android:text="@string/task_id"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dimen_15"
+                            android:fontFamily="@font/campton_light"
+                            android:padding="@dimen/dimen_10"
+                            android:text="@{data.referenceId}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_14"
+                            tools:text="HR56566" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!--..-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="@{data.pocVisible ? View.VISIBLE : View.GONE}">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/windowBackgroundColor"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/dimen_15">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            app:srcCompat="@drawable/ic_created_by_sort" />
+
+                        <TextView
+                            android:id="@+id/tvLabelPoc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/campton_book"
+                            android:paddingLeft="@dimen/dimen_5"
+                            android:paddingTop="@dimen/dimen_10"
+                            android:paddingBottom="@dimen/dimen_10"
+                            android:text="@string/point_of_contact"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rlPoc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:visibility="@{data.pocVisible ? View.VISIBLE : View.GONE}">
+
+                        <RelativeLayout
+                            android:id="@+id/rlPocName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:padding="@dimen/dimen_10">
+
+                            <TextView
+                                android:id="@+id/labelPocName"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/campton_light"
+                                android:text="@string/name"
+                                android:textColor="@color/colorTextGreyPunch"
+                                android:textSize="@dimen/text_size_14" />
+
+                            <TextView
+                                android:id="@+id/tvPocName"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/labelPocName"
+                                android:fontFamily="@font/campton_book"
+                                android:text="@{data.pocName}"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_size_14"
+                                tools:text="Gaurav Aggarwal" />
+
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_1"
+                            android:layout_below="@+id/rlPocName"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:layout_marginTop="@dimen/dimen_10"
+                            android:layout_marginRight="@dimen/dimen_10"
+                            android:background="@color/semi_gray_5" />
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:visibility="@{data.pocMobileVisible ? View.VISIBLE : View.GONE}">
+
+                        <RelativeLayout
+                            android:id="@+id/rlPocMobile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:padding="@dimen/dimen_10">
+
+                            <TextView
+                                android:id="@+id/labelPocMobile"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/campton_light"
+                                android:text="@string/mobile_number"
+                                android:textColor="@color/colorTextGreyPunch"
+                                android:textSize="@dimen/text_size_14" />
+
+                            <TextView
+                                android:id="@+id/tvPocMobile"
+                                style="@style/TextViewStyle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/labelPocMobile"
+                                android:layout_toLeftOf="@+id/pocCallOption"
+                                android:fontFamily="@font/campton_book"
+                                android:text="@{data.pocMobile}"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_size_14"
+                                tools:text="Gaurav Aggarwal" />
+
+                            <RelativeLayout
+                                android:id="@+id/pocCallOption"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true">
+
+
+                                <ImageView
+                                    android:id="@+id/ivPocCall"
+                                    android:layout_width="@dimen/dimen_25"
+                                    android:layout_height="@dimen/dimen_25"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginLeft="@dimen/dimen_10"
+                                    android:layout_marginRight="@dimen/dimen_10"
+                                    android:background="@drawable/ic_phone_usage"
+                                    android:onClick="@{()->data.onCallClick(data.pocMobile)}" />
+                            </RelativeLayout>
+
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_1"
+                            android:layout_below="@+id/rlPocMobile"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:layout_marginTop="@dimen/dimen_10"
+                            android:layout_marginRight="@dimen/dimen_10"
+                            android:background="@color/semi_gray_5" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+
+                <!--..-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="@{data.descriptionVisible ? View.VISIBLE : View.GONE}">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/windowBackgroundColor"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/dimen_15">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            app:srcCompat="@drawable/ic_product_description" />
+
+                        <TextView
+                            android:id="@+id/tvLabelDesc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/campton_book"
+                            android:paddingLeft="@dimen/dimen_5"
+                            android:paddingTop="@dimen/dimen_10"
+                            android:paddingBottom="@dimen/dimen_10"
+                            android:text="@string/description"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dimen_15"
+                            android:fontFamily="@font/campton_light"
+                            android:padding="@dimen/dimen_10"
+                            android:text="@{data.description}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_14"
+                            tools:text="HR56566" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <!--..-->
+
+                <LinearLayout
+                    android:id="@+id/cardOrders"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/dimen_15">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            app:srcCompat="@drawable/ic_inventory_sort" />
+
+                        <TextView
+                            android:id="@+id/tvInventoriesLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/campton_book"
+                            android:paddingLeft="@dimen/dimen_5"
+                            android:paddingTop="@dimen/dimen_10"
+                            android:paddingBottom="@dimen/dimen_10"
+                            android:text="@string/inventory_orders"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvOrderList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:nestedScrollingEnabled="true"
+                        android:orientation="vertical"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:itemCount="1"
+                        tools:listitem="@layout/item_row_order" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lldate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/windowBackgroundColor"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/dimen_15">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            app:srcCompat="@drawable/ic_date_time" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/campton_book"
+                            android:paddingLeft="@dimen/dimen_5"
+                            android:paddingTop="@dimen/dimen_10"
+                            android:paddingBottom="@dimen/dimen_10"
+                            android:text="@string/schedule_date_time"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rlStartDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RelativeLayout
+                            android:id="@+id/rlInnerStartDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:padding="@dimen/dimen_10">
+
+                            <TextView
+                                android:id="@+id/labelCreatedAt"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/campton_light"
+                                android:text="@string/created_at"
+                                android:textColor="@color/colorTextGreyPunch"
+                                android:textSize="@dimen/text_size_14" />
+
+                            <TextView
+                                android:id="@+id/tvCreatedAt"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/labelCreatedAt"
+                                android:fontFamily="@font/campton_book"
+                                android:text="@{data.createdAt}"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_size_14"
+                                tools:text="19 April 2020 ," />
+
+                            <TextView
+                                android:id="@+id/tvTime"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/labelCreatedAt"
+                                android:layout_alignBaseline="@+id/tvCreatedAt"
+                                android:layout_marginLeft="@dimen/dimen_4"
+                                android:layout_toRightOf="@+id/tvCreatedAt"
+                                android:fontFamily="@font/campton_book"
+                                android:text="@{data.createdTimeAt}"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_size_14"
+                                tools:text="06:36 Am" />
+
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_1"
+                            android:layout_below="@+id/rlInnerStartDate"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:layout_marginTop="@dimen/dimen_10"
+                            android:layout_marginRight="@dimen/dimen_10"
+                            android:background="@color/semi_gray_5" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rlSchedule"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="@{data.scheduledAtVisible ? View.VISIBLE : View.GONE}">
+
+
+                        <RelativeLayout
+                            android:id="@+id/rlDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:padding="@dimen/dimen_10">
+
+                            <TextView
+                                android:id="@+id/labelScheduledAt"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/campton_light"
+                                android:text="@string/scheduled_at"
+                                android:textColor="@color/colorTextGreyPunch"
+                                android:textSize="@dimen/text_size_14" />
+
+                            <TextView
+                                android:id="@+id/tvScheduledAt"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/labelScheduledAt"
+                                android:fontFamily="@font/campton_book"
+                                android:text="@{data.scheduledAt}"
+                                android:textColor="@color/colorTextGreyPunch"
+                                android:textSize="@dimen/text_size_14"
+                                tools:text="19 April 2020 ," />
+
+                            <TextView
+                                android:id="@+id/tvScheduledTime"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/labelScheduledAt"
+                                android:layout_alignBaseline="@+id/tvScheduledAt"
+                                android:layout_marginLeft="@dimen/dimen_4"
+                                android:layout_toRightOf="@+id/tvScheduledAt"
+                                android:fontFamily="@font/campton_book"
+                                android:text="@{data.scheduledTimeAt}"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_size_14"
+                                tools:text="06:36 Am" />
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_1"
+                            android:layout_below="@+id/rlDate"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:layout_marginTop="@dimen/dimen_10"
+                            android:layout_marginRight="@dimen/dimen_10"
+                            android:background="@color/semi_gray_5" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rlEndTime"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="@{data.endTimeVisible ? View.VISIBLE : View.GONE}">
+
+
+                        <RelativeLayout
+                            android:id="@+id/rlEndDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:padding="@dimen/dimen_10">
+
+                            <TextView
+                                android:id="@+id/labelEndAt"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/campton_light"
+                                android:text="@string/end_at"
+                                android:textColor="@color/colorTextGreyPunch"
+                                android:textSize="@dimen/text_size_14" />
+
+                            <TextView
+                                android:id="@+id/tvEndAt"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/labelEndAt"
+                                android:fontFamily="@font/campton_book"
+                                android:text="@{data.endTimeDateText}"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_size_14"
+                                tools:text="19 April 2020 ," />
+
+                            <TextView
+                                android:id="@+id/tvEndTime"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/labelEndAt"
+                                android:layout_alignBaseline="@+id/tvEndAt"
+                                android:layout_marginLeft="@dimen/dimen_4"
+                                android:layout_toRightOf="@+id/tvEndAt"
+                                android:fontFamily="@font/campton_book"
+                                android:text="@{data.endTimeText}"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_size_14"
+                                tools:text="06:36 Am" />
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_1"
+                            android:layout_below="@+id/rlEndDate"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:layout_marginTop="@dimen/dimen_10"
+                            android:layout_marginRight="@dimen/dimen_10"
+                            android:background="@color/semi_gray_5" />
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lllocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="@{data.isLocationVisible ? View.VISIBLE : View.GONE}">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/windowBackgroundColor"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/dimen_15">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            app:srcCompat="@drawable/ic_placeholder_sort" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/campton_book"
+                            android:paddingLeft="@dimen/dimen_5"
+                            android:paddingTop="@dimen/dimen_10"
+                            android:paddingBottom="@dimen/dimen_10"
+                            android:text="@string/location"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rlStartLocation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:visibility="@{data.isStartLocationVisible ? View.VISIBLE : View.GONE}">
+
+
+                        <RelativeLayout
+                            android:id="@+id/rlLocationName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:padding="@dimen/dimen_10">
+
+                            <TextView
+                                android:id="@+id/labelStartLocation"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/campton_light"
+                                android:text="@string/start_location"
+                                android:textColor="@color/colorTextGreyPunch"
+                                android:textSize="@dimen/text_size_14" />
+
+                            <TextView
+                                android:id="@+id/tvStartLocatioName"
+                                style="@style/TextViewStyle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/labelStartLocation"
+                                android:layout_toLeftOf="@+id/ivPinStartLocation"
+                                android:ellipsize="end"
+                                android:fontFamily="@font/campton_book"
+                                android:maxLines="2"
+                                android:text="@{data.taskStartLoc}"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_size_14"
+                                tools:text="Wz j janakpark delhi " />
+
+                            <ImageView
+                                android:id="@+id/ivPinStartLocation"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:padding="@dimen/dimen_10"
+                                app:srcCompat="@drawable/ic_pin_google_big" />
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_1"
+                            android:layout_below="@+id/rlLocationName"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:layout_marginTop="@dimen/dimen_10"
+                            android:layout_marginRight="@dimen/dimen_10"
+                            android:background="@color/semi_gray_5" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rlEndLocation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:visibility="@{data.isEndLocationVisible ? View.VISIBLE : View.GONE}">
+
+
+                        <RelativeLayout
+                            android:id="@+id/rlEndLocationName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:padding="@dimen/dimen_10">
+
+                            <TextView
+                                android:id="@+id/labelEndLocation"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/end_location"
+                                android:fontFamily="@font/campton_light"
+                                android:textColor="@color/colorTextGreyPunch"
+                                android:textSize="@dimen/text_size_14" />
+
+                            <TextView
+                                android:id="@+id/tvEndLocationName"
+                                style="@style/TextViewStyle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/labelEndLocation"
+                                android:layout_toLeftOf="@+id/ivPinEndLocation"
+                                android:fontFamily="@font/campton_book"
+                                android:text="@{data.taskEndLoc}"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_size_14"
+                                tools:text="Wz j janakpark delhi " />
+
+                            <ImageView
+                                android:id="@+id/ivPinEndLocation"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:padding="@dimen/dimen_10"
+                                app:srcCompat="@drawable/ic_pin_google_big" />
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_1"
+                            android:layout_below="@+id/rlEndLocationName"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:layout_marginTop="@dimen/dimen_10"
+                            android:layout_marginRight="@dimen/dimen_10"
+                            android:background="@color/semi_gray_5" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="@{data.isFleetDetailVisible ? View.VISIBLE : View.GONE}">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/windowBackgroundColor"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/dimen_15">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            app:srcCompat="@drawable/ic_car_sort" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/campton_book"
+                            android:paddingLeft="@dimen/dimen_5"
+                            android:paddingTop="@dimen/dimen_10"
+                            android:paddingBottom="@dimen/dimen_10"
+                            android:text="@string/vehicle_id_"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dimen_15"
+                            android:fontFamily="@font/campton_light"
+                            android:padding="@dimen/dimen_10"
+                            android:text="@{data.fleetDetail}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_14"
+                            tools:text="HR56566" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="@{data.createdByVisible ? View.VISIBLE : View.GONE}">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/windowBackgroundColor"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/dimen_15">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            app:srcCompat="@drawable/ic_created_by_sort" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/campton_book"
+                            android:paddingLeft="@dimen/dimen_5"
+                            android:paddingTop="@dimen/dimen_10"
+                            android:paddingBottom="@dimen/dimen_10"
+                            android:text="@string/created_by"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rlCreatedBy"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:visibility="@{data.assigneeNameVisible ? View.VISIBLE : View.GONE}">
+
+                        <RelativeLayout
+                            android:id="@+id/rlCreatedByName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:padding="@dimen/dimen_10">
+
+                            <TextView
+                                android:id="@+id/labelCreatedByName"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/campton_light"
+                                android:text="@string/name"
+                                android:textColor="@color/colorTextGreyPunch"
+                                android:textSize="@dimen/text_size_14" />
+
+                            <TextView
+                                android:id="@+id/tvCreatedByName"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/labelCreatedByName"
+                                android:fontFamily="@font/campton_book"
+                                android:text="@{data.assigneeName}"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_size_14"
+                                tools:text="Gaurav Aggarwal" />
+
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_1"
+                            android:layout_below="@+id/rlCreatedByName"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:layout_marginTop="@dimen/dimen_10"
+                            android:layout_marginRight="@dimen/dimen_10"
+                            android:background="@color/semi_gray_5" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:visibility="@{data.assigneeEmailVisible ? View.VISIBLE : View.GONE}">
+
+                        <RelativeLayout
+                            android:id="@+id/rlCreatedByEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:padding="@dimen/dimen_10">
+
+                            <TextView
+                                android:id="@+id/labelCreatedByEmail"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/campton_light"
+                                android:text="@string/email_id"
+                                android:textColor="@color/colorTextGreyPunch"
+                                android:textSize="@dimen/text_size_14" />
+
+                            <TextView
+                                android:id="@+id/tvCreatedByEmail"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/labelCreatedByEmail"
+                                android:fontFamily="@font/campton_book"
+                                android:text="@{data.assigneeEmail}"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_size_14"
+                                tools:text="Gaurav Aggarwal" />
+
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_1"
+                            android:layout_below="@+id/rlCreatedByEmail"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:layout_marginTop="@dimen/dimen_10"
+                            android:layout_marginRight="@dimen/dimen_10"
+                            android:background="@color/semi_gray_5" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:visibility="@{data.assigneeMobileVisible ? View.VISIBLE : View.GONE}">
+
+                        <RelativeLayout
+                            android:id="@+id/rlCreatedByMobile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:padding="@dimen/dimen_10">
+
+                            <TextView
+                                android:id="@+id/labelCreatedByMobile"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/campton_light"
+                                android:text="@string/mobile_number"
+                                android:textColor="@color/colorTextGreyPunch"
+                                android:textSize="@dimen/text_size_14" />
+
+                            <TextView
+                                android:id="@+id/tvCreatedByMobile"
+                                style="@style/TextViewStyle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/labelCreatedByMobile"
+                                android:layout_toLeftOf="@+id/createdByCallChatOption"
+                                android:fontFamily="@font/campton_book"
+                                android:text="@{data.assigneeMobile}"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_size_14"
+                                tools:text="Gaurav Aggarwal" />
+
+                            <RelativeLayout
+                                android:id="@+id/createdByCallChatOption"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true">
+
+                                <ImageView
+                                    android:id="@+id/ivCreatedByChat"
+                                    android:layout_width="@dimen/dimen_25"
+                                    android:layout_height="@dimen/dimen_25"
+                                    android:layout_centerVertical="true"
+                                    android:background="@drawable/ic_feedback"
+                                    android:onClick="@{()->data.onChatStart(data.assigneeChatId,data.assigneeName)}"
+                                    android:visibility="@{data.assigneeChatVisible ? View.VISIBLE : View.GONE}" />
+
+                                <ImageView
+                                    android:id="@+id/ivCreatedByCall"
+                                    android:layout_width="@dimen/dimen_25"
+                                    android:layout_height="@dimen/dimen_25"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginLeft="@dimen/dimen_10"
+                                    android:layout_marginRight="@dimen/dimen_10"
+                                    android:layout_toRightOf="@+id/ivCreatedByChat"
+                                    android:background="@drawable/ic_phone_usage"
+                                    android:onClick="@{()->data.onCallClick(data.assigneeMobile)}" />
+                            </RelativeLayout>
+
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_1"
+                            android:layout_below="@+id/rlCreatedByMobile"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:layout_marginTop="@dimen/dimen_10"
+                            android:layout_marginRight="@dimen/dimen_10"
+                            android:background="@color/semi_gray_5" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <!--            ..-->
+
+                <!--....-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="@{data.assignedToDetailsVisible ? View.VISIBLE : View.GONE}">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/windowBackgroundColor"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/dimen_15">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            app:srcCompat="@drawable/ic_assigned_to_sort" />
+
+                        <TextView
+                            android:id="@+id/tvAssignedTolable"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/campton_book"
+                            android:paddingLeft="@dimen/dimen_5"
+                            android:paddingTop="@dimen/dimen_10"
+                            android:paddingBottom="@dimen/dimen_10"
+                            android:text="@string/assigned_to"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:visibility="@{data.assignedToNameVisible ? View.VISIBLE : View.GONE}">
+
+                        <RelativeLayout
+                            android:id="@+id/rlAssignedToName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:padding="@dimen/dimen_10">
+
+                            <TextView
+                                android:id="@+id/labelAssignedToName"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/campton_light"
+                                android:text="@string/name"
+                                android:textColor="@color/colorTextGreyPunch"
+                                android:textSize="@dimen/text_size_14" />
+
+                            <TextView
+                                android:id="@+id/tvAssignedToName"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/labelAssignedToName"
+                                android:fontFamily="@font/campton_book"
+                                android:text="@{data.assignedToName}"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_size_14"
+                                tools:text="Gaurav Aggarwal" />
+
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_1"
+                            android:layout_below="@+id/rlAssignedToName"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:layout_marginTop="@dimen/dimen_10"
+                            android:layout_marginRight="@dimen/dimen_10"
+                            android:background="@color/semi_gray_5" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:visibility="@{data.assignedToEmailVisible ? View.VISIBLE : View.GONE}">
+
+                        <RelativeLayout
+                            android:id="@+id/rlAssignedToEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:padding="@dimen/dimen_10">
+
+                            <TextView
+                                android:id="@+id/labelAssignedToEmail"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/campton_light"
+                                android:text="@string/email_id"
+                                android:textColor="@color/colorTextGreyPunch"
+                                android:textSize="@dimen/text_size_14" />
+
+                            <TextView
+                                android:id="@+id/tvAssignedToEmail"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/labelAssignedToEmail"
+                                android:fontFamily="@font/campton_book"
+                                android:text="@{data.assignedToEmail}"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_size_14"
+                                tools:text="Gaurav Aggarwal" />
+
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_1"
+                            android:layout_below="@+id/rlAssignedToEmail"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:layout_marginTop="@dimen/dimen_10"
+                            android:layout_marginRight="@dimen/dimen_10"
+                            android:background="@color/semi_gray_5" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:visibility="@{data.assignedToMobileVisible ? View.VISIBLE : View.GONE}">
+
+                        <RelativeLayout
+                            android:id="@+id/rlAssignedToMobile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:padding="@dimen/dimen_10">
+
+                            <TextView
+                                android:id="@+id/labelAssignedToMobile"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/campton_light"
+                                android:text="@string/mobile_number"
+                                android:textColor="@color/colorTextGreyPunch"
+                                android:textSize="@dimen/text_size_14" />
+
+                            <TextView
+                                android:id="@+id/tvAssignedToMobile"
+                                style="@style/TextViewStyle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/labelAssignedToMobile"
+                                android:layout_toLeftOf="@+id/assignedToCallChatOption"
+                                android:fontFamily="@font/campton_book"
+                                android:text="@{data.assignedToMobile}"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_size_14"
+                                tools:text="Gaurav Aggarwal" />
+
+                            <RelativeLayout
+                                android:id="@+id/assignedToCallChatOption"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true">
+
+                                <RelativeLayout
+                                    android:id="@+id/rlAssignedToTrack"
+                                    android:layout_width="@dimen/dimen_25"
+                                    android:layout_height="@dimen/dimen_25"
+                                    android:layout_centerVertical="true"
+                                    android:background="@drawable/ic_app_location"
+                                    android:visibility="@{data.isTrackingVisible ? View.VISIBLE : View.GONE}">
+
+                                </RelativeLayout>
+
+                                <ImageView
+                                    android:id="@+id/ivAssignedToChat"
+                                    android:layout_width="@dimen/dimen_25"
+                                    android:layout_height="@dimen/dimen_25"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginLeft="@dimen/dimen_10"
+                                    android:layout_toRightOf="@+id/rlAssignedToTrack"
+                                    android:background="@drawable/ic_feedback"
+                                    android:onClick="@{()->data.onChatStart(data.assignedToChatId,data.assignedToName)}"
+                                    android:visibility="@{data.assignedToChatVisible? View.VISIBLE : View.GONE}" />
+
+                                <ImageView
+                                    android:id="@+id/ivAssignedToCall"
+                                    android:layout_width="@dimen/dimen_25"
+                                    android:layout_height="@dimen/dimen_25"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginLeft="@dimen/dimen_10"
+                                    android:layout_marginRight="@dimen/dimen_10"
+                                    android:layout_toRightOf="@+id/ivAssignedToChat"
+                                    android:background="@drawable/ic_phone_usage"
+                                    android:onClick="@{()->data.onCallClick(data.assignedToMobile)}"
+                                    android:visibility="@{data.assignedToSelf ? View.GONE : View.VISIBLE}" />
+                            </RelativeLayout>
+
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_1"
+                            android:layout_below="@+id/rlAssignedToMobile"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:layout_marginTop="@dimen/dimen_10"
+                            android:layout_marginRight="@dimen/dimen_10"
+                            android:background="@color/semi_gray_5" />
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="@{data.requestedUserVisible ? View.VISIBLE : View.GONE}">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/windowBackgroundColor"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/dimen_15">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            app:srcCompat="@drawable/ic_client_sort" />
+
+                        <TextView
+                            android:id="@+id/tvClientsDetails"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/campton_book"
+                            android:paddingLeft="@dimen/dimen_5"
+                            android:paddingTop="@dimen/dimen_10"
+                            android:paddingBottom="@dimen/dimen_10"
+                            android:text="@string/client_details"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:visibility="@{data.requestedUserVisible ? View.VISIBLE : View.GONE}">
+
+                        <RelativeLayout
+                            android:id="@+id/rlRequestedByName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:padding="@dimen/dimen_10">
+
+                            <TextView
+                                android:id="@+id/labelRequestedByName"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/campton_light"
+                                android:text="@string/name"
+                                android:textColor="@color/colorTextGreyPunch"
+                                android:textSize="@dimen/text_size_14" />
+
+                            <TextView
+                                android:id="@+id/tvRequestedByName"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/labelRequestedByName"
+                                android:fontFamily="@font/campton_book"
+                                android:text="@{data.requestedUserName}"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_size_14"
+                                tools:text="Gaurav Aggarwal" />
+
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_1"
+                            android:layout_below="@+id/rlRequestedByName"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:layout_marginTop="@dimen/dimen_10"
+                            android:layout_marginRight="@dimen/dimen_10"
+                            android:background="@color/semi_gray_5" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:visibility="@{data.requestedUserEmailVisible ? View.VISIBLE : View.GONE}">
+
+                        <RelativeLayout
+                            android:id="@+id/rlRequestedByEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:padding="@dimen/dimen_10">
+
+                            <TextView
+                                android:id="@+id/labelRequestedByEmail"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/campton_light"
+                                android:text="@string/email_id"
+                                android:textColor="@color/colorTextGreyPunch"
+                                android:textSize="@dimen/text_size_14" />
+
+                            <TextView
+                                android:id="@+id/tvRequestedByEmail"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/labelRequestedByEmail"
+                                android:fontFamily="@font/campton_book"
+                                android:text="@{data.requestedUserEmail}"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_size_14"
+                                tools:text="Gaurav Aggarwal" />
+
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_1"
+                            android:layout_below="@+id/rlRequestedByEmail"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:layout_marginTop="@dimen/dimen_10"
+                            android:layout_marginRight="@dimen/dimen_10"
+                            android:background="@color/semi_gray_5" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:visibility="@{data.requestedUserMobileVisible ? View.VISIBLE : View.GONE}">
+
+                        <RelativeLayout
+                            android:id="@+id/rlRequestedByMobile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:padding="@dimen/dimen_10">
+
+                            <TextView
+                                android:id="@+id/labelRequestedByMobile"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/campton_light"
+                                android:text="@string/mobile_number"
+                                android:textColor="@color/colorTextGreyPunch"
+                                android:textSize="@dimen/text_size_14" />
+
+                            <TextView
+                                android:id="@+id/tvRequestedByMobile"
+                                style="@style/TextViewStyle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/labelRequestedByMobile"
+                                android:layout_toLeftOf="@+id/requestedByCallChatOption"
+                                android:fontFamily="@font/campton_book"
+                                android:text="@{data.requestedUserMobile}"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_size_14"
+                                tools:text="Gaurav Aggarwal" />
+
+                            <RelativeLayout
+                                android:id="@+id/requestedByCallChatOption"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true">
+
+                                <ImageView
+                                    android:id="@+id/ivRequestedByChat"
+                                    android:layout_width="@dimen/dimen_25"
+                                    android:layout_height="@dimen/dimen_25"
+                                    android:layout_centerVertical="true"
+                                    android:background="@drawable/ic_feedback"
+                                    android:onClick="@{()->data.onChatStart(data.requestedUserChatId,data.requestedUserName)}"
+                                    android:visibility="@{data.requestedUserChatVisible ? View.VISIBLE : View.GONE}" />
+
+                                <ImageView
+                                    android:id="@+id/ivRequestedByCall"
+                                    android:layout_width="@dimen/dimen_25"
+                                    android:layout_height="@dimen/dimen_25"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginLeft="@dimen/dimen_10"
+                                    android:layout_marginRight="@dimen/dimen_10"
+                                    android:layout_toRightOf="@+id/ivRequestedByChat"
+                                    android:background="@drawable/ic_phone_usage"
+                                    android:onClick="@{()->data.onCallClick(data.requestedUserMobile)}" />
+                            </RelativeLayout>
+
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_1"
+                            android:layout_below="@+id/rlRequestedByMobile"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:layout_marginTop="@dimen/dimen_10"
+                            android:layout_marginRight="@dimen/dimen_10"
+                            android:background="@color/semi_gray_5" />
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/windowBackgroundColor"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/dimen_15">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            app:srcCompat="@drawable/ic_time_line_sort" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/campton_book"
+                            android:paddingLeft="@dimen/dimen_5"
+                            android:paddingTop="@dimen/dimen_10"
+                            android:paddingBottom="@dimen/dimen_10"
+                            android:text="@string/time_line"
+                            android:textColor="@color/black" />
+
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerTimeLine"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:adapter="@{timeLineAdapter}"
+                        android:orientation="vertical"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/item_time_line" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_Fields"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:adapter="@{timeLineAdapter}"
+                        android:orientation="vertical"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/item_time_line" />
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+
+
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/coradinatorLL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="@dimen/dimen_10">
+
+            <!-- Adding bottom sheet after main content -->
+            <include
+                android:id="@+id/bottomSheet"
+                layout="@layout/task_details_cta_view" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    </RelativeLayout>
+
+</layout>

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.attendance.punchInOut.PunchInOutViewModel" />
+
+        <variable
+            name="isProhibitionShow"
+            type="java.lang.Boolean" />
+
+        <variable
+            name="message"
+            type="java.lang.String" />
+
+    </data>
+
+
+    <RelativeLayout
+        android:id="@+id/rlMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_recycler_view"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:visibility="@{!isProhibitionShow? View.VISIBLE : View.GONE}"
+            android:id="@+id/ll_punch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/tvGreeting"
+                style="@style/TextViewStyle"
+                android:layout_gravity="center_horizontal"
+                android:text="@{viewModel.txtGreeting}"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_size_16"
+                tools:text="Hi Devil!" />
+
+            <TextView
+                android:id="@+id/tvPunched"
+                style="@style/TextViewStyle"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:layout_marginBottom="@dimen/dimen_10"
+                android:text="@{viewModel.txtPunchedIn}"
+                android:textSize="@dimen/text_size_14"
+                tools:text="You didn't Punch!" />
+
+            <TextView
+                android:id="@+id/tvTotalTime"
+                style="@style/TextViewStyle"
+                android:layout_gravity="center_horizontal"
+                android:text="@{viewModel.txtTotalTime}"
+                android:textColor="@color/yellow_punch_btn"
+                android:textSize="@dimen/text_size_14"
+                android:visibility="@{viewModel.isPunchedIn ? View.VISIBLE : View.GONE}"
+                tools:text="05 hr 60 min" />
+
+            <ImageView
+                android:id="@+id/ivSelfie"
+                android:layout_width="@dimen/dimen_150"
+                android:layout_height="@dimen/dimen_150"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/dimen_20"
+                android:background="@drawable/circle_stroke_user_image"
+                android:contentDescription="@null"
+                android:padding="@dimen/dimen_2"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/ic_placeholder_pic_grey"
+                tools:src="@drawable/ic_placeholder_pic_grey" />
+
+            <TextView
+                android:id="@+id/tvDate"
+                style="@style/TextViewStyle"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/dimen_20"
+                android:text="@{viewModel.txtDate}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_16"
+                tools:text="12 non, 2019" />
+
+            <TextView
+                android:id="@+id/tvDay"
+                style="@style/TextViewStyle"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/campton_light"
+                android:text="@{viewModel.txtDay}"
+                android:textColor="@color/colorTextGreyPunch"
+                android:textSize="@dimen/text_size_14"
+                tools:text="@string/app_name" />
+
+            <Button
+                android:id="@+id/btnPunchInOut"
+                style="@style/ButtonStyle"
+                android:layout_marginTop="@dimen/dimen_25"
+                android:text="@{viewModel.buttonText}"
+                android:backgroundTint="@{viewModel.isPunchedIn?@color/yellow_punch_btn:@color/green_punch_btn}"
+                android:onClick="@{(v)->viewModel.onClickPunchButton(v)}"
+                android:paddingLeft="@dimen/dimen_20"
+                android:paddingRight="@dimen/dimen_20"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:visibility="@{viewModel.btnNotVisibile? View.GONE : View.VISIBLE}"
+                tools:text="@string/punch_n_in" />
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewProhibition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_margin="@dimen/dimen_20"
+            android:visibility="@{isProhibitionShow? View.VISIBLE : View.GONE}"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/dimen_6">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_350"
+                android:padding="@dimen/dimen_10">
+
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_40">
+
+                  <!--  <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:srcCompat="@drawable/ic_id" />-->
+
+                    <ImageView
+                        android:scaleType="fitStart"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:srcCompat="@drawable/ic_png_absent" />
+                    <TextView
+                        android:id="@+id/tv_message"
+                        style="@style/TextViewStyle"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:gravity="center_horizontal"
+                        android:text="@{message}"
+                        android:textSize="@dimen/text_size_14"
+                        android:paddingBottom="@dimen/dimen_25"
+                        tools:text="bddn"
+                        />
+
+
+                </RelativeLayout>
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+</layout>

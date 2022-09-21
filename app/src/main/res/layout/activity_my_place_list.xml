@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.tracki.ui.placelist.MyPlaceListActivity">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.placelist.MyPlacesViewModel" />
+        <variable
+            name="adapter"
+            type="com.tracki.ui.placelist.MyPlaceListAdapter" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/Toolbar"
+                app:contentInsetLeft="0dp"
+                app:contentInsetStart="0dp"
+                app:contentInsetStartWithNavigation="0dp"
+                app:titleTextColor="@color/white"
+                tools:title="@string/my_place" />
+
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <LinearLayout
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:id="@+id/ll_place_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bg_recycler_view"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/swipe_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvMyPlace"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/bg_recycler_view"
+                    android:clipToPadding="false"
+                    android:paddingBottom="@dimen/dimen_80"
+                    android:orientation="vertical"
+                    android:adapter="@{adapter}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_my_places" />
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        </LinearLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/ivCreateTask"
+            android:visibility="visible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="@dimen/dimen_30"
+            android:layout_marginBottom="@dimen/dimen_30"
+            android:onClick="@{()->viewModel.addPlacesActivity()}"
+            app:fab_size="normal"
+            app:layout_anchor="@+id/ll_place_list"
+            app:layout_anchorGravity="bottom|end"
+            app:srcCompat="@drawable/fab_add" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

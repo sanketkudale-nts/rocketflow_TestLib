@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.leave.leave_approval.LeaveApprovalItemViewModel" />
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{()->viewModel.onViewClick()}">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/dimen_15"
+            android:paddingBottom="@dimen/dimen_15"
+            android:weightSum="3">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/ivUser"
+                    android:layout_width="@dimen/dimen_35"
+                    android:layout_height="@dimen/dimen_35"
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    app:srcCompat="@drawable/ic_my_profile" />
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:maxLines="3"
+                    android:paddingStart="@dimen/dimen_5"
+                    android:paddingEnd="@dimen/dimen_5"
+                    android:fontFamily="@font/campton_book"
+                    android:text="@{viewModel.appliedByName}"
+                    android:textColor="@color/black"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/text_size_14"
+                    tools:text="vikas Kesharvani b dc b c nd n cn n n  bn " />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="@dimen/dimen_0"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:maxLines="3"
+                    android:paddingStart="@dimen/dimen_5"
+                    android:paddingEnd="@dimen/dimen_5"
+                    android:fontFamily="@font/campton_light"
+                    android:text="@{viewModel.leaveDate}"
+                    android:textColor="@color/semi_gray_2"
+                    android:textSize="@dimen/text_size_14"
+                    tools:text="12th Jan - 14th Jan" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:paddingStart="@dimen/dimen_5"
+                    android:paddingEnd="@dimen/dimen_5"
+                    android:text="@{viewModel.leaveStatus}"
+                    android:textColor="@{viewModel.color}"
+                    android:textSize="@dimen/text_size_14"
+                    android:fontFamily="@font/campton_light"
+                    tools:text="Applied" />
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:maxLines="3"
+                    android:paddingStart="@dimen/dimen_5"
+                    android:paddingEnd="@dimen/dimen_5"
+                    android:visibility="gone"
+                    android:text="@{viewModel.leaves}"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_14"
+                    android:fontFamily="@font/campton_light"
+                    tools:text="privilege leaves" />
+
+                <ImageView
+                    android:id="@+id/ivNext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_5"
+                    android:layout_marginRight="@dimen/dimen_5"
+                    android:src="@drawable/ic_arrow_right" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_1"
+            android:layout_alignParentBottom="true"
+            android:background="@color/light_gray" />
+    </RelativeLayout>
+
+</layout>

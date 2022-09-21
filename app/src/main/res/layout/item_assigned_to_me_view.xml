@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.tasklisting.assignedtome.AssignedtoMeItemViewModel" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_8"
+        android:layout_marginTop="@dimen/dimen_8"
+        android:layout_marginEnd="@dimen/dimen_8"
+        android:layout_marginBottom="@dimen/dimen_1"
+        android:background="@color/white"
+        android:onClick="@{() -> viewModel.onItemClick()}"
+        android:orientation="vertical"
+        app:cardCornerRadius="@dimen/dimen_4"
+        app:cardElevation="@dimen/dimen_4"
+        app:contentPadding="@dimen/dimen_10">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvName"
+                    style="@style/TextViewStyle"
+                    android:layout_width="@dimen/dimen_40"
+                    android:layout_height="@dimen/dimen_40"
+                    android:layout_marginEnd="@dimen/dimen_8"
+                    android:background="@drawable/bg_image_circle"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:fontFamily="@font/campton_semi_bold"
+                    android:gravity="center|center_vertical"
+                    android:text="@{viewModel.assigneeNameCode}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_14"
+                    tools:text="RA" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/dimen_5"
+                    android:layout_weight=".65"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/TextViewStyle"
+                        android:fontFamily="@font/campton_light"
+                        android:lineSpacingExtra="1dip"
+                        android:maxLines="2"
+                        android:text="@{viewModel.assigneeName}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_14"
+                        tools:text="Monu Yadav assign you a task" />
+
+                    <TextView
+                        style="@style/TextViewStyle"
+                        android:fontFamily="@font/campton_light"
+                        android:lines="1"
+                        android:text="@{viewModel.createdAt}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_12"
+                        tools:text="26 Sep, 2018 at 11:30 am" />
+                    <!-- tools:text="@{viewModel.createdAt}"-->
+                </LinearLayout>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center"
+                    android:buttonTint="@{viewModel.setRadioButtonColor}"
+                    android:checked="true"
+                    android:gravity="end"
+                    app:srcCompat="@drawable/ic_radio_button_unchecked_grey" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1"
+                android:layout_marginTop="@dimen/dimen_8"
+                android:layout_marginBottom="@dimen/dimen_8"
+                android:background="@color/semi_gray_5" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:layout_width="0dp"
+                    android:layout_weight=".7"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:paddingEnd="@dimen/dimen_1"
+                    android:text="@{viewModel.taskName}"
+                    android:textColor="@color/semi_gray_2"
+                    android:textSize="@dimen/text_size_12"
+                    tools:text="Task Name: Lorem Ipsum is simply dummy text.Lorem Ipsum is simply dummy text.Lorem Ipsum is simply dummy text." />
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:layout_width="0dp"
+                    android:layout_gravity="center"
+                    android:layout_weight=".3"
+                    android:background="@drawable/bg_stroke_grey"
+                    android:backgroundTint="@color/semi_gray_5"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    android:padding="@dimen/dimen_8"
+                    android:text="@{viewModel.price}"
+                    android:textColor="@color/semi_gray_2"
+                    android:textSize="@dimen/text_size_14"
+                    android:visibility="@{(viewModel.isCompleted &amp;&amp; viewModel.isPayoutEligible)?View.VISIBLE :View.GONE}"
+                    tools:text="INR 2672" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1"
+                android:layout_marginTop="@dimen/dimen_8"
+                android:layout_marginBottom="@dimen/dimen_8"
+                android:background="@color/semi_gray_5" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".22"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/TextViewStyle"
+                        android:layout_marginBottom="@dimen/dimen_15"
+                        android:fontFamily="@font/campton_book"
+                        android:lineHeight="@dimen/text_size_14"
+                        android:text="@{viewModel.taskStartDateTime}"
+                        android:textColor="@color/semi_gray_2"
+                        android:textSize="@dimen/text_size_12"
+                        tools:text="26 Sep, 2018 \n10:00 AM" />
+
+                    <TextView
+                        style="@style/TextViewStyle"
+                        android:fontFamily="@font/campton_book"
+                        android:lineHeight="@dimen/text_size_14"
+                        android:text="@{viewModel.taskEndDateTime}"
+                        android:textColor="@color/semi_gray_2"
+                        android:textSize="@dimen/text_size_12"
+                        tools:text="26 Sep, 2018 \n10:00 AM" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/dimen_5"
+                    android:layout_weight=".03"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <View
+                        android:layout_width="@dimen/dimen_5"
+                        android:layout_height="@dimen/dimen_5"
+                        android:layout_marginTop="@dimen/dimen_2"
+                        android:layout_marginBottom="@dimen/dimen_2"
+                        android:background="@drawable/ic_dot_green" />
+
+                    <View
+                        android:layout_width="@dimen/dimen_1"
+                        android:layout_height="@dimen/dimen_40"
+                        android:background="@color/warm_gray" />
+
+                    <View
+                        android:layout_width="@dimen/dimen_5"
+                        android:layout_height="@dimen/dimen_5"
+                        android:layout_marginTop="@dimen/dimen_2"
+                        android:background="@drawable/ic_dot_red" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="-2dp"
+                    android:layout_weight=".65"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/TextViewStyle"
+                        android:layout_width="match_parent"
+                        android:layout_gravity="start"
+                        android:layout_weight=".5"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/campton_book"
+                        android:gravity="center_vertical"
+                        android:maxLines="2"
+                        android:text="@{viewModel.taskStartLoc}"
+                        android:textColor="@color/semi_gray_2"
+                        android:textSize="@dimen/text_size_12"
+                        tools:text="Ocus Quantun Mall,Sec 51, Gurgaon \n Internal Road, Near Lal Chowk…" /><!---->
+
+                    <TextView
+                        style="@style/TextViewStyle"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="@dimen/dimen_15"
+                        android:layout_weight=".5"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/campton_book"
+                        android:gravity="center_vertical"
+                        android:maxLines="2"
+                        android:text="@{viewModel.taskEndLoc}"
+                        android:textColor="@color/semi_gray_2"
+                        android:textSize="@dimen/text_size_12"
+                        tools:text="Ocus Quantun Mall,Sec 51, Gurgaon \n Internal Road, Near Lal Chowk…" /><!-- Sec 51, Gurgaon /n Internal Road, Near Lal Chowk…-->
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".1"
+                    android:contentDescription="@null"
+                    android:onClick="@{()-> viewModel.onClickMapIcon()}"
+                    android:visibility="@{(viewModel.isArrived || viewModel.isLive) ? View.VISIBLE : View.GONE}"
+                    app:srcCompat="@drawable/ic_directions" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/viewPointOfContact"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1"
+                android:layout_marginTop="@dimen/dimen_8"
+                android:layout_marginBottom="@dimen/dimen_8"
+                android:background="@color/semi_gray_5"
+                android:visibility="@{viewModel.isContactAvail ? View.VISIBLE : View.GONE}" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="@{viewModel.isContactAvail ? View.VISIBLE : View.GONE}"
+                app:cardBackgroundColor="@color/bg_color"
+                app:cardCornerRadius="@dimen/dimen_4"
+                app:cardElevation="@dimen/dimen_1"
+                app:contentPadding="@dimen/dimen_5">
+
+                <RelativeLayout
+                    android:id="@+id/rlPointOfContact"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/ttle"
+                        style="@style/TextViewStyle"
+                        android:fontFamily="@font/campton_light"
+                        android:lineSpacingExtra="1dip"
+                        android:text="@string/point_of_contact"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_14"
+                        tools:text="@string/point_of_contact" />
+
+                    <TextView
+                        style="@style/TextViewStyle"
+                        android:layout_below="@+id/ttle"
+                        android:fontFamily="@font/campton_light"
+                        android:text="@{viewModel.contact}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_14"
+                        tools:text="Rahul Abrol" />
+
+                    <ImageView
+                        android:id="@+id/ivCall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:contentDescription="@null"
+                        android:onClick="@{()->viewModel.onCallClick()}"
+                        android:padding="@dimen/dimen_15"
+                        android:tint="@color/colorPrimary"
+                        app:srcCompat="@drawable/ic_call" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                style="@style/TextViewStyle"
+                android:layout_margin="@dimen/dimen_5"
+                android:text="@{viewModel.isAutoStart}"
+                android:textColor="@color/light_blue_3"
+                android:textSize="@dimen/text_size_12"
+                android:visibility="gone"
+                tools:text="@string/autostart" />
+
+            <TextView
+                android:id="@+id/tvFleetDetail"
+                style="@style/TextViewStyle"
+                android:layout_margin="@dimen/dimen_5"
+                android:text="@{viewModel.fleetDetail}"
+                android:textColor="@color/brown"
+                android:textSize="@dimen/text_size_12"
+                android:visibility="@{viewModel.isFleetDetailVisible ? View.VISIBLE : View.GONE}"
+                tools:text="Fleet : Se | 778" />
+            <RelativeLayout
+                android:visibility="@{viewModel.isCurrentStateVisible ? View.VISIBLE : View.GONE}"
+                android:id="@+id/rlCurrentState"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tvLabelCurrentState"
+                    style="@style/TextViewStyle"
+                    android:layout_marginTop="@dimen/dimen_6"
+                    android:layout_marginLeft="@dimen/dimen_5"
+                    android:layout_marginRight="@dimen/dimen_5"
+                    android:fontFamily="@font/campton_light"
+                    android:lineSpacingExtra="1dip"
+                    android:text="@string/current_state"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_12"
+                    tools:text="@string/current_state" />
+
+                <TextView
+                    android:id="@+id/tvCurrentState"
+                    style="@style/TextViewStyle"
+                    android:layout_width="match_parent"
+                    android:layout_toLeftOf="@+id/rl_track"
+                    android:layout_marginLeft="@dimen/dimen_4"
+                    android:layout_marginRight="@dimen/dimen_4"
+                    android:layout_below="@+id/tvLabelCurrentState"
+                    android:fontFamily="@font/campton_semi_bold"
+                    android:text="@{viewModel.task.currentStage.name}"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_color_current_state"
+                    android:textSize="@dimen/text_size_28"
+                    tools:text="@string/current_state" />
+                <RelativeLayout
+                    android:id="@+id/rl_track"
+                    android:visibility="@{viewModel.isTrackingVisible ? View.VISIBLE : View.GONE}"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/circle_shadow"
+                    android:layout_width="@dimen/dimen_80"
+                    android:layout_height="@dimen/dimen_80">
+                    <ImageView
+                        android:layout_marginTop="@dimen/dimen_10"
+                        android:id="@+id/ivLocation"
+                        android:layout_centerHorizontal="true"
+                        app:srcCompat="@drawable/ic_pin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_below="@+id/ivLocation"
+                        style="@style/TextViewStyle"
+                        android:layout_marginTop="@dimen/dimen_4"
+                        android:layout_marginLeft="@dimen/dimen_5"
+                        android:layout_marginRight="@dimen/dimen_5"
+                        android:fontFamily="@font/campton_light"
+                        android:lineSpacingExtra="1dip"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/track"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_12"
+                        tools:text="@string/track"/>
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/llCallToAction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="@dimen/dimen_8"
+                android:gravity="end"
+                android:orientation="vertical" />
+
+            <!--<LinearLayout
+                android:id="@+id/layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="@dimen/dimen_8"
+                android:gravity="end"
+                android:orientation="horizontal"
+                android:visibility="@{viewModel.isPending ? View.VISIBLE : View.GONE}"
+                android:weightSum="1">
+
+                <Button
+                    style="@style/ButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_40"
+                    android:layout_marginEnd="@dimen/dimen_10"
+                    android:background="@drawable/bg_stroke_grey"
+                    android:backgroundTint="@color/green_1"
+                    android:fontFamily="@font/campton_book"
+                    android:onClick="@{()->viewModel.onAccept()}"
+                    android:text="@string/accept"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dimen_14" />
+
+                <Button
+                    style="@style/ButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_40"
+                    android:background="@drawable/bg_stroke_red"
+                    android:fontFamily="@font/campton_book"
+                    android:onClick="@{()->viewModel.onReject()}"
+                    android:text="@string/reject"
+                    android:textColor="@color/red_dark5"
+                    android:textSize="@dimen/dimen_14" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="@dimen/dimen_8"
+                android:gravity="end|center_vertical"
+                android:orientation="horizontal"
+                android:visibility="@{viewModel.isArrived ? View.VISIBLE : View.GONE}"
+                android:weightSum="1">
+
+                <Button
+                    style="@style/ButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_40"
+                    android:layout_marginEnd="@dimen/dimen_10"
+                    android:background="@drawable/bg_stroke_grey"
+                    android:backgroundTint="@color/green_1"
+                    android:fontFamily="@font/campton_book"
+                    android:onClick="@{()->viewModel.onArrive()}"
+                    android:paddingStart="@dimen/dimen_8"
+                    android:paddingTop="@dimen/dimen_5"
+                    android:paddingEnd="@dimen/dimen_8"
+                    android:paddingBottom="@dimen/dimen_5"
+                    android:text="@string/arrive"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dimen_14" />
+
+                <Button
+                    style="@style/ButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_40"
+                    android:background="@drawable/bg_stroke_red"
+                    android:fontFamily="@font/campton_book"
+                    android:onClick="@{()->viewModel.onCancel()}"
+                    android:text="@string/cancel"
+                    android:textColor="@color/red_dark5"
+                    android:textSize="@dimen/dimen_14"
+                    tools:ignore="ButtonOrder" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="@dimen/dimen_8"
+                android:gravity="end|center_vertical"
+                android:orientation="horizontal"
+                android:visibility="@{viewModel.isAccepted ? View.VISIBLE : View.GONE}"
+                android:weightSum="1">
+
+                <Button
+                    style="@style/ButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_40"
+                    android:layout_marginEnd="@dimen/dimen_10"
+                    android:background="@drawable/bg_stroke_grey"
+                    android:backgroundTint="@color/green_1"
+                    android:fontFamily="@font/campton_book"
+                    android:onClick="@{()->viewModel.onStart()}"
+                    android:paddingStart="@dimen/dimen_8"
+                    android:paddingTop="@dimen/dimen_5"
+                    android:paddingEnd="@dimen/dimen_8"
+                    android:paddingBottom="@dimen/dimen_5"
+                    android:text="@string/start_now"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dimen_14" />
+
+                <Button
+                    style="@style/ButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_40"
+                    android:background="@drawable/bg_stroke_red"
+                    android:fontFamily="@font/campton_book"
+                    android:onClick="@{()->viewModel.onCancel()}"
+                    android:text="@string/cancel"
+                    android:textColor="@color/red_dark5"
+                    android:textSize="@dimen/dimen_14"
+                    tools:ignore="ButtonOrder" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:visibility="@{viewModel.isLive ? View.VISIBLE : View.GONE}">
+
+                <Button
+                    style="@style/ButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_40"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="@dimen/dimen_8"
+                    android:background="@drawable/bg_stroke_grey"
+                    android:backgroundTint="@color/green_1"
+                    android:fontFamily="@font/campton_book"
+                    android:onClick="@{()->viewModel.onEnd()}"
+                    android:text="@string/end"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dimen_14" />
+            </LinearLayout>-->
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.chat.ChatActivity">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.chat.ChatViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rootView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/default_wallpaper">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/coordinatorLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/app_bar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                android:visibility="visible"
+                app:elevation="@dimen/dimen_0">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    style="@style/Toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:background="@color/colorPrimary"
+                    android:gravity="center"
+                    android:theme="@style/MyThemeOverlay.ActionBar"
+                    app:contentInsetLeft="0dp"
+                    app:contentInsetStart="0dp"
+                    app:contentInsetStartWithNavigation="0dp"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                    app:titleTextColor="@color/white"
+                    tools:title="@string/messages" />
+            </com.google.android.material.appbar.AppBarLayout>
+
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
+        <ImageView
+            android:id="@+id/ibSend"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="6dp"
+            android:background="@drawable/bg_send"
+            android:padding="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_send_black_24dp" />
+
+        <com.tracki.widget.MenuEditText
+            android:id="@+id/edMessage"
+            style="@style/MyEditTextTheme"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_white_round_corner_30_dp"
+            android:ems="10"
+            android:fadeScrollbars="true"
+            android:hint="@string/write_a_message"
+            android:inputType="text"
+            android:maxLines="6"
+            android:overScrollMode="ifContentScrolls"
+            android:padding="@dimen/dimen_10"
+            android:paddingStart="16dp"
+            android:paddingLeft="16dp"
+            android:paddingTop="12dp"
+            android:paddingEnd="48dp"
+            android:paddingRight="48dp"
+            android:paddingBottom="12dp"
+            android:scrollbars="vertical"
+            android:textColor="@color/gray"
+            android:textColorHint="@color/gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ibSend"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <FrameLayout
+            android:id="@+id/menuChatContainer"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginRight="6dp"
+            android:background="@drawable/bg_oval_transparent"
+            app:layout_constraintBottom_toBottomOf="@+id/edMessage"
+            app:layout_constraintEnd_toEndOf="@+id/edMessage"
+            app:layout_constraintTop_toTopOf="@+id/edMessage">
+
+            <ImageView
+                android:id="@+id/ivAttachment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="?selectableItemBackgroundBorderless"
+                android:padding="10dp"
+                android:rotation="50"
+                app:srcCompat="@drawable/ic_paperclip" />
+        </FrameLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvChatList"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="?android:attr/actionBarSize"
+            android:overScrollMode="never"
+            app:layout_constraintBottom_toTopOf="@+id/edMessage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/edMessage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

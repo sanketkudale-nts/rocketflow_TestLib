@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.otp.OtpViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/rlMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            app:elevation="@dimen/dimen_0">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/Toolbar"
+                android:background="@color/white"
+                app:contentInsetStartWithNavigation="0dp"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:titleTextColor="@color/white"
+                tools:title="">
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_100"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_15"
+                android:layout_marginRight="@dimen/dimen_15"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/enter_six_digit_password"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_16" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/dimen_4"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvNumber"
+                        style="@style/TextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_16"
+                        tools:text="+91 9026885491" />
+
+                    <TextView
+                        android:id="@+id/ivEdit"
+                        style="@style/TextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen_5"
+                        android:text="@string/edit"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/text_size_14" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/edit_text_email_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_40"
+                    android:gravity="center_horizontal">
+
+                    <EditText
+                        android:id="@+id/et_first"
+                        android:layout_width="@dimen/dimen_45"
+                        android:layout_height="@dimen/dimen_45"
+                        android:background="@drawable/et_bg_stroke"
+                        android:cursorVisible="true"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:maxLines="1"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textCursorDrawable="@drawable/color_cursor" />
+
+                    <EditText
+                        android:id="@+id/et_second"
+                        android:layout_width="@dimen/dimen_45"
+                        android:layout_height="@dimen/dimen_45"
+                        android:layout_marginLeft="@dimen/dimen_10"
+                        android:background="@drawable/et_bg_stroke"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:maxLines="1"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textCursorDrawable="@drawable/color_cursor" />
+
+                    <EditText
+                        android:id="@+id/et_third"
+                        android:layout_width="@dimen/dimen_45"
+                        android:layout_height="@dimen/dimen_45"
+                        android:layout_marginLeft="@dimen/dimen_10"
+                        android:background="@drawable/et_bg_stroke"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:maxLines="1"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textCursorDrawable="@drawable/color_cursor" />
+
+                    <EditText
+                        android:id="@+id/et_fourth"
+                        android:layout_width="@dimen/dimen_45"
+                        android:layout_height="@dimen/dimen_45"
+                        android:layout_marginLeft="@dimen/dimen_10"
+                        android:background="@drawable/et_bg_stroke"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:maxLines="1"
+                        android:text=""
+                        android:textColor="@color/black" />
+
+                    <EditText
+                        android:id="@+id/et_fifth"
+                        android:layout_width="@dimen/dimen_45"
+                        android:layout_height="@dimen/dimen_45"
+                        android:layout_marginLeft="@dimen/dimen_10"
+                        android:background="@drawable/et_bg_stroke"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:maxLines="1"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textCursorDrawable="@drawable/color_cursor" />
+
+                    <EditText
+                        android:id="@+id/et_sixth"
+                        android:layout_width="@dimen/dimen_45"
+                        android:layout_height="@dimen/dimen_45"
+                        android:layout_marginLeft="@dimen/dimen_10"
+                        android:background="@drawable/et_bg_stroke"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:maxLines="1"
+                        android:text=""
+                        android:textColor="@color/black" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_70">
+
+                <TextView
+                    android:id="@+id/timer"
+                    style="@style/TextViewStyle"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/campton_book"
+                    android:text="@{viewModel.timer}"
+                    android:textColor="@color/colorPrimary"
+                    android:visibility="@{viewModel.timerVisibility ? View.VISIBLE : View.GONE}"
+                    tools:text="@string/_00_59" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/timer"
+                    android:layout_marginTop="@dimen/dimen_20"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                   >
+
+                    <TextView
+                        android:id="@+id/tvTag"
+                        style="@style/TextViewStyle"
+                        android:background="@null"
+                        android:fontFamily="@font/campton_book"
+                        android:gravity="center_vertical"
+                        android:text="@string/didn_t_receive_code"
+                        android:textAllCaps="false"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_14" />
+
+
+                    <TextView
+                        android:id="@+id/tvResend"
+                        style="@style/TextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen_10"
+                        android:background="@null"
+                        android:onClick="@{()-> viewModel.onClickResend()}"
+                        android:text="@string/resend_txt"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/text_size_14" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/btnContinue"
+                style="@style/ButtonStyleMoreRounded"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/dimen_30"
+                android:layout_marginTop="@dimen/dimen_60"
+                android:layout_marginRight="@dimen/dimen_30"
+                android:onClick="@{(v)->viewModel.onButtonClick(v)}"
+                android:paddingLeft="@dimen/dimen_40"
+                android:paddingRight="@dimen/dimen_40"
+                android:text="@string/verify"
+                android:textAllCaps="false" />
+
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/llProgressLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dimen_60"
+                android:background="@drawable/bg_blue_button_round_corner"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/dimen_12"
+                android:paddingBottom="@dimen/dimen_12"
+                android:paddingLeft="@dimen/dimen_10"
+                android:paddingRight="@dimen/dimen_10">
+
+                <TextView
+                    android:paddingLeft="@dimen/dimen_10"
+                    android:paddingRight="@dimen/dimen_10"
+                    style="@style/TextViewStyle"
+                    android:textSize="@dimen/text_size_18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/verifying_otp"
+                    android:textColor="@color/white" />
+                <ProgressBar
+                    android:layout_gravity="center_vertical"
+                    style="?android:attr/progressBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:indeterminateTint="@color/white"
+                    android:visibility="visible" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</layout>
+
+

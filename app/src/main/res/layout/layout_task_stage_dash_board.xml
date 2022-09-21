@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/windowBackgroundColor">
+
+        <include
+            android:id="@+id/toolLayout"
+            layout="@layout/new_main_task_tool" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/ivCreateTask"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="@dimen/dimen_30"
+            android:layout_marginBottom="@dimen/dimen_30"
+            android:visibility="gone"
+            app:fab_size="normal"
+            app:layout_anchorGravity="bottom|end"
+            app:srcCompat="@drawable/fab_add" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewTab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toolLayout"
+            app:cardElevation="@dimen/dimen_0">
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabLayout"
+                style="@style/AppTab"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:visibility="visible"
+                app:tabGravity="center"
+                app:tabMode="scrollable" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cardViewTab"
+            android:layout_centerInParent="true"
+            android:fillViewport="true">
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dimen_5"
+                    app:cardElevation="@dimen/dimen_0">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardLocation"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_30"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:layout_marginTop="@dimen/dimen_10"
+                            android:layout_marginRight="@dimen/dimen_20"
+                            android:visibility="gone"
+                            app:cardBackgroundColor="@color/windowBackgroundColor"
+                            app:cardCornerRadius="@dimen/dimen_20"
+                            app:cardElevation="@dimen/dimen_0">
+
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <ImageView
+                                    android:id="@+id/ivLocation"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_centerVertical="true"
+                                    android:paddingLeft="@dimen/dimen_10"
+                                    app:srcCompat="@drawable/ic_placeholder_sort" />
+
+                                <androidx.appcompat.widget.AppCompatSpinner
+                                    android:id="@+id/spinnerLocation"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="@dimen/dimen_3"
+                                    android:layout_toLeftOf="@+id/ivSpinnerTriangle"
+                                    android:layout_toRightOf="@+id/ivLocation"
+                                    android:background="@color/transparent"
+                                    android:textAlignment="center" />
+
+                                <ImageView
+                                    android:id="@+id/ivSpinnerTriangle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_centerVertical="true"
+                                    android:paddingRight="@dimen/dimen_10"
+                                    app:srcCompat="@drawable/ic_down_triangle" />
+                            </RelativeLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <RelativeLayout
+                            android:id="@+id/rlRecycler"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:id="@+id/llDateRange"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/dimen_10"
+                                android:layout_marginTop="@dimen/dimen_15"
+                                android:layout_marginRight="@dimen/dimen_15"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:weightSum="2">
+
+                                <androidx.cardview.widget.CardView
+                                    android:id="@+id/cardFromDate"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_weight="1.2"
+                                    app:cardBackgroundColor="@color/windowBackgroundColor"
+                                    app:cardCornerRadius="@dimen/dimen_20"
+                                    app:cardElevation="@dimen/dimen_0">
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content">
+
+                                        <ImageView
+                                            android:id="@+id/ivCalender"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_centerVertical="true"
+                                            android:paddingLeft="@dimen/dimen_10"
+                                            android:paddingTop="@dimen/dimen_2"
+                                            android:paddingRight="@dimen/dimen_3"
+                                            android:paddingBottom="@dimen/dimen_2"
+                                            android:tint="@color/yellow_punch_btn"
+                                            app:srcCompat="@drawable/ic_date_range" />
+
+                                        <TextView
+                                            android:id="@+id/tvFromDate"
+                                            style="@style/TextViewStyle"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="@dimen/dimen_3"
+                                            android:layout_toRightOf="@+id/ivCalender"
+                                            android:background="@color/transparent"
+                                            android:layout_centerVertical="true"
+                                            android:textColor="@color/colorTextGreyPunch"
+                                            android:textSize="@dimen/text_size_12"
+                                            tools:text="18 May 2022 - 18 May 2022" />
+
+                                        <ImageView
+                                            android:id="@+id/ivDaysTriangle"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_alignParentEnd="true"
+                                            android:layout_centerVertical="true"
+                                            android:paddingRight="@dimen/dimen_3"
+                                            android:visibility="gone"
+                                            app:srcCompat="@drawable/ic_down_triangle" />
+                                    </RelativeLayout>
+
+                                </androidx.cardview.widget.CardView>
+
+
+                                <Button
+                                    android:id="@+id/btnSubmit"
+                                    style="@style/ResetButtonYellow"
+                                    android:layout_width="0dp"
+                                    android:layout_height="@dimen/dimen_30"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="@dimen/dimen_8"
+                                    android:layout_weight="0.55"
+                                    android:text="@string/search"
+                                    android:textAllCaps="false"
+                                    android:textSize="13sp" />
+
+                                <ImageView
+                                    android:id="@+id/ivRefresh"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_weight="0.25"
+                                    android:background="?attr/selectableItemBackground"
+                                    app:srcCompat="@drawable/ic_reload" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/TvTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/llDateRange"
+                                android:layout_centerHorizontal="true"
+                                android:gravity="center_vertical"
+                                android:orientation="vertical">
+
+
+                                <TextView
+                                    android:id="@+id/tvProcessState"
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/dimen_10"
+                                    android:layout_marginTop="@dimen/dimen_10"
+                                    android:fontFamily="@font/campton_semi_bold"
+                                    android:paddingTop="@dimen/dimen_4"
+                                    android:paddingBottom="@dimen/dimen_4"
+                                    android:text="@string/process_status"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/text_size_16" />
+                            </LinearLayout>
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/gridRecyclerView"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/TvTitle"
+                                android:layout_centerHorizontal="true"
+                                android:orientation="vertical"
+                                android:paddingLeft="@dimen/dimen_5"
+                                android:paddingTop="@dimen/dimen_10"
+                                android:paddingRight="@dimen/dimen_5"
+                                android:paddingBottom="@dimen/dimen_10"
+                                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                                app:spanCount="3"
+                                tools:listitem="@layout/item_card_work_flow" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout
+                    android:id="@+id/cardInsights"
+                    android:layout_marginTop="@dimen/dimen_5"
+                    android:layout_marginBottom="@dimen/dimen_10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/dimen_10"
+                        android:layout_marginLeft="@dimen/dimen_10"
+                        android:layout_marginBottom="@dimen/dimen_5"
+                        app:cardBackgroundColor="#E6F0FF"
+                        app:cardCornerRadius="@dimen/dimen_10">
+
+                        <LinearLayout
+                            android:id="@+id/llInsights"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="@dimen/dimen_10">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="3">
+
+                                <TextView
+                                    android:id="@+id/tvInsightsHeading"
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_weight="2"
+                                    android:fontFamily="@font/campton_semi_bold"
+                                    android:textColor="#90022F"
+                                    android:textSize="@dimen/text_size_17"
+                                    tools:text="gsdygyugdugudusd" />
+
+                                <ImageView
+                                    android:id="@+id/ivInsights"
+                                    android:layout_width="0dp"
+                                    android:layout_height="@dimen/dimen_50"
+                                    android:layout_weight="1"
+                                    app:srcCompat="@drawable/ic_undraw_notify" />
+
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/tvSubheading"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:fontFamily="@font/campton_light"
+                                android:textSize="@dimen/text_size_13" />
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/rvInsight"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dimen_6"
+                                android:nestedScrollingEnabled="true"
+                                android:orientation="horizontal"
+                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                                tools:itemCount="3"
+                                tools:listitem="@layout/layout_item_insights" />
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/llFooter"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dimen_10"
+                        android:layout_marginRight="@dimen/dimen_10"
+                        android:layout_marginLeft="@dimen/dimen_10"
+                        android:visibility="visible"
+                        app:cardBackgroundColor="#043463"
+                        app:cardElevation="@dimen/dimen_0"
+                        app:cardCornerRadius="@dimen/dimen_3">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/dimen_10"
+                        android:weightSum="1">
+                        <Button
+                            android:id="@+id/btnInsights"
+                            style="@style/ButtonStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/dimen_30"
+                            android:text="jcjhdjjdjjdsbvjdb"
+                            android:textColor="@color/white"
+                            android:background="@drawable/bg_insight_button"
+                            android:textAllCaps="false"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/tvFooter"
+                            style="@style/TextViewStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginRight="@dimen/dimen_5"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:gravity="center_vertical"
+                            android:textSize="@dimen/text_size_14"
+                            android:fontFamily="@font/campton_semi_bold"
+                            android:textColor="@color/white"
+                            android:visibility="visible"
+                            tools:text="gsdygyugdugudusdshahgsadgysgdygsygyugsygysysg" />
+
+
+
+                    </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </RelativeLayout>
+</layout>

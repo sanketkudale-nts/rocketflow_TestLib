@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.tracki.ui.productdetails.StockEntry" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvMain"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_80"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/dimen_5"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="3">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dimen_5">
+
+                    <TextView
+                        style="@style/TextViewStyleLight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/date" />
+
+                    <TextView
+                        android:id="@+id/tvDate"
+                        style="@style/TextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:set_stock_date="@{data.date}"
+                        tools:text="12 dec 2021" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="@dimen/dimen_0_8"
+                    android:layout_height="match_parent"
+                    android:background="@color/windowBackgroundColor" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dimen_5">
+
+                    <TextView
+                        style="@style/TextViewStyleLight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/stock_in" />
+
+                    <TextView
+                        android:id="@+id/tvStockIn"
+                        style="@style/TextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{``+data.inputStock}"
+                        android:textColor="@color/totalStockInColor"
+                        tools:text="100000000" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="@dimen/dimen_0_8"
+                    android:layout_height="match_parent"
+                    android:background="@color/windowBackgroundColor" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dimen_5">
+
+                    <TextView
+                        style="@style/TextViewStyleLight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/stock_out" />
+
+                    <TextView
+                        android:id="@+id/tvStockOut"
+                        style="@style/TextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{``+data.outputStock}"
+                        android:textColor="@color/totalStockOutColor"
+                        tools:text="1000000000000" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_diff_shape_stock_items"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <TextView
+                        style="@style/TextViewStyleLight"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:text="@string/opening_stock"
+                        android:textSize="@dimen/text_size_12" />
+
+                    <TextView
+                        style="@style/TextViewStyleLight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text=":"
+                        android:textSize="@dimen/text_size_12" />
+
+                    <TextView
+                        android:id="@+id/tvOpeningStock"
+                        style="@style/TextViewStyleBold"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@{``+data.openingStock}"
+                        android:textSize="@dimen/text_size_12"
+                        tools:text="10" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="@dimen/dimen_0_8"
+                    android:layout_height="match_parent"
+                    android:background="@color/windowBackgroundColor" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <TextView
+                        style="@style/TextViewStyleLight"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:text="@string/closing_stock"
+                        android:textSize="@dimen/text_size_12" />
+
+                    <TextView
+                        style="@style/TextViewStyleLight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text=":"
+                        android:textSize="@dimen/text_size_12" />
+
+                    <TextView
+                        android:id="@+id/tvClosingStock"
+                        style="@style/TextViewStyleBold"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@{``+data.closingStock}"
+                        android:textSize="@dimen/text_size_12"
+                        tools:text="10" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="data"
+            type="com.tracki.data.model.response.config.ServiceDescr" />
+    </data>
+<androidx.cardview.widget.CardView
+    android:id="@+id/cardViewMain"
+    app:cardUseCompatPadding="true"
+    android:layout_width="@dimen/dimen_120"
+    android:layout_height="@dimen/dimen_90"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="@dimen/dimen_4">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/dimen_8"
+        android:paddingTop="@dimen/dimen_2"
+        android:paddingRight="@dimen/dimen_8"
+        android:paddingBottom="@dimen/dimen_2">
+
+        <ImageView
+            android:id="@+id/ivImage"
+            android:layout_width="@dimen/dimen_45"
+            android:layout_height="@dimen/dimen_45"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimen_10"
+            app:serviceDescr="@{data.img}"
+            android:visibility="@{data.img!=null?View.VISIBLE:View.GONE}"
+            app:srcCompat="@drawable/ic_gallery_chooser" />
+
+        <LinearLayout
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/ivImage"
+            android:orientation="vertical"
+            android:gravity="center">
+        <TextView
+            android:id="@+id/tvCount"
+            style="@style/TextViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_3"
+            android:fontFamily="@font/campton_semi_bold"
+            tools:text="1"
+            android:gravity="center_horizontal"
+            android:text="@{``+data.count}"
+            android:textSize="@dimen/text_size_18" />
+
+        <TextView
+            android:id="@+id/tvInsights"
+            style="@style/TextViewStyle"
+            tools:text="1"
+            android:layout_marginTop="@dimen/dimen_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/campton_book"
+            android:gravity="center_horizontal"
+            android:text="@{data.serviceDescr}"
+            android:textSize="@dimen/text_size_12" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
+</layout>

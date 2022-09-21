@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.dynamicform.DynamicFormActivity">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.dynamicform.DynamicFormViewModel" />
+    </data>
+
+
+    <LinearLayout
+        android:id="@+id/llMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/Toolbar"
+            android:background="@color/colorPrimary"
+            android:theme="@style/MyThemeOverlay.ActionBar"
+            app:contentInsetStartWithNavigation="0dp"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:titleTextColor="@color/white"
+            tools:title="@string/task_name" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            >
+
+            <LinearLayout
+                android:focusableInTouchMode="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/toolbar"
+                android:background="#F3F3F3"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ivBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_2"
+                    android:background="@color/colorPrimary"
+                    android:contentDescription="@null"
+                    android:padding="@dimen/dimen_10"
+                    android:visibility="gone"
+                    app:srcCompat="@drawable/ic_arrow_back_white_24dp" />
+
+
+                <FrameLayout
+                    android:id="@+id/container"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="@dimen/dimen_8"
+                    android:paddingRight="@dimen/dimen_8" />
+                <include
+                    android:visibility="gone"
+                    android:id="@+id/viewProgress"
+                    layout="@layout/progress_dialog_with_percentage"
+                    />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+    </LinearLayout>
+
+</layout>

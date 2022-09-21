@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="@dimen/dimen_15"
+    android:layout_marginEnd="@dimen/dimen_15"
+    android:orientation="vertical"
+    app:behavior_hideable="false"
+    app:behavior_peekHeight="?attr/actionBarSize"
+    app:layout_behavior="@string/bottom_sheet_behavior"
+    tools:context=".ui.main.MainActivity">
+    <!--tools:showIn="@layout/app_bar_home"-->
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="@dimen/dimen_15"
+        android:layout_marginEnd="@dimen/dimen_15"
+        android:visibility="visible">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="bottom"
+            android:background="@drawable/bg_dashboard">
+
+            <TextView
+                style="@style/TextViewStyle"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/campton_book"
+                android:letterSpacing=".05"
+                android:text="@string/dashboard"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_18"
+                tools:targetApi="lollipop" />
+        </RelativeLayout>
+
+    </FrameLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="-10dp"
+            android:layout_marginTop="-10dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/dimen_5"
+            app:cardElevation="@dimen/dimen_4"
+            app:cardUseCompatPadding="true">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_20"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_10"
+                    android:layout_marginTop="@dimen/dimen_15"
+                    android:layout_marginEnd="@dimen/dimen_10"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnDashDate"
+                        style="@style/ButtonStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dimen_40"
+                        android:layout_gravity="start"
+                        android:layout_marginEnd="@dimen/dimen_10"
+                        android:layout_weight=".5"
+                        android:drawableStart="@drawable/ic_small_calendar"
+                        android:drawablePadding="@dimen/dimen_10"
+                        android:drawableTint="@color/white"
+                        android:fontFamily="@font/campton_book"
+                        android:gravity="center_vertical"
+                        android:paddingStart="@dimen/dimen_10"
+                        android:text="@string/today"
+                        android:textSize="@dimen/text_size_14" />
+
+                    <Button
+                        android:id="@+id/btnBuddySelect"
+                        style="@style/ButtonStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dimen_40"
+                        android:layout_gravity="start"
+                        android:layout_weight=".5"
+                        android:drawableStart="@drawable/ic_all_buddy"
+                        android:drawablePadding="@dimen/dimen_10"
+                        android:drawableTint="@color/white"
+                        android:fontFamily="@font/campton_book"
+                        android:gravity="center_vertical"
+                        android:paddingStart="@dimen/dimen_10"
+                        android:text="@string/me"
+                        android:textSize="@dimen/text_size_14"
+                        tools:ignore="RtlSymmetry" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_10"
+                    android:layout_marginTop="@dimen/dimen_15"
+                    android:layout_marginEnd="@dimen/dimen_10"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <include
+                        android:id="@+id/viewTotalTrips"
+                        layout="@layout/view_dashboard"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/dimen_5"
+                        android:layout_weight=".5" />
+
+                    <include
+                        android:id="@+id/viewTime"
+                        layout="@layout/view_dashboard"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".5" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_10"
+                    android:layout_marginTop="@dimen/dimen_7"
+                    android:layout_marginEnd="@dimen/dimen_10"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <include
+                        android:id="@+id/viewTotalDistance"
+                        layout="@layout/view_dashboard"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/dimen_5"
+                        android:layout_weight=".5" />
+
+                    <include
+                        android:id="@+id/viewTotalAlerts"
+                        layout="@layout/view_dashboard"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".5" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_10"
+                    android:layout_marginTop="@dimen/dimen_7"
+                    android:layout_marginEnd="@dimen/dimen_10"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <include
+                        android:id="@+id/viewMaxSpeed"
+                        layout="@layout/view_dashboard"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/dimen_5"
+                        android:layout_weight=".5" />
+
+                    <include
+                        android:id="@+id/viewAvgSpeed"
+                        layout="@layout/view_dashboard"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".5" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

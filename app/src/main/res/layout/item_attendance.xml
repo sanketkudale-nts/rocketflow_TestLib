@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.attendance.attendance_tab.AttendanceItemViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/dimen_5">
+
+            <TextView
+                android:id="@+id/tvDate"
+                style="@style/TextViewStyle"
+                android:layout_width="0dp"
+                android:layout_weight="4"
+                android:gravity="center"
+                android:fontFamily="@font/campton_light"
+                android:textColor="@color/gray"
+                android:text="@{viewModel.date}"
+                tools:text="12/12/2017" />
+
+            <TextView
+                android:id="@+id/tvStatus"
+                style="@style/TextViewStyle"
+                android:layout_width="0dp"
+                android:layout_weight="4"
+                android:gravity="center"
+                android:text="@{viewModel.status}"
+                android:textColor="@{viewModel.statusColor}"
+                tools:text="Present" />
+
+            <TextView
+                android:id="@+id/tvTimeSpent"
+                style="@style/TextViewStyle"
+                android:layout_width="0dp"
+                android:layout_weight="4"
+                android:gravity="center"
+                android:fontFamily="@font/campton_light"
+                android:textColor="@color/gray"
+                android:text="@{viewModel.time}"
+                tools:text="9 hrs 10 min" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_0_8"
+            android:background="@color/windowBackgroundColor" />
+    </LinearLayout>
+</layout>

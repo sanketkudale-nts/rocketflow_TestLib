@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/bg_double_button"
+    android:orientation="vertical"
+    android:layout_marginHorizontal="@dimen/dimen_30"
+    android:padding="@dimen/dimen_5">
+
+    <ImageView
+        android:id="@+id/iv_cancel"
+        android:layout_marginTop="@dimen/dimen_10"
+        android:layout_marginEnd="@dimen/dimen_10"
+        android:layout_gravity="end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_cross"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/tvHeading"
+        style="@style/TextViewStyle"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/dimen_10"
+        android:textColor="@color/semi_gray_2"
+        android:textSize="@dimen/text_size_18"
+        android:text="User Not Found" />
+
+    <TextView
+        android:layout_marginHorizontal="@dimen/dimen_20"
+        android:id="@+id/tvSubheading"
+        android:textAlignment="center"
+        style="@style/TextViewStyle"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/semi_gray_2"
+        android:textSize="@dimen/text_size_16"
+        android:text="Please Add User To Proceed" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_10"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="@dimen/dimen_5">
+
+        <Button
+            android:id="@+id/btnNegative"
+            style="@style/ButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dimen_40"
+            android:layout_marginEnd="@dimen/dimen_10"
+            android:layout_weight=".4"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/bg_stroke_grey"
+            android:text="No Thanks" />
+
+        <Button
+            android:id="@+id/btnPositive"
+            style="@style/ButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dimen_40"
+            android:layout_marginStart="@dimen/dimen_10"
+            android:layout_weight=".4"
+            android:text="Add"
+            android:textColor="@color/white" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fabric_key" translatable="false">c6d6f2e2390c84c87b36ec5627ef800f21fc4b16</string>
+    <string name="app_key" translatable="false">3dac6360-9a5f-4324-a753-a898822abe8b</string>
+    <string name="certificate_hash" translatable="false">h3r3d+WbAG5+j6B18QFgRWT1ESk=</string>
+</resources>

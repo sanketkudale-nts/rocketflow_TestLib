@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.introscreens.introfragment.IntroScreenViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/ivImage"
+            android:background="@color/white"
+            android:layout_centerInParent="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <androidx.cardview.widget.CardView
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/dimen_4"
+            android:layout_centerInParent="true"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/dimen_4"
+            app:cardElevation="@dimen/dimen_10"
+            app:cardUseCompatPadding="true"
+            app:contentPaddingBottom="@dimen/dimen_20"
+            app:contentPaddingTop="@dimen/dimen_20">
+
+            <LinearLayout
+                
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ivIntroPic"
+                    android:layout_width="@dimen/dimen_180"
+                    android:layout_height="@dimen/dimen_180"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/ic_add_buddy" />
+
+                <TextView
+                    android:id="@+id/tvIntroTitle"
+                    style="@style/TextViewStyle"
+                    android:layout_marginTop="@dimen/dimen_40"
+                    android:fontFamily="@font/campton_semi_bold"
+                    android:textSize="@dimen/text_size_18"
+                    tools:text="Rahul Abrol" />
+
+                <TextView
+                    android:id="@+id/tvIntroContent"
+                    style="@style/TextViewStyle"
+                    android:layout_marginTop="@dimen/dimen_10"
+                    android:fontFamily="@font/campton_book"
+                    android:gravity="center"
+                    android:lineHeight="@dimen/text_size_18"
+                    android:lines="3"
+                    android:textColor="#707070"
+                    android:textSize="@dimen/text_size_12"
+                    tools:text="Your data is protected and private to your defined \ncircle only. User can anytime change the settings \nand control the tracking data." />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+</layout>

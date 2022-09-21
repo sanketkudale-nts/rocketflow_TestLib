@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data class="ContactBinding">
+
+        <variable
+            name="data"
+            type="com.tracki.ui.addbuddy.Contact" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/rlMain"
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="80dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <View
+            android:layout_width="match_parent"
+            android:background="@color/windowBackgroundColor"
+            android:layout_height="0.8dp" />
+
+        <RelativeLayout
+            android:id="@+id/rlCircle"
+            android:layout_centerVertical="true"
+            android:layout_width="@dimen/dimen_60"
+            android:layout_height="@dimen/dimen_60">
+
+            <ImageView
+                android:id="@+id/ivCircle"
+                android:layout_centerInParent="true"
+                app:srcCompat="@drawable/circle_name"
+                android:layout_width="match_parent"
+                android:tint="@color/colorPrimary"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/image_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                bind:textInitials="@{data.name}"
+                android:textSize="18sp"
+                style="@style/TextViewStyle"
+                android:textColor="@color/white"
+                android:gravity="center"
+
+                />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/textView_contact_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/rlCircle"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/rlCircle"
+            style="@style/TextViewStyle"
+            android:text="@{data.name}"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/textView_mobile_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView_contact_name"
+            android:layout_alignStart="@+id/textView_contact_name"
+            android:layout_marginTop="4dp"
+            android:text="@{data.mobileNumber}" />
+
+
+    </RelativeLayout>
+</layout>

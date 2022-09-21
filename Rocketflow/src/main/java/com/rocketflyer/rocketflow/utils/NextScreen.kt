@@ -1,0 +1,9 @@
+package com.rocketflyer.rocketflow.utils
+
+/**
+ * Created by rahul on 13/11/18
+ */
+enum class NextScreen {
+    LOGIN, VERIFY_MOBILE, HOME, SIGNUP, CHANGE_MOBILE,MY_PROFILE,SELECT_ACCOUNT,
+    SELECT_SIGNUP_ACCOUNT, SERVICE_PREFERENCES, ADD_PLACE, DEVICE_CHANGE_SOFT_POPUP, DEVICE_CHANGE_HARD_POPUP
+}

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.tracki.ui.register.RegisterActivity">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.buddyprofile.BuddyProfileViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            app:elevation="@dimen/dimen_0">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/Toolbar"
+                app:contentInsetLeft="0dp"
+                app:contentInsetStart="0dp"
+                app:contentInsetStartWithNavigation="0dp"
+                app:titleTextColor="@color/white"
+                tools:title="@string/select_buddy" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight=".25"
+                        android:background="@color/colorPrimary" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight=".75"
+                        android:background="@color/white"
+                        android:gravity="bottom" />
+                </LinearLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_15"
+                    android:layout_marginTop="@dimen/dimen_70"
+                    android:layout_marginEnd="@dimen/dimen_15"
+                    android:layout_marginBottom="@dimen/dimen_15"
+                    app:cardCornerRadius="@dimen/dimen_6"
+                    app:cardElevation="@dimen/dimen_4"
+                    app:contentPadding="@dimen/dimen_15">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_10"
+                        android:layout_marginBottom="@dimen/dimen_10"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <EditText
+                                android:id="@+id/edFullName"
+                                style="@style/EditTextStyle"
+                                android:hint="@string/name"
+                                android:inputType="textCapWords"
+                                android:maxLength="30"
+                                app:backgroundTint="@color/light_gray_a"
+                                tools:text="@string/name" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dimen_15"
+                            android:layout_marginBottom="@dimen/dimen_15">
+
+                            <EditText
+                                android:id="@+id/edMobileNumber"
+                                style="@style/EditTextStyle"
+                                android:hint="@string/mobile_number"
+                                android:inputType="number"
+                                android:maxLength="10"
+                                app:backgroundTint="@color/light_gray_a"
+                                tools:text="@string/mobile_number" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <TextView
+                            android:visibility="gone"
+                            style="@style/TextViewStyle"
+                            android:layout_marginTop="@dimen/dimen_10"
+                            android:fontFamily="@font/campton_light"
+                            android:text="@string/shift_timing"
+                            android:textColor="@color/dark_gray" />
+
+                        <LinearLayout
+                            android:visibility="gone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dimen_10"
+                            android:weightSum="1">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".4">
+
+                                <EditText
+                                    android:id="@+id/edFrom"
+                                    style="@style/EditTextStyle"
+                                    android:focusable="false"
+                                    android:focusableInTouchMode="false"
+                                    android:hint="@string/from"
+                                    android:maxLength="10"
+                                    android:onClick="@{(v)->viewModel.openTimePicker(v)}"
+                                    android:textSize="@dimen/text_size_12"
+                                    app:backgroundTint="@color/light_gray_a"
+                                    tools:text="08:00 AM" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="1dp"
+                                android:layout_gravity="bottom"
+                                android:layout_weight=".2"
+                                android:background="@color/white" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".4">
+
+                                <EditText
+                                    android:id="@+id/edTo"
+                                    style="@style/EditTextStyle"
+                                    android:focusable="false"
+                                    android:focusableInTouchMode="false"
+                                    android:hint="@string/to"
+                                    android:maxLength="10"
+                                    android:onClick="@{(v)->viewModel.openTimePicker(v)}"
+                                    android:textSize="@dimen/text_size_12"
+                                    app:backgroundTint="@color/light_gray_a"
+                                    tools:text="08:00 AM" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </LinearLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <EditText
+                                android:id="@+id/edFleetDetails"
+                                style="@style/EditTextStyle"
+                                android:hint="@string/fleet_details"
+                                android:inputType="text"
+                                android:maxLength="30"
+                                android:visibility="gone"
+                                app:backgroundTint="@color/light_gray_a"
+                                tools:text="@string/fleet_details" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                      <!--  <TextView
+                            android:id="@+id/tvAddFleet"
+                            style="@style/TextViewStyle"
+                            android:layout_gravity="end"
+                            android:layout_marginTop="@dimen/dimen_20"
+                            android:drawableStart="@drawable/ic_add_fleet"
+                            android:drawablePadding="@dimen/dimen_5"
+                            android:fontFamily="@font/campton_light"
+                            android:gravity="center_vertical"
+                            android:onClick="@{()->viewModel.addFleet()}"
+                            android:text="@string/add_fleet"
+                            android:textColor="@color/semi_gray_4" />-->
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </FrameLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

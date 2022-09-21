@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.sharetrip.ShareTripActivity">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.sharetrip.ShareTripViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/Toolbar"
+                app:contentInsetLeft="0dp"
+                app:contentInsetStart="0dp"
+                app:contentInsetStartWithNavigation="0dp"
+                app:titleTextColor="@color/white"
+                tools:title="@string/share_trip_detail" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bg_recycler_view"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/dimen_15"
+                android:background="@drawable/bg_white_round_corner"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/dimen_20"
+                android:paddingBottom="@dimen/dimen_40">
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    style="@style/TextViewStyle"
+                    android:layout_gravity="center"
+                    android:paddingStart="@dimen/dimen_15"
+                    android:paddingEnd="@dimen/dimen_15"
+                    android:paddingBottom="@dimen/dimen_10"
+                    android:text="@string/access_time_slot"
+                    android:textColor="@color/semi_gray_2"
+                    android:textSize="@dimen/text_size_16"
+                    android:visibility="visible" />
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="@dimen/dimen_20"
+                    android:layout_marginEnd="@dimen/dimen_20"
+                    android:background="@color/light_gray_f"
+                    android:visibility="visible" />
+
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:layout_marginStart="@dimen/dimen_20"
+                    android:layout_marginTop="@dimen/dimen_30"
+                    android:layout_marginEnd="@dimen/dimen_20"
+                    android:text="@string/your_trip_sharing_url"
+                    android:textSize="@dimen/text_size_16" />
+
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:layout_marginStart="@dimen/dimen_20"
+                    android:layout_marginTop="@dimen/dimen_8"
+                    android:layout_marginEnd="@dimen/dimen_20"
+                    android:lineHeight="@dimen/text_size_18"
+                    android:text="@string/copy_and_paste_the_link_below_into_emails_nchats_or_browsers"
+                    android:textColor="@color/semi_gray_2"
+                    android:textSize="@dimen/text_size_14" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dimen_20"
+                    android:background="@drawable/bg_edittext"
+                    android:padding="@dimen/dimen_5">
+
+                    <Spinner
+                        android:id="@+id/timeSpinner"
+                        style="@style/Widget.AppCompat.DropDownItem.Spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_40"
+                        android:padding="@dimen/dimen_10"
+                        android:spinnerMode="dropdown" />
+                </RelativeLayout>
+
+
+                <!--<TextView-->
+                    <!--android:id="@+id/tvLink"-->
+                    <!--style="@style/TextViewStyle"-->
+                    <!--android:layout_margin="@dimen/dimen_20"-->
+                    <!--android:drawableEnd="@drawable/ic_copy"-->
+                    <!--android:drawablePadding="@dimen/dimen_40"-->
+                    <!--android:textColor="@color/light_blue_4"-->
+                    <!--android:textSize="@dimen/text_size_14"-->
+                    <!--tools:text="https://marvelapp.com/2i9b685" />-->
+
+                <Button
+                    android:id="@+id/btnShareLink"
+                    style="@style/ButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_margin="@dimen/dimen_20"
+                    android:text="@string/share_link"
+                    android:textSize="@dimen/text_size_18" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

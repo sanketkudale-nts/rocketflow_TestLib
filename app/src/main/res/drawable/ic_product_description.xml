@@ -1,0 +1,10 @@
+<vector android:height="18dp" android:viewportHeight="24"
+    android:viewportWidth="24" android:width="18dp" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="@color/taskCreateIconColor" android:pathData="m22.25,0h-20.5c-0.965,0 -1.75,0.785 -1.75,1.75v2.5c0,0.965 0.785,1.75 1.75,1.75h20.5c0.965,0 1.75,-0.785 1.75,-1.75v-2.5c0,-0.965 -0.785,-1.75 -1.75,-1.75z"/>
+    <path android:fillColor="@color/taskCreateIconColor" android:pathData="m0.75,11.5h14.5c0.414,0 0.75,-0.336 0.75,-0.75s-0.336,-0.75 -0.75,-0.75h-14.5c-0.414,0 -0.75,0.336 -0.75,0.75s0.336,0.75 0.75,0.75z"/>
+    <path android:fillColor="@color/taskCreateIconColor" android:pathData="m0.75,14.5h14.5c0.414,0 0.75,-0.336 0.75,-0.75s-0.336,-0.75 -0.75,-0.75h-14.5c-0.414,0 -0.75,0.336 -0.75,0.75s0.336,0.75 0.75,0.75z"/>
+    <path android:fillColor="@color/taskCreateIconColor" android:pathData="m0.75,20.5h14.5c0.414,0 0.75,-0.336 0.75,-0.75s-0.336,-0.75 -0.75,-0.75h-14.5c-0.414,0 -0.75,0.336 -0.75,0.75s0.336,0.75 0.75,0.75z"/>
+    <path android:fillColor="@color/taskCreateIconColor" android:pathData="m0.75,23.5h14.5c0.414,0 0.75,-0.336 0.75,-0.75s-0.336,-0.75 -0.75,-0.75h-14.5c-0.414,0 -0.75,0.336 -0.75,0.75s0.336,0.75 0.75,0.75z"/>
+    <path android:fillColor="@color/taskCreateIconColor" android:pathData="M21,12m-3,0a3,3 0,1 1,6 0a3,3 0,1 1,-6 0"/>
+    <path android:fillColor="@color/taskCreateIconColor" android:pathData="M21,21m-3,0a3,3 0,1 1,6 0a3,3 0,1 1,-6 0"/>
+</vector>

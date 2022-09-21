@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+       <!-- <variable
+            name="adapter"
+            type="com.tracki.ui.userlisting.UserListAdapter" />-->
+        <variable
+            name="roleAdapter"
+            type="com.tracki.ui.addcustomer.RoleSelectedAdapter" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.tracki.ui.userlisting.UserListingActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            app:elevation="@dimen/dimen_0">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/Toolbar"
+                android:background="@color/colorPrimary"
+                android:theme="@style/MyThemeOverlay.ActionBar"
+                app:contentInsetStartWithNavigation="0dp"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:titleTextColor="@color/white"
+                tools:title="@string/employee" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <LinearLayout
+            android:id="@+id/llRole"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/app_bar"
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/dimen_15"
+            android:layout_marginRight="@dimen/dimen_15"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvLabelSelectRole"
+                style="@style/TextViewStyle"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:focusable="false"
+                android:focusableInTouchMode="true"
+                android:fontFamily="@font/campton_book"
+                android:text="Select Role"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_16" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvRoles"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_15"
+                android:adapter="@{roleAdapter}"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/layout_roles">
+
+            </androidx.recyclerview.widget.RecyclerView>
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvUserList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/llRole"
+            android:layout_marginTop="@dimen/dimen_15"
+            android:background="@color/bg_recycler_view"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            tools:listitem="@layout/item_user_list" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/ivAddUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="@dimen/dimen_30"
+            android:layout_marginBottom="@dimen/dimen_30"
+            android:visibility="visible"
+            app:fab_size="normal"
+            app:layout_anchorGravity="bottom|end"
+            app:srcCompat="@drawable/fab_add" />
+
+    </RelativeLayout>
+</layout>

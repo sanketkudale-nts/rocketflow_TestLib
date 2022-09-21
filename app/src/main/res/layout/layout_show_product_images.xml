@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/rlMain"
+        android:background="@drawable/bg_white_round_corner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_10">
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_gravity="end"
+            android:tint="@color/black"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:layout_marginRight="@dimen/dimen_10"
+            app:srcCompat="@drawable/ic_cancel_punch_in"
+            android:layout_width="@dimen/dimen_30"
+            android:layout_height="@dimen/dimen_30"
+            android:padding="@dimen/dimen_8"
+            />
+        <TextView
+            android:layout_below="@+id/ivBack"
+            android:id="@+id/tvDetails"
+            android:fontFamily="@font/campton_semi_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextViewStyle"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            android:text="@string/pictures"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvImages"
+            android:layout_marginLeft="@dimen/dimen_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvDetails"
+            tools:itemCount="4"
+            tools:listitem="@layout/item_row_product_image" />
+
+
+    </RelativeLayout>
+</layout>

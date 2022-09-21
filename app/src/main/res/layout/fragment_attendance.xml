@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.attendance.attendance_tab.AttendanceViewModel" />
+
+        <variable
+            name="attendancesStatusAdapter"
+            type="com.tracki.ui.attendance.AttendanceStatusAdapter" />
+
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/windowBackgroundColor"
+        android:orientation="vertical"
+        android:visibility="@{viewModel.isMainDataVisible ? View.VISIBLE : View.GONE}">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_5"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:layout_marginRight="@dimen/dimen_5"
+            android:layout_marginBottom="@dimen/dimen_10"
+            android:orientation="vertical">
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardUpper"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_100"
+                android:visibility="gone"
+                app:cardCornerRadius="@dimen/dimen_5"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/dimen_5"
+                    android:paddingRight="@dimen/dimen_5">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/ivUserImage"
+                            android:layout_width="@dimen/dimen_50"
+                            android:layout_height="@dimen/dimen_50"
+                            android:layout_marginTop="@dimen/dimen_15"
+                            android:layout_marginRight="@dimen/dimen_4"
+                            app:srcCompat="@drawable/ic_my_profile" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/dimen_3"
+
+                        >
+
+                        <LinearLayout
+                            android:id="@+id/llPunchButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:visibility="gone"
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/btnPunchIn"
+                                style="@style/ButtonStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/dimen_35"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginRight="@dimen/dimen_5"
+                                android:background="@drawable/button_green_bg"
+                                android:text="@string/punch_n_in"
+                                android:textAllCaps="false"
+                                android:textSize="13sp"
+                                android:visibility="gone" />
+
+                            <Button
+                                android:id="@+id/btnPunchOut"
+                                style="@style/ButtonStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/dimen_35"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginRight="@dimen/dimen_5"
+                                android:background="@drawable/red_button_bg"
+                                android:text="@string/punch_n_out"
+                                android:textAllCaps="false"
+                                android:textSize="13sp"
+                                android:visibility="gone" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toLeftOf="@+id/llPunchButton"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvUserName"
+                                style="@style/TextViewStyle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:fontFamily="@font/campton_book"
+                                android:maxLines="1"
+                                android:textSize="@dimen/text_size_14"
+                                tools:text="Gaurav jcjjdjcjcuhuayusdyugyddydasedsadadasssaaaaaaaaaaaaaaaa" />
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="@dimen/dimen_2"
+                                android:weightSum="3">
+
+                                <RelativeLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="3"
+
+                                    >
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+
+                                        <RelativeLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center_vertical"
+                                            android:orientation="vertical">
+
+
+                                            <TextView
+                                                android:id="@+id/tvLabelStatus"
+                                                style="@style/TextViewStyle"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="@string/status_colon"
+                                                android:textColor="@color/gray"
+                                                android:textSize="@dimen/text_size_13" />
+
+                                            <TextView
+                                                android:id="@+id/tvTodayStatus"
+                                                style="@style/TextViewStyle"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_toRightOf="@+id/tvLabelStatus"
+                                                android:paddingLeft="@dimen/dimen_5"
+                                                android:textColor="@color/yellow_punch_btn"
+                                                android:textSize="@dimen/text_size_13"
+                                                tools:text="Presentshd" />
+
+
+                                        </RelativeLayout>
+
+                                        <RelativeLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="match_parent"
+                                            android:layout_marginTop="@dimen/dimen_2"
+                                            android:orientation="vertical">
+
+                                            <TextView
+                                                android:id="@+id/tvLabelWorkingHours"
+                                                style="@style/TextViewStyle"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal"
+                                                android:text="@string/working_hours"
+                                                android:textColor="@color/gray"
+                                                android:textSize="@dimen/text_size_13" />
+
+                                            <TextView
+                                                android:id="@+id/tvWorkingHoursValue"
+                                                style="@style/TextViewStyle"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal"
+                                                android:layout_marginLeft="@dimen/dimen_5"
+                                                android:layout_toRightOf="@+id/tvLabelWorkingHours"
+                                                android:textColor="@color/yellow_punch_btn"
+                                                android:textSize="@dimen/text_size_13"
+                                                tools:text="Present" />
+                                        </RelativeLayout>
+                                    </LinearLayout>
+
+                                </RelativeLayout>
+
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:gravity="end"
+                                    android:visibility="gone">
+
+
+                                    <Button
+                                        android:id="@+id/btnStatus"
+                                        style="@style/ButtonStyle"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="@dimen/dimen_40"
+                                        android:backgroundTint="@{viewModel.isPunchedIn?@color/yellow_punch_btn:@color/green_punch_btn}"
+                                        android:text="@{viewModel.buttonText}"
+                                        android:textSize="@dimen/text_size_13"
+                                        android:visibility="@{viewModel.isPunchedInVisible?View.VISIBLE:View.GONE}"
+                                        tools:text="Punch Out" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+                        </LinearLayout>
+                    </RelativeLayout>
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/windowBackgroundColor"
+                android:fillViewport="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:id="@+id/llDateRange"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_10"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardFromDate"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/dimen_40"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1.5"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardCornerRadius="@dimen/dimen_20"
+                            app:cardElevation="@dimen/dimen_0">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <ImageView
+                                    android:id="@+id/ivCalender"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:paddingLeft="@dimen/dimen_10"
+                                    android:paddingTop="@dimen/dimen_2"
+                                    android:paddingRight="@dimen/dimen_3"
+                                    android:paddingBottom="@dimen/dimen_2"
+                                    app:srcCompat="@drawable/ic_date_range" />
+
+                                <TextView
+                                    android:id="@+id/tvFromDate"
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="@dimen/dimen_3"
+                                    android:layout_toRightOf="@+id/ivCalender"
+                                    android:background="@color/transparent"
+                                    android:gravity="center_vertical"
+                                    android:textColor="@color/colorTextGreyPunch"
+                                    android:textSize="12sp" />
+
+                                <ImageView
+                                    android:id="@+id/ivDaysTriangle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_centerVertical="true"
+                                    android:paddingRight="@dimen/dimen_3"
+                                    android:visibility="gone"
+                                    app:srcCompat="@drawable/ic_down_triangle" />
+                            </RelativeLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+
+                        <Button
+                            android:id="@+id/btnSubmit"
+                            style="@style/ButtonStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/dimen_35"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:layout_weight="0.5"
+                            android:text="@string/search"
+                            android:textAllCaps="false"
+                            android:textSize="13sp" />
+
+
+                    </LinearLayout>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_100"
+                        android:layout_marginTop="@dimen/dimen_10"
+                        app:cardCornerRadius="@dimen/dimen_5"
+                        app:cardUseCompatPadding="true">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="@dimen/dimen_10">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:weightSum="5">
+
+                                <RelativeLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1.4"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/tvWorkingDays"
+                                            style="@style/TextViewStyle"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:textSize="@dimen/text_size_16"
+                                            tools:text="30" />
+
+                                        <TextView
+                                            style="@style/TextViewStyle"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/working_days"
+                                            android:textColor="@color/gray"
+                                            android:textSize="@dimen/text_size_14" />
+                                    </LinearLayout>
+
+                                    <View
+                                        android:layout_width="@dimen/dimen_1"
+                                        android:layout_height="match_parent"
+                                        android:layout_alignParentRight="true"
+                                        android:background="@color/windowBackgroundColor"
+                                        android:paddingLeft="@dimen/dimen_5" />
+                                </RelativeLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1.2"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <RelativeLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content">
+
+                                        <ProgressBar
+                                            android:id="@+id/progressBarPresent"
+                                            style="?android:attr/progressBarStyleHorizontal"
+                                            android:layout_width="50dp"
+                                            android:layout_height="50dp"
+                                            android:background="@drawable/circle_shape_progress"
+                                            android:indeterminate="false"
+                                            android:max="100"
+                                            android:progress="65"
+                                            android:progressDrawable="@drawable/circular_progress_bar_present" />
+
+                                        <TextView
+                                            android:id="@+id/tvProgressPresent"
+                                            style="@style/TextViewStyle"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_centerInParent="true"
+                                            android:text="78%"
+                                            android:textSize="@dimen/text_size_13" />
+                                    </RelativeLayout>
+
+                                    <TextView
+                                        style="@style/TextViewStyle"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/dimen_2"
+                                        android:gravity="center"
+                                        android:text="@string/present"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_14" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1.2"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <RelativeLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content">
+
+                                        <ProgressBar
+                                            android:id="@+id/progressBarLeave"
+                                            style="?android:attr/progressBarStyleHorizontal"
+                                            android:layout_width="50dp"
+                                            android:layout_height="50dp"
+                                            android:background="@drawable/circle_shape_progress"
+                                            android:indeterminate="false"
+                                            android:max="100"
+                                            android:progress="65"
+                                            android:progressDrawable="@drawable/circular_progress_bar_leave" />
+
+                                        <TextView
+                                            android:id="@+id/tvProgressLeave"
+                                            style="@style/TextViewStyle"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_centerInParent="true"
+                                            android:text="78%"
+                                            android:textSize="@dimen/text_size_13" />
+                                    </RelativeLayout>
+
+                                    <TextView
+                                        style="@style/TextViewStyle"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/dimen_2"
+                                        android:gravity="center"
+                                        android:text="@string/leave"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_14" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1.2"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <RelativeLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content">
+
+                                        <ProgressBar
+                                            android:id="@+id/progressBarAbsent"
+                                            style="?android:attr/progressBarStyleHorizontal"
+                                            android:layout_width="50dp"
+                                            android:layout_height="50dp"
+                                            android:background="@drawable/circle_shape_progress"
+                                            android:indeterminate="false"
+                                            android:max="100"
+                                            android:progress="65"
+                                            android:progressDrawable="@drawable/circular_progress_bar_absent" />
+
+                                        <TextView
+                                            android:id="@+id/tvProgressAbsent"
+                                            style="@style/TextViewStyle"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_centerInParent="true"
+                                            android:text="78%"
+                                            android:textSize="@dimen/text_size_13" />
+                                    </RelativeLayout>
+
+                                    <TextView
+                                        style="@style/TextViewStyle"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/dimen_2"
+                                        android:gravity="center"
+                                        android:text="@string/absent"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_14" />
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvAttendanceStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_10"
+                        android:adapter="@{attendancesStatusAdapter}"
+                        android:orientation="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/item_attendance_status" />
+
+                    <RelativeLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/dimen_200">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/rvAttendance"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dimen_10"
+                                android:nestedScrollingEnabled="false"
+                                tools:listitem="@layout/item_layout_day_off" />
+                        </RelativeLayout>
+
+                        <androidx.core.widget.ContentLoadingProgressBar
+                            android:id="@+id/contentProgressBar"
+                            style="?android:attr/progressBarStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="@dimen/dimen_20"
+                            android:theme="@style/AppTheme.BlackAccent"
+                            android:visibility="invisible" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <!--    </LinearLayout>-->
+</layout>

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="adapter"
+            type="com.tracki.ui.leavedetails.LeaveDetailsAdapter" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/windowBackgroundColor"
+        tools:context=".ui.leavedetails.UsersLeaveDetailsActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/abl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/Toolbar"
+                app:contentInsetLeft="0dp"
+                app:contentInsetStart="0dp"
+                app:contentInsetStartWithNavigation="0dp"
+                app:titleTextColor="@color/white" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.cardview.widget.CardView
+            app:cardBackgroundColor="@color/white"
+            android:layout_margin="@dimen/dimen_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/dimen_3"
+            app:cardElevation="@dimen/dimen_0">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/llHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/dimen_5"
+                    android:paddingRight="@dimen/dimen_5"
+                    android:paddingTop="@dimen/dimen_15"
+                    android:paddingBottom="@dimen/dimen_15"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/tvType"
+                        style="@style/TextViewStyle"
+                        android:layout_width="0dp"
+                        android:layout_weight="4"
+                        android:gravity="center"
+                        android:text="@string/type"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/tvTotal"
+                        style="@style/TextViewStyle"
+                        android:layout_width="0dp"
+                        android:layout_weight="4"
+                        android:gravity="center"
+                        android:text="@string/total"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/tvTaken"
+                        style="@style/TextViewStyle"
+                        android:layout_width="0dp"
+                        android:layout_weight="4"
+                        android:gravity="center"
+                        android:text="@string/taken"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/tvRemainIng"
+                        style="@style/TextViewStyle"
+                        android:layout_width="0dp"
+                        android:layout_weight="4"
+                        android:gravity="center"
+                        android:text="@string/remaining"
+                        android:textColor="@color/black" />
+
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    tools:itemCount="4"
+                    android:adapter="@{adapter}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_row_leave_summary" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_1"
+                    android:layout_margin="@dimen/dimen_5"
+                    android:background="@color/light_gray" />
+
+                <LinearLayout
+                    android:id="@+id/llFooter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/dimen_5"
+                    android:paddingRight="@dimen/dimen_5"
+                    android:paddingTop="@dimen/dimen_15"
+                    android:paddingBottom="@dimen/dimen_15"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/tvTotalLeavesLabel"
+                        style="@style/TextViewStyle"
+                        android:layout_width="0dp"
+                        android:layout_weight="4"
+                        android:gravity="center"
+                        android:text="@string/total_leaves"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/tvTotalLeavesCount"
+                        style="@style/TextViewStyle"
+                        android:layout_width="0dp"
+                        android:layout_weight="4"
+                        android:gravity="center"
+                        tools:text="18"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/tvTotalTakenCount"
+                        style="@style/TextViewStyle"
+                        android:layout_width="0dp"
+                        android:layout_weight="4"
+                        android:gravity="center"
+                        tools:text="4"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/tvTotalRemainIngCount"
+                        style="@style/TextViewStyle"
+                        android:layout_width="0dp"
+                        android:layout_weight="4"
+                        android:gravity="center"
+                        tools:text="0"
+                        android:textColor="@color/colorPrimary" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/ctaMainView"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:scaleType="fitXY"
+            android:src="@drawable/shaddow_image"
+            tools:ignore="MissingConstraints" />
+
+        <View
+            android:id="@+id/inicator"
+            android:layout_width="60dp"
+            android:layout_height="7dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dimen_30"
+            android:background="@drawable/view_line_indigator" />
+        <TextView
+            android:id="@+id/tvLabelTakeAction"
+            style="@style/TextViewStyle"
+            android:layout_below="@+id/inicator"
+            android:fontFamily="@font/campton_semi_bold"
+            android:textSize="@dimen/text_size_16"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:textColor="@color/colorPrimary"
+            android:layout_centerHorizontal="true"
+            android:text="@string/take_action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerCtaButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvLabelTakeAction"
+            android:layout_marginLeft="@dimen/dimen_4"
+            android:layout_marginTop="@dimen/dimen_15"
+            android:layout_marginRight="@dimen/dimen_4"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/dimen_10"
+            android:visibility="visible"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:spanCount="2"
+            tools:itemCount="4"
+            tools:listitem="@layout/item_cta_button" />
+
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.attendance.PresentItemViewModel" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/dimen_5"
+        app:cardElevation="@dimen/dimen_0"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/dimen_5"
+            android:paddingLeft="@dimen/dimen_10"
+            android:paddingRight="@dimen/dimen_10"
+            android:paddingBottom="@dimen/dimen_10">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/dimen_4"
+                android:paddingBottom="@dimen/dimen_4">
+
+                <TextView
+                    android:id="@+id/tvDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/llDate"
+                    android:drawableLeft="@drawable/ic_date_time"
+                    android:drawablePadding="@dimen/dimen_10"
+                    android:fontFamily="@font/campton_semi_bold"
+                    android:gravity="center_vertical"
+                    android:text="@{viewModel.date}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_14" />
+
+                <LinearLayout
+                    android:id="@+id/llDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/campton_light"
+                        android:text="@string/working_hrs"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_14" />
+
+                    <TextView
+                        android:id="@+id/tvWorkingHoursValue"
+                        style="@style/TextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen_10"
+                        android:fontFamily="@font/campton_book"
+                        android:textColor="@color/green_present"
+                        android:textSize="@dimen/text_size_14"
+                        android:text="@{viewModel.time}"
+                        tools:text="09 hrs 58 min" />
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_0_8"
+                    android:layout_below="@+id/tvDate"
+                    android:layout_marginTop="@dimen/dimen_8"
+                    android:background="@color/windowBackgroundColor" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/llPunchInData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_8"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_time_df_small"
+                        android:drawablePadding="@dimen/dimen_10"
+                        android:fontFamily="@font/campton_light"
+                        android:text="@string/punch_n_in_colon"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_14" />
+
+                    <TextView
+                        android:id="@+id/tvPunchInTime"
+                        style="@style/TextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen_10"
+                        android:fontFamily="@font/campton_book"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_14"
+                        android:text="@{viewModel.punchInTime}"
+                        tools:text="11:34" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_marginTop="@dimen/dimen_4"
+                    android:id="@+id/tvPunchInLocation"
+                    style="@style/TextViewStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_pin_google_big"
+                    android:ellipsize="end"
+                    android:drawablePadding="@dimen/dimen_10"
+                    android:fontFamily="@font/campton_book"
+                    android:maxLines="2"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_14"
+                    android:visibility="@{viewModel.punchInLocationVisible?View.VISIBLE:View.GONE}"
+                    android:text="@{viewModel.punchInLocation}"
+                    tools:text="Wz j janakpark delhi " />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/dimen_10"
+                android:id="@+id/llPunchOutData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_8"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_time_df_small"
+                        android:drawablePadding="@dimen/dimen_10"
+                        android:fontFamily="@font/campton_light"
+                        android:text="@string/punch_n_out_colon"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_14" />
+
+                    <TextView
+                        android:id="@+id/tvPunchOutTime"
+                        style="@style/TextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen_10"
+                        android:fontFamily="@font/campton_book"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_14"
+                        android:text="@{viewModel.punchOutTime}"
+                        tools:text="11:34" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_marginTop="@dimen/dimen_4"
+                    android:id="@+id/tvPunchOutLocation"
+                    style="@style/TextViewStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_pin_google_big"
+                    android:ellipsize="end"
+                    android:drawablePadding="@dimen/dimen_10"
+                    android:fontFamily="@font/campton_book"
+                    android:maxLines="2"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_14"
+                    android:visibility="@{viewModel.punchOutLocationVisible?View.VISIBLE:View.GONE}"
+                    android:text="@{viewModel.punchOutLocation}"
+                    tools:text="Wz j janakpark delhi " />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

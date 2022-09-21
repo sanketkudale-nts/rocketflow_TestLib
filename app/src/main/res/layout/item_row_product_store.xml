@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="data"
+            type="com.tracki.ui.selectorder.CatalogProduct" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/dimen_10"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/dimen_10"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:paddingTop="@dimen/dimen_5"
+                android:paddingBottom="@dimen/dimen_5"
+                android:gravity="center">
+
+                <com.tracki.utils.SquareImageView
+                    app:load_catalog_product="@{data.image}"
+                    android:id="@+id/ivProducts"
+                    android:layout_width="match_parent"
+                    app:srcCompat="@drawable/ic_picture"
+                    android:scaleType="centerCrop"
+                    android:layout_height="@dimen/dimen_90"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.60"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextViewStyleBold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:text="@{data.name}"
+                    android:maxLines="2"
+                    tools:text="Haldi Ram Nut Craker" />
+
+                <TextView
+                    style="@style/TextViewStyleLight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:text="@{``+data.unitValue+` `+data.unitType.toLowerCase()}"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_12"
+                    tools:text="200 gm" />
+                <TextView
+                    android:id="@+id/tvPercentageOff"
+                    style="@style/TextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="@dimen/dimen_3"
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    android:textSize="@dimen/text_size_13"
+                    tools:text="50 % off"
+                    app:set_percentage="@{data}"
+                    android:visibility="gone"
+                    android:textColor="@color/green"
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_7"
+                    android:layout_marginTop="@dimen/dimen_5"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:id="@+id/tvMainPrice"
+                        style="@style/TextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="@dimen/dimen_10"
+                        android:text="@{`₹ `+data.price}"
+                        android:textSize="@dimen/text_size_13"
+                        tools:text="₹ 50"
+                        android:textColor="@color/text_gray"
+                        />
+
+                    <TextView
+                        style="@style/TextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="@dimen/dimen_10"
+                        android:text="@{`₹ `+data.sellingPrice}"
+                        android:textSize="@dimen/text_size_13"
+                        android:textColor="@color/yellow_punch_btn"
+                        tools:text="₹ 50" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.15">
+
+                <ImageView
+                    android:id="@+id/ivThreeDot"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_three_dots"
+                    android:layout_alignParentEnd="true" />
+
+                <CheckBox
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:id="@+id/rbChecked"
+                    android:button="@drawable/bg_toggle"
+                    app:thumbTint="@color/colorPrimary"
+                    android:layout_alignParentEnd="true" />
+
+
+            </RelativeLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

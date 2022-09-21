@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.dynamicform.FormButtonViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btnCLick"
+            style="@style/EnableDisableButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/dimen_10"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:layout_marginEnd="@dimen/dimen_10"
+            android:layout_marginBottom="@dimen/dimen_10"
+            android:enabled="@{viewModel.isEnable}"
+            android:focusable="false"
+            android:focusableInTouchMode="true"
+            android:onClick="@{()->viewModel.onButtonClick()}"
+            android:paddingHorizontal="@dimen/dimen_40"
+            android:paddingVertical="@dimen/dimen_10"
+            android:text="@{viewModel.title}"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            tools:text="@string/app_name" />
+    </RelativeLayout>
+</layout>

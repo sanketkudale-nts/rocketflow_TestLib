@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/windowBackgroundColor"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_40"
+                android:layout_marginLeft="@dimen/dimen_20"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:layout_marginRight="@dimen/dimen_20"
+                android:weightSum="2">
+
+                <RelativeLayout
+                    android:id="@+id/rlDate"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dimen_30"
+                    android:layout_marginRight="@dimen/dimen_2"
+                    android:layout_weight="2"
+                    android:background="@drawable/bg_date_view_white">
+
+                    <ImageView
+                        android:id="@+id/ivCalender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/dimen_8"
+                        app:srcCompat="@drawable/ic_date_range" />
+
+
+                    <TextView
+                        android:id="@+id/tvDate"
+                        style="@style/TextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/dimen_10"
+                        android:layout_toRightOf="@+id/ivCalender"
+                        android:text="1/12/2021"
+                        android:textColor="@color/colorTextGreyPunch"
+                        android:textSize="@dimen/text_size_12" />
+
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/dimen_2"
+                    android:layout_weight="0"
+                    android:background="@drawable/bg_date_view">
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="@dimen/dimen_2"
+                        android:layout_weight="0.8"
+                        android:background="@drawable/bg_date_view">
+
+                        <ImageView
+                            android:id="@+id/ivlocation"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/dimen_8"
+                            android:tint="@color/black"
+                            app:srcCompat="@drawable/ic_calender" />
+
+                        <TextView
+                            android:id="@+id/tvLocationLebel"
+                            style="@style/TextViewStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:layout_marginTop="@dimen/dimen_2"
+                            android:layout_toRightOf="@+id/ivlocation"
+                            android:text="@string/select_geography" />
+
+                        <TextView
+                            style="@style/TextViewStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tvLocationLebel"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:layout_toLeftOf="@+id/ivArrowLocation"
+                            android:layout_toRightOf="@+id/ivlocation"
+                            android:maxLines="1"
+                            android:text="Punjabi bagh,Delhi 11064"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_13" />
+
+                        <ImageView
+                            android:id="@+id/ivArrowLocation"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/dimen_8"
+                            app:srcCompat="@drawable/ic_down_triangle" />
+
+                    </RelativeLayout>
+                </LinearLayout>
+                <ImageView
+                    android:id="@+id/ivReload"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    app:srcCompat="@drawable/ic_reload" />
+
+                <ImageView
+                    android:id="@+id/ivFilter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    app:srcCompat="@drawable/ic_filter_blue" />
+
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardTeamAttendance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_10"
+                android:layout_marginRight="@dimen/dimen_10"
+                android:layout_marginBottom="@dimen/dimen_10"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/dimen_2"
+                app:cardElevation="@dimen/dimen_0">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_200"
+                    android:orientation="vertical"
+                    android:weightSum="2">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvTotalEmployee"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/campton_semi_bold"
+                                android:text="0"
+                                android:textSize="@dimen/text_size_20" />
+
+                            <TextView
+                                android:id="@+id/tvLabelTotalEmployee"
+                                android:layout_marginTop="@dimen/dimen_5"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/active_employee"
+                                android:textSize="@dimen/text_size_14" />
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/llNotPunchedIn"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                >
+
+                                <TextView
+                                    android:id="@+id/tvNotPunchedIn"
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:fontFamily="@font/campton_semi_bold"
+                                    android:gravity="center_horizontal"
+                                    android:text="0"
+                                    android:textColor="@color/semi_gray"
+                                    android:textSize="@dimen/text_size_20" />
+                                <ImageView
+                                    android:layout_alignParentEnd="true"
+                                    android:id="@+id/ivNextNotPunchedIn"
+                                    android:layout_marginRight="@dimen/dimen_5"
+                                    android:tint="@color/team_arrow_color"
+                                    app:srcCompat="@drawable/ic_right_arrow"
+                                    android:layout_width="@dimen/dimen_15"
+                                    android:layout_height="@dimen/dimen_15"/>
+                            </RelativeLayout>
+
+                            <TextView
+                                android:id="@+id/tvLabelNotPunchedIn"
+                                android:layout_marginTop="@dimen/dimen_5"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/not_punched_in"
+                                android:textSize="@dimen/text_size_14" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                    <View
+                        android:layout_marginRight="@dimen/dimen_10"
+                        android:layout_marginLeft="@dimen/dimen_10"
+                        android:background="@color/windowBackgroundColor"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <LinearLayout
+                            android:id="@+id/llPresent"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                >
+
+                                <TextView
+                                   android:layout_centerInParent="true"
+                                    android:id="@+id/tvPresent"
+                                    style="@style/TextViewStyle"
+                                    android:gravity="center_horizontal"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/campton_semi_bold"
+                                    android:text="0"
+                                    android:paddingRight="@dimen/dimen_10"
+                                    android:textColor="@color/green_button"
+                                    android:textSize="@dimen/text_size_20" />
+                                <ImageView
+                                    android:id="@+id/ivNextPresent"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginRight="@dimen/dimen_2"
+                                    android:layout_alignParentEnd="true"
+                                    android:tint="@color/team_arrow_color"
+                                    app:srcCompat="@drawable/ic_right_arrow"
+                                    android:layout_width="@dimen/dimen_15"
+                                    android:layout_height="@dimen/dimen_15"/>
+                            </RelativeLayout>
+
+                            <TextView
+                                android:id="@+id/tvLabelPresent"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dimen_5"
+                                android:text="@string/present"
+                                android:textSize="@dimen/text_size_14" />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/llAbsent"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                >
+
+                                <TextView
+                                    android:layout_centerInParent="true"
+                                    android:id="@+id/tvAbsent"
+                                    style="@style/TextViewStyle"
+                                    android:gravity="center_horizontal"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/campton_semi_bold"
+                                    android:text="0"
+                                    android:paddingRight="@dimen/dimen_10"
+                                    android:textColor="@color/red_dark4"
+                                    android:textSize="@dimen/text_size_20" />
+                                <ImageView
+                                    android:id="@+id/ivNextAbsent"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginRight="@dimen/dimen_2"
+                                    android:layout_alignParentEnd="true"
+                                    android:tint="@color/team_arrow_color"
+                                    app:srcCompat="@drawable/ic_right_arrow"
+                                    android:layout_width="@dimen/dimen_15"
+                                    android:layout_height="@dimen/dimen_15"/>
+                            </RelativeLayout>
+
+                            <TextView
+                                android:id="@+id/tvLabelAbsent"
+                                android:layout_marginTop="@dimen/dimen_5"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/absent"
+                                android:textSize="@dimen/text_size_14" />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/llOnleave"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                >
+
+                                <TextView
+                                    android:layout_centerInParent="true"
+                                    android:id="@+id/tvOnleave"
+                                    style="@style/TextViewStyle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/campton_semi_bold"
+                                    android:text="0"
+                                    android:gravity="center_horizontal"
+                                    android:paddingRight="@dimen/dimen_10"
+                                    android:textColor="@color/yellow_punch_btn"
+                                    android:textSize="@dimen/text_size_20" />
+                                <ImageView
+                                    android:id="@+id/ivNextOnLeve"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginRight="@dimen/dimen_2"
+                                    android:layout_alignParentEnd="true"
+                                    android:tint="@color/team_arrow_color"
+                                    app:srcCompat="@drawable/ic_right_arrow"
+                                    android:layout_width="@dimen/dimen_15"
+                                    android:layout_height="@dimen/dimen_15"/>
+                            </RelativeLayout>
+
+                            <TextView
+                                android:id="@+id/tvLabelOnleave"
+                                android:layout_marginTop="@dimen/dimen_5"
+                                style="@style/TextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/onleave"
+                                android:textSize="@dimen/text_size_14" />
+
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewChart"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_280"
+                android:layout_marginLeft="@dimen/dimen_10"
+                android:layout_marginRight="@dimen/dimen_10"
+                android:layout_marginBottom="@dimen/dimen_10"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/dimen_2"
+                app:cardElevation="@dimen/dimen_0">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/dimen_15">
+
+                    <com.github.mikephil.charting.charts.PieChart
+                        android:id="@+id/chart"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

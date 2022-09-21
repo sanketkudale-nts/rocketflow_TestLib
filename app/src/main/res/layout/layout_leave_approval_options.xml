@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.leave.leave_approval.LeaveApprovalItemViewModel" />
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_25"
+        >
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/dimen_8"
+        app:cardElevation="@dimen/dimen_0"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="@dimen/dimen_30"
+            >
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_gravity="end"
+                android:tint="@color/black"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:layout_marginRight="@dimen/dimen_20"
+                app:srcCompat="@drawable/ic_cancel_punch_in"
+                android:layout_width="@dimen/dimen_30"
+                android:layout_height="@dimen/dimen_30"
+                android:padding="@dimen/dimen_8"/>
+
+            <TextView
+                android:text="@string/leave_details"
+                android:layout_marginLeft="@dimen/dimen_20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_16"
+                android:layout_marginBottom="@dimen/dimen_10"
+                android:fontFamily="@font/campton_semi_bold" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_50"
+                android:background="@color/white"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:weightSum="4">
+
+                <ImageView
+                    android:id="@+id/ivUser"
+                    android:layout_width="@dimen/dimen_50"
+                    android:layout_height="@dimen/dimen_50"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dimen_20"
+                    app:srcCompat="@drawable/ic_my_profile" />
+
+                <TextView
+                    android:id="@+id/tvName"
+                    style="@style/TextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/campton_book"
+                    android:maxLines="1"
+                    android:layout_marginLeft="@dimen/dimen_20"
+                    android:layout_marginBottom="@dimen/dimen_20"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toRightOf="@+id/ivUser"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_16"
+                    android:text="@{viewModel.appliedByName}"
+                    tools:text="Vikas Kesharvani" />
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:layout_marginLeft="@dimen/dimen_20"
+                android:layout_marginRight="@dimen/dimen_20"
+                android:weightSum="1">
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:fontFamily="@font/campton_book"
+                    android:textColor="@color/gray"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.4"
+                    android:layout_height="wrap_content"
+                    android:text="@string/applied_on" />
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:fontFamily="@font/campton_book"
+                    android:textColor="@color/gray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/colen" />
+
+                <TextView
+                    android:id="@+id/tvAppliedDate"
+                    style="@style/TextViewStyle"
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    android:fontFamily="@font/campton_book"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.6"
+                    android:textSize="@dimen/text_size_14"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.applyDateValue}" />
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:layout_marginLeft="@dimen/dimen_20"
+                android:layout_marginRight="@dimen/dimen_20"
+                android:weightSum="1">
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:fontFamily="@font/campton_book"
+                    android:textColor="@color/gray"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.4"
+                    android:layout_height="wrap_content"
+                    android:text="@string/leave_type" />
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:fontFamily="@font/campton_book"
+                    android:textColor="@color/gray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/colen" />
+
+                <TextView
+                    android:id="@+id/tvLeaveType"
+                    style="@style/TextViewStyle"
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    android:fontFamily="@font/campton_book"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.6"
+                    android:textSize="@dimen/text_size_14"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.leaveType}" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:layout_marginLeft="@dimen/dimen_20"
+                android:layout_marginRight="@dimen/dimen_20"
+                android:weightSum="1">
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:fontFamily="@font/campton_book"
+                    android:textColor="@color/gray"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.4"
+                    android:layout_height="wrap_content"
+                    android:text="From" />
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:fontFamily="@font/campton_book"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/colen" />
+
+                <TextView
+                    android:id="@+id/tvDateFrom"
+                    style="@style/TextViewStyle"
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    android:fontFamily="@font/campton_book"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.6"
+                    android:textSize="@dimen/text_size_14"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.from}" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:layout_marginLeft="@dimen/dimen_20"
+                android:layout_marginRight="@dimen/dimen_20"
+                android:weightSum="1">
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:fontFamily="@font/campton_book"
+                    android:textColor="@color/gray"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.4"
+                    android:layout_height="wrap_content"
+                    android:text="To" />
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:fontFamily="@font/campton_book"
+                    android:textColor="@color/gray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/colen" />
+
+                <TextView
+                    android:id="@+id/tvDateTo"
+                    style="@style/TextViewStyle"
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    android:fontFamily="@font/campton_book"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.6"
+                    android:textSize="@dimen/text_size_14"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.to}"  />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:layout_marginLeft="@dimen/dimen_20"
+                android:layout_marginRight="@dimen/dimen_20"
+                android:weightSum="1">
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:fontFamily="@font/campton_book"
+                    android:textColor="@color/gray"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.4"
+                    android:layout_height="wrap_content"
+                    android:text="@string/count" />
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:fontFamily="@font/campton_book"
+                    android:textColor="@color/gray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/colen" />
+
+                <TextView
+                    android:id="@+id/tvCount"
+                    style="@style/TextViewStyle"
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    android:fontFamily="@font/campton_book"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.6"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size_14"
+                    android:text="@{viewModel.leaveNumValue}" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:layout_marginLeft="@dimen/dimen_20"
+                android:layout_marginRight="@dimen/dimen_20"
+                android:weightSum="1">
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:fontFamily="@font/campton_book"
+                    android:textColor="@color/gray"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.4"
+                    android:layout_height="wrap_content"
+                    android:text="@string/remarks" />
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:fontFamily="@font/campton_book"
+                    android:textColor="@color/gray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/colen" />
+
+                <TextView
+                    android:id="@+id/tvRemarks"
+                    style="@style/TextViewStyle"
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    android:fontFamily="@font/campton_book"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.6"
+                    android:padding="@dimen/dimen_10"
+                    android:background="@drawable/et_bg_stroke"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/dimen_80"
+                    android:textSize="@dimen/text_size_14"
+                    android:text="@{viewModel.remarksValue}"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_50"
+                android:layout_marginBottom="@dimen/dimen_30"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal"
+                >
+
+                <Button
+                    style="@style/ButtonStyle"
+                    android:id="@+id/btnApprove"
+                    android:layout_height="@dimen/dimen_40"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:layout_below="@id/tvRemarks"
+                    android:layout_marginStart="@dimen/dimen_10"
+                    android:layout_marginTop="@dimen/dimen_25"
+                    android:visibility="@{viewModel.isPending?View.VISIBLE:View.GONE}"
+                    android:text="@string/approve"
+                    android:textColor="@color/white"
+                    android:elevation="@dimen/dimen_0"
+                    android:textAllCaps="false"/>
+
+                <Button
+                    android:elevation="@dimen/dimen_0"
+                    style="@style/ButtonStyle"
+                    android:layout_height="@dimen/dimen_40"
+                    android:id="@+id/btnReject"
+                    android:background="@drawable/reject_button"
+                    android:layout_below="@id/tvRemarks"
+                    android:layout_marginStart="@dimen/dimen_10"
+                    android:paddingRight="@dimen/dimen_30"
+                    android:paddingLeft="@dimen/dimen_30"
+                    android:layout_marginTop="@dimen/dimen_25"
+                    android:layout_toEndOf="@id/btnApprove"
+                    android:visibility="@{viewModel.isPending?View.VISIBLE:View.GONE}"
+                    android:text="@string/reject"
+                    android:textColor="@color/red_dark3"
+                    android:textAllCaps="false"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+</layout>

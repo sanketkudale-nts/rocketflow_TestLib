@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.buddylisting.BuddyListingItemViewModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_8"
+        android:layout_marginTop="@dimen/dimen_8"
+        android:layout_marginEnd="@dimen/dimen_8"
+        android:layout_marginBottom="@dimen/dimen_1"
+        android:background="@color/white"
+        android:onClick="@{() -> viewModel.onItemClick()}"
+        android:onLongClick="@{(view) -> viewModel.onItemLongClick(view)}"
+        android:orientation="vertical"
+        app:cardCornerRadius="@dimen/dimen_4"
+        app:cardElevation="0dp">
+        <!--app:cardElevation="@dimen/dimen_2"-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/dimen_10">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight=".15">
+
+                <TextView
+                    android:id="@+id/tvName"
+                    style="@style/TextViewStyle"
+                    android:layout_width="@dimen/dimen_40"
+                    android:layout_height="@dimen/dimen_40"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/bg_image_circle"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:fontFamily="@font/campton_book"
+                    android:gravity="center|center_vertical"
+                    android:text="@{viewModel.abbreviation}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_15"
+                    tools:text="RA" />
+
+                <ImageView
+                    android:id="@+id/ivDriverStatus"
+                    android:layout_width="@dimen/dimen_12"
+                    android:layout_height="@dimen/dimen_12"
+                    android:layout_alignBottom="@+id/tvName"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/dimen_4"
+                    android:layout_marginBottom="@dimen/dimen_2"
+                    android:checked="false"
+                    android:contentDescription="@null"
+                    android:src="@drawable/bg_status" />
+                <!-- android:visibility="@{viewModel.isActive ? View.VISIBLE : View.GONE}" -->
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/dimen_6"
+                android:layout_marginTop="@dimen/dimen_5"
+                android:layout_marginEnd="@dimen/dimen_5"
+                android:layout_marginBottom="@dimen/dimen_5"
+                android:layout_weight=".70"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvDriverName"
+                    style="@style/TextViewStyle"
+                    android:fontFamily="@font/campton_semi_bold"
+                    android:lineSpacingExtra="1dip"
+                    android:maxLength="25"
+                    android:text="@{viewModel.title}"
+                    android:textColor="@color/semi_gray_2"
+                    android:textSize="@dimen/text_size_16"
+                    tools:text="Rahul Abrol" />
+
+                <TextView
+                    android:id="@+id/tvDriverStatus"
+                    style="@style/TextViewStyle"
+                    android:fontFamily="@font/campton_book"
+                    android:lineSpacingExtra="1dip"
+                    android:text="@{viewModel.status}"
+                    android:textColor="@color/semi_gray"
+                    android:textSize="@dimen/text_size_12"
+                    android:visibility="@{(viewModel.status!=null) ? View.VISIBLE : View.GONE}"
+                    tools:text="Active" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/ivSelected"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight=".10"
+                android:contentDescription="@null"
+                android:src="@{viewModel.isChecked ? @drawable/ic_tick_selected_blue :@drawable/ic_radio_button_unchecked_grey}"
+                android:visibility="@{viewModel.showSelected ? View.VISIBLE : View.GONE}"
+                app:srcCompat="@drawable/ic_radio_button_unchecked_grey" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

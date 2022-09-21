@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.tracki.data.model.response.config.DashBoardBoxItem" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/dimen_2"
+        app:cardElevation="@dimen/dimen_0"
+        android:layout_marginBottom="@dimen/dimen_5"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dimen_10"
+           >
+
+           <ImageView
+               android:id="@+id/ivNext"
+               android:layout_alignParentRight="true"
+               android:layout_centerVertical="true"
+               android:src="@drawable/ic_arrow_right"
+               android:layout_marginLeft="@dimen/dimen_5"
+               android:layout_marginRight="@dimen/dimen_5"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/tvTitle"
+                style="@style/TextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_10"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:fontFamily="@font/campton_light"
+                android:textColor="@color/colorTextGreyPunch"
+                android:text="@string/total_no"
+                android:visibility="gone"
+                android:textSize="@dimen/text_size_13" />
+
+            <TextView
+                android:paddingBottom="@dimen/dimen_8"
+                android:paddingTop="@dimen/dimen_8"
+                android:id="@+id/tvTitleLebel"
+                style="@style/TextViewStyle"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvTitle"
+                android:layout_marginLeft="@dimen/dimen_10"
+                android:layout_marginBottom="@dimen/dimen_10"
+                android:text="@{data.stageName}"
+                android:fontFamily="@font/campton_book"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_14"
+                />
+
+            <TextView
+                android:layout_marginRight="@dimen/dimen_20"
+                android:id="@+id/tvCount"
+                style="@style/TextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:text="@{``+data.count}"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="@dimen/dimen_16"
+                tools:text="0" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

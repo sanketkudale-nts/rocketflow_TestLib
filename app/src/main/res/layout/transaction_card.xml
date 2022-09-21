@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="@dimen/dimen_10"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_10">
+
+        <ImageView
+            android:id="@+id/iv_image"
+            android:layout_width="@dimen/dimen_40"
+            android:layout_height="@dimen/dimen_40"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/imageview_bg_custom"
+            android:padding="@dimen/dimen_5"
+            android:src="@drawable/ic_filter_blue"
+            tools:ignore="ContentDescription" />
+
+        <RelativeLayout
+            android:layout_marginStart="@dimen/dimen_10"
+            android:layout_toEndOf="@+id/iv_image"
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_transaction_title"
+                style="@style/TextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/transaction_1"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_15" />
+
+            <TextView
+                android:id="@+id/tv_transaction_detail"
+                style="@style/TextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_transaction_title"
+                android:layout_marginTop="@dimen/dimen_3"
+                android:layout_toEndOf="@+id/iv_image"
+                android:text="@string/transfer_to_jhon"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_10" />
+
+            <TextView
+                android:id="@+id/tv_transaction_type"
+                style="@style/TextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/tv_transaction_title"
+                android:text="@string/debit_bracket"
+                android:textColor="@color/red_dark3"
+                android:textSize="@dimen/text_size_16" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_transaction_title"
+            style="@style/TextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:text="@string/rs_349"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_15" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

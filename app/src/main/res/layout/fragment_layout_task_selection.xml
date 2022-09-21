@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="profileData"
+            type="com.tracki.data.model.response.config.ProfileDetail" />
+
+        <variable
+            name="accountData"
+            type="com.tracki.data.model.response.config.AccountsAndOffering" />
+
+        <variable
+            name="adapter"
+            type="com.tracki.ui.roleselection.TaskSelectionAdapter" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:padding="@dimen/dimen_15">
+
+            <TextView
+                android:id="@+id/tvName"
+                style="@style/TextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_5"
+                android:fontFamily="@font/campton_semi_bold"
+                android:text="@{`Hi `+profileData.name+` ,`}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_18"
+                tools:text="Hi Vikas Kesharvani ," />
+
+            <TextView
+                android:id="@+id/tvDescription"
+                style="@style/TextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvName"
+                android:layout_marginLeft="@dimen/dimen_5"
+                android:layout_marginRight="@dimen/dimen_5"
+                android:layout_marginTop="@dimen/dimen_6"
+                android:fontFamily="@font/campton_light"
+                tools:text="chjdbhjdhbhjdsbhbdhb"
+                android:textSize="@dimen/text_size_14"
+               />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvAttendance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvDescription"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:adapter="@{adapter}"
+                android:nestedScrollingEnabled="true"
+                android:orientation="vertical"
+                tools:itemCount="2"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_task_selection" />
+
+            <RelativeLayout
+                android:id="@+id/rlBottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rvAttendance"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="@dimen/dimen_20">
+
+                <Button
+                    android:id="@+id/btnContinue"
+                    style="@style/ButtonStyleMoreRounded"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="@dimen/dimen_30"
+                    android:layout_marginRight="@dimen/dimen_30"
+                    android:paddingLeft="@dimen/dimen_40"
+                    android:paddingRight="@dimen/dimen_40"
+                    android:text="@string/proceed"
+                    android:textAllCaps="false" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/btnContinue"
+                    android:layout_marginTop="@dimen/dimen_30"
+                    android:background="#FAF4F4"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/dimen_5"
+                    android:paddingTop="@dimen/dimen_10"
+                    android:paddingRight="@dimen/dimen_5"
+                    android:paddingBottom="@dimen/dimen_10"
+                    android:visibility="@{accountData.disclaimer!=null?View.VISIBLE:View.GONE}">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/ic_info"
+                        android:layout_marginLeft="@dimen/dimen_4"
+                        android:layout_marginTop="@dimen/dimen_8"/>
+                    <TextView
+                        tools:text="chjdbhjdhbhjdsbhbdhb"
+                        android:layout_marginTop="@dimen/dimen_7"
+                        android:layout_marginLeft="@dimen/dimen_5"
+                        android:fontFamily="@font/campton_light"
+                        android:textSize="@dimen/text_size_12"
+                        android:layout_marginBottom="@dimen/dimen_8"
+                        style="@style/TextViewStyle"
+                        android:id="@+id/tvDisclaimer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+
+                </LinearLayout>
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</layout>

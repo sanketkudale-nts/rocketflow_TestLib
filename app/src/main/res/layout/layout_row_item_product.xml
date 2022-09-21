@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.tracki.data.model.response.config.Inventory" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_120"
+        app:cardElevation="@dimen/dimen_1"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/ivAdded"
+                android:layout_margin="@dimen/dimen_4"
+                app:srcCompat="@drawable/ic_check_circle"
+                android:layout_alignParentEnd="true"
+                android:layout_width="wrap_content"
+                android:visibility="gone"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:id="@+id/ivProduct"
+                android:layout_width="@dimen/dimen_90"
+                android:layout_height="@dimen/dimen_90"
+                android:layout_centerVertical="true" />
+
+            <TextView
+                android:id="@+id/tvProductDesc"
+                style="@style/TextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_5"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:layout_toRightOf="@+id/ivProduct"
+                android:text="@{data.modelName}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_14"
+                tools:text="Haldi Ram Bhujiya 14 45" />
+
+            <TextView
+                android:id="@+id/tvProductCategory"
+                style="@style/TextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvProductDesc"
+                android:layout_marginLeft="@dimen/dimen_5"
+                android:layout_toRightOf="@+id/ivProduct"
+                android:text="@{data.inventoryGroupName}"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/text_size_13"
+                tools:text="Snacks" />
+
+            <TextView
+                android:id="@+id/tvProductStaus"
+                style="@style/TextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvProductCategory"
+                android:layout_marginLeft="@dimen/dimen_5"
+                android:layout_marginTop="@dimen/dimen_2"
+                android:layout_toRightOf="@+id/ivProduct"
+                android:paddingLeft="@dimen/dimen_4"
+                android:paddingTop="@dimen/dimen_2"
+                android:paddingRight="@dimen/dimen_4"
+                android:paddingBottom="@dimen/dimen_2"
+                android:textSize="@dimen/text_size_6"
+                app:prodstatus="@{data.quantity}" />
+
+            <TextView
+                android:id="@+id/tvProductMoney"
+                style="@style/TextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvProductStaus"
+                android:layout_marginLeft="@dimen/dimen_5"
+                android:layout_marginTop="@dimen/dimen_4"
+                android:layout_toRightOf="@+id/ivProduct"
+                android:textColor="@color/black"
+                app:setprice="@{data.price}"
+                android:textSize="@dimen/text_size_14"
+                tools:text="INR 123" />
+
+            <LinearLayout
+                android:id="@+id/llcounter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/butonAdd"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="@dimen/dimen_4"
+                android:layout_marginBottom="@dimen/dimen_10"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:id="@+id/ivMinus"
+                    android:layout_width="@dimen/dimen_30"
+                    android:layout_height="@dimen/dimen_30"
+                    android:background="?attr/selectableItemBackground"
+                    android:gravity="center"
+                    app:srcCompat="@drawable/ic_minus_square" />
+
+                <TextView
+                    android:id="@+id/tvProductCounter"
+                    style="@style/TextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textSize="@dimen/text_size_14"
+                    android:textColor="@color/black" />
+
+                <ImageView
+                    android:id="@+id/ivAdd"
+                    android:layout_width="@dimen/dimen_30"
+                    android:layout_height="@dimen/dimen_30"
+                    android:background="?attr/selectableItemBackground"
+                    android:gravity="center"
+                    app:srcCompat="@drawable/ic_add_squir" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/butonAdd"
+                style="@style/EnableDisableButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dimen_30"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="@dimen/dimen_4"
+                android:layout_marginBottom="@dimen/dimen_4"
+                android:text="@string/add_product"
+                android:textSize="@dimen/text_size_12"
+                app:active="@{data.quantity}" />
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

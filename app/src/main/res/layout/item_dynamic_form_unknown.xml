@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.dynamicform.FormUnknownViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/dimen_15">
+
+        <TextView
+            style="@style/TextViewStyle"
+            android:text="Unknown view,Type is not Handled yet"
+            android:fontFamily="@font/campton_book"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_16"
+            tools:text="Unknown view,Type is not Handled yet" />
+
+    </LinearLayout>
+</layout>

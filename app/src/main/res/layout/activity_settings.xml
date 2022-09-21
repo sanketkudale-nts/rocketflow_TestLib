@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.tracki.ui.setting.SettingsActivity">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.setting.SettingViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/Toolbar"
+                app:contentInsetLeft="0dp"
+                app:contentInsetStart="0dp"
+                app:contentInsetStartWithNavigation="0dp"
+                app:titleTextColor="@color/white"
+                tools:title="@string/settings" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bg_color"
+            android:fillViewport="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvPersonal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dimen_8"
+                    app:cardCornerRadius="@dimen/dimen_6"
+                    app:cardElevation="@dimen/dimen_4">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_10"
+                        android:layout_marginBottom="@dimen/dimen_10"
+                        android:orientation="vertical"
+                        android:padding="@dimen/dimen_10">
+
+                        <TextView
+                            style="@style/TextViewStyle"
+                            android:fontFamily="@font/campton_light"
+                            android:text="@string/personal_setting"
+                            android:textColor="@color/semi_gray_2"
+                            android:textSize="@dimen/text_size_12" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_1"
+                            android:layout_marginTop="@dimen/dimen_7"
+                            android:background="@color/light_gray" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="@dimen/dimen_5">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/dimen_10"
+                                android:layout_marginBottom="@dimen/dimen_10">
+
+                                <TextView
+                                    android:id="@+id/tvAutoStart"
+                                    style="@style/TextViewStyle"
+                                    android:layout_marginEnd="@dimen/dimen_50"
+                                    android:text="@string/allow_autostart_trip"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/text_size_14" />
+
+                                <TextView
+                                    style="@style/TextViewStyle"
+                                    android:layout_below="@+id/tvAutoStart"
+                                    android:layout_marginEnd="@dimen/dimen_50"
+                                    android:fontFamily="@font/campton_light"
+                                    android:text="@string/update_your_location_sharing_prefrences"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/text_size_12" />
+
+                                <Switch
+                                    android:id="@+id/switchAutoStart"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_centerInParent="true"
+                                    android:layout_marginEnd="@dimen/dimen_5" />
+                            </RelativeLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dimen_1"
+                                android:layout_marginTop="@dimen/dimen_7"
+                                android:background="@color/light_gray" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/dimen_10"
+                                android:layout_marginBottom="@dimen/dimen_10">
+
+                                <TextView
+                                    android:id="@+id/tvAlertNotification"
+                                    style="@style/TextViewStyle"
+                                    android:layout_marginEnd="@dimen/dimen_50"
+                                    android:text="@string/alert_notification"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/text_size_14" />
+
+                                <TextView
+                                    style="@style/TextViewStyle"
+                                    android:layout_below="@+id/tvAlertNotification"
+                                    android:layout_marginEnd="@dimen/dimen_50"
+                                    android:fontFamily="@font/campton_light"
+                                    android:text="@string/allow_your_contacts_sync_settings"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/text_size_12" />
+
+                                <Switch
+                                    android:id="@+id/switchAlertNotification"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_centerInParent="true"
+                                    android:layout_marginEnd="@dimen/dimen_5" />
+                            </RelativeLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dimen_1"
+                                android:layout_marginTop="@dimen/dimen_7"
+                                android:background="@color/light_gray" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/dimen_10"
+                                android:layout_marginBottom="@dimen/dimen_10">
+
+                                <TextView
+                                    android:id="@+id/tvVoiceAlert"
+                                    style="@style/TextViewStyle"
+                                    android:layout_marginEnd="@dimen/dimen_50"
+                                    android:text="@string/voice_alerts"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/text_size_14" />
+
+                                <TextView
+                                    style="@style/TextViewStyle"
+                                    android:layout_below="@+id/tvVoiceAlert"
+                                    android:layout_marginEnd="@dimen/dimen_50"
+                                    android:fontFamily="@font/campton_light"
+                                    android:text="@string/allow_voice_alerts"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/text_size_12" />
+
+                                <Switch
+                                    android:id="@+id/switchVoiceAlert"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_centerInParent="true"
+                                    android:layout_marginEnd="@dimen/dimen_5" />
+                            </RelativeLayout>
+
+                            <LinearLayout
+                                android:id="@+id/llTimeReminder"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="@dimen/dimen_10"
+                                    android:layout_marginBottom="@dimen/dimen_10">
+
+                                    <TextView
+                                        android:id="@+id/tvTimeReminderStart"
+                                        style="@style/TextViewStyle"
+                                        android:layout_marginEnd="@dimen/dimen_50"
+                                        android:text="@string/allow_time_reminder"
+                                        android:textColor="@color/colorPrimary"
+                                        android:textSize="@dimen/text_size_14" />
+
+                                    <TextView
+                                        android:id="@+id/tvMessageTimer"
+                                        style="@style/TextViewStyle"
+                                        android:layout_below="@+id/tvTimeReminderStart"
+                                        android:layout_marginEnd="@dimen/dimen_5"
+                                        android:fontFamily="@font/campton_light"
+                                        android:text="@string/update_your_time_reminder_settings"
+                                        android:textColor="@color/colorPrimary"
+                                        android:textSize="@dimen/text_size_12" />
+
+
+                                    <Switch
+                                        android:id="@+id/switchTimeReminder"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentEnd="true"
+                                        android:layout_centerInParent="true"
+                                        android:layout_marginEnd="@dimen/dimen_5" />
+
+                                    <RelativeLayout
+                                        android:id="@+id/rlDropDownTimer"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@+id/tvMessageTimer"
+                                        android:layout_marginTop="@dimen/dimen_10">
+
+                                        <TextView
+                                            android:id="@+id/tvTimeMessage"
+                                            style="@style/TextViewStyle"
+                                            android:layout_centerVertical="true"
+                                            android:layout_marginEnd="@dimen/dimen_5"
+                                            android:fontFamily="@font/campton_light"
+                                            android:text="@string/update_your_time_reminder_in_prefrences"
+                                            android:textColor="@color/colorPrimary"
+                                            android:textSize="@dimen/text_size_12" />
+
+                                        <RelativeLayout
+                                            android:id="@+id/rlSpinnerSlot"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_centerVertical="true"
+                                            android:layout_toRightOf="@+id/tvTimeMessage"
+                                            android:background="@drawable/bg_spinner">
+
+                                            <androidx.appcompat.widget.AppCompatSpinner
+                                                android:id="@+id/spinnerTimerSlot"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_centerVertical="true"
+                                                android:background="@color/white"
+                                                android:entries="@array/time_array"
+                                                android:paddingStart="@dimen/dimen_4"
+                                                android:paddingEnd="@dimen/dimen_4"
+                                                android:paddingRight="@dimen/dimen_20" />
+
+                                            <ImageView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginStart="@dimen/dimen_30"
+                                                android:tint="@color/black"
+                                                app:srcCompat="@drawable/ic_arrow_drop_down_white_24dp" />
+                                        </RelativeLayout>
+
+                                        <TextView
+                                            android:id="@+id/tvTimeUnites"
+                                            style="@style/TextViewStyle"
+                                            android:layout_centerVertical="true"
+                                            android:layout_marginStart="@dimen/dimen_5"
+                                            android:layout_toRightOf="@+id/rlSpinnerSlot"
+                                            android:fontFamily="@font/campton_light"
+                                            android:text=" minutes"
+                                            android:textColor="@color/colorPrimary"
+                                            android:textSize="@dimen/text_size_12" />
+                                    </RelativeLayout>
+                                </RelativeLayout>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dimen_1"
+                                    android:layout_marginTop="@dimen/dimen_7"
+                                    android:background="@color/light_gray" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/llLocationReminder"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="@dimen/dimen_10"
+                                    android:layout_marginBottom="@dimen/dimen_10">
+
+                                    <TextView
+                                        android:id="@+id/tvLocationReminderStart"
+                                        style="@style/TextViewStyle"
+                                        android:layout_marginEnd="@dimen/dimen_50"
+                                        android:text="@string/allow_location_reminder"
+                                        android:textColor="@color/colorPrimary"
+                                        android:textSize="@dimen/text_size_14" />
+
+                                    <TextView
+                                        style="@style/TextViewStyle"
+                                        android:layout_below="@+id/tvLocationReminderStart"
+                                        android:layout_marginEnd="@dimen/dimen_50"
+                                        android:fontFamily="@font/campton_light"
+                                        android:text="@string/update_your_location_reminder_in_prefrences"
+                                        android:textColor="@color/colorPrimary"
+                                        android:textSize="@dimen/text_size_12" />
+
+                                    <Switch
+                                        android:id="@+id/switchLocationReminder"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentEnd="true"
+                                        android:layout_centerInParent="true"
+                                        android:layout_marginEnd="@dimen/dimen_5" />
+                                </RelativeLayout>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dimen_1"
+                                    android:layout_marginTop="@dimen/dimen_7"
+                                    android:background="@color/light_gray" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvSOS"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/cvPersonal"
+                    android:layout_margin="@dimen/dimen_8"
+                    app:cardCornerRadius="@dimen/dimen_6"
+                    app:cardElevation="@dimen/dimen_4">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_10"
+                        android:layout_marginBottom="@dimen/dimen_10"
+                        android:orientation="vertical"
+                        android:padding="@dimen/dimen_10">
+
+                        <TextView
+                            style="@style/TextViewStyle"
+                            android:fontFamily="@font/campton_light"
+                            android:text="@string/sos_alert_setting"
+                            android:textColor="@color/semi_gray_2"
+                            android:textSize="@dimen/text_size_12" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_1"
+                            android:layout_marginTop="@dimen/dimen_7"
+                            android:background="@color/light_gray" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="@dimen/dimen_5">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/dimen_10"
+                                android:layout_marginBottom="@dimen/dimen_10"
+                                android:onClick="@{()->viewModel.onClickEmergencyContacts()}">
+
+                                <TextView
+                                    android:id="@+id/tvEmergencyContacts"
+                                    style="@style/TextViewStyle"
+                                    android:layout_marginEnd="@dimen/dimen_50"
+                                    android:text="@string/emergency_contacts"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/text_size_14" />
+
+                                <TextView
+                                    style="@style/TextViewStyle"
+                                    android:layout_below="@+id/tvEmergencyContacts"
+                                    android:layout_marginEnd="@dimen/dimen_50"
+                                    android:fontFamily="@font/campton_light"
+                                    android:text="@string/add_up_to_three_contacts_for_sms_or_call_alert_in_case_of_emergency"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/text_size_12" />
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_centerInParent="true"
+                                    android:layout_marginEnd="@dimen/dimen_5"
+                                    android:contentDescription="@null"
+                                    android:src="@drawable/ic_arrow_right" />
+                            </RelativeLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dimen_1"
+                                android:layout_marginTop="@dimen/dimen_7"
+                                android:background="@color/light_gray" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/dimen_10"
+                                android:layout_marginBottom="@dimen/dimen_10"
+                                android:onClick="@{()->viewModel.onClickEmergencyMessage()}">
+
+                                <TextView
+                                    android:id="@+id/tvTextMessage"
+                                    style="@style/TextViewStyle"
+                                    android:layout_marginEnd="@dimen/dimen_50"
+                                    android:text="@string/text_message"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/text_size_14" />
+
+                                <TextView
+                                    style="@style/TextViewStyle"
+                                    android:layout_below="@+id/tvTextMessage"
+                                    android:layout_marginEnd="@dimen/dimen_50"
+                                    android:fontFamily="@font/campton_light"
+                                    android:text="@string/configure_message_to_be_sent_in_case_of_emergency"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/text_size_12" />
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_centerInParent="true"
+                                    android:layout_marginEnd="@dimen/dimen_5"
+                                    android:contentDescription="@null"
+                                    android:src="@drawable/ic_arrow_right" />
+                            </RelativeLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dimen_1"
+                                android:layout_marginTop="@dimen/dimen_7"
+                                android:background="@color/light_gray" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/dimen_10"
+                                android:layout_marginBottom="@dimen/dimen_10"
+                                android:onClick="@{()->viewModel.sendLocalDbToServerActivity()}"
+                                android:visibility="gone">
+
+                                <TextView
+                                    android:id="@+id/tvTextDebug"
+                                    style="@style/TextViewStyle"
+                                    android:layout_marginEnd="@dimen/dimen_50"
+                                    android:text="@string/debug"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/text_size_14" />
+
+                                <TextView
+                                    style="@style/TextViewStyle"
+                                    android:layout_below="@+id/tvTextDebug"
+                                    android:layout_marginEnd="@dimen/dimen_50"
+                                    android:fontFamily="@font/campton_light"
+                                    android:text="@string/send_local_db"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/text_size_12" />
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_centerInParent="true"
+                                    android:layout_marginEnd="@dimen/dimen_5"
+                                    android:contentDescription="@null"
+                                    android:src="@drawable/ic_arrow_right" />
+                            </RelativeLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

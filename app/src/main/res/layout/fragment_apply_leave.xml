@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.tracki.ui.leave.apply_leave.ApplyLeaveViewModel" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:background="@color/windowBackgroundColor">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dimen_8"
+            android:layout_marginBottom="@dimen/dimen_8"
+            android:layout_marginLeft="@dimen/dimen_10"
+            android:layout_marginRight="@dimen/dimen_10"
+            android:elevation="@dimen/dimen_0"
+            app:cardCornerRadius="@dimen/dimen_0">
+
+            <LinearLayout
+                android:id="@+id/llMain"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/dimen_25"
+                android:layout_marginTop="@dimen/dimen_25"
+                android:layout_marginEnd="@dimen/dimen_25"
+                android:orientation="vertical"
+                android:visibility="@{viewModel.isDataVisible ? View.VISIBLE : View.GONE}">
+
+                <TextView
+                    android:id="@+id/tvLeaveType"
+                    style="@style/TextViewStyle"
+                    android:padding="@dimen/dimen_5"
+                    android:text="@string/leave_type"
+                    android:textColor="@color/semi_gray" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_edittext">
+
+                    <Spinner
+                        android:id="@+id/spnLeaveType"
+                        style="@style/Widget.AppCompat.DropDownItem.Spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_40"
+                        android:padding="@dimen/dimen_10"
+                        android:prompt="@string/spinner_title"
+                        android:spinnerMode="dropdown"
+                        android:textSize="@dimen/text_size_12" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tvLeaveBalance"
+                    style="@style/TextViewStyle"
+                    android:padding="@dimen/dimen_5"
+                    android:textColor="@color/red_dark6"
+                    android:visibility="gone"
+                    tools:text="3 Casual Leaves Remaining" />
+
+                <TextView
+                    android:id="@+id/tvFrom"
+                    style="@style/TextViewStyle"
+                    android:layout_marginTop="@dimen/dimen_10"
+                    android:padding="@dimen/dimen_5"
+                    android:text="@string/start_date"
+                    android:textColor="@color/semi_gray" />
+
+                <Button
+                    android:id="@+id/btnDateFrom"
+                    style="@style/ButtonStyle"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/bg_button_stroke_gery"
+                    android:drawableStart="@drawable/ic_date_range"
+                    android:drawablePadding="@dimen/dimen_10"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/dimen_10"
+                    android:textColor="@color/semi_gray"
+                    android:textSize="@dimen/text_size_14"
+                    tools:text="@string/start_date" />
+
+                <TextView
+                    android:id="@+id/tvTo"
+                    style="@style/TextViewStyle"
+                    android:layout_marginTop="@dimen/dimen_10"
+                    android:padding="@dimen/dimen_5"
+                    android:text="@string/end_date"
+                    android:textColor="@color/semi_gray" />
+
+                <Button
+                    android:id="@+id/btnDateTo"
+                    style="@style/ButtonStyle"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/bg_button_stroke_gery"
+                    android:drawableStart="@drawable/ic_date_range"
+                    android:drawablePadding="@dimen/dimen_10"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/dimen_10"
+                    android:textColor="@color/semi_gray"
+                    android:textSize="@dimen/text_size_14"
+                    tools:text="@string/end_date" />
+
+                <TextView
+                    android:id="@+id/tvRemarks"
+                    style="@style/TextViewStyle"
+                    android:layout_marginTop="@dimen/dimen_10"
+                    android:padding="@dimen/dimen_5"
+                    android:text="@string/remarks"
+                    android:textColor="@color/semi_gray" />
+
+                <EditText
+                    android:id="@+id/edtComments"
+                    style="@style/EditTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/bg_edittext"
+                    android:gravity="start"
+                    android:inputType="textMultiLine"
+                    android:lines="4"
+                    android:minLines="4"
+                    android:padding="@dimen/dimen_5"
+                    android:singleLine="false" />
+
+                <Button
+                    style="@style/ButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="@dimen/dimen_20"
+                    android:layout_marginTop="@dimen/dimen_30"
+                    android:layout_marginEnd="@dimen/dimen_20"
+                    android:onClick="@{()->viewModel.onClickSubmit()}"
+                    android:text="@string/submit" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.core.widget.NestedScrollView>
+</layout>

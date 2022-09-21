@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    android:id="@+id/cardMain"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/dimen_5"
+    app:cardBackgroundColor="@color/white"
+    app:cardUseCompatPadding="true"
+
+   >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/ivAlertIcon"
+            android:layout_width="@dimen/dimen_40"
+            android:layout_height="@dimen/dimen_40"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:id="@+id/tvName"
+            style="@style/TextViewStyleLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ivAlertIcon"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/dimen_3"
+            android:gravity="center_horizontal"
+            android:paddingLeft="@dimen/dimen_3"
+            android:paddingRight="@dimen/dimen_3"
+            android:text="@string/alerts"
+            android:textSize="@dimen/text_size_9" />
+        <TextView
+            android:id="@+id/tvEventNumber"
+            android:layout_centerHorizontal="true"
+            style="@style/TextViewStyleLight"
+            android:gravity="center_horizontal"
+            android:layout_below="@+id/tvName"
+            android:layout_marginBottom="@dimen/dimen_3"
+            android:text="@string/alerts"
+            android:paddingLeft="@dimen/dimen_3"
+            android:paddingRight="@dimen/dimen_3"
+            android:textSize="@dimen/text_size_9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

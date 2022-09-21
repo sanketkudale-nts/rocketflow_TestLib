@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.tracki.data.model.response.config.Transaction" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="@dimen/dimen_1"
+        app:cardUseCompatPadding="true">
+
+        <!--<LinearLayout
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="@dimen/dimen_4"
+            android:weightSum="4">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvRemarks"
+                    style="@style/TextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:text="@{data.remark}"
+                    tools:text="Remarks bcmm jmcd mcd mn "
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/tvDateTime"
+                    style="@style/TextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:text="@{data.date}"
+                    tools:text="11/12/2020 10:40"
+                    android:textColor="@color/quantum_grey" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvTxnIdLeble"
+                        style="@style/TextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:text="@string/txn_id"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/tvTxnId"
+                        style="@style/TextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        tools:text="12345678"
+                        android:text="@{data.transactionId}"
+                        android:textColor="@color/quantum_grey" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tvStatus"
+                    style="@style/TextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Credit "
+                    android:text="@{data.status}"
+                    android:fontFamily="@font/campton_semi_bold"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tvMoney"
+                    style="@style/TextViewStyle"
+                    android:fontFamily="@font/campton_semi_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{data.amount+` INR`}"
+                    tools:text="200 INR " />
+            </LinearLayout>
+        </LinearLayout>-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/dimen_10">
+
+            <ImageView
+                android:id="@+id/ivCreditDebit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dimen_10"
+                android:background="@drawable/circle_cd_db"
+                android:padding="@dimen/dimen_10"
+                app:debiticon="@{data}"
+                app:srcCompat="@drawable/ic_money_debit" />
+
+            <TextView
+                android:id="@+id/tvRemarks"
+                android:layout_marginLeft="@dimen/dimen_15"
+                android:layout_toRightOf="@+id/ivCreditDebit"
+                style="@style/TextViewStyle"
+                android:layout_marginTop="@dimen/dimen_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/dimen_8"
+                android:layout_toLeftOf="@+id/tvMoney"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{data.remark}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_16"
+                tools:text="Remarks bcmm jmcd mcd mn " />
+
+            <TextView
+                android:id="@+id/tvDateTime"
+                style="@style/TextViewStyle"
+                android:layout_marginLeft="@dimen/dimen_15"
+                android:layout_marginRight="@dimen/dimen_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvRemarks"
+                android:layout_marginTop="@dimen/dimen_2"
+                android:ellipsize="end"
+                android:layout_toRightOf="@+id/ivCreditDebit"
+                android:maxLines="2"
+                android:text="@{data.date}"
+                android:textSize="@dimen/text_size_15"
+                android:textColor="@color/gray_time"
+                tools:text="11/12/2020 10:40" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvDateTime"
+                android:layout_toRightOf="@+id/ivCreditDebit"
+
+                android:layout_marginTop="@dimen/dimen_4"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tvTxnIdLeble"
+                    style="@style/TextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:text="@string/txn_id"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/tvTxnId"
+                    style="@style/TextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_4"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:text="@{data.transactionId}"
+                    android:textColor="@color/quantum_grey"
+                    tools:text="12345678" />
+
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvMoney"
+                android:layout_marginTop="@dimen/dimen_4"
+                style="@style/TextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignBaseline="@+id/tvRemarks"
+                android:layout_marginRight="@dimen/dimen_4"
+                android:fontFamily="@font/campton_semi_bold"
+                app:moneystatus="@{data}"
+                tools:text="+200" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
